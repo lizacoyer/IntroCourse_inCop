@@ -2,10 +2,16 @@
 title: "Copenhagen Introductory Course"
 ---
 
-This is a Quarto website.
+### Background:
 
-To learn more about Quarto websites visit <https://quarto.org/docs/websites>.
+This website contains the R teaching material used in the **Simulated Outbreak (SimOb) section of the Introductory Course module** of the EPIET (European Programme of Intervention Epidemiology Training), EUPHEM (European Public Health Microbiology) and MediPIET (Mediterranean and Black Sea Programme for Intervention Epidemiology Training) fellowships.
 
-```{r}
-1 + 1
-```
+The SimOb is an 4-day exercise where fellows are provided a series of 18 injects through which they will follow a 10-steps framework to investigate a specific outbreak. Role plays happen through the whole SimOb. Five of the 18 injects are dedicated to R-exercises that can be proved quite handy during an outbreak investigation. Those injects are maintain in this repository and are stored as different .qmd files, under the root folder:
+
+-   `SimOb_RInject09.qmd`: Inject number 9, focused on Data import and cleaning.
+-   `SimOb_RInject10.qmd`: Inject number 10, focused on Case definition.
+-   `SimOb_RInject11.qmd`: Inject number 11, focused on Descriptive analysis.
+-   `SimOb_RInject14.qmd`: Inject number 14, focused on Univariate analysis.
+-   `SimOb_RInject15.qmd`: Inject number 15, focused on Stratified analysis.
+
+# Somewhere here, add link to material from the outbreak module of 2022, as it is more complete than this code here.

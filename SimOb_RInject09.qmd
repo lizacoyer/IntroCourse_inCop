@@ -1,9 +1,35 @@
 ---
-title: "Data import and cleaning - Inj09"
+title: "09. Data import and cleaning"
 editor: visual
 ---
 
-## 1. Install packages and load libraries
+Inject 09: Data import and cleaning
+
+# **1. Learning outcomes**
+
+At the end of the session, participants will be able to:
+
+-   Import datasets in R
+-   Apply basic data management techniques to explore and familiarise themselves with the dataset
+-   Apply strategies for data cleaning
+
+# **2. Story/plot description**
+
+You and your team have carried out hundreds of interviews using KoboCollect in a very short time. Well done!
+
+You will now have your first look at the data. Note that in real life you would have ideally done a pilot of the questionnaire and have prepared in advance a codebook and be familiar with the names and format of all variables.
+
+You have 1.5h to explore and clean the data you have collected and save a new version of the cleaned dataset in your computer. Be sure to make use of the R code that was provided to you last week, during the R practicals. You can also use the code you wrote during the Applied Epi course. You are expected to look at the help functions and google as well. Try to understand what the functions are doing and their arguments are.
+
+Work on your own computer and help your fellow colleagues as needed. The lead of the outbreak will be in charge of keeping the time (unless you designate another person, but be sure that someone keeps track of time).
+
+Open R Studio and set up a new R project, and create a `data` and a scripts `folder`.
+
+# **3. Questions/Assingments**
+
+## 3.1. Install packages and load libraries
+
+-   Load the R packages you will be using. Update this list of packages as you dig into the code: You may realise you need packages you didn't think about at the beginning. Remember that it is a good practice to load tydiverse at the end of your package list, to avoid [masking functions](https://www.ucl.ac.uk/~uctqiax/PUBLG100/2015/faq/masking.html).
 
 ```{r, Packages}
 # Check if the 'pacman' package is installed, if not install it:
@@ -26,14 +52,27 @@ pacman::p_load(rio,
 
 ```
 
-## 2. Import your data
+## 3.2. Import your data
+
+-   You can find the `Copenhagen_raw.csv` file in EVA. Feel free to explore the **codebook** as well.
 
 ```{r, Import_data}
 # Import the raw data set:
 copdata <- rio::import(here::here("data", "Copenhagen_raw.csv"))
 ```
 
-## 3. Explore and clean your data
+## 3.3. Explore and clean your data
+
+-   Have a look at the structure of your data. Here you have some questions that may help you get started:
+
+    -   How many observations and variables does the dataset contain?
+
+    -   What types of variables do you have and what types of values are recorded?
+
+    -   Do any of the values of the other variables look implausible? Which ones and why? What will you do about it?
+
+-   Go ahead and clean your data as you see fit.
+[![Hint](https://cdn.myportfolio.com/45214904-6a61-4e23-98d6-b140f8654a40/e4a11b1f-f235-461f-ab73-ce6128c59e49_rw_1920.png?h=a34a4173c717bfbc600a8682d419288e)]
 
 ```{r, Explore_data}
 head(copdata)
