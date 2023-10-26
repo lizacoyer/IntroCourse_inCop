@@ -1,9 +1,7 @@
 ---
-title: "09. Data import and cleaning"
+title: "Inject 09: Data import and cleaning"
 editor: visual
 ---
-
-Inject 09: Data import and cleaning
 
 # **1. Learning outcomes**
 
@@ -72,7 +70,10 @@ copdata <- rio::import(here::here("data", "Copenhagen_raw.csv"))
     -   Do any of the values of the other variables look implausible? Which ones and why? What will you do about it?
 
 -   Go ahead and clean your data as you see fit.
-[![Hint](https://cdn.myportfolio.com/45214904-6a61-4e23-98d6-b140f8654a40/e4a11b1f-f235-461f-ab73-ce6128c59e49_rw_1920.png?h=a34a4173c717bfbc600a8682d419288e)]
+
+::: {.callout-tip title="Need a little bit of help?" collapse="true"}
+You could use `head()`, `dim()`, `str()`, or `skim()` to have a quick look at the data and get an idea of which variables you want to explore further. You can also do some tables
+:::
 
 ```{r, Explore_data}
 head(copdata)
@@ -146,9 +147,13 @@ copdata <- copdata %>%
          ) 
 ```
 
-#### Dose response
 
-Now let's create a summary table of the dose response columns.
+-   Create summary table for the dose response columns (those finishing with a capital "D") to have a look at their distribution.
+
+::: {.callout-tip title="Need a little bit of help?" collapse="true"}
+Use `gtsummary::tbl_summary()`.
+:::
+
 
 ```{r }
 
@@ -166,9 +171,15 @@ drtable <- copdata %>%
 drtable
 ```
 
-## 4. Modify variables format
+## 3.4. Modify variables format
 
-We want to modify the "variable format" or "column type" of many variables, so that we can do future calculations with them in the following injects (some functions will need a specific "type" of input).
+There are some "column types" you would like to modify because either R needs some specific types of data when working with certain variables, or because it will be easier for you to visualise and interpret the data. 
+For example, the variable “group” is encoded as 0 and 1, when you create a table later on, you don’t want to see 0’s and 1’s because that doesn’t mean anything. It is better to change this variable to a factor, with explicit labels, so they actually mean something when they come out in your table.
+
+![](https://cdn.myportfolio.com/45214904-6a61-4e23-98d6-b140f8654a40/bd4ae264-ae51-4d18-bd60-7a058ab42fba_rw_1920.png?h=a3757d1f46f418c59e7e7946d026344e){fig-alt="Cartoon of cute fuzzy monsters dressed up as different X-men characters, working together to add a new column to an existing data frame. Stylized title text reads “dplyr::mutate - add columns, keep existing.” Learn more about dplyr::mutate." width="50%" fig-align="center"}
+
+You can use `mutate` to modify the type of the following variables: 
+
 
 +-------------------------------------------------------------------------------------------------------------+---------------------+-----------------+--------------------------------------------------------------------------------------+
 | Variable name                                                                                               | Original            | Desired         | Hint                                                                                 |
@@ -188,7 +199,7 @@ We want to modify the "variable format" or "column type" of many variables, so t
 |                                                                                                             | date (dayonset)     |                 |                                                                                      |
 +-------------------------------------------------------------------------------------------------------------+---------------------+-----------------+--------------------------------------------------------------------------------------+
 
-: Table 1_Inject 09: Variable types to modify
+: Table 1: Variable types to modify
 
 #### Sex, group and class
 
@@ -243,9 +254,17 @@ copdata <- copdata %>%
   
 ```
 
-***Note***: The tilde (`~`) bellow is used to apply the transformation `as.logical(.)` to each selected column, which in our case is either all columns included in `food_items` and `food_dose.`
+::: {.callout-note title="Note" collapse="true"}
+The tilde (`~`) above is used to apply the transformation `as.logical(.)` to each selected column, which in our case is either all columns included in `food_items` and `food_dose.`
+:::
 
 #### Date and time variables
+
+::: {.callout-warning title="Let's stop and... think!" collapse="true"}
+Why may you want to transform the variable starthour to date-time?
+:::
+
+![](https://cdn.myportfolio.com/45214904-6a61-4e23-98d6-b140f8654a40/3017cf57-d7d9-4f73-9b66-f2be0ebf2489_rw_1920.png?h=2cdd179bc087c56b43f8aa6ea849ca1a){fig-alt="Fuzzy cartoon monsters in construction hats sorting a pile of “Y” “M” and “D”s into separate piles labeled “Years”, “Months” and “Days”. Title text reads “Lubridate: wrangle times and dates!” Learn more about date-time wrangling with lubridate." width="50%" fig-align="center"}
 
 You can use `lubridate::dmy()` to mutate the `dayonset` variable into a date variable. Note that we are using the function `dmy()` because dates are formatted as day, then month (abbreviated character string), then year (i.e. "12nov2006").
 
@@ -302,9 +321,15 @@ head(copdata$starthour)
 head(copdata$onset_datetime)
 ```
 
-## 5. Export clean data
+## 3.5. Export clean data
 
 Save the cleaned data set before proceeding with using your case definition to identify cases in your dataset. Use the .rds format, as it preserves column classes. This ensures you will have only minimal cleaning to do after importing the data into R at the next inject.
+
+Save your clean data as a new file “Copenhagen_clean1_YOURINITIALS.rds”, under the data folder of your Rproject. 
+
+::: {.callout-tip title="Need a little bit of help?" collapse="true"}
+Use `rio::export()`.
+:::
 
 ```{r export_clean_data}
 
@@ -312,3 +337,5 @@ rio::export(x = copdata,
             file = here::here("data", "Copenhagen_clean1.rds"))
 
 ```
+
+![](https://cdn.myportfolio.com/45214904-6a61-4e23-98d6-b140f8654a40/e4a11b1f-f235-461f-ab73-ce6128c59e49_rw_1920.png?h=a34a4173c717bfbc600a8682d419288e){width="80%" fig-align="center"}

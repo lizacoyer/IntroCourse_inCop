@@ -13,12 +13,27 @@ website:
       - SimOb_RInject11.qmd
       - SimOb_RInject14.qmd
       - SimOb_RInject15.qmd
+    search: true
+    tools:
+      - icon: github
+        menu:
+          - text: Source Code
+            url:  https://github.com/EPIET/IntroCourse_inCop/tree/main
+          - text: Report a code issue
+            url:  https://github.com/EPIET/IntroCourse_inCop/issues
 
 format:
   html:
-    theme: cosmo
+    theme:
+      light: flatly
+      dark: darkly
     css: styles.css
     toc: true
+    code-fold: show
+    code-summary: "Show the code"
+    code-tools: true
+    df-print: paged
 
 editor: visual
+
 
