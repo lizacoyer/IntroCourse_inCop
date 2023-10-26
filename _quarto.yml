@@ -1,0 +1,24 @@
+project:
+  type: website
+  output-dir: docs
+
+website:
+  title: "Copenhagen Introductory Course"
+  navbar:
+    left:
+      - href: index.qmd
+        text: Home
+      - SimOb_RInject09.qmd
+      - SimOb_RInject10.qmd
+      - SimOb_RInject11.qmd
+      - SimOb_RInject14.qmd
+      - SimOb_RInject15.qmd
+
+format:
+  html:
+    theme: cosmo
+    css: styles.css
+    toc: true
+
+editor: visual
+
