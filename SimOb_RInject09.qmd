@@ -23,7 +23,7 @@ Work on your own computer and help your fellow colleagues as needed. The lead of
 
 Open R Studio and set up a new R project, and create a `data` and a scripts `folder`.
 
-# **3. Questions/Assingments**
+# **3. Questions/Assignments**
 
 ## 3.1. Install packages and load libraries
 
@@ -148,12 +148,13 @@ copdata <- copdata %>%
 ```
 
 
+![](https://cdn.myportfolio.com/45214904-6a61-4e23-98d6-b140f8654a40/6ffcd6d6-c783-4087-ae76-99aa851663ed_rw_1920.png?h=5f67935d69c92e1fda9074d00dfea972){fig-alt="Cartoon showing a table with creature type (kraken, dragon, or cyclops) and age (baby, teen, or adult). The three creatures listed are adding a new column named “danger”, which contains the word “extreme!” if the type is “kraken”, or “high” for any other type. Stylized text reads “dplyr::case_when() - IF ELSE...but you love it? An example of code is shown: mutate(danger = case_when(type == “kraken” ~ “extreme!”, TRUE ~ “high”). Learn more about case_when." width="50%" fig-align="center"}
+
 -   Create summary table for the dose response columns (those finishing with a capital "D") to have a look at their distribution.
 
 ::: {.callout-tip title="Need a little bit of help?" collapse="true"}
 Use `gtsummary::tbl_summary()`.
 :::
-
 
 ```{r }
 
@@ -173,13 +174,11 @@ drtable
 
 ## 3.4. Modify variables format
 
-There are some "column types" you would like to modify because either R needs some specific types of data when working with certain variables, or because it will be easier for you to visualise and interpret the data. 
-For example, the variable “group” is encoded as 0 and 1, when you create a table later on, you don’t want to see 0’s and 1’s because that doesn’t mean anything. It is better to change this variable to a factor, with explicit labels, so they actually mean something when they come out in your table.
+There are some "column types" you would like to modify because either R needs some specific types of data when working with certain variables, or because it will be easier for you to visualise and interpret the data. For example, the variable "group" is encoded as 0 and 1, when you create a table later on, you don't want to see 0's and 1's because that doesn't mean anything. It is better to change this variable to a factor, with explicit labels, so they actually mean something when they come out in your table.
 
 ![](https://cdn.myportfolio.com/45214904-6a61-4e23-98d6-b140f8654a40/bd4ae264-ae51-4d18-bd60-7a058ab42fba_rw_1920.png?h=a3757d1f46f418c59e7e7946d026344e){fig-alt="Cartoon of cute fuzzy monsters dressed up as different X-men characters, working together to add a new column to an existing data frame. Stylized title text reads “dplyr::mutate - add columns, keep existing.” Learn more about dplyr::mutate." width="50%" fig-align="center"}
 
-You can use `mutate` to modify the type of the following variables: 
-
+You can use `mutate` to modify the type of the following variables:
 
 +-------------------------------------------------------------------------------------------------------------+---------------------+-----------------+--------------------------------------------------------------------------------------+
 | Variable name                                                                                               | Original            | Desired         | Hint                                                                                 |
@@ -258,6 +257,10 @@ copdata <- copdata %>%
 The tilde (`~`) above is used to apply the transformation `as.logical(.)` to each selected column, which in our case is either all columns included in `food_items` and `food_dose.`
 :::
 
+::: {.callout-note title="Note" collapse="true"}
+The tilde (`~`) above is used to apply the transformation `as.logical(.)` to each selected column, which in our case is either all columns included in `food_items` and `food_dose.`
+:::
+
 #### Date and time variables
 
 ::: {.callout-warning title="Let's stop and... think!" collapse="true"}
@@ -325,7 +328,7 @@ head(copdata$onset_datetime)
 
 Save the cleaned data set before proceeding with using your case definition to identify cases in your dataset. Use the .rds format, as it preserves column classes. This ensures you will have only minimal cleaning to do after importing the data into R at the next inject.
 
-Save your clean data as a new file “Copenhagen_clean1_YOURINITIALS.rds”, under the data folder of your Rproject. 
+Save your clean data as a new file "Copenhagen_clean1_YOURINITIALS.rds", under the data folder of your Rproject.
 
 ::: {.callout-tip title="Need a little bit of help?" collapse="true"}
 Use `rio::export()`.

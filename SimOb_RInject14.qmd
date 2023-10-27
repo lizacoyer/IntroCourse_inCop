@@ -1,5 +1,5 @@
 ---
-title: "Univariable analysis - Inj14"
+title: "Inject 14: Univariable analysis"
 editor: visual
 ---
 

@@ -1,5 +1,5 @@
 ---
-title: "Stratified analysis - Inj15"
+title: "Inject 14: Stratified analysis"
 editor: visual
 ---
 
