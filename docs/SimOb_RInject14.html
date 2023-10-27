@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Copenhagen Introductory Course - Univariable analysis - Inj14</title>
+<title>Copenhagen Introductory Course - Inject 14: Univariable analysis</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -69,10 +69,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -93,6 +95,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-label": "Search"
   }
 }</script>
+
+<link href="site_libs/pagedtable-1.1/css/pagedtable.css" rel="stylesheet">
+<script src="site_libs/pagedtable-1.1/js/pagedtable.js"></script>
 
 
 <link rel="stylesheet" href="styles.css">
@@ -121,26 +126,42 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="./SimOb_RInject09.html" rel="" target="">
- <span class="menu-text">Data import and cleaning - Inj09</span></a>
+ <span class="menu-text">Inject 09: Data import and cleaning</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="./SimOb_RInject10.html" rel="" target="">
- <span class="menu-text">Case Definition - Inj10</span></a>
+ <span class="menu-text">Inject 10: Case Definition</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="./SimOb_RInject11.html" rel="" target="">
- <span class="menu-text">Descriptive analysis - Inj11</span></a>
+ <span class="menu-text">Inject 11: Descriptive analysis</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link active" href="./SimOb_RInject14.html" rel="" target="" aria-current="page">
- <span class="menu-text">Univariable analysis - Inj14</span></a>
+ <span class="menu-text">Inject 14: Univariable analysis</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="./SimOb_RInject15.html" rel="" target="">
- <span class="menu-text">Stratified analysis - Inj15</span></a>
+ <span class="menu-text">Inject 14: Stratified analysis</span></a>
   </li>  
 </ul>
             <div class="quarto-navbar-tools ms-auto">
+    <div class="dropdown">
+      <a href="" title="" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" aria-label=""><i class="bi bi-github"></i></a>
+      <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="quarto-navigation-tool-dropdown-0">
+          <li>
+            <a class="dropdown-item quarto-navbar-tools ms-auto-item" href="https://github.com/EPIET/IntroCourse_inCop/tree/main">
+            Source Code
+            </a>
+          </li>
+          <li>
+            <a class="dropdown-item quarto-navbar-tools ms-auto-item" href="https://github.com/EPIET/IntroCourse_inCop/issues">
+            Report a code issue
+            </a>
+          </li>
+      </ul>
+    </div>
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
 </div>
           </div> <!-- /navcollapse -->
       </div> <!-- /container-fluid -->
@@ -172,7 +193,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Univariable analysis - Inj14</h1>
+<div class="quarto-title-block"><div><h1 class="title">Inject 14: Univariable analysis</h1><button type="button" class="btn code-tools-button dropdown-toggle" id="quarto-code-tools-menu" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi"></i> Code</button><ul class="dropdown-menu dropdown-menu-end" aria-labelelledby="quarto-code-tools-menu"><li><a id="quarto-show-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Show All Code</a></li><li><a id="quarto-hide-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Hide All Code</a></li><li><hr class="dropdown-divider"></li><li><a id="quarto-view-source" class="dropdown-item" href="javascript:void(0)" role="button">View Source</a></li></ul></div></div>
 </div>
 
 
@@ -190,6 +211,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="install-packages-and-load-libraries" class="level2">
 <h2 class="anchored" data-anchor-id="install-packages-and-load-libraries">1. Install packages and load libraries</h2>
 <div class="cell">
+<details open="">
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load the required libraries into the current R session:</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>pacman<span class="sc">::</span><span class="fu">p_load</span>(rio, </span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>               here, </span>
@@ -206,13 +229,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>               scales,</span>
 <span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>               EpiStats,</span>
 <span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>               broom)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 </div>
 </section>
 <section id="import-your-data" class="level2">
 <h2 class="anchored" data-anchor-id="import-your-data">2. Import your data</h2>
 <div class="cell">
+<details open="">
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Import the raw data set:</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>copdata <span class="ot">&lt;-</span> rio<span class="sc">::</span><span class="fu">import</span>(here<span class="sc">::</span><span class="fu">here</span>(<span class="st">"data"</span>, <span class="st">"Copenhagen_clean2.rds"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 </div>
 </section>
 <section id="hypothesis-tests-for-other-variables" class="level2">
@@ -221,8 +248,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h4 class="anchored" data-anchor-id="a-age">a) age</h4>
 <p>With the Shapiro-Wilk test we check if the variables are following the normal distribution. The null hypothesis is that the data follow a normal distribution, therefore, rejecting the null hypothesis means that the data do not follow the normal distribution. A p-value below the cutoff for rejecting the null hypothesis, e.g., a p-value&lt;0.05 means that we reject the null hypothesis that the data follow the normal distribution. For age, the p-value is &lt;0.05, therefore we reject the null hypothesis that the data are normally distributed. As we see in the graph most frequently reported age is &lt;20 years.</p>
 <div class="cell">
+<details open="">
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Check if age overall follows a normal distribution:</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">shapiro.test</span>(copdata<span class="sc">$</span>age)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>
     Shapiro-Wilk normality test
@@ -230,15 +260,21 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 data:  copdata$age
 W = 0.31302, p-value &lt; 2.2e-16</code></pre>
 </div>
+<details open="">
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Can simply have a look at</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(copdata<span class="sc">$</span>age)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output-display">
 <p><img src="SimOb_RInject14_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid" width="672"></p>
 </div>
+<details open="">
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Looking only at the students:</span></span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>students <span class="ot">&lt;-</span> copdata <span class="sc">%&gt;%</span> </span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(group <span class="sc">==</span> <span class="st">"student"</span>)</span>
 <span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(students<span class="sc">$</span>age)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output-display">
 <p><img src="SimOb_RInject14_files/figure-html/unnamed-chunk-2-2.png" class="img-fluid" width="672"></p>
 </div>
@@ -246,9 +282,12 @@ W = 0.31302, p-value &lt; 2.2e-16</code></pre>
 <p>Age overall (nor within the students’ group) is not normally distributed.</p>
 <p>We compare the age for cases and non-cases using the Wilcoxon test that is used when the data are not normally distributed. The null hypothesis is that there is no difference in the age between the two groups compared. Given that p-value&gt;0.05 we do not reject the null hypothesis.</p>
 <div class="cell">
+<details open="">
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Perform Wilcoxon rank sum test on age and sex:</span></span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">wilcox.test</span>(age <span class="sc">~</span> case, </span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>            <span class="at">data =</span> copdata)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>
     Wilcoxon rank sum test with continuity correction
@@ -262,29 +301,32 @@ alternative hypothesis: true location shift is not equal to 0</code></pre>
 <section id="b-sex" class="level4">
 <h4 class="anchored" data-anchor-id="b-sex">b) sex</h4>
 <div class="cell">
+<details open="">
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>copdata <span class="sc">%&gt;%</span> </span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(sex, case) <span class="sc">%&gt;%</span> </span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tbl_summary</span>(<span class="at">by =</span> case) <span class="sc">%&gt;%</span> </span>
 <span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">add_p</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output-display">
 
-<div id="yczpqarbdo" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#yczpqarbdo table {
+<div id="xzlpkuibev" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#xzlpkuibev table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#yczpqarbdo thead, #yczpqarbdo tbody, #yczpqarbdo tfoot, #yczpqarbdo tr, #yczpqarbdo td, #yczpqarbdo th {
+#xzlpkuibev thead, #xzlpkuibev tbody, #xzlpkuibev tfoot, #xzlpkuibev tr, #xzlpkuibev td, #xzlpkuibev th {
   border-style: none;
 }
 
-#yczpqarbdo p {
+#xzlpkuibev p {
   margin: 0;
   padding: 0;
 }
 
-#yczpqarbdo .gt_table {
+#xzlpkuibev .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -310,12 +352,12 @@ alternative hypothesis: true location shift is not equal to 0</code></pre>
   border-left-color: #D3D3D3;
 }
 
-#yczpqarbdo .gt_caption {
+#xzlpkuibev .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#yczpqarbdo .gt_title {
+#xzlpkuibev .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -327,7 +369,7 @@ alternative hypothesis: true location shift is not equal to 0</code></pre>
   border-bottom-width: 0;
 }
 
-#yczpqarbdo .gt_subtitle {
+#xzlpkuibev .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -339,7 +381,7 @@ alternative hypothesis: true location shift is not equal to 0</code></pre>
   border-top-width: 0;
 }
 
-#yczpqarbdo .gt_heading {
+#xzlpkuibev .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -351,13 +393,13 @@ alternative hypothesis: true location shift is not equal to 0</code></pre>
   border-right-color: #D3D3D3;
 }
 
-#yczpqarbdo .gt_bottom_border {
+#xzlpkuibev .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#yczpqarbdo .gt_col_headings {
+#xzlpkuibev .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -372,7 +414,7 @@ alternative hypothesis: true location shift is not equal to 0</code></pre>
   border-right-color: #D3D3D3;
 }
 
-#yczpqarbdo .gt_col_heading {
+#xzlpkuibev .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -392,7 +434,7 @@ alternative hypothesis: true location shift is not equal to 0</code></pre>
   overflow-x: hidden;
 }
 
-#yczpqarbdo .gt_column_spanner_outer {
+#xzlpkuibev .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -404,15 +446,15 @@ alternative hypothesis: true location shift is not equal to 0</code></pre>
   padding-right: 4px;
 }
 
-#yczpqarbdo .gt_column_spanner_outer:first-child {
+#xzlpkuibev .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#yczpqarbdo .gt_column_spanner_outer:last-child {
+#xzlpkuibev .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#yczpqarbdo .gt_column_spanner {
+#xzlpkuibev .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -424,11 +466,11 @@ alternative hypothesis: true location shift is not equal to 0</code></pre>
   width: 100%;
 }
 
-#yczpqarbdo .gt_spanner_row {
+#xzlpkuibev .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#yczpqarbdo .gt_group_heading {
+#xzlpkuibev .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -454,7 +496,7 @@ alternative hypothesis: true location shift is not equal to 0</code></pre>
   text-align: left;
 }
 
-#yczpqarbdo .gt_empty_group_heading {
+#xzlpkuibev .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -469,15 +511,15 @@ alternative hypothesis: true location shift is not equal to 0</code></pre>
   vertical-align: middle;
 }
 
-#yczpqarbdo .gt_from_md > :first-child {
+#xzlpkuibev .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#yczpqarbdo .gt_from_md > :last-child {
+#xzlpkuibev .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#yczpqarbdo .gt_row {
+#xzlpkuibev .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -496,7 +538,7 @@ alternative hypothesis: true location shift is not equal to 0</code></pre>
   overflow-x: hidden;
 }
 
-#yczpqarbdo .gt_stub {
+#xzlpkuibev .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -509,7 +551,7 @@ alternative hypothesis: true location shift is not equal to 0</code></pre>
   padding-right: 5px;
 }
 
-#yczpqarbdo .gt_stub_row_group {
+#xzlpkuibev .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -523,15 +565,15 @@ alternative hypothesis: true location shift is not equal to 0</code></pre>
   vertical-align: top;
 }
 
-#yczpqarbdo .gt_row_group_first td {
+#xzlpkuibev .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#yczpqarbdo .gt_row_group_first th {
+#xzlpkuibev .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#yczpqarbdo .gt_summary_row {
+#xzlpkuibev .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -541,16 +583,16 @@ alternative hypothesis: true location shift is not equal to 0</code></pre>
   padding-right: 5px;
 }
 
-#yczpqarbdo .gt_first_summary_row {
+#xzlpkuibev .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#yczpqarbdo .gt_first_summary_row.thick {
+#xzlpkuibev .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#yczpqarbdo .gt_last_summary_row {
+#xzlpkuibev .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -560,7 +602,7 @@ alternative hypothesis: true location shift is not equal to 0</code></pre>
   border-bottom-color: #D3D3D3;
 }
 
-#yczpqarbdo .gt_grand_summary_row {
+#xzlpkuibev .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -570,7 +612,7 @@ alternative hypothesis: true location shift is not equal to 0</code></pre>
   padding-right: 5px;
 }
 
-#yczpqarbdo .gt_first_grand_summary_row {
+#xzlpkuibev .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -580,7 +622,7 @@ alternative hypothesis: true location shift is not equal to 0</code></pre>
   border-top-color: #D3D3D3;
 }
 
-#yczpqarbdo .gt_last_grand_summary_row_top {
+#xzlpkuibev .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -590,11 +632,11 @@ alternative hypothesis: true location shift is not equal to 0</code></pre>
   border-bottom-color: #D3D3D3;
 }
 
-#yczpqarbdo .gt_striped {
+#xzlpkuibev .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#yczpqarbdo .gt_table_body {
+#xzlpkuibev .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -603,7 +645,7 @@ alternative hypothesis: true location shift is not equal to 0</code></pre>
   border-bottom-color: #D3D3D3;
 }
 
-#yczpqarbdo .gt_footnotes {
+#xzlpkuibev .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -617,7 +659,7 @@ alternative hypothesis: true location shift is not equal to 0</code></pre>
   border-right-color: #D3D3D3;
 }
 
-#yczpqarbdo .gt_footnote {
+#xzlpkuibev .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -626,7 +668,7 @@ alternative hypothesis: true location shift is not equal to 0</code></pre>
   padding-right: 5px;
 }
 
-#yczpqarbdo .gt_sourcenotes {
+#xzlpkuibev .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -640,7 +682,7 @@ alternative hypothesis: true location shift is not equal to 0</code></pre>
   border-right-color: #D3D3D3;
 }
 
-#yczpqarbdo .gt_sourcenote {
+#xzlpkuibev .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -648,63 +690,63 @@ alternative hypothesis: true location shift is not equal to 0</code></pre>
   padding-right: 5px;
 }
 
-#yczpqarbdo .gt_left {
+#xzlpkuibev .gt_left {
   text-align: left;
 }
 
-#yczpqarbdo .gt_center {
+#xzlpkuibev .gt_center {
   text-align: center;
 }
 
-#yczpqarbdo .gt_right {
+#xzlpkuibev .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#yczpqarbdo .gt_font_normal {
+#xzlpkuibev .gt_font_normal {
   font-weight: normal;
 }
 
-#yczpqarbdo .gt_font_bold {
+#xzlpkuibev .gt_font_bold {
   font-weight: bold;
 }
 
-#yczpqarbdo .gt_font_italic {
+#xzlpkuibev .gt_font_italic {
   font-style: italic;
 }
 
-#yczpqarbdo .gt_super {
+#xzlpkuibev .gt_super {
   font-size: 65%;
 }
 
-#yczpqarbdo .gt_footnote_marks {
+#xzlpkuibev .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#yczpqarbdo .gt_asterisk {
+#xzlpkuibev .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#yczpqarbdo .gt_indent_1 {
+#xzlpkuibev .gt_indent_1 {
   text-indent: 5px;
 }
 
-#yczpqarbdo .gt_indent_2 {
+#xzlpkuibev .gt_indent_2 {
   text-indent: 10px;
 }
 
-#yczpqarbdo .gt_indent_3 {
+#xzlpkuibev .gt_indent_3 {
   text-indent: 15px;
 }
 
-#yczpqarbdo .gt_indent_4 {
+#xzlpkuibev .gt_indent_4 {
   text-indent: 20px;
 }
 
-#yczpqarbdo .gt_indent_5 {
+#xzlpkuibev .gt_indent_5 {
   text-indent: 25px;
 }
 </style>
@@ -749,29 +791,32 @@ alternative hypothesis: true location shift is not equal to 0</code></pre>
 <section id="c-class" class="level4">
 <h4 class="anchored" data-anchor-id="c-class">c) class</h4>
 <div class="cell">
+<details open="">
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>copdata <span class="sc">%&gt;%</span> </span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(class, case) <span class="sc">%&gt;%</span> </span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tbl_summary</span>(<span class="at">by =</span> case) <span class="sc">%&gt;%</span> </span>
 <span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">add_p</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output-display">
 
-<div id="yjchqcmqvr" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#yjchqcmqvr table {
+<div id="uiykilteft" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#uiykilteft table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#yjchqcmqvr thead, #yjchqcmqvr tbody, #yjchqcmqvr tfoot, #yjchqcmqvr tr, #yjchqcmqvr td, #yjchqcmqvr th {
+#uiykilteft thead, #uiykilteft tbody, #uiykilteft tfoot, #uiykilteft tr, #uiykilteft td, #uiykilteft th {
   border-style: none;
 }
 
-#yjchqcmqvr p {
+#uiykilteft p {
   margin: 0;
   padding: 0;
 }
 
-#yjchqcmqvr .gt_table {
+#uiykilteft .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -797,12 +842,12 @@ alternative hypothesis: true location shift is not equal to 0</code></pre>
   border-left-color: #D3D3D3;
 }
 
-#yjchqcmqvr .gt_caption {
+#uiykilteft .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#yjchqcmqvr .gt_title {
+#uiykilteft .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -814,7 +859,7 @@ alternative hypothesis: true location shift is not equal to 0</code></pre>
   border-bottom-width: 0;
 }
 
-#yjchqcmqvr .gt_subtitle {
+#uiykilteft .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -826,7 +871,7 @@ alternative hypothesis: true location shift is not equal to 0</code></pre>
   border-top-width: 0;
 }
 
-#yjchqcmqvr .gt_heading {
+#uiykilteft .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -838,13 +883,13 @@ alternative hypothesis: true location shift is not equal to 0</code></pre>
   border-right-color: #D3D3D3;
 }
 
-#yjchqcmqvr .gt_bottom_border {
+#uiykilteft .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#yjchqcmqvr .gt_col_headings {
+#uiykilteft .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -859,7 +904,7 @@ alternative hypothesis: true location shift is not equal to 0</code></pre>
   border-right-color: #D3D3D3;
 }
 
-#yjchqcmqvr .gt_col_heading {
+#uiykilteft .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -879,7 +924,7 @@ alternative hypothesis: true location shift is not equal to 0</code></pre>
   overflow-x: hidden;
 }
 
-#yjchqcmqvr .gt_column_spanner_outer {
+#uiykilteft .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -891,15 +936,15 @@ alternative hypothesis: true location shift is not equal to 0</code></pre>
   padding-right: 4px;
 }
 
-#yjchqcmqvr .gt_column_spanner_outer:first-child {
+#uiykilteft .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#yjchqcmqvr .gt_column_spanner_outer:last-child {
+#uiykilteft .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#yjchqcmqvr .gt_column_spanner {
+#uiykilteft .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -911,11 +956,11 @@ alternative hypothesis: true location shift is not equal to 0</code></pre>
   width: 100%;
 }
 
-#yjchqcmqvr .gt_spanner_row {
+#uiykilteft .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#yjchqcmqvr .gt_group_heading {
+#uiykilteft .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -941,7 +986,7 @@ alternative hypothesis: true location shift is not equal to 0</code></pre>
   text-align: left;
 }
 
-#yjchqcmqvr .gt_empty_group_heading {
+#uiykilteft .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -956,15 +1001,15 @@ alternative hypothesis: true location shift is not equal to 0</code></pre>
   vertical-align: middle;
 }
 
-#yjchqcmqvr .gt_from_md > :first-child {
+#uiykilteft .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#yjchqcmqvr .gt_from_md > :last-child {
+#uiykilteft .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#yjchqcmqvr .gt_row {
+#uiykilteft .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -983,7 +1028,7 @@ alternative hypothesis: true location shift is not equal to 0</code></pre>
   overflow-x: hidden;
 }
 
-#yjchqcmqvr .gt_stub {
+#uiykilteft .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -996,7 +1041,7 @@ alternative hypothesis: true location shift is not equal to 0</code></pre>
   padding-right: 5px;
 }
 
-#yjchqcmqvr .gt_stub_row_group {
+#uiykilteft .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1010,15 +1055,15 @@ alternative hypothesis: true location shift is not equal to 0</code></pre>
   vertical-align: top;
 }
 
-#yjchqcmqvr .gt_row_group_first td {
+#uiykilteft .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#yjchqcmqvr .gt_row_group_first th {
+#uiykilteft .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#yjchqcmqvr .gt_summary_row {
+#uiykilteft .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1028,16 +1073,16 @@ alternative hypothesis: true location shift is not equal to 0</code></pre>
   padding-right: 5px;
 }
 
-#yjchqcmqvr .gt_first_summary_row {
+#uiykilteft .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#yjchqcmqvr .gt_first_summary_row.thick {
+#uiykilteft .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#yjchqcmqvr .gt_last_summary_row {
+#uiykilteft .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1047,7 +1092,7 @@ alternative hypothesis: true location shift is not equal to 0</code></pre>
   border-bottom-color: #D3D3D3;
 }
 
-#yjchqcmqvr .gt_grand_summary_row {
+#uiykilteft .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1057,7 +1102,7 @@ alternative hypothesis: true location shift is not equal to 0</code></pre>
   padding-right: 5px;
 }
 
-#yjchqcmqvr .gt_first_grand_summary_row {
+#uiykilteft .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1067,7 +1112,7 @@ alternative hypothesis: true location shift is not equal to 0</code></pre>
   border-top-color: #D3D3D3;
 }
 
-#yjchqcmqvr .gt_last_grand_summary_row_top {
+#uiykilteft .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1077,11 +1122,11 @@ alternative hypothesis: true location shift is not equal to 0</code></pre>
   border-bottom-color: #D3D3D3;
 }
 
-#yjchqcmqvr .gt_striped {
+#uiykilteft .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#yjchqcmqvr .gt_table_body {
+#uiykilteft .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1090,7 +1135,7 @@ alternative hypothesis: true location shift is not equal to 0</code></pre>
   border-bottom-color: #D3D3D3;
 }
 
-#yjchqcmqvr .gt_footnotes {
+#uiykilteft .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1104,7 +1149,7 @@ alternative hypothesis: true location shift is not equal to 0</code></pre>
   border-right-color: #D3D3D3;
 }
 
-#yjchqcmqvr .gt_footnote {
+#uiykilteft .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -1113,7 +1158,7 @@ alternative hypothesis: true location shift is not equal to 0</code></pre>
   padding-right: 5px;
 }
 
-#yjchqcmqvr .gt_sourcenotes {
+#uiykilteft .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1127,7 +1172,7 @@ alternative hypothesis: true location shift is not equal to 0</code></pre>
   border-right-color: #D3D3D3;
 }
 
-#yjchqcmqvr .gt_sourcenote {
+#uiykilteft .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -1135,63 +1180,63 @@ alternative hypothesis: true location shift is not equal to 0</code></pre>
   padding-right: 5px;
 }
 
-#yjchqcmqvr .gt_left {
+#uiykilteft .gt_left {
   text-align: left;
 }
 
-#yjchqcmqvr .gt_center {
+#uiykilteft .gt_center {
   text-align: center;
 }
 
-#yjchqcmqvr .gt_right {
+#uiykilteft .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#yjchqcmqvr .gt_font_normal {
+#uiykilteft .gt_font_normal {
   font-weight: normal;
 }
 
-#yjchqcmqvr .gt_font_bold {
+#uiykilteft .gt_font_bold {
   font-weight: bold;
 }
 
-#yjchqcmqvr .gt_font_italic {
+#uiykilteft .gt_font_italic {
   font-style: italic;
 }
 
-#yjchqcmqvr .gt_super {
+#uiykilteft .gt_super {
   font-size: 65%;
 }
 
-#yjchqcmqvr .gt_footnote_marks {
+#uiykilteft .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#yjchqcmqvr .gt_asterisk {
+#uiykilteft .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#yjchqcmqvr .gt_indent_1 {
+#uiykilteft .gt_indent_1 {
   text-indent: 5px;
 }
 
-#yjchqcmqvr .gt_indent_2 {
+#uiykilteft .gt_indent_2 {
   text-indent: 10px;
 }
 
-#yjchqcmqvr .gt_indent_3 {
+#uiykilteft .gt_indent_3 {
   text-indent: 15px;
 }
 
-#yjchqcmqvr .gt_indent_4 {
+#uiykilteft .gt_indent_4 {
   text-indent: 20px;
 }
 
-#yjchqcmqvr .gt_indent_5 {
+#uiykilteft .gt_indent_5 {
   text-indent: 25px;
 }
 </style>
@@ -1244,29 +1289,32 @@ alternative hypothesis: true location shift is not equal to 0</code></pre>
 <section id="d-group" class="level4">
 <h4 class="anchored" data-anchor-id="d-group">d) group</h4>
 <div class="cell">
+<details open="">
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>copdata <span class="sc">%&gt;%</span> </span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(group, case) <span class="sc">%&gt;%</span> </span>
 <span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tbl_summary</span>(<span class="at">by =</span> case) <span class="sc">%&gt;%</span> </span>
 <span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">add_p</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output-display">
 
-<div id="vcrqzrbcfv" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#vcrqzrbcfv table {
+<div id="gquarlqgpu" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#gquarlqgpu table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#vcrqzrbcfv thead, #vcrqzrbcfv tbody, #vcrqzrbcfv tfoot, #vcrqzrbcfv tr, #vcrqzrbcfv td, #vcrqzrbcfv th {
+#gquarlqgpu thead, #gquarlqgpu tbody, #gquarlqgpu tfoot, #gquarlqgpu tr, #gquarlqgpu td, #gquarlqgpu th {
   border-style: none;
 }
 
-#vcrqzrbcfv p {
+#gquarlqgpu p {
   margin: 0;
   padding: 0;
 }
 
-#vcrqzrbcfv .gt_table {
+#gquarlqgpu .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -1292,12 +1340,12 @@ alternative hypothesis: true location shift is not equal to 0</code></pre>
   border-left-color: #D3D3D3;
 }
 
-#vcrqzrbcfv .gt_caption {
+#gquarlqgpu .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#vcrqzrbcfv .gt_title {
+#gquarlqgpu .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -1309,7 +1357,7 @@ alternative hypothesis: true location shift is not equal to 0</code></pre>
   border-bottom-width: 0;
 }
 
-#vcrqzrbcfv .gt_subtitle {
+#gquarlqgpu .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -1321,7 +1369,7 @@ alternative hypothesis: true location shift is not equal to 0</code></pre>
   border-top-width: 0;
 }
 
-#vcrqzrbcfv .gt_heading {
+#gquarlqgpu .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -1333,13 +1381,13 @@ alternative hypothesis: true location shift is not equal to 0</code></pre>
   border-right-color: #D3D3D3;
 }
 
-#vcrqzrbcfv .gt_bottom_border {
+#gquarlqgpu .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#vcrqzrbcfv .gt_col_headings {
+#gquarlqgpu .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1354,7 +1402,7 @@ alternative hypothesis: true location shift is not equal to 0</code></pre>
   border-right-color: #D3D3D3;
 }
 
-#vcrqzrbcfv .gt_col_heading {
+#gquarlqgpu .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1374,7 +1422,7 @@ alternative hypothesis: true location shift is not equal to 0</code></pre>
   overflow-x: hidden;
 }
 
-#vcrqzrbcfv .gt_column_spanner_outer {
+#gquarlqgpu .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1386,15 +1434,15 @@ alternative hypothesis: true location shift is not equal to 0</code></pre>
   padding-right: 4px;
 }
 
-#vcrqzrbcfv .gt_column_spanner_outer:first-child {
+#gquarlqgpu .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#vcrqzrbcfv .gt_column_spanner_outer:last-child {
+#gquarlqgpu .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#vcrqzrbcfv .gt_column_spanner {
+#gquarlqgpu .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -1406,11 +1454,11 @@ alternative hypothesis: true location shift is not equal to 0</code></pre>
   width: 100%;
 }
 
-#vcrqzrbcfv .gt_spanner_row {
+#gquarlqgpu .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#vcrqzrbcfv .gt_group_heading {
+#gquarlqgpu .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1436,7 +1484,7 @@ alternative hypothesis: true location shift is not equal to 0</code></pre>
   text-align: left;
 }
 
-#vcrqzrbcfv .gt_empty_group_heading {
+#gquarlqgpu .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -1451,15 +1499,15 @@ alternative hypothesis: true location shift is not equal to 0</code></pre>
   vertical-align: middle;
 }
 
-#vcrqzrbcfv .gt_from_md > :first-child {
+#gquarlqgpu .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#vcrqzrbcfv .gt_from_md > :last-child {
+#gquarlqgpu .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#vcrqzrbcfv .gt_row {
+#gquarlqgpu .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1478,7 +1526,7 @@ alternative hypothesis: true location shift is not equal to 0</code></pre>
   overflow-x: hidden;
 }
 
-#vcrqzrbcfv .gt_stub {
+#gquarlqgpu .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1491,7 +1539,7 @@ alternative hypothesis: true location shift is not equal to 0</code></pre>
   padding-right: 5px;
 }
 
-#vcrqzrbcfv .gt_stub_row_group {
+#gquarlqgpu .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1505,15 +1553,15 @@ alternative hypothesis: true location shift is not equal to 0</code></pre>
   vertical-align: top;
 }
 
-#vcrqzrbcfv .gt_row_group_first td {
+#gquarlqgpu .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#vcrqzrbcfv .gt_row_group_first th {
+#gquarlqgpu .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#vcrqzrbcfv .gt_summary_row {
+#gquarlqgpu .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1523,16 +1571,16 @@ alternative hypothesis: true location shift is not equal to 0</code></pre>
   padding-right: 5px;
 }
 
-#vcrqzrbcfv .gt_first_summary_row {
+#gquarlqgpu .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#vcrqzrbcfv .gt_first_summary_row.thick {
+#gquarlqgpu .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#vcrqzrbcfv .gt_last_summary_row {
+#gquarlqgpu .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1542,7 +1590,7 @@ alternative hypothesis: true location shift is not equal to 0</code></pre>
   border-bottom-color: #D3D3D3;
 }
 
-#vcrqzrbcfv .gt_grand_summary_row {
+#gquarlqgpu .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1552,7 +1600,7 @@ alternative hypothesis: true location shift is not equal to 0</code></pre>
   padding-right: 5px;
 }
 
-#vcrqzrbcfv .gt_first_grand_summary_row {
+#gquarlqgpu .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1562,7 +1610,7 @@ alternative hypothesis: true location shift is not equal to 0</code></pre>
   border-top-color: #D3D3D3;
 }
 
-#vcrqzrbcfv .gt_last_grand_summary_row_top {
+#gquarlqgpu .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1572,11 +1620,11 @@ alternative hypothesis: true location shift is not equal to 0</code></pre>
   border-bottom-color: #D3D3D3;
 }
 
-#vcrqzrbcfv .gt_striped {
+#gquarlqgpu .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#vcrqzrbcfv .gt_table_body {
+#gquarlqgpu .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1585,7 +1633,7 @@ alternative hypothesis: true location shift is not equal to 0</code></pre>
   border-bottom-color: #D3D3D3;
 }
 
-#vcrqzrbcfv .gt_footnotes {
+#gquarlqgpu .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1599,7 +1647,7 @@ alternative hypothesis: true location shift is not equal to 0</code></pre>
   border-right-color: #D3D3D3;
 }
 
-#vcrqzrbcfv .gt_footnote {
+#gquarlqgpu .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -1608,7 +1656,7 @@ alternative hypothesis: true location shift is not equal to 0</code></pre>
   padding-right: 5px;
 }
 
-#vcrqzrbcfv .gt_sourcenotes {
+#gquarlqgpu .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1622,7 +1670,7 @@ alternative hypothesis: true location shift is not equal to 0</code></pre>
   border-right-color: #D3D3D3;
 }
 
-#vcrqzrbcfv .gt_sourcenote {
+#gquarlqgpu .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -1630,63 +1678,63 @@ alternative hypothesis: true location shift is not equal to 0</code></pre>
   padding-right: 5px;
 }
 
-#vcrqzrbcfv .gt_left {
+#gquarlqgpu .gt_left {
   text-align: left;
 }
 
-#vcrqzrbcfv .gt_center {
+#gquarlqgpu .gt_center {
   text-align: center;
 }
 
-#vcrqzrbcfv .gt_right {
+#gquarlqgpu .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#vcrqzrbcfv .gt_font_normal {
+#gquarlqgpu .gt_font_normal {
   font-weight: normal;
 }
 
-#vcrqzrbcfv .gt_font_bold {
+#gquarlqgpu .gt_font_bold {
   font-weight: bold;
 }
 
-#vcrqzrbcfv .gt_font_italic {
+#gquarlqgpu .gt_font_italic {
   font-style: italic;
 }
 
-#vcrqzrbcfv .gt_super {
+#gquarlqgpu .gt_super {
   font-size: 65%;
 }
 
-#vcrqzrbcfv .gt_footnote_marks {
+#gquarlqgpu .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#vcrqzrbcfv .gt_asterisk {
+#gquarlqgpu .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#vcrqzrbcfv .gt_indent_1 {
+#gquarlqgpu .gt_indent_1 {
   text-indent: 5px;
 }
 
-#vcrqzrbcfv .gt_indent_2 {
+#gquarlqgpu .gt_indent_2 {
   text-indent: 10px;
 }
 
-#vcrqzrbcfv .gt_indent_3 {
+#gquarlqgpu .gt_indent_3 {
   text-indent: 15px;
 }
 
-#vcrqzrbcfv .gt_indent_4 {
+#gquarlqgpu .gt_indent_4 {
   text-indent: 20px;
 }
 
-#vcrqzrbcfv .gt_indent_5 {
+#gquarlqgpu .gt_indent_5 {
   text-indent: 25px;
 }
 </style>
@@ -1731,29 +1779,32 @@ alternative hypothesis: true location shift is not equal to 0</code></pre>
 <section id="lets-do-all-together" class="level4">
 <h4 class="anchored" data-anchor-id="lets-do-all-together">Let’s do all together</h4>
 <div class="cell">
+<details open="">
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>copdata <span class="sc">%&gt;%</span> </span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(sex, class, group, case) <span class="sc">%&gt;%</span> </span>
 <span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tbl_summary</span>(<span class="at">by =</span> case) <span class="sc">%&gt;%</span> </span>
 <span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">add_p</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output-display">
 
-<div id="nfbnsurqsl" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#nfbnsurqsl table {
+<div id="uyenzbmvil" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#uyenzbmvil table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#nfbnsurqsl thead, #nfbnsurqsl tbody, #nfbnsurqsl tfoot, #nfbnsurqsl tr, #nfbnsurqsl td, #nfbnsurqsl th {
+#uyenzbmvil thead, #uyenzbmvil tbody, #uyenzbmvil tfoot, #uyenzbmvil tr, #uyenzbmvil td, #uyenzbmvil th {
   border-style: none;
 }
 
-#nfbnsurqsl p {
+#uyenzbmvil p {
   margin: 0;
   padding: 0;
 }
 
-#nfbnsurqsl .gt_table {
+#uyenzbmvil .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -1779,12 +1830,12 @@ alternative hypothesis: true location shift is not equal to 0</code></pre>
   border-left-color: #D3D3D3;
 }
 
-#nfbnsurqsl .gt_caption {
+#uyenzbmvil .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#nfbnsurqsl .gt_title {
+#uyenzbmvil .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -1796,7 +1847,7 @@ alternative hypothesis: true location shift is not equal to 0</code></pre>
   border-bottom-width: 0;
 }
 
-#nfbnsurqsl .gt_subtitle {
+#uyenzbmvil .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -1808,7 +1859,7 @@ alternative hypothesis: true location shift is not equal to 0</code></pre>
   border-top-width: 0;
 }
 
-#nfbnsurqsl .gt_heading {
+#uyenzbmvil .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -1820,13 +1871,13 @@ alternative hypothesis: true location shift is not equal to 0</code></pre>
   border-right-color: #D3D3D3;
 }
 
-#nfbnsurqsl .gt_bottom_border {
+#uyenzbmvil .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#nfbnsurqsl .gt_col_headings {
+#uyenzbmvil .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1841,7 +1892,7 @@ alternative hypothesis: true location shift is not equal to 0</code></pre>
   border-right-color: #D3D3D3;
 }
 
-#nfbnsurqsl .gt_col_heading {
+#uyenzbmvil .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1861,7 +1912,7 @@ alternative hypothesis: true location shift is not equal to 0</code></pre>
   overflow-x: hidden;
 }
 
-#nfbnsurqsl .gt_column_spanner_outer {
+#uyenzbmvil .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1873,15 +1924,15 @@ alternative hypothesis: true location shift is not equal to 0</code></pre>
   padding-right: 4px;
 }
 
-#nfbnsurqsl .gt_column_spanner_outer:first-child {
+#uyenzbmvil .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#nfbnsurqsl .gt_column_spanner_outer:last-child {
+#uyenzbmvil .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#nfbnsurqsl .gt_column_spanner {
+#uyenzbmvil .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -1893,11 +1944,11 @@ alternative hypothesis: true location shift is not equal to 0</code></pre>
   width: 100%;
 }
 
-#nfbnsurqsl .gt_spanner_row {
+#uyenzbmvil .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#nfbnsurqsl .gt_group_heading {
+#uyenzbmvil .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1923,7 +1974,7 @@ alternative hypothesis: true location shift is not equal to 0</code></pre>
   text-align: left;
 }
 
-#nfbnsurqsl .gt_empty_group_heading {
+#uyenzbmvil .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -1938,15 +1989,15 @@ alternative hypothesis: true location shift is not equal to 0</code></pre>
   vertical-align: middle;
 }
 
-#nfbnsurqsl .gt_from_md > :first-child {
+#uyenzbmvil .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#nfbnsurqsl .gt_from_md > :last-child {
+#uyenzbmvil .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#nfbnsurqsl .gt_row {
+#uyenzbmvil .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1965,7 +2016,7 @@ alternative hypothesis: true location shift is not equal to 0</code></pre>
   overflow-x: hidden;
 }
 
-#nfbnsurqsl .gt_stub {
+#uyenzbmvil .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1978,7 +2029,7 @@ alternative hypothesis: true location shift is not equal to 0</code></pre>
   padding-right: 5px;
 }
 
-#nfbnsurqsl .gt_stub_row_group {
+#uyenzbmvil .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1992,15 +2043,15 @@ alternative hypothesis: true location shift is not equal to 0</code></pre>
   vertical-align: top;
 }
 
-#nfbnsurqsl .gt_row_group_first td {
+#uyenzbmvil .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#nfbnsurqsl .gt_row_group_first th {
+#uyenzbmvil .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#nfbnsurqsl .gt_summary_row {
+#uyenzbmvil .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -2010,16 +2061,16 @@ alternative hypothesis: true location shift is not equal to 0</code></pre>
   padding-right: 5px;
 }
 
-#nfbnsurqsl .gt_first_summary_row {
+#uyenzbmvil .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#nfbnsurqsl .gt_first_summary_row.thick {
+#uyenzbmvil .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#nfbnsurqsl .gt_last_summary_row {
+#uyenzbmvil .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2029,7 +2080,7 @@ alternative hypothesis: true location shift is not equal to 0</code></pre>
   border-bottom-color: #D3D3D3;
 }
 
-#nfbnsurqsl .gt_grand_summary_row {
+#uyenzbmvil .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -2039,7 +2090,7 @@ alternative hypothesis: true location shift is not equal to 0</code></pre>
   padding-right: 5px;
 }
 
-#nfbnsurqsl .gt_first_grand_summary_row {
+#uyenzbmvil .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2049,7 +2100,7 @@ alternative hypothesis: true location shift is not equal to 0</code></pre>
   border-top-color: #D3D3D3;
 }
 
-#nfbnsurqsl .gt_last_grand_summary_row_top {
+#uyenzbmvil .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2059,11 +2110,11 @@ alternative hypothesis: true location shift is not equal to 0</code></pre>
   border-bottom-color: #D3D3D3;
 }
 
-#nfbnsurqsl .gt_striped {
+#uyenzbmvil .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#nfbnsurqsl .gt_table_body {
+#uyenzbmvil .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -2072,7 +2123,7 @@ alternative hypothesis: true location shift is not equal to 0</code></pre>
   border-bottom-color: #D3D3D3;
 }
 
-#nfbnsurqsl .gt_footnotes {
+#uyenzbmvil .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -2086,7 +2137,7 @@ alternative hypothesis: true location shift is not equal to 0</code></pre>
   border-right-color: #D3D3D3;
 }
 
-#nfbnsurqsl .gt_footnote {
+#uyenzbmvil .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -2095,7 +2146,7 @@ alternative hypothesis: true location shift is not equal to 0</code></pre>
   padding-right: 5px;
 }
 
-#nfbnsurqsl .gt_sourcenotes {
+#uyenzbmvil .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -2109,7 +2160,7 @@ alternative hypothesis: true location shift is not equal to 0</code></pre>
   border-right-color: #D3D3D3;
 }
 
-#nfbnsurqsl .gt_sourcenote {
+#uyenzbmvil .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -2117,63 +2168,63 @@ alternative hypothesis: true location shift is not equal to 0</code></pre>
   padding-right: 5px;
 }
 
-#nfbnsurqsl .gt_left {
+#uyenzbmvil .gt_left {
   text-align: left;
 }
 
-#nfbnsurqsl .gt_center {
+#uyenzbmvil .gt_center {
   text-align: center;
 }
 
-#nfbnsurqsl .gt_right {
+#uyenzbmvil .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#nfbnsurqsl .gt_font_normal {
+#uyenzbmvil .gt_font_normal {
   font-weight: normal;
 }
 
-#nfbnsurqsl .gt_font_bold {
+#uyenzbmvil .gt_font_bold {
   font-weight: bold;
 }
 
-#nfbnsurqsl .gt_font_italic {
+#uyenzbmvil .gt_font_italic {
   font-style: italic;
 }
 
-#nfbnsurqsl .gt_super {
+#uyenzbmvil .gt_super {
   font-size: 65%;
 }
 
-#nfbnsurqsl .gt_footnote_marks {
+#uyenzbmvil .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#nfbnsurqsl .gt_asterisk {
+#uyenzbmvil .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#nfbnsurqsl .gt_indent_1 {
+#uyenzbmvil .gt_indent_1 {
   text-indent: 5px;
 }
 
-#nfbnsurqsl .gt_indent_2 {
+#uyenzbmvil .gt_indent_2 {
   text-indent: 10px;
 }
 
-#nfbnsurqsl .gt_indent_3 {
+#uyenzbmvil .gt_indent_3 {
   text-indent: 15px;
 }
 
-#nfbnsurqsl .gt_indent_4 {
+#uyenzbmvil .gt_indent_4 {
   text-indent: 20px;
 }
 
-#nfbnsurqsl .gt_indent_5 {
+#uyenzbmvil .gt_indent_5 {
   text-indent: 25px;
 }
 </style>
@@ -2254,8 +2305,11 @@ alternative hypothesis: true location shift is not equal to 0</code></pre>
 <section id="a-calculate-95-ci-risk-ratios-for-food" class="level3">
 <h3 class="anchored" data-anchor-id="a-calculate-95-ci-risk-ratios-for-food">a) Calculate 95% CI Risk Ratios for food</h3>
 <div class="cell">
+<details open="">
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># You could use the EpiStats package for each food item</span></span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="fu">CS</span>(copdata, <span class="st">"case"</span>, <span class="st">"tuna"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>$df1
           Cases Non Cases Total Risk
@@ -2272,7 +2326,10 @@ Prev. frac. pop           0.02       NA       NA
 chi2(1)                   0.05       NA       NA
 Pr&gt;chi2                  0.826       NA       NA</code></pre>
 </div>
+<details open="">
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">CS</span>(copdata, <span class="st">"case"</span>, <span class="st">"shrimps"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>$df1
           Cases Non Cases Total Risk
@@ -2289,7 +2346,10 @@ Attr. frac. pop           0.04       NA       NA
 chi2(1)                   0.35       NA       NA
 Pr&gt;chi2                  0.553       NA       NA</code></pre>
 </div>
+<details open="">
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">CS</span>(copdata, <span class="st">"case"</span>, <span class="st">"green"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>$df1
           Cases Non Cases Total Risk
@@ -2306,7 +2366,10 @@ Prev. frac. pop           0.01       NA       NA
 chi2(1)                   0.04       NA       NA
 Pr&gt;chi2                  0.837       NA       NA</code></pre>
 </div>
+<details open="">
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">CS</span>(copdata, <span class="st">"case"</span>, <span class="st">"veal"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>$df1
           Cases Non Cases Total Risk
@@ -2323,9 +2386,14 @@ Attr. frac. pop           0.32       NA       NA
 chi2(1)                   5.64       NA       NA
 Pr&gt;chi2                  0.018       NA       NA</code></pre>
 </div>
+<details open="">
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co"># And so one</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 </div>
 <div class="cell">
+<details open="">
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co"># You can save time (and probably typos!) by creating a vector for food variables...</span></span>
 <span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>food_vars <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"tuna"</span>, <span class="st">"shrimps"</span>, <span class="st">"green"</span>, <span class="st">"veal"</span>, </span>
 <span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>                <span class="st">"pasta"</span>, <span class="st">"rocket"</span>, <span class="st">"sauce"</span>, <span class="st">"bread"</span>,</span>
@@ -2333,6 +2401,7 @@ Pr&gt;chi2                  0.018       NA       NA</code></pre>
 <span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a><span class="co"># ...and using EpiStats::CSTable() to run all variables together!</span></span>
 <span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a><span class="fu">CSTable</span>(copdata, <span class="st">"case"</span>, food_vars)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>$df
           Tot.Exp. Exp.Cases   AR% Tot.Unex. Unex.Cases   AR%   RR CI ll CI ul
@@ -2367,6 +2436,8 @@ green       0.837</code></pre>
 <section id="b-prepare-the-rr-table-for-publication" class="level3">
 <h3 class="anchored" data-anchor-id="b-prepare-the-rr-table-for-publication">b) Prepare the RR table for publication</h3>
 <div class="cell">
+<details open="">
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>rr_tbl <span class="ot">&lt;-</span> <span class="fu">CSTable</span>(copdata, <span class="st">"case"</span>, food_vars) <span class="sc">%&gt;%</span> </span>
 <span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">as.data.frame</span>() <span class="sc">%&gt;%</span> </span>
 <span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rownames_to_column</span>() <span class="sc">%&gt;%</span> </span>
@@ -2383,6 +2454,7 @@ green       0.837</code></pre>
 <span id="cb24-14"><a href="#cb24-14" aria-hidden="true" tabindex="-1"></a>               <span class="st">"95% lower CI"</span>,             </span>
 <span id="cb24-15"><a href="#cb24-15" aria-hidden="true" tabindex="-1"></a>               <span class="st">"95% upper CI"</span>,</span>
 <span id="cb24-16"><a href="#cb24-16" aria-hidden="true" tabindex="-1"></a>               <span class="st">"p-value"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 </div>
 </section>
 </section>
@@ -2391,6 +2463,8 @@ green       0.837</code></pre>
 <section id="a-pasta" class="level4">
 <h4 class="anchored" data-anchor-id="a-pasta">a) Pasta</h4>
 <div class="cell">
+<details open="">
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Binomial regression for RRs. </span></span>
 <span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="co"># The outcome needs to be exponentiated so we can interpret it properly!</span></span>
 <span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>binom_pastaD <span class="ot">&lt;-</span> <span class="fu">glm</span>(case <span class="sc">~</span> pastaD, <span class="at">data =</span> copdata, </span>
@@ -2403,59 +2477,65 @@ green       0.837</code></pre>
 <span id="cb25-10"><a href="#cb25-10" aria-hidden="true" tabindex="-1"></a>       <span class="at">conf.int =</span> <span class="cn">TRUE</span>)</span>
 <span id="cb25-11"><a href="#cb25-11" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb25-12"><a href="#cb25-12" aria-hidden="true" tabindex="-1"></a>binom_pastaD_exp</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 4 × 7
-  term        estimate std.error statistic    p.value conf.low conf.high
-  &lt;chr&gt;          &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;      &lt;dbl&gt;    &lt;dbl&gt;     &lt;dbl&gt;
-1 (Intercept)    0.361     0.222     -4.60 0.00000433    0.218     0.524
-2 pastaD1        1.50      0.247      1.65 0.0993        0.963     2.58 
-3 pastaD2        1.62      0.230      2.09 0.0364        1.09      2.72 
-4 pastaD3        1.86      0.234      2.64 0.00826       1.23      3.14 </code></pre>
+</details>
+<div class="cell-output-display">
+
+<div data-pagedtable="false">
+  <script data-pagedtable-source="" type="application/json">
+{"columns":[{"label":["term"],"name":[1],"type":["chr"],"align":["left"]},{"label":["estimate"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["std.error"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["statistic"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["p.value"],"name":[5],"type":["dbl"],"align":["right"]},{"label":["conf.low"],"name":[6],"type":["dbl"],"align":["right"]},{"label":["conf.high"],"name":[7],"type":["dbl"],"align":["right"]}],"data":[{"1":"(Intercept)","2":"0.3611111","3":"0.2216676","4":"-4.595030","5":"4.326861e-06","6":"0.2177022","7":"0.5235932"},{"1":"pastaD1","2":"1.5032967","3":"0.2473185","4":"1.648322","5":"9.928664e-02","6":"0.9630031","7":"2.5843736"},{"1":"pastaD2","2":"1.6191677","3":"0.2302560","4":"2.092941","5":"3.635441e-02","6":"1.0901317","7":"2.7190340"},{"1":"pastaD3","2":"1.8570136","3":"0.2343410","4":"2.641320","5":"8.258357e-03","6":"1.2344067","7":"3.1353759"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
 </div>
 </div>
 </section>
 <section id="b-veal" class="level4">
 <h4 class="anchored" data-anchor-id="b-veal">b) Veal</h4>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Let's get the results directly exponentiated</span></span>
-<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>binom_vealD_exp <span class="ot">&lt;-</span> <span class="fu">glm</span>(case <span class="sc">~</span> vealD, <span class="at">data =</span> copdata, </span>
-<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>                       <span class="at">family =</span> <span class="fu">binomial</span>(<span class="at">link =</span> <span class="st">"log"</span>)) <span class="sc">%&gt;%</span> </span>
-<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tidy</span>(<span class="at">exponentiate =</span> <span class="cn">TRUE</span>, </span>
-<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a>       <span class="at">conf.int =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb27-6"><a href="#cb27-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-7"><a href="#cb27-7" aria-hidden="true" tabindex="-1"></a>binom_vealD_exp</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 4 × 7
-  term        estimate std.error statistic   p.value conf.low conf.high
-  &lt;chr&gt;          &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;     &lt;dbl&gt;
-1 (Intercept)    0.441     0.193     -4.24 0.0000224    0.283     0.608
-2 vealD1         1.30      0.219      1.18 0.238        0.871     2.09 
-3 vealD2         1.31      0.203      1.31 0.189        0.921     2.06 
-4 vealD3         1.41      0.210      1.62 0.105        0.970     2.25 </code></pre>
+<details open="">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Let's get the results directly exponentiated</span></span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>binom_vealD_exp <span class="ot">&lt;-</span> <span class="fu">glm</span>(case <span class="sc">~</span> vealD, <span class="at">data =</span> copdata, </span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>                       <span class="at">family =</span> <span class="fu">binomial</span>(<span class="at">link =</span> <span class="st">"log"</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tidy</span>(<span class="at">exponentiate =</span> <span class="cn">TRUE</span>, </span>
+<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a>       <span class="at">conf.int =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb26-6"><a href="#cb26-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-7"><a href="#cb26-7" aria-hidden="true" tabindex="-1"></a>binom_vealD_exp</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+
+<div data-pagedtable="false">
+  <script data-pagedtable-source="" type="application/json">
+{"columns":[{"label":["term"],"name":[1],"type":["chr"],"align":["left"]},{"label":["estimate"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["std.error"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["statistic"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["p.value"],"name":[5],"type":["dbl"],"align":["right"]},{"label":["conf.low"],"name":[6],"type":["dbl"],"align":["right"]},{"label":["conf.high"],"name":[7],"type":["dbl"],"align":["right"]}],"data":[{"1":"(Intercept)","2":"0.4411765","3":"0.1930091","4":"-4.239749","5":"2.237698e-05","6":"0.2831200","7":"0.6077136"},{"1":"vealD1","2":"1.2952381","3":"0.2190130","4":"1.181183","5":"2.375299e-01","6":"0.8713777","7":"2.0919282"},{"1":"vealD2","2":"1.3057971","3":"0.2031051","4":"1.313673","5":"1.889563e-01","6":"0.9210122","7":"2.0641020"},{"1":"vealD3","2":"1.4068966","3":"0.2104204","4":"1.622401","5":"1.047176e-01","6":"0.9704903","7":"2.2457999"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
 </div>
 </div>
 </section>
 <section id="c-champagne" class="level4">
 <h4 class="anchored" data-anchor-id="c-champagne">c) Champagne</h4>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Let's get the results directly exponentiated</span></span>
-<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>binom_champagneD_exp <span class="ot">&lt;-</span> <span class="fu">glm</span>(case <span class="sc">~</span> champagneD, <span class="at">data =</span> copdata, </span>
-<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>                       <span class="at">family =</span> <span class="fu">binomial</span>(<span class="at">link =</span> <span class="st">"log"</span>)) <span class="sc">%&gt;%</span> </span>
-<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tidy</span>(<span class="at">exponentiate =</span> <span class="cn">TRUE</span>, </span>
-<span id="cb29-5"><a href="#cb29-5" aria-hidden="true" tabindex="-1"></a>       <span class="at">conf.int =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb29-6"><a href="#cb29-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb29-7"><a href="#cb29-7" aria-hidden="true" tabindex="-1"></a>binom_champagneD_exp</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 4 × 7
-  term        estimate std.error statistic     p.value conf.low conf.high
-  &lt;chr&gt;          &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;       &lt;dbl&gt;    &lt;dbl&gt;     &lt;dbl&gt;
-1 (Intercept)    0.438     0.164     -5.05 0.000000439    0.303     0.578
-2 champagneD1    1.24      0.176      1.24 0.215          0.911     1.83 
-3 champagneD2    1.66      0.188      2.70 0.00684        1.17      2.48 
-4 champagneD3    1.48      0.187      2.10 0.0359         1.05      2.21 </code></pre>
+<details open="">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Let's get the results directly exponentiated</span></span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>binom_champagneD_exp <span class="ot">&lt;-</span> <span class="fu">glm</span>(case <span class="sc">~</span> champagneD, <span class="at">data =</span> copdata, </span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>                       <span class="at">family =</span> <span class="fu">binomial</span>(<span class="at">link =</span> <span class="st">"log"</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tidy</span>(<span class="at">exponentiate =</span> <span class="cn">TRUE</span>, </span>
+<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a>       <span class="at">conf.int =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb27-6"><a href="#cb27-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-7"><a href="#cb27-7" aria-hidden="true" tabindex="-1"></a>binom_champagneD_exp</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+
+<div data-pagedtable="false">
+  <script data-pagedtable-source="" type="application/json">
+{"columns":[{"label":["term"],"name":[1],"type":["chr"],"align":["left"]},{"label":["estimate"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["std.error"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["statistic"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["p.value"],"name":[5],"type":["dbl"],"align":["right"]},{"label":["conf.low"],"name":[6],"type":["dbl"],"align":["right"]},{"label":["conf.high"],"name":[7],"type":["dbl"],"align":["right"]}],"data":[{"1":"(Intercept)","2":"0.437500","3":"0.1636579","4":"-5.051259","5":"4.389084e-07","6":"0.3031501","7":"0.5783488"},{"1":"champagneD1","2":"1.243697","3":"0.1757581","4":"1.240846","5":"2.146625e-01","6":"0.9108670","7":"1.8273842"},{"1":"champagneD2","2":"1.662338","3":"0.1879006","4":"2.704753","5":"6.835512e-03","6":"1.1689254","7":"2.4799348"},{"1":"champagneD3","2":"1.478992","3":"0.1865618","4":"2.097753","5":"3.592697e-02","6":"1.0484831","7":"2.2050611"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
 </div>
 </div>
 
+
+<!-- -->
 
 </section>
 </section>
@@ -2481,6 +2561,121 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
   }
   toggleBodyColorPrimary();  
+  const disableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'prefetch';
+    }
+  }
+  const enableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'stylesheet';
+    }
+  }
+  const manageTransitions = (selector, allowTransitions) => {
+    const els = window.document.querySelectorAll(selector);
+    for (let i=0; i < els.length; i++) {
+      const el = els[i];
+      if (allowTransitions) {
+        el.classList.remove('notransition');
+      } else {
+        el.classList.add('notransition');
+      }
+    }
+  }
+  const toggleColorMode = (alternate) => {
+    // Switch the stylesheets
+    const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+    manageTransitions('#quarto-margin-sidebar .nav-link', false);
+    if (alternate) {
+      enableStylesheet(alternateStylesheets);
+      for (const sheetNode of alternateStylesheets) {
+        if (sheetNode.id === "quarto-bootstrap") {
+          toggleBodyColorMode(sheetNode);
+        }
+      }
+    } else {
+      disableStylesheet(alternateStylesheets);
+      toggleBodyColorPrimary();
+    }
+    manageTransitions('#quarto-margin-sidebar .nav-link', true);
+    // Switch the toggles
+    const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+    for (let i=0; i < toggles.length; i++) {
+      const toggle = toggles[i];
+      if (toggle) {
+        if (alternate) {
+          toggle.classList.add("alternate");     
+        } else {
+          toggle.classList.remove("alternate");
+        }
+      }
+    }
+    // Hack to workaround the fact that safari doesn't
+    // properly recolor the scrollbar when toggling (#1455)
+    if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+      manageTransitions("body", false);
+      window.scrollTo(0, 1);
+      setTimeout(() => {
+        window.scrollTo(0, 0);
+        manageTransitions("body", true);
+      }, 40);  
+    }
+  }
+  const isFileUrl = () => { 
+    return window.location.protocol === 'file:';
+  }
+  const hasAlternateSentinel = () => {  
+    let styleSentinel = getColorSchemeSentinel();
+    if (styleSentinel !== null) {
+      return styleSentinel === "alternate";
+    } else {
+      return false;
+    }
+  }
+  const setStyleSentinel = (alternate) => {
+    const value = alternate ? "alternate" : "default";
+    if (!isFileUrl()) {
+      window.localStorage.setItem("quarto-color-scheme", value);
+    } else {
+      localAlternateSentinel = value;
+    }
+  }
+  const getColorSchemeSentinel = () => {
+    if (!isFileUrl()) {
+      const storageValue = window.localStorage.getItem("quarto-color-scheme");
+      return storageValue != null ? storageValue : localAlternateSentinel;
+    } else {
+      return localAlternateSentinel;
+    }
+  }
+  let localAlternateSentinel = 'default';
+  // Dark / light mode switch
+  window.quartoToggleColorScheme = () => {
+    // Read the current dark / light value 
+    let toAlternate = !hasAlternateSentinel();
+    toggleColorMode(toAlternate);
+    setStyleSentinel(toAlternate);
+  };
+  // Ensure there is a toggle, if there isn't float one in the top right
+  if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+    const a = window.document.createElement('a');
+    a.classList.add('top-right');
+    a.classList.add('quarto-color-scheme-toggle');
+    a.href = "";
+    a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+    const i = window.document.createElement("i");
+    i.classList.add('bi');
+    a.appendChild(i);
+    window.document.body.appendChild(a);
+  }
+  // Switch to dark mode if need be
+  if (hasAlternateSentinel()) {
+    toggleColorMode(true);
+  } else {
+    toggleColorMode(false);
+  }
   const icon = "";
   const anchorJS = new window.AnchorJS();
   anchorJS.options = {
@@ -2540,6 +2735,57 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // clear code selection
     e.clearSelection();
   });
+  const viewSource = window.document.getElementById('quarto-view-source') ||
+                     window.document.getElementById('quarto-code-tools-source');
+  if (viewSource) {
+    const sourceUrl = viewSource.getAttribute("data-quarto-source-url");
+    viewSource.addEventListener("click", function(e) {
+      if (sourceUrl) {
+        // rstudio viewer pane
+        if (/\bcapabilities=\b/.test(window.location)) {
+          window.open(sourceUrl);
+        } else {
+          window.location.href = sourceUrl;
+        }
+      } else {
+        const modal = new bootstrap.Modal(document.getElementById('quarto-embedded-source-code-modal'));
+        modal.show();
+      }
+      return false;
+    });
+  }
+  function toggleCodeHandler(show) {
+    return function(e) {
+      const detailsSrc = window.document.querySelectorAll(".cell > details > .sourceCode");
+      for (let i=0; i<detailsSrc.length; i++) {
+        const details = detailsSrc[i].parentElement;
+        if (show) {
+          details.open = true;
+        } else {
+          details.removeAttribute("open");
+        }
+      }
+      const cellCodeDivs = window.document.querySelectorAll(".cell > .sourceCode");
+      const fromCls = show ? "hidden" : "unhidden";
+      const toCls = show ? "unhidden" : "hidden";
+      for (let i=0; i<cellCodeDivs.length; i++) {
+        const codeDiv = cellCodeDivs[i];
+        if (codeDiv.classList.contains(fromCls)) {
+          codeDiv.classList.remove(fromCls);
+          codeDiv.classList.add(toCls);
+        } 
+      }
+      return false;
+    }
+  }
+  const hideAllCode = window.document.getElementById("quarto-hide-all-code");
+  if (hideAllCode) {
+    hideAllCode.addEventListener("click", toggleCodeHandler(false));
+  }
+  const showAllCode = window.document.getElementById("quarto-show-all-code");
+  if (showAllCode) {
+    showAllCode.addEventListener("click", toggleCodeHandler(true));
+  }
   function tippyHover(el, contentFn) {
     const config = {
       allowHTML: true,
@@ -2693,7 +2939,198 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
   }
 });
-</script>
+</script><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
+<div class="sourceCode" id="cb28" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "Inject 14: Univariable analysis"</span></span>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a><span class="an">editor:</span><span class="co"> visual</span></span>
+<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-6"><a href="#cb28-6" aria-hidden="true" tabindex="-1"></a><span class="fu">## 1. Install packages and load libraries</span></span>
+<span id="cb28-7"><a href="#cb28-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-10"><a href="#cb28-10" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb28-11"><a href="#cb28-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Load the required libraries into the current R session:</span></span>
+<span id="cb28-12"><a href="#cb28-12" aria-hidden="true" tabindex="-1"></a>pacman<span class="sc">::</span><span class="fu">p_load</span>(rio, </span>
+<span id="cb28-13"><a href="#cb28-13" aria-hidden="true" tabindex="-1"></a>               here, </span>
+<span id="cb28-14"><a href="#cb28-14" aria-hidden="true" tabindex="-1"></a>               tidyverse, </span>
+<span id="cb28-15"><a href="#cb28-15" aria-hidden="true" tabindex="-1"></a>               skimr,</span>
+<span id="cb28-16"><a href="#cb28-16" aria-hidden="true" tabindex="-1"></a>               plyr,</span>
+<span id="cb28-17"><a href="#cb28-17" aria-hidden="true" tabindex="-1"></a>               janitor,</span>
+<span id="cb28-18"><a href="#cb28-18" aria-hidden="true" tabindex="-1"></a>               lubridate,</span>
+<span id="cb28-19"><a href="#cb28-19" aria-hidden="true" tabindex="-1"></a>               gtsummary, </span>
+<span id="cb28-20"><a href="#cb28-20" aria-hidden="true" tabindex="-1"></a>               flextable,</span>
+<span id="cb28-21"><a href="#cb28-21" aria-hidden="true" tabindex="-1"></a>               officer,</span>
+<span id="cb28-22"><a href="#cb28-22" aria-hidden="true" tabindex="-1"></a>               epikit, </span>
+<span id="cb28-23"><a href="#cb28-23" aria-hidden="true" tabindex="-1"></a>               apyramid, </span>
+<span id="cb28-24"><a href="#cb28-24" aria-hidden="true" tabindex="-1"></a>               scales,</span>
+<span id="cb28-25"><a href="#cb28-25" aria-hidden="true" tabindex="-1"></a>               EpiStats,</span>
+<span id="cb28-26"><a href="#cb28-26" aria-hidden="true" tabindex="-1"></a>               broom)</span>
+<span id="cb28-27"><a href="#cb28-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-28"><a href="#cb28-28" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb28-29"><a href="#cb28-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-30"><a href="#cb28-30" aria-hidden="true" tabindex="-1"></a><span class="fu">## 2. Import your data</span></span>
+<span id="cb28-31"><a href="#cb28-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-32"><a href="#cb28-32" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, Import_data}</span></span>
+<span id="cb28-33"><a href="#cb28-33" aria-hidden="true" tabindex="-1"></a><span class="co"># Import the raw data set:</span></span>
+<span id="cb28-34"><a href="#cb28-34" aria-hidden="true" tabindex="-1"></a>copdata <span class="ot">&lt;-</span> rio<span class="sc">::</span><span class="fu">import</span>(here<span class="sc">::</span><span class="fu">here</span>(<span class="st">"data"</span>, <span class="st">"Copenhagen_clean2.rds"</span>))</span>
+<span id="cb28-35"><a href="#cb28-35" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb28-36"><a href="#cb28-36" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-37"><a href="#cb28-37" aria-hidden="true" tabindex="-1"></a><span class="fu">## 3. Hypothesis tests for other variables</span></span>
+<span id="cb28-38"><a href="#cb28-38" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-39"><a href="#cb28-39" aria-hidden="true" tabindex="-1"></a><span class="fu">#### a) age</span></span>
+<span id="cb28-40"><a href="#cb28-40" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-41"><a href="#cb28-41" aria-hidden="true" tabindex="-1"></a>With the Shapiro-Wilk test we check if the variables are following the normal distribution. The null hypothesis is that the data follow a normal distribution, therefore, rejecting the null hypothesis means that the data do not follow the normal distribution. A p-value below the cutoff for rejecting the null hypothesis, e.g., a p-value<span class="sc">\&lt;</span>0.05 means that we reject the null hypothesis that the data follow the normal distribution. For age, the p-value is <span class="sc">\&lt;</span>0.05, therefore we reject the null hypothesis that the data are normally distributed. As we see in the graph most frequently reported age is <span class="sc">\&lt;</span>20 years.</span>
+<span id="cb28-42"><a href="#cb28-42" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-45"><a href="#cb28-45" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb28-46"><a href="#cb28-46" aria-hidden="true" tabindex="-1"></a><span class="co"># Check if age overall follows a normal distribution:</span></span>
+<span id="cb28-47"><a href="#cb28-47" aria-hidden="true" tabindex="-1"></a><span class="fu">shapiro.test</span>(copdata<span class="sc">$</span>age)</span>
+<span id="cb28-48"><a href="#cb28-48" aria-hidden="true" tabindex="-1"></a><span class="co"># Can simply have a look at</span></span>
+<span id="cb28-49"><a href="#cb28-49" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(copdata<span class="sc">$</span>age)</span>
+<span id="cb28-50"><a href="#cb28-50" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-51"><a href="#cb28-51" aria-hidden="true" tabindex="-1"></a><span class="co"># Looking only at the students:</span></span>
+<span id="cb28-52"><a href="#cb28-52" aria-hidden="true" tabindex="-1"></a>students <span class="ot">&lt;-</span> copdata <span class="sc">%&gt;%</span> </span>
+<span id="cb28-53"><a href="#cb28-53" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(group <span class="sc">==</span> <span class="st">"student"</span>)</span>
+<span id="cb28-54"><a href="#cb28-54" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(students<span class="sc">$</span>age)</span>
+<span id="cb28-55"><a href="#cb28-55" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb28-56"><a href="#cb28-56" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-57"><a href="#cb28-57" aria-hidden="true" tabindex="-1"></a>Age overall (nor within the students' group) is not normally distributed.</span>
+<span id="cb28-58"><a href="#cb28-58" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-59"><a href="#cb28-59" aria-hidden="true" tabindex="-1"></a>We compare the age for cases and non-cases using the Wilcoxon test that is used when the data are not normally distributed. The null hypothesis is that there is no difference in the age between the two groups compared. Given that p-value<span class="sc">\&gt;</span>0.05 we do not reject the null hypothesis.</span>
+<span id="cb28-60"><a href="#cb28-60" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-63"><a href="#cb28-63" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb28-64"><a href="#cb28-64" aria-hidden="true" tabindex="-1"></a><span class="co"># Perform Wilcoxon rank sum test on age and sex:</span></span>
+<span id="cb28-65"><a href="#cb28-65" aria-hidden="true" tabindex="-1"></a><span class="fu">wilcox.test</span>(age <span class="sc">~</span> case, </span>
+<span id="cb28-66"><a href="#cb28-66" aria-hidden="true" tabindex="-1"></a>            <span class="at">data =</span> copdata)</span>
+<span id="cb28-67"><a href="#cb28-67" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb28-68"><a href="#cb28-68" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-69"><a href="#cb28-69" aria-hidden="true" tabindex="-1"></a><span class="fu">#### b) sex</span></span>
+<span id="cb28-70"><a href="#cb28-70" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-73"><a href="#cb28-73" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb28-74"><a href="#cb28-74" aria-hidden="true" tabindex="-1"></a>copdata <span class="sc">%&gt;%</span> </span>
+<span id="cb28-75"><a href="#cb28-75" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(sex, case) <span class="sc">%&gt;%</span> </span>
+<span id="cb28-76"><a href="#cb28-76" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tbl_summary</span>(<span class="at">by =</span> case) <span class="sc">%&gt;%</span> </span>
+<span id="cb28-77"><a href="#cb28-77" aria-hidden="true" tabindex="-1"></a>  <span class="fu">add_p</span>()</span>
+<span id="cb28-78"><a href="#cb28-78" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-79"><a href="#cb28-79" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb28-80"><a href="#cb28-80" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-81"><a href="#cb28-81" aria-hidden="true" tabindex="-1"></a><span class="fu">#### c) class</span></span>
+<span id="cb28-82"><a href="#cb28-82" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-85"><a href="#cb28-85" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb28-86"><a href="#cb28-86" aria-hidden="true" tabindex="-1"></a>copdata <span class="sc">%&gt;%</span> </span>
+<span id="cb28-87"><a href="#cb28-87" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(class, case) <span class="sc">%&gt;%</span> </span>
+<span id="cb28-88"><a href="#cb28-88" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tbl_summary</span>(<span class="at">by =</span> case) <span class="sc">%&gt;%</span> </span>
+<span id="cb28-89"><a href="#cb28-89" aria-hidden="true" tabindex="-1"></a>  <span class="fu">add_p</span>()</span>
+<span id="cb28-90"><a href="#cb28-90" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-91"><a href="#cb28-91" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb28-92"><a href="#cb28-92" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-93"><a href="#cb28-93" aria-hidden="true" tabindex="-1"></a><span class="fu">#### d) group</span></span>
+<span id="cb28-94"><a href="#cb28-94" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-97"><a href="#cb28-97" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb28-98"><a href="#cb28-98" aria-hidden="true" tabindex="-1"></a>copdata <span class="sc">%&gt;%</span> </span>
+<span id="cb28-99"><a href="#cb28-99" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(group, case) <span class="sc">%&gt;%</span> </span>
+<span id="cb28-100"><a href="#cb28-100" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tbl_summary</span>(<span class="at">by =</span> case) <span class="sc">%&gt;%</span> </span>
+<span id="cb28-101"><a href="#cb28-101" aria-hidden="true" tabindex="-1"></a>  <span class="fu">add_p</span>()</span>
+<span id="cb28-102"><a href="#cb28-102" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb28-103"><a href="#cb28-103" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-104"><a href="#cb28-104" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Let's do all together</span></span>
+<span id="cb28-105"><a href="#cb28-105" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-108"><a href="#cb28-108" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb28-109"><a href="#cb28-109" aria-hidden="true" tabindex="-1"></a>copdata <span class="sc">%&gt;%</span> </span>
+<span id="cb28-110"><a href="#cb28-110" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(sex, class, group, case) <span class="sc">%&gt;%</span> </span>
+<span id="cb28-111"><a href="#cb28-111" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tbl_summary</span>(<span class="at">by =</span> case) <span class="sc">%&gt;%</span> </span>
+<span id="cb28-112"><a href="#cb28-112" aria-hidden="true" tabindex="-1"></a>  <span class="fu">add_p</span>()</span>
+<span id="cb28-113"><a href="#cb28-113" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-114"><a href="#cb28-114" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb28-115"><a href="#cb28-115" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-116"><a href="#cb28-116" aria-hidden="true" tabindex="-1"></a><span class="fu">## 4. Risk Ratios</span></span>
+<span id="cb28-117"><a href="#cb28-117" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-118"><a href="#cb28-118" aria-hidden="true" tabindex="-1"></a>The risk ratios of each food item (including the 2x2 table) are reported below. The output of the CS() command is two tables (one with the 2x2 table and one with the risk difference, the risk ratio and the attributable fraction among exposed as well as the attributable fraction among the population (and the confidence intervals for all the estimates). The Chi-square and the p-value are also reported. In the second part, a table with all the food items is printed including attack rates for exposed and unexposed as well as risk ratios and the 95% confidence intervals (CI ll and CI ul, for the lower and upper interval) and p-values.</span>
+<span id="cb28-119"><a href="#cb28-119" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-120"><a href="#cb28-120" aria-hidden="true" tabindex="-1"></a><span class="fu">### a) Calculate 95% CI Risk Ratios for food</span></span>
+<span id="cb28-121"><a href="#cb28-121" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-124"><a href="#cb28-124" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb28-125"><a href="#cb28-125" aria-hidden="true" tabindex="-1"></a><span class="co"># You could use the EpiStats package for each food item</span></span>
+<span id="cb28-126"><a href="#cb28-126" aria-hidden="true" tabindex="-1"></a><span class="fu">CS</span>(copdata, <span class="st">"case"</span>, <span class="st">"tuna"</span>)</span>
+<span id="cb28-127"><a href="#cb28-127" aria-hidden="true" tabindex="-1"></a><span class="fu">CS</span>(copdata, <span class="st">"case"</span>, <span class="st">"shrimps"</span>)</span>
+<span id="cb28-128"><a href="#cb28-128" aria-hidden="true" tabindex="-1"></a><span class="fu">CS</span>(copdata, <span class="st">"case"</span>, <span class="st">"green"</span>)</span>
+<span id="cb28-129"><a href="#cb28-129" aria-hidden="true" tabindex="-1"></a><span class="fu">CS</span>(copdata, <span class="st">"case"</span>, <span class="st">"veal"</span>)</span>
+<span id="cb28-130"><a href="#cb28-130" aria-hidden="true" tabindex="-1"></a><span class="co"># And so one</span></span>
+<span id="cb28-131"><a href="#cb28-131" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb28-132"><a href="#cb28-132" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-135"><a href="#cb28-135" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb28-136"><a href="#cb28-136" aria-hidden="true" tabindex="-1"></a><span class="co"># You can save time (and probably typos!) by creating a vector for food variables...</span></span>
+<span id="cb28-137"><a href="#cb28-137" aria-hidden="true" tabindex="-1"></a>food_vars <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"tuna"</span>, <span class="st">"shrimps"</span>, <span class="st">"green"</span>, <span class="st">"veal"</span>, </span>
+<span id="cb28-138"><a href="#cb28-138" aria-hidden="true" tabindex="-1"></a>                <span class="st">"pasta"</span>, <span class="st">"rocket"</span>, <span class="st">"sauce"</span>, <span class="st">"bread"</span>,</span>
+<span id="cb28-139"><a href="#cb28-139" aria-hidden="true" tabindex="-1"></a>                <span class="st">"champagne"</span>, <span class="st">"beer"</span>, <span class="st">"redwine"</span>, <span class="st">"whitewine"</span>)</span>
+<span id="cb28-140"><a href="#cb28-140" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-141"><a href="#cb28-141" aria-hidden="true" tabindex="-1"></a><span class="co"># ...and using EpiStats::CSTable() to run all variables together!</span></span>
+<span id="cb28-142"><a href="#cb28-142" aria-hidden="true" tabindex="-1"></a><span class="fu">CSTable</span>(copdata, <span class="st">"case"</span>, food_vars)</span>
+<span id="cb28-143"><a href="#cb28-143" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb28-144"><a href="#cb28-144" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-145"><a href="#cb28-145" aria-hidden="true" tabindex="-1"></a><span class="fu">### b) Prepare the RR table for publication</span></span>
+<span id="cb28-146"><a href="#cb28-146" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-149"><a href="#cb28-149" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb28-150"><a href="#cb28-150" aria-hidden="true" tabindex="-1"></a>rr_tbl <span class="ot">&lt;-</span> <span class="fu">CSTable</span>(copdata, <span class="st">"case"</span>, food_vars) <span class="sc">%&gt;%</span> </span>
+<span id="cb28-151"><a href="#cb28-151" aria-hidden="true" tabindex="-1"></a>  <span class="fu">as.data.frame</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb28-152"><a href="#cb28-152" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rownames_to_column</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb28-153"><a href="#cb28-153" aria-hidden="true" tabindex="-1"></a>  <span class="fu">flextable</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb28-154"><a href="#cb28-154" aria-hidden="true" tabindex="-1"></a>   <span class="fu">set_header_labels</span>(</span>
+<span id="cb28-155"><a href="#cb28-155" aria-hidden="true" tabindex="-1"></a>     <span class="at">values =</span> <span class="fu">c</span>(<span class="st">"Food Item"</span>,</span>
+<span id="cb28-156"><a href="#cb28-156" aria-hidden="true" tabindex="-1"></a>                <span class="st">"Total exposed"</span>,     </span>
+<span id="cb28-157"><a href="#cb28-157" aria-hidden="true" tabindex="-1"></a>               <span class="st">"Cases exposed"</span>, </span>
+<span id="cb28-158"><a href="#cb28-158" aria-hidden="true" tabindex="-1"></a>               <span class="st">"AR among exposed"</span>,    </span>
+<span id="cb28-159"><a href="#cb28-159" aria-hidden="true" tabindex="-1"></a>               <span class="st">"Total unexposed"</span>,</span>
+<span id="cb28-160"><a href="#cb28-160" aria-hidden="true" tabindex="-1"></a>               <span class="st">"Cases unexposed"</span>,</span>
+<span id="cb28-161"><a href="#cb28-161" aria-hidden="true" tabindex="-1"></a>               <span class="st">"AR among unexposed"</span>,</span>
+<span id="cb28-162"><a href="#cb28-162" aria-hidden="true" tabindex="-1"></a>               <span class="st">"RR"</span>,         </span>
+<span id="cb28-163"><a href="#cb28-163" aria-hidden="true" tabindex="-1"></a>               <span class="st">"95% lower CI"</span>,             </span>
+<span id="cb28-164"><a href="#cb28-164" aria-hidden="true" tabindex="-1"></a>               <span class="st">"95% upper CI"</span>,</span>
+<span id="cb28-165"><a href="#cb28-165" aria-hidden="true" tabindex="-1"></a>               <span class="st">"p-value"</span>))</span>
+<span id="cb28-166"><a href="#cb28-166" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb28-167"><a href="#cb28-167" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-168"><a href="#cb28-168" aria-hidden="true" tabindex="-1"></a><span class="fu">## 5. Dose Response</span></span>
+<span id="cb28-169"><a href="#cb28-169" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-170"><a href="#cb28-170" aria-hidden="true" tabindex="-1"></a><span class="fu">#### a) Pasta</span></span>
+<span id="cb28-171"><a href="#cb28-171" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-174"><a href="#cb28-174" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb28-175"><a href="#cb28-175" aria-hidden="true" tabindex="-1"></a><span class="co"># Binomial regression for RRs. </span></span>
+<span id="cb28-176"><a href="#cb28-176" aria-hidden="true" tabindex="-1"></a><span class="co"># The outcome needs to be exponentiated so we can interpret it properly!</span></span>
+<span id="cb28-177"><a href="#cb28-177" aria-hidden="true" tabindex="-1"></a>binom_pastaD <span class="ot">&lt;-</span> <span class="fu">glm</span>(case <span class="sc">~</span> pastaD, <span class="at">data =</span> copdata, </span>
+<span id="cb28-178"><a href="#cb28-178" aria-hidden="true" tabindex="-1"></a>             <span class="at">family =</span> <span class="fu">binomial</span>(<span class="at">link =</span> <span class="st">"log"</span>))</span>
+<span id="cb28-179"><a href="#cb28-179" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-180"><a href="#cb28-180" aria-hidden="true" tabindex="-1"></a><span class="co"># To get exponentiated:</span></span>
+<span id="cb28-181"><a href="#cb28-181" aria-hidden="true" tabindex="-1"></a>binom_pastaD_exp <span class="ot">&lt;-</span> <span class="fu">glm</span>(case <span class="sc">~</span> pastaD, <span class="at">data =</span> copdata, </span>
+<span id="cb28-182"><a href="#cb28-182" aria-hidden="true" tabindex="-1"></a>                       <span class="at">family =</span> <span class="fu">binomial</span>(<span class="at">link =</span> <span class="st">"log"</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb28-183"><a href="#cb28-183" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tidy</span>(<span class="at">exponentiate =</span> <span class="cn">TRUE</span>, </span>
+<span id="cb28-184"><a href="#cb28-184" aria-hidden="true" tabindex="-1"></a>       <span class="at">conf.int =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb28-185"><a href="#cb28-185" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-186"><a href="#cb28-186" aria-hidden="true" tabindex="-1"></a>binom_pastaD_exp</span>
+<span id="cb28-187"><a href="#cb28-187" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb28-188"><a href="#cb28-188" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-189"><a href="#cb28-189" aria-hidden="true" tabindex="-1"></a><span class="fu">#### b) Veal</span></span>
+<span id="cb28-190"><a href="#cb28-190" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-193"><a href="#cb28-193" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb28-194"><a href="#cb28-194" aria-hidden="true" tabindex="-1"></a><span class="co"># Let's get the results directly exponentiated</span></span>
+<span id="cb28-195"><a href="#cb28-195" aria-hidden="true" tabindex="-1"></a>binom_vealD_exp <span class="ot">&lt;-</span> <span class="fu">glm</span>(case <span class="sc">~</span> vealD, <span class="at">data =</span> copdata, </span>
+<span id="cb28-196"><a href="#cb28-196" aria-hidden="true" tabindex="-1"></a>                       <span class="at">family =</span> <span class="fu">binomial</span>(<span class="at">link =</span> <span class="st">"log"</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb28-197"><a href="#cb28-197" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tidy</span>(<span class="at">exponentiate =</span> <span class="cn">TRUE</span>, </span>
+<span id="cb28-198"><a href="#cb28-198" aria-hidden="true" tabindex="-1"></a>       <span class="at">conf.int =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb28-199"><a href="#cb28-199" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-200"><a href="#cb28-200" aria-hidden="true" tabindex="-1"></a>binom_vealD_exp</span>
+<span id="cb28-201"><a href="#cb28-201" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb28-202"><a href="#cb28-202" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-203"><a href="#cb28-203" aria-hidden="true" tabindex="-1"></a><span class="fu">#### c) Champagne</span></span>
+<span id="cb28-204"><a href="#cb28-204" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-207"><a href="#cb28-207" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb28-208"><a href="#cb28-208" aria-hidden="true" tabindex="-1"></a><span class="co"># Let's get the results directly exponentiated</span></span>
+<span id="cb28-209"><a href="#cb28-209" aria-hidden="true" tabindex="-1"></a>binom_champagneD_exp <span class="ot">&lt;-</span> <span class="fu">glm</span>(case <span class="sc">~</span> champagneD, <span class="at">data =</span> copdata, </span>
+<span id="cb28-210"><a href="#cb28-210" aria-hidden="true" tabindex="-1"></a>                       <span class="at">family =</span> <span class="fu">binomial</span>(<span class="at">link =</span> <span class="st">"log"</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb28-211"><a href="#cb28-211" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tidy</span>(<span class="at">exponentiate =</span> <span class="cn">TRUE</span>, </span>
+<span id="cb28-212"><a href="#cb28-212" aria-hidden="true" tabindex="-1"></a>       <span class="at">conf.int =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb28-213"><a href="#cb28-213" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-214"><a href="#cb28-214" aria-hidden="true" tabindex="-1"></a>binom_champagneD_exp</span>
+<span id="cb28-215"><a href="#cb28-215" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+</code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div></div></div></div></div>
 </div> <!-- /content -->
 
 
