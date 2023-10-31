@@ -3,7 +3,23 @@ title: "Inject 11: Descriptive analysis"
 editor: visual
 ---
 
-## 1. Install packages and load libraries
+## 1. Learning outcomes
+
+At the end of the session, participants will be able to:
+
+-   Discuss which descriptive statistics would you use to describe the cases
+-   Describe the cases by person and place (this is an outbreak in a high school, so we won't explore "place" this time!)
+-   Generate preliminary hypotheses bases on the descriptions.
+
+## 2. Story/plot description
+
+You have finished cleaning your dataset and will now use it to describe the people identified as cases so far and generate a hypothesis to inform the next steps in the outbreak investigation. Note that you should try to have a data analysis plan *before* any data collection. Nevertheless, during the urgency of outbreak investigations, questionnaire development may sometimes occur before you had time to draft a proper analysis plan (as it is the case in this simulated outbreak). Drawing "dummy" tables and graphs will help you precise the type of statistics you will carry out later on.
+
+## 3. Questions/Assignments
+
+If you closed your R project, please open it again and load the clean dataset. We recommend you use the `Copenhagen_clean2.rds` provided by us in EVA. This is just to be sure all needed changes in that file for the code to work have been done (as you may have changed the file in a slightly different way than we have).
+
+## 3.1 Install packages (if needed) and load libraries
 
 ```{r}
 # Load the required libraries into the current R session:
@@ -23,7 +39,7 @@ pacman::p_load(rio,
 
 ```
 
-## 2. Import your data
+## 3.2 Import your data
 
 ```{r, Import_data}
 # Import the clean data set:
@@ -31,9 +47,15 @@ copdata <- rio::import(here::here("data", "Copenhagen_clean2.rds"))
 
 ```
 
-## 3. Time
+## 3.3 Describe the outbreak in terms of time.
 
-### a) Incubation period histogram
+You could use `ggplot2`.To learn more about `ggplot2` you can check [The Epidemiologist R Handbook: Chapter on ggplot](https://extranet.ecdc.europa.eu/Training/PM/Documents/Module%20Preparations/Intro%20Course/Track%20-%20Simulated%20Outbreak/Injects/The%20Epidemiologist%20R%20Handbook:%20Chapter%20on%20ggplot) and [ggplot2 - Elegant Graphics for Data Analysis](https://ggplot2-book.org/index.html).
+
+### a) Create a histogram to visualize the incubation period (`geom_histogram` is a good function to use for this!).
+
+::: {.callout-warning title="Let's stop and... think!" collapse="true"}
+What can you infer from the incubation periods in the histogram?
+:::
 
 ```{r}
 
@@ -61,7 +83,13 @@ incplot <- cases %>%
 incplot
 ```
 
-### b) Epicurve for date and time of onset
+### b) Create an epicurve for the date and time of onset (using onset_datetime), limiting the input data to cases.
+- 	Use `scale_x_datetime()` and chose a value for `date_breaks()` based on your calculated incubation period.
+- 	Label your x and y axes using `labs()`.
+
+::: {.callout-tip title="Need a little bit of help?" collapse="true"}
+A rule of thumb is to use one third or one fourth of the average incubation period as an interval. For our investigation this means we should use approximately a 6h interval for the `date_breaks` argument.
+:::
 
 ```{r}
 #| label: epicurve date-time
@@ -93,6 +121,20 @@ epicurve_datetime <- cases %>%
 # Print epicurve:
 epicurve_datetime
 ```
+
+c)	Building up on your previous epicurve, create another epicurve to compare between sexes and additionally investigate how teachers versus students were distributed.
+
+- 	Use `fill = group`
+- 	Use sex as your facets for `facet_wrap()`
+
+::: {.callout-tip title="Need a little bit of help?" collapse="true"}
+`fill` adds an additional variable to be displayed in the plot: `group` is going to determine the fill-colour of our bars. 
+`facet_wrap` splits the graph in two: one each for the two levels of `sex`.
+:::
+
+::: {.callout-important title="Do you feel like a challenge?" collapse="true"}
+If you want, try using `str_glue()` to add the total number of cases to the sub-title of the plot. `str_glue()` is a very useful function that allows you to dynamically create a summary statistic from your data within some normal text.
+:::
 
 ```{r}
 #| label: epicurve strata
@@ -127,9 +169,24 @@ epicurve_strata <- cases %>%
 epicurve_strata 
 ```
 
-## 4. Person
+::: {.callout-warning title="Let's stop and... think!" collapse="true"}
+What does the stratified epicurve tell you? Does the shape of the epicurve support a viral or toxic aetiology? What other information can you obtain from it?
+:::
 
-### a) Cross-tabulation of cases with group
+::: {.callout-note title="If you've thought about the above questions, have a look here" collapse="true"}
+When constructing an epicurve, we need to decide on the resolution, i.e. the time interval for a single bar. A rule of thumb is to use one third or one fourth of the average incubation period as an interval. For our investigation this means we should use approximately a 6h interval.
+
+This seems a good choice, as we saw that the daily interval was too coarse to really see the signal we are after. The epicurve and the summary of the incubation period show that there seemed to be a rapid onset of symptoms following exposure. This is in line with our previous suspicion that a virus or a toxin might be the causative agent in the outbreak.
+
+The unimodal shape with the sharp peak suggests a point source, while the tail on the right-hand side could be explained by secondary cases or background noise. Also, people that only consumed a little contaminated food and therefore only a low infectious dose could have a longer incubation period and could explain the late cases.
+
+The above results are in line with norovirus as the prime suspect, but the symptoms are not a textbook fit. There are too few people that experienced vomiting! Looking forward to receiving the lab results!
+:::
+
+## 3.4. Describe the outbreak in terms of person.
+You could use `tabyl()`. For more detail on the `tabyl()` function and the `adorn_XYZ` helpers, see the [janitor documentation](https://cran.r-project.org/web/packages/janitor/vignettes/tabyls.html) or [The Epidemiologist R Handbook section on tabulation](https://epirhandbook.com/en/descriptive-tables.html#tbl_janitor).
+
+### a) Create a cross-tabulation of `case` with `group`.
 
 ```{r}
 #| label: Cross-tab cases
@@ -142,7 +199,7 @@ copdata %>%
 
 ```
 
-### b) Cross-tabulation of cases with sex
+### b) Create a cross-tabulation of `case` with `sex`.
 
 ```{r}
 
@@ -154,7 +211,20 @@ copdata %>%
 
 ```
 
-### c) Extra - Age-sex pyramid of cases
+::: {.callout-warning title="Let's stop and... think!" collapse="true"}
+What do you think of these results?
+:::
+
+::: {.callout-note title="If you've thought about the above questions, have a look here" collapse="true"}
+The distribution of the cohort regarding sex, group and class also didn’t reveal anything unusual. Students seem a bit more affected by the outbreak than teachers and the attack rate is higher for older students in higher classes. This, however, is a purely descriptive result. 
+:::
+
+::: {.callout-important title="Do you feel like a challenge?" collapse="true"}
+If you want, create an age-sex pyramid using the `apyramid` package. To do so, first create an age category variable with the `epkit` function `age_categories()`.
+:::
+
+### c) Extra - Age-sex pyramid of cases.
+Hint: Change `show_midpoint = FALSE` to `TRUE` to see skewedness in the data patterns more easily.
 
 ```{r}
 
@@ -190,11 +260,10 @@ agesex <- copdata %>%
 agesex
 ```
 
-(Hint: change `show_midpoint = FALSE` to `TRUE` to see skewedness in the data patterns more easily).
 
-## 5. Symptoms
+## 3.5 Explore the distribution of all clinical signs (symptoms).
 
-a)  Summary table of symptoms, stratified by case definition
+### a)  Create a summary table with symptoms stratified by case definition, and present an overall column as well.  You could use `tabyl()` or `gtsummary::tbl_summary()`. You can find further information about `gtsummary` in [The Epidemiologist R handbook section on gtsummary](https://www.epirhandbook.com/en/descriptive-tables.html#tbl_gt).
 
 ```{r}
 
@@ -250,7 +319,15 @@ tabsymptoms <- copdata %>%
 tabsymptoms
 ```
 
-b)  Bar plot of symptoms stratified by case definition
+::: {.callout-warning title="Let's stop and... think!" collapse="true"}
+Do you think the symptoms selected for the case definition were the right ones, or would you change anything?
+:::
+
+::: {.callout-important title="Do you feel like a challenge?" collapse="true"}
+If you want, present the symptoms in an ordered bar chart. To do so, reshape the data using `pivot_longer()`, and then `group_by()`, `summarise()` and `count()` to tally up the counts for each symptom, stratified by case definition. Use `ggplot2::coord_flip()` for a better visualisation.
+:::
+
+### b)  Extra - Bar plot of symptoms stratified by case definition.
 
 ```{r symptom_barplot}
 
@@ -307,9 +384,9 @@ symptom_bar <- copdata %>%
 symptom_bar
 ```
 
-## 6. Attack proportions
+## 3.6 Attack proportions
 
-a)  Overall attack proportion
+### a) Calculate the overall attack proportions (percentage of cases among the total observed individuals). You could use `tabyl()`.
 
 ```{r}
 
@@ -331,7 +408,15 @@ total_ap
 
 ```
 
-b)  Attack proportions for class, group and sex by case status
+::: {.callout-warning title="Let's stop and... think!" collapse="true"}
+What can you infer from the overall attack proportion about this outbreak and possible vehicles/exposures?
+:::
+
+::: {.callout-note title="If you've thought about the above questions, have a look here" collapse="true"}
+The overall attack proportion is 57.3%. This means that more than half of the people who ate a meal were cases!
+:::
+
+### b)  Calculate attack proportions for `group`, `class` and `sex` by case status. You could use `tabyl()` (as you did in 3.4) or `gtsummary::tbl_summary`.
 
 ```{r}
 
@@ -367,3 +452,10 @@ attack_prop <- copdata %>%
 attack_prop
 
 ```
+
+
+## 3.7 Draft the relevant paragraph(s) and table(s) and/or figure(s) in your outbreak report (Methods and results).
+
+::: {.callout-tip title="Need a little bit of help?" collapse="true"}
+To save your tabyl table as a .docx, you could convert your tabyl to flextable (`as_flex_table()`), ensure only one line per row (`flextable::autofit()`) and save as .docx (`flextable::save_as_docx(path = "nameoftable.docx"`)
+:::
