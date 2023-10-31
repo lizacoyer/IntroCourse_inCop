@@ -76,7 +76,7 @@ You decide to exclude any people from the cohort who didn't eat at the dinner, b
 :::
 
 ::: {.callout-warning title="Let's stop and... think!" collapse="true"}
-Stop and reflect: What are some of the implications this decision may lead to? (excluding any people from the cohort who didn't eat at the dinner)
+What are some of the implications this decision may lead to? (excluding any people from the cohort who didn't eat at the dinner)
 :::
 
 ```{r}
