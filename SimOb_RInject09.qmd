@@ -13,9 +13,9 @@ At the end of the session, participants will be able to:
 
 # **2. Story/plot description**
 
-You and your team have carried out hundreds of interviews using KoboCollect in a very short time. Well done!
+You and your team have carried out hundreds of interviews in a very short time. Well done!
 
-You will now have your first look at the data. Note that in real life you would have ideally done a pilot of the questionnaire and have prepared in advance a codebook and be familiar with the names and format of all variables.
+You will now have your first look at the data. Note that in real life you would have ideally done a pilot of the questionnaire and you would have prepared in advance a codebook and be familiar with the names and format of all variables.
 
 You have 1.5h to explore and clean the data you have collected and save a new version of the cleaned dataset in your computer. Be sure to make use of the R code that was provided to you last week, during the R practicals. You can also use the code you wrote during the Applied Epi course. You are expected to look at the help functions and google as well. Try to understand what the functions are doing and their arguments are.
 
@@ -52,11 +52,11 @@ pacman::p_load(rio,
 
 ## 3.2. Import your data
 
--   You can find the `Copenhagen_raw.csv` file in EVA. Feel free to explore the **codebook** as well.
+-   You can find the `spetses_school.csv` file in EVA. Feel free to explore the **codebook** as well.
 
 ```{r, Import_data}
 # Import the raw data set:
-copdata <- rio::import(here::here("data", "Copenhagen_raw.csv"))
+copdata <- rio::import(here::here("data", "spetses_school.csv"))
 ```
 
 ## 3.3. Explore and clean your data
@@ -239,9 +239,9 @@ food_dose <- copdata %>%
     names()
 
 # Another way of doing it:
-food_dose <- c("tunaD", "shrimpsD", "greenD", "vealD", 
-                "pastaD", "rocketD", "sauceD", "breadD",
-                "champagneD", "beerD", "redwineD", "whitewineD")
+# food_dose <- c("fetaD", "sardinesD", "eggplantD", "moussakaD", 
+#                 "orzoD", "greeksalD", "dessertD", "breadD", 
+#                 "champagneD", "beerD", "redwineD", "whitewineD")
 
 
 copdata <- copdata %>% 
@@ -251,10 +251,6 @@ copdata <- copdata %>%
            .fns = ~as.factor(.))) 
   
 ```
-
-::: {.callout-note title="Note" collapse="true"}
-The tilde (`~`) above is used to apply the transformation `as.logical(.)` to each selected column, which in our case is either all columns included in `food_items` and `food_dose.`
-:::
 
 ::: {.callout-note title="Note" collapse="true"}
 The tilde (`~`) above is used to apply the transformation `as.logical(.)` to each selected column, which in our case is either all columns included in `food_items` and `food_dose.`
@@ -283,6 +279,8 @@ copdata <- copdata %>%
 
 # Check class of updated column:
 class(copdata$dayonset)
+# Have a look at your data now:
+head(copdata$dayonset)
 ```
 
 Having a variable that defines "time" in an outbreak investigation can be very useful when creating a case definition. An hour of the day, without a date associated with it doesn't help you much, thus, you should merge together day and time of onset of symptoms into a single variable. Moreover, you will be using this combined variable later on to estimate an incubation period and create your epicurve. We can combine these two variables by using the `lubridate::ymd_h()` function.
@@ -336,7 +334,7 @@ Use `rio::export()`.
 ```{r export_clean_data}
 
 rio::export(x = copdata, 
-            file = here::here("data", "Copenhagen_clean1.rds"))
+            file = here::here("data", "Copenhagen_clean1_2024.rds"))
 
 ```
 
