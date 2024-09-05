@@ -17,13 +17,13 @@ You and your team have carried out hundreds of interviews in a very short time. 
 
 You will now have your first look at the data. Note that in real life you would have ideally done a pilot of the questionnaire and you would have prepared in advance a codebook and be familiar with the names and format of all variables.
 
-You have 1.5h to explore and clean the data you have collected and save a new version of the cleaned dataset in your computer. Be sure to make use of the R code that was provided to you last week, during the R practicals. You can also use the code you wrote during the Applied Epi course. You are expected to look at the help functions and google as well. Try to understand what the functions are doing and their arguments are.
+Explore and clean the data you have collected and save a new version of the cleaned dataset in your computer. Be sure to make use of the R code that was provided to you previously, during the R practicals. You can also use the code you wrote during the Applied Epi course. You are expected to look at the help functions and google as well. Try to understand what the functions are doing and what their arguments are.
 
 Work on your own computer and help your fellow colleagues as needed. The lead of the outbreak will be in charge of keeping the time (unless you designate another person, but be sure that someone keeps track of time).
 
 Open R Studio and set up a new R project, and create a `data` and a scripts `folder`.
 
-# **3. Questions/Assignments**
+# **3. Tips you could follow**
 
 ## 3.1. Install packages and load libraries
 
