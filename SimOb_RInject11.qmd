@@ -1,5 +1,5 @@
 ---
-title: "Inject 11: Descriptive analysis"
+title: "Laboratory data and descriptive analysis"
 editor: visual
 ---
 
@@ -7,17 +7,20 @@ editor: visual
 
 At the end of the session, participants will be able to:
 
+-   Merge two datasets using a common column.
 -   Discuss which descriptive statistics would you use to describe the cases
 -   Describe the cases by person and place (this is an outbreak in a high school, so we won't explore "place" this time!)
 -   Generate preliminary hypotheses bases on the descriptions.
 
 ## 2. Story/plot description
 
-You have finished cleaning your dataset and will now use it to describe the people identified as cases so far and generate a hypothesis to inform the next steps in the outbreak investigation. Note that you should try to have a data analysis plan *before* any data collection. Nevertheless, during the urgency of outbreak investigations, questionnaire development may sometimes occur before you had time to draft a proper analysis plan (as it is the case in this simulated outbreak). Drawing "dummy" tables and graphs will help you precise the type of statistics you will carry out later on.
+You received data from the laboratory regarding \[**WE NEED LAB DATA AND DECISIONS ON WHAT TO ADD HERE**\]. You will have to merge the questionnaire data with the data coming from the laboratory.
+
+Now that your dataset is clean and the lab data merged, it is time to describe the people identified as cases so far and generate a hypothesis to inform the next steps in the outbreak investigation. Note that you should try to have a data analysis plan *before* any data collection. Nevertheless, during the urgency of outbreak investigations, questionnaire development may sometimes occur before you had time to draft a proper analysis plan (as it is the case in this simulated outbreak). Drawing "dummy" tables and graphs will help you precise the type of statistics you will carry out later on.
 
 ## 3. Questions/Assignments
 
-If you closed your R project, please open it again and load the clean dataset. We recommend you use the `Copenhagen_clean2.rds` provided by us in EVA. This is just to be sure all needed changes in that file for the code to work have been done (as you may have changed the file in a slightly different way than we have).
+If you closed your R project, please open it again and load the clean dataset. We recommend you use the `Copenhagen_clean2_2024.rds` provided by us in EVA. This is just to be sure all needed changes in that file for the code to work have been done (as you may have changed the file in a slightly different way than we have).
 
 ## 3.1 Install packages (if needed) and load libraries
 
@@ -43,7 +46,13 @@ pacman::p_load(rio,
 
 ```{r, Import_data}
 # Import the clean data set:
-copdata <- rio::import(here::here("data", "Copenhagen_clean2.rds")) 
+copdata <- rio::import(here::here("data", "Copenhagen_clean2_2024.rds")) 
+lab <- rio::import(here::here("data", "lab_pos.xlsx")) 
+```
+
+## 3.4 Describe the outbreak in terms of time.
+
+```{r, merge_lab_data}
 
 ```
 
@@ -84,8 +93,9 @@ incplot
 ```
 
 ### b) Create an epicurve for the date and time of onset (using onset_datetime), limiting the input data to cases.
-- 	Use `scale_x_datetime()` and chose a value for `date_breaks()` based on your calculated incubation period.
-- 	Label your x and y axes using `labs()`.
+
+-   Use `scale_x_datetime()` and chose a value for `date_breaks()` based on your calculated incubation period.
+-   Label your x and y axes using `labs()`.
 
 ::: {.callout-tip title="Need a little bit of help?" collapse="true"}
 A rule of thumb is to use one third or one fourth of the average incubation period as an interval. For our investigation this means we should use approximately a 6h interval for the `date_breaks` argument.
@@ -122,14 +132,13 @@ epicurve_datetime <- cases %>%
 epicurve_datetime
 ```
 
-c)	Building up on your previous epicurve, create another epicurve to compare between sexes and additionally investigate how teachers versus students were distributed.
+c)  Building up on your previous epicurve, create another epicurve to compare between sexes and additionally investigate how teachers versus students were distributed.
 
-- 	Use `fill = group`
-- 	Use sex as your facets for `facet_wrap()`
+-   Use `fill = group`
+-   Use sex as your facets for `facet_wrap()`
 
 ::: {.callout-tip title="Need a little bit of help?" collapse="true"}
-`fill` adds an additional variable to be displayed in the plot: `group` is going to determine the fill-colour of our bars. 
-`facet_wrap` splits the graph in two: one each for the two levels of `sex`.
+`fill` adds an additional variable to be displayed in the plot: `group` is going to determine the fill-colour of our bars. `facet_wrap` splits the graph in two: one each for the two levels of `sex`.
 :::
 
 ::: {.callout-important title="Do you feel like a challenge?" collapse="true"}
@@ -184,6 +193,7 @@ The above results are in line with norovirus as the prime suspect, but the sympt
 :::
 
 ## 3.4. Describe the outbreak in terms of person.
+
 You could use `tabyl()`. For more detail on the `tabyl()` function and the `adorn_XYZ` helpers, see the [janitor documentation](https://cran.r-project.org/web/packages/janitor/vignettes/tabyls.html) or [The Epidemiologist R Handbook section on tabulation](https://epirhandbook.com/en/descriptive-tables.html#tbl_janitor).
 
 ### a) Create a cross-tabulation of `case` with `group`.
@@ -216,7 +226,7 @@ What do you think of these results?
 :::
 
 ::: {.callout-note title="If you've thought about the above questions, have a look here" collapse="true"}
-The distribution of the cohort regarding sex, group and class also didn’t reveal anything unusual. Students seem a bit more affected by the outbreak than teachers and the attack rate is higher for older students in higher classes. This, however, is a purely descriptive result. 
+The distribution of the cohort regarding sex, group and class also didn't reveal anything unusual. Students seem a bit more affected by the outbreak than teachers and the attack rate is higher for older students in higher classes. This, however, is a purely descriptive result.
 :::
 
 ::: {.callout-important title="Do you feel like a challenge?" collapse="true"}
@@ -224,6 +234,7 @@ If you want, create an age-sex pyramid using the `apyramid` package. To do so, f
 :::
 
 ### c) Extra - Age-sex pyramid of cases.
+
 Hint: Change `show_midpoint = FALSE` to `TRUE` to see skewedness in the data patterns more easily.
 
 ```{r}
@@ -260,10 +271,9 @@ agesex <- copdata %>%
 agesex
 ```
 
-
 ## 3.5 Explore the distribution of all clinical signs (symptoms).
 
-### a)  Create a summary table with symptoms stratified by case definition, and present an overall column as well.  You could use `tabyl()` or `gtsummary::tbl_summary()`. You can find further information about `gtsummary` in [The Epidemiologist R handbook section on gtsummary](https://www.epirhandbook.com/en/descriptive-tables.html#tbl_gt).
+### a) Create a summary table with symptoms stratified by case definition, and present an overall column as well. You could use `tabyl()` or `gtsummary::tbl_summary()`. You can find further information about `gtsummary` in [The Epidemiologist R handbook section on gtsummary](https://www.epirhandbook.com/en/descriptive-tables.html#tbl_gt).
 
 ```{r}
 
@@ -327,7 +337,7 @@ Do you think the symptoms selected for the case definition were the right ones, 
 If you want, present the symptoms in an ordered bar chart. To do so, reshape the data using `pivot_longer()`, and then `group_by()`, `summarise()` and `count()` to tally up the counts for each symptom, stratified by case definition. Use `ggplot2::coord_flip()` for a better visualisation.
 :::
 
-### b)  Extra - Bar plot of symptoms stratified by case definition.
+### b) Extra - Bar plot of symptoms stratified by case definition.
 
 ```{r symptom_barplot}
 
@@ -416,7 +426,7 @@ What can you infer from the overall attack proportion about this outbreak and po
 The overall attack proportion is 57.3%. This means that more than half of the people who ate a meal were cases!
 :::
 
-### b)  Calculate attack proportions for `group`, `class` and `sex` by case status. You could use `tabyl()` (as you did in 3.4) or `gtsummary::tbl_summary`.
+### b) Calculate attack proportions for `group`, `class` and `sex` by case status. You could use `tabyl()` (as you did in 3.4) or `gtsummary::tbl_summary`.
 
 ```{r}
 
@@ -452,7 +462,6 @@ attack_prop <- copdata %>%
 attack_prop
 
 ```
-
 
 ## 3.7 Draft the relevant paragraph(s) and table(s) and/or figure(s) in your outbreak report (Methods and results).
 

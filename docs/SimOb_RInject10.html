@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Copenhagen Introductory Course - Inject 10: Case Definition</title>
+<title>Copenhagen Introductory Course - Case Definition</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -126,11 +126,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="./SimOb_RInject09.html" rel="" target="">
- <span class="menu-text">Inject 09: Data import and cleaning</span></a>
+ <span class="menu-text">Data import and cleaning</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link active" href="./SimOb_RInject10.html" rel="" target="" aria-current="page">
- <span class="menu-text">Inject 10: Case Definition</span></a>
+ <span class="menu-text">Case Definition</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="./SimOb_RInject11.html" rel="" target="">
@@ -198,7 +198,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<div class="quarto-title-block"><div><h1 class="title">Inject 10: Case Definition</h1><button type="button" class="btn code-tools-button dropdown-toggle" id="quarto-code-tools-menu" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi"></i> Code</button><ul class="dropdown-menu dropdown-menu-end" aria-labelelledby="quarto-code-tools-menu"><li><a id="quarto-show-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Show All Code</a></li><li><a id="quarto-hide-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Hide All Code</a></li><li><hr class="dropdown-divider"></li><li><a id="quarto-view-source" class="dropdown-item" href="javascript:void(0)" role="button">View Source</a></li></ul></div></div>
+<div class="quarto-title-block"><div><h1 class="title">Case Definition</h1><button type="button" class="btn code-tools-button dropdown-toggle" id="quarto-code-tools-menu" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi"></i> Code</button><ul class="dropdown-menu dropdown-menu-end" aria-labelelledby="quarto-code-tools-menu"><li><a id="quarto-show-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Show All Code</a></li><li><a id="quarto-hide-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Hide All Code</a></li><li><hr class="dropdown-divider"></li><li><a id="quarto-view-source" class="dropdown-item" href="javascript:void(0)" role="button">View Source</a></li></ul></div></div>
 </div>
 
 
@@ -226,7 +226,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="questionsassignments" class="level2">
 <h2 class="anchored" data-anchor-id="questionsassignments">3. Questions/Assignments</h2>
-<p>If you closed your R project, please open it again and load the clean dataset. We strongly recommend you use the <code>Copenhagen_clean1.rds</code> provided by us in EVA. This is just to be sure all needed changes in that file for the code to work have been done (as you may have changed the file in a slightly different way than we have).</p>
+<p>If you closed your R project, please open it again and load the clean dataset. We strongly recommend you use the <code>Copenhagen_clean1_2024.rds</code> provided by us in EVA. This is just to be sure all needed changes in that file for the code to work have been done (as you may have changed the file in a slightly different way than we have).</p>
 <p>To be sure we all start from the same case definition, let’s agree that a case was defined as a person who:</p>
 <ul class="task-list">
 <li><input type="checkbox" checked="">attended the school dinner on 11 November 2006 (i.e.&nbsp;is on the linelist)</li>
@@ -271,7 +271,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <details open="">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Import the clean data set:</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>copdata <span class="ot">&lt;-</span> rio<span class="sc">::</span><span class="fu">import</span>(here<span class="sc">::</span><span class="fu">here</span>(<span class="st">"data"</span>, <span class="st">"Copenhagen_clean1.rds"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>copdata <span class="ot">&lt;-</span> rio<span class="sc">::</span><span class="fu">import</span>(here<span class="sc">::</span><span class="fu">here</span>(<span class="st">"data"</span>, <span class="st">"Copenhagen_clean1_2024.rds"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 </section>
@@ -350,7 +350,9 @@ Once you’ve thought about the above, have a look here
 </div>
 <div id="callout-4" class="callout-4-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>Seven of the respondents actually said they did not eat the meal, but when it came to the questions about which food items they ate, they provided answers! This issue could have been minimised by: - At the survey state, one could adjust the design of an electronic questionnaire to prevent key questions from being skipped. This can come with both pros and cons. Allow fellows to discuss if time allows. - Explore your data further, realise this is the case, and recode the <code>meal</code> variable for these individuals as <code>TRUE.</code> =&gt; This would be the way to go, but is not what we did in our example because we tried to keep it simple, and also because it is good to show that you may not always clean the data perfectly, and that has consequences: You can highlight the importance or really explore your data in depth.</p>
+<p>Seven of the respondents actually said they did not eat the meal, but when it came to the questions about which food items they ate, they provided answers! This issue could have been minimised by:</p>
+<p>- At the survey state, one could adjust the design of an electronic questionnaire to prevent key questions from being skipped. This can come with both pros and cons. Allow fellows to discuss if time allows.</p>
+<p>- Explore your data further, realise this is the case, and recode the <code>meal</code> variable for these individuals as <code>TRUE.</code> =&gt; This would be the way to go, but is not what we did in our example because we tried to keep it simple, and also because it is good to show that you may not always clean the data perfectly, and that has consequences: You can highlight the importance or really explore your data in depth.</p>
 <p>By making the above decision, we may be missing cases and non-cases people, and thus, modifying the final estimate of our measure of association. =&gt; It is very important to know your data, explore it deeply and try to clean it as well as possible. Every step one makes when cleaning the data may have a consequence, and we should be aware of it when making the data cleaning decisions and when interpreting the results.</p>
 </div>
 </div>
@@ -488,7 +490,7 @@ Note
 <span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="fu">median</span>(<span class="fu">as.numeric</span>(copdata<span class="sc">$</span>incubation), <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 15</code></pre>
+<pre><code>[1] 6538.625</code></pre>
 </div>
 </div>
 <div class="callout callout-style-default callout-caution callout-titled" title="Now we are messing up with your brain...">
@@ -507,7 +509,7 @@ Now we are messing up with your brain…
 </div>
 </div>
 </div>
-<p>We see that the median incubation time is 15 hours. This is useful information, as incubation periods tend to be relatively pathogen-specific.</p>
+<p>We see that the median incubation time is 6538.625 hours. This is useful information, as incubation periods tend to be relatively pathogen-specific.</p>
 <p>Based on this, say you define and limit the maximum incubation period to 48 hours after the meal, as the data points to a fast-acting bacterial toxin or a virus. That is, dinner participants should have developed (<code>onset_datetime</code>) at least one symptom (<code>diarrhoea</code>, <code>bloody</code> or <code>vomiting</code>) 48h after <code>meal_datetime</code> to become a <code>case.</code></p>
 <div class="callout callout-style-default callout-warning callout-titled" title="Let's stop and... think!">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-11-contents" aria-controls="callout-11" aria-expanded="false" aria-label="Toggle callout">
@@ -562,7 +564,7 @@ If you’ve thought about the above, have a look here
 </details>
 </div>
 <p>Note that we may be incurring in misclassification bias with the code above. The last section indicates that if a person had clinical symptoms before eating the meal, they are considered as non-cases. However, it could be that a person had symptoms before the meal, and yet, still got infected by the pathogen when eating their meal (bad luck, we know…).</p>
-<p>Moreover, if you remember from Inject 09, there were a couple of people with an <code>dayonset</code>, but no <code>starthour</code>. The code we used (<code>lubridate::ymd_h</code> with argument <code>truncated = 2</code>) results in dates with missing <code>starthour</code> being converted to date-time, with the missing time being set to <code>00:00</code> (midnight). This means that these two people don’t fulfill the case definition criteria because we marked their symptoms started early in the morning of Nov 11 (at 00:00), before the meal time (18:00), and thus, they did not “fell ill within the time period of interest”.</p>
+<p>Moreover, if you remember, there were a couple of people with an <code>dayonset</code>, but no <code>starthour</code>. The code we used (<code>lubridate::ymd_h</code> with argument <code>truncated = 2</code>) results in dates with missing <code>starthour</code> being converted to date-time, with the missing time being set to <code>00:00</code> (midnight). This means that these two people don’t fulfill the case definition criteria because we marked their symptoms started early in the morning of Nov 11 (at 00:00), before the meal time (18:00), and thus, they did not “fell ill within the time period of interest”.</p>
 <p>The two situations above are a reminder that you need to be both careful and aware of the implications of your data analysis decisions.</p>
 <div class="callout callout-style-default callout-warning callout-titled" title="Let's stop and... think!">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-13-contents" aria-controls="callout-13" aria-expanded="false" aria-label="Toggle callout">
@@ -606,7 +608,7 @@ If you’ve thought about the above, have a look here
 
 <div data-pagedtable="false">
   <script data-pagedtable-source="" type="application/json">
-{"columns":[{"label":["case"],"name":[1],"type":["lgl"],"align":["right"]},{"label":["n"],"name":[2],"type":["int"],"align":["right"]},{"label":["percent"],"name":[3],"type":["dbl"],"align":["right"]}],"data":[{"1":"FALSE","2":"161","3":"0.4270557"},{"1":"TRUE","2":"216","3":"0.5729443"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+{"columns":[{"label":["case"],"name":[1],"type":["lgl"],"align":["right"]},{"label":["n"],"name":[2],"type":["int"],"align":["right"]},{"label":["percent"],"name":[3],"type":["dbl"],"align":["right"]}],"data":[{"1":"FALSE","2":"377","3":"1"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
   </script>
 </div>
 </div>
@@ -625,7 +627,7 @@ If you’ve thought about the above, have a look here
 
 <div data-pagedtable="false">
   <script data-pagedtable-source="" type="application/json">
-{"columns":[{"label":["atemeal"],"name":[1],"type":["int"],"align":["right"]},{"label":["hadsympt"],"name":[2],"type":["int"],"align":["right"]},{"label":["nb_cases"],"name":[3],"type":["int"],"align":["right"]}],"data":[{"1":"377","2":"216","3":"216"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+{"columns":[{"label":["atemeal"],"name":[1],"type":["int"],"align":["right"]},{"label":["hadsympt"],"name":[2],"type":["int"],"align":["right"]},{"label":["nb_cases"],"name":[3],"type":["int"],"align":["right"]}],"data":[{"1":"377","2":"216","3":"0"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
   </script>
 </div>
 </div>
@@ -639,7 +641,7 @@ If you’ve thought about the above, have a look here
 <details open="">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>rio<span class="sc">::</span><span class="fu">export</span>(<span class="at">x =</span> copdata, </span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>            <span class="at">file =</span> here<span class="sc">::</span><span class="fu">here</span>(<span class="st">"data"</span>, <span class="st">"Copenhagen_clean2.rds"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>            <span class="at">file =</span> here<span class="sc">::</span><span class="fu">here</span>(<span class="st">"data"</span>, <span class="st">"Copenhagen_clean2_2024.rds"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 
@@ -1049,7 +1051,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 });
 </script><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
 <div class="sourceCode" id="cb12" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "Inject 10: Case Definition"</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "Case Definition"</span></span>
 <span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="an">editor:</span><span class="co"> visual</span></span>
 <span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
 <span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a></span>
@@ -1065,7 +1067,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb12-15"><a href="#cb12-15" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb12-16"><a href="#cb12-16" aria-hidden="true" tabindex="-1"></a><span class="fu">## 3. Questions/Assignments</span></span>
 <span id="cb12-17"><a href="#cb12-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-18"><a href="#cb12-18" aria-hidden="true" tabindex="-1"></a>If you closed your R project, please open it again and load the clean dataset. We strongly recommend you use the <span class="in">`Copenhagen_clean1.rds`</span> provided by us in EVA. This is just to be sure all needed changes in that file for the code to work have been done (as you may have changed the file in a slightly different way than we have).</span>
+<span id="cb12-18"><a href="#cb12-18" aria-hidden="true" tabindex="-1"></a>If you closed your R project, please open it again and load the clean dataset. We strongly recommend you use the <span class="in">`Copenhagen_clean1_2024.rds`</span> provided by us in EVA. This is just to be sure all needed changes in that file for the code to work have been done (as you may have changed the file in a slightly different way than we have).</span>
 <span id="cb12-19"><a href="#cb12-19" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb12-20"><a href="#cb12-20" aria-hidden="true" tabindex="-1"></a>To be sure we all start from the same case definition, let's agree that a case was defined as a person who:</span>
 <span id="cb12-21"><a href="#cb12-21" aria-hidden="true" tabindex="-1"></a></span>
@@ -1106,7 +1108,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb12-56"><a href="#cb12-56" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb12-57"><a href="#cb12-57" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, Import_data}</span></span>
 <span id="cb12-58"><a href="#cb12-58" aria-hidden="true" tabindex="-1"></a><span class="co"># Import the clean data set:</span></span>
-<span id="cb12-59"><a href="#cb12-59" aria-hidden="true" tabindex="-1"></a>copdata <span class="ot">&lt;-</span> rio<span class="sc">::</span><span class="fu">import</span>(here<span class="sc">::</span><span class="fu">here</span>(<span class="st">"data"</span>, <span class="st">"Copenhagen_clean1.rds"</span>))</span>
+<span id="cb12-59"><a href="#cb12-59" aria-hidden="true" tabindex="-1"></a>copdata <span class="ot">&lt;-</span> rio<span class="sc">::</span><span class="fu">import</span>(here<span class="sc">::</span><span class="fu">here</span>(<span class="st">"data"</span>, <span class="st">"Copenhagen_clean1_2024.rds"</span>))</span>
 <span id="cb12-60"><a href="#cb12-60" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb12-61"><a href="#cb12-61" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb12-62"><a href="#cb12-62" aria-hidden="true" tabindex="-1"></a><span class="fu">## 3.3 Identify the variables you need to apply the case definition criteria.</span></span>
@@ -1135,150 +1137,154 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb12-87"><a href="#cb12-87" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb12-88"><a href="#cb12-88" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb12-89"><a href="#cb12-89" aria-hidden="true" tabindex="-1"></a>::: {.callout-note title="Once you've thought about the above, have a look here" collapse="true"}</span>
-<span id="cb12-90"><a href="#cb12-90" aria-hidden="true" tabindex="-1"></a>Seven of the respondents actually said they did not eat the meal, but when it came to the questions about which food items they ate, they provided answers! This issue could have been minimised by: - At the survey state, one could adjust the design of an electronic questionnaire to prevent key questions from being skipped. This can come with both pros and cons. Allow fellows to discuss if time allows. - Explore your data further, realise this is the case, and recode the <span class="in">`meal`</span> variable for these individuals as <span class="in">`TRUE.`</span> =<span class="sc">\&gt;</span> This would be the way to go, but is not what we did in our example because we tried to keep it simple, and also because it is good to show that you may not always clean the data perfectly, and that has consequences: You can highlight the importance or really explore your data in depth.</span>
+<span id="cb12-90"><a href="#cb12-90" aria-hidden="true" tabindex="-1"></a>Seven of the respondents actually said they did not eat the meal, but when it came to the questions about which food items they ate, they provided answers! This issue could have been minimised by:</span>
 <span id="cb12-91"><a href="#cb12-91" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-92"><a href="#cb12-92" aria-hidden="true" tabindex="-1"></a>By making the above decision, we may be missing cases and non-cases people, and thus, modifying the final estimate of our measure of association. =<span class="sc">\&gt;</span> It is very important to know your data, explore it deeply and try to clean it as well as possible. Every step one makes when cleaning the data may have a consequence, and we should be aware of it when making the data cleaning decisions and when interpreting the results.</span>
-<span id="cb12-93"><a href="#cb12-93" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb12-94"><a href="#cb12-94" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-95"><a href="#cb12-95" aria-hidden="true" tabindex="-1"></a><span class="fu">### b) Fell ill after the start of the meal</span></span>
-<span id="cb12-96"><a href="#cb12-96" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-97"><a href="#cb12-97" aria-hidden="true" tabindex="-1"></a>We define "fell ill" as any person having had diarrhoea with OR without blood, OR vomiting. To capture this information easily, you will create a new <span class="in">`gastrosymptoms`</span> variable. This variable will indicate that the person had one OR ("or" is R is achieved by using <span class="in">`|`</span>) more of the clinical symptoms in your definition.</span>
+<span id="cb12-92"><a href="#cb12-92" aria-hidden="true" tabindex="-1"></a><span class="sc">\-</span> At the survey state, one could adjust the design of an electronic questionnaire to prevent key questions from being skipped. This can come with both pros and cons. Allow fellows to discuss if time allows.</span>
+<span id="cb12-93"><a href="#cb12-93" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-94"><a href="#cb12-94" aria-hidden="true" tabindex="-1"></a><span class="sc">\-</span> Explore your data further, realise this is the case, and recode the <span class="in">`meal`</span> variable for these individuals as <span class="in">`TRUE.`</span> =<span class="sc">\&gt;</span> This would be the way to go, but is not what we did in our example because we tried to keep it simple, and also because it is good to show that you may not always clean the data perfectly, and that has consequences: You can highlight the importance or really explore your data in depth.</span>
+<span id="cb12-95"><a href="#cb12-95" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-96"><a href="#cb12-96" aria-hidden="true" tabindex="-1"></a>By making the above decision, we may be missing cases and non-cases people, and thus, modifying the final estimate of our measure of association. =<span class="sc">\&gt;</span> It is very important to know your data, explore it deeply and try to clean it as well as possible. Every step one makes when cleaning the data may have a consequence, and we should be aware of it when making the data cleaning decisions and when interpreting the results.</span>
+<span id="cb12-97"><a href="#cb12-97" aria-hidden="true" tabindex="-1"></a>:::</span>
 <span id="cb12-98"><a href="#cb12-98" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-99"><a href="#cb12-99" aria-hidden="true" tabindex="-1"></a>Note that we the concept of having eaten a meal is already included as per one of the steps above.</span>
+<span id="cb12-99"><a href="#cb12-99" aria-hidden="true" tabindex="-1"></a><span class="fu">### b) Fell ill after the start of the meal</span></span>
 <span id="cb12-100"><a href="#cb12-100" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-101"><a href="#cb12-101" aria-hidden="true" tabindex="-1"></a>::: {.callout-tip title="Need a little bit of help?" collapse="true"}</span>
-<span id="cb12-102"><a href="#cb12-102" aria-hidden="true" tabindex="-1"></a>Create a new <span class="in">`gastrosymptoms`</span> column in your line list with <span class="in">`mutate()`</span> and case_when<span class="in">`()`</span>.</span>
-<span id="cb12-103"><a href="#cb12-103" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb12-101"><a href="#cb12-101" aria-hidden="true" tabindex="-1"></a>We define "fell ill" as any person having had diarrhoea with OR without blood, OR vomiting. To capture this information easily, you will create a new <span class="in">`gastrosymptoms`</span> variable. This variable will indicate that the person had one OR ("or" is R is achieved by using <span class="in">`|`</span>) more of the clinical symptoms in your definition.</span>
+<span id="cb12-102"><a href="#cb12-102" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-103"><a href="#cb12-103" aria-hidden="true" tabindex="-1"></a>Note that we the concept of having eaten a meal is already included as per one of the steps above.</span>
 <span id="cb12-104"><a href="#cb12-104" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-105"><a href="#cb12-105" aria-hidden="true" tabindex="-1"></a>::: {.callout-warning title="Let's stop and... think!" collapse="true"}</span>
-<span id="cb12-106"><a href="#cb12-106" aria-hidden="true" tabindex="-1"></a>What are some of the implications this decision may lead to? (defining "fell ill" as any person who reported having diarrhoea with OR without blood, OR vomiting)</span>
+<span id="cb12-105"><a href="#cb12-105" aria-hidden="true" tabindex="-1"></a>::: {.callout-tip title="Need a little bit of help?" collapse="true"}</span>
+<span id="cb12-106"><a href="#cb12-106" aria-hidden="true" tabindex="-1"></a>Create a new <span class="in">`gastrosymptoms`</span> column in your line list with <span class="in">`mutate()`</span> and case_when<span class="in">`()`</span>.</span>
 <span id="cb12-107"><a href="#cb12-107" aria-hidden="true" tabindex="-1"></a>:::</span>
 <span id="cb12-108"><a href="#cb12-108" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-109"><a href="#cb12-109" aria-hidden="true" tabindex="-1"></a>::: {.callout-note title="If you've thought about the above, have a look here" collapse="true"}</span>
-<span id="cb12-110"><a href="#cb12-110" aria-hidden="true" tabindex="-1"></a>Having one clinical symptom enough to be considered a potential case at this point may be considered too unspecific (low specificity). For example, a person who ate at the dinner party and developed diarrhoea for other reasons other than food poisoning (say, they recently started on antibiotics known for unbalancing the intestinal flora and causing diarrhoea) could be misclassified as a potential case. (Note we talk about **potential case**, and not **case**; that is because here we are not talking about cases per-se yet, but this decision has implications for when applying the case definition below).</span>
-<span id="cb12-111"><a href="#cb12-111" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-112"><a href="#cb12-112" aria-hidden="true" tabindex="-1"></a>Moreover, those who did not report clinical symptoms will be defined as non-cases. Thus, we are assuming that these individuals did not develop symptoms because they didn't report them. The missing values could be due to, for example, them skipping the questions in the questionnaire. Some individuals may be reluctant to report symptoms, due to shame, fear of repercussion, or others. It is important to think ahead, before the interview, about ways to minimise these situations. For example, through questionnaire design, you may impede skipping questions; you could promote trust by using the right interviewers (in some cases this will be someone from the community, in others someone form specific NGOs, someone of a specific race or gender, etc); choose to carry out online questionnaires vs in person (or vice versa, depending on the situation), etc.</span>
-<span id="cb12-113"><a href="#cb12-113" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb12-114"><a href="#cb12-114" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-117"><a href="#cb12-117" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb12-118"><a href="#cb12-118" aria-hidden="true" tabindex="-1"></a>copdata <span class="ot">&lt;-</span> copdata <span class="sc">%&gt;%</span> </span>
-<span id="cb12-119"><a href="#cb12-119" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">gastrosymptoms =</span> <span class="fu">case_when</span>(</span>
-<span id="cb12-120"><a href="#cb12-120" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Those had diarrhoea...</span></span>
-<span id="cb12-121"><a href="#cb12-121" aria-hidden="true" tabindex="-1"></a>    diarrhoea <span class="sc">==</span> <span class="cn">TRUE</span> <span class="sc">|</span></span>
-<span id="cb12-122"><a href="#cb12-122" aria-hidden="true" tabindex="-1"></a>      <span class="co">#or bloody diarrhoea...</span></span>
-<span id="cb12-123"><a href="#cb12-123" aria-hidden="true" tabindex="-1"></a>    bloody <span class="sc">==</span> <span class="cn">TRUE</span> <span class="sc">|</span></span>
-<span id="cb12-124"><a href="#cb12-124" aria-hidden="true" tabindex="-1"></a>      <span class="co"># or vomiting, are marked as TRUE (fell ill after the meal)</span></span>
-<span id="cb12-125"><a href="#cb12-125" aria-hidden="true" tabindex="-1"></a>    vomiting <span class="sc">==</span> <span class="cn">TRUE</span> <span class="sc">~</span> <span class="cn">TRUE</span>,</span>
-<span id="cb12-126"><a href="#cb12-126" aria-hidden="true" tabindex="-1"></a>    <span class="co"># The rest are FALSE. This includes those who ate a meal but had no symptoms (did not fell ill after the meal)</span></span>
-<span id="cb12-127"><a href="#cb12-127" aria-hidden="true" tabindex="-1"></a>    <span class="at">.default =</span> <span class="cn">FALSE</span>)</span>
-<span id="cb12-128"><a href="#cb12-128" aria-hidden="true" tabindex="-1"></a>    )</span>
-<span id="cb12-129"><a href="#cb12-129" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb12-130"><a href="#cb12-130" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-131"><a href="#cb12-131" aria-hidden="true" tabindex="-1"></a><span class="fu">### c) Fell ill within the time period of interest</span></span>
-<span id="cb12-132"><a href="#cb12-132" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-133"><a href="#cb12-133" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Hmmm... what is the time period of interest? You could start calculating the incubation period, which can be defined by calculating the time between exposure (the meal) and onset of symptoms, and then looking at the distribution of these time differences. In this outbreak, incubation periods are easy to calculate, because everyone was exposed at (roughly) the same time and on the same day (eating the meal at the school dinner party).</span>
-<span id="cb12-134"><a href="#cb12-134" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Dinner was served at 18:00 roughly for everyone. Create a new <span class="in">`meal_datetime`</span> variable with this information for all people in your dataset (as per 11 Nov 2006, at 18:00h).</span>
-<span id="cb12-135"><a href="#cb12-135" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-138"><a href="#cb12-138" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb12-139"><a href="#cb12-139" aria-hidden="true" tabindex="-1"></a><span class="co"># Start with copdata:</span></span>
-<span id="cb12-140"><a href="#cb12-140" aria-hidden="true" tabindex="-1"></a>copdata <span class="ot">&lt;-</span> copdata <span class="sc">%&gt;%</span> </span>
-<span id="cb12-141"><a href="#cb12-141" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Create new column for meal date and time:</span></span>
-<span id="cb12-142"><a href="#cb12-142" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">meal_datetime =</span> lubridate<span class="sc">::</span><span class="fu">ymd_hm</span>(<span class="st">"2006-11-11 18:00"</span>))</span>
-<span id="cb12-143"><a href="#cb12-143" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb12-144"><a href="#cb12-144" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-145"><a href="#cb12-145" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>You can calculate the incubation period for each participant by subtracting <span class="in">`onset_datetime`</span> - <span class="in">`meal_datetime.`</span></span>
-<span id="cb12-146"><a href="#cb12-146" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Then, take the <span class="in">`median()`</span> of that column to calculate a median incubation period, this will help you start having some hypothesis about the type of pathogen we are dealing with until the lab results come back.</span>
-<span id="cb12-147"><a href="#cb12-147" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-148"><a href="#cb12-148" aria-hidden="true" tabindex="-1"></a>::: {.callout-tip title="Need a little bit of help?" collapse="true"}</span>
-<span id="cb12-149"><a href="#cb12-149" aria-hidden="true" tabindex="-1"></a>Be aware of the type of variable <span class="in">`incubation`</span> is (check <span class="in">`class()`</span>), as well as of missing values<span class="in">`NA`</span>.</span>
-<span id="cb12-150"><a href="#cb12-150" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb12-109"><a href="#cb12-109" aria-hidden="true" tabindex="-1"></a>::: {.callout-warning title="Let's stop and... think!" collapse="true"}</span>
+<span id="cb12-110"><a href="#cb12-110" aria-hidden="true" tabindex="-1"></a>What are some of the implications this decision may lead to? (defining "fell ill" as any person who reported having diarrhoea with OR without blood, OR vomiting)</span>
+<span id="cb12-111"><a href="#cb12-111" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb12-112"><a href="#cb12-112" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-113"><a href="#cb12-113" aria-hidden="true" tabindex="-1"></a>::: {.callout-note title="If you've thought about the above, have a look here" collapse="true"}</span>
+<span id="cb12-114"><a href="#cb12-114" aria-hidden="true" tabindex="-1"></a>Having one clinical symptom enough to be considered a potential case at this point may be considered too unspecific (low specificity). For example, a person who ate at the dinner party and developed diarrhoea for other reasons other than food poisoning (say, they recently started on antibiotics known for unbalancing the intestinal flora and causing diarrhoea) could be misclassified as a potential case. (Note we talk about **potential case**, and not **case**; that is because here we are not talking about cases per-se yet, but this decision has implications for when applying the case definition below).</span>
+<span id="cb12-115"><a href="#cb12-115" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-116"><a href="#cb12-116" aria-hidden="true" tabindex="-1"></a>Moreover, those who did not report clinical symptoms will be defined as non-cases. Thus, we are assuming that these individuals did not develop symptoms because they didn't report them. The missing values could be due to, for example, them skipping the questions in the questionnaire. Some individuals may be reluctant to report symptoms, due to shame, fear of repercussion, or others. It is important to think ahead, before the interview, about ways to minimise these situations. For example, through questionnaire design, you may impede skipping questions; you could promote trust by using the right interviewers (in some cases this will be someone from the community, in others someone form specific NGOs, someone of a specific race or gender, etc); choose to carry out online questionnaires vs in person (or vice versa, depending on the situation), etc.</span>
+<span id="cb12-117"><a href="#cb12-117" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb12-118"><a href="#cb12-118" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-121"><a href="#cb12-121" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb12-122"><a href="#cb12-122" aria-hidden="true" tabindex="-1"></a>copdata <span class="ot">&lt;-</span> copdata <span class="sc">%&gt;%</span> </span>
+<span id="cb12-123"><a href="#cb12-123" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">gastrosymptoms =</span> <span class="fu">case_when</span>(</span>
+<span id="cb12-124"><a href="#cb12-124" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Those had diarrhoea...</span></span>
+<span id="cb12-125"><a href="#cb12-125" aria-hidden="true" tabindex="-1"></a>    diarrhoea <span class="sc">==</span> <span class="cn">TRUE</span> <span class="sc">|</span></span>
+<span id="cb12-126"><a href="#cb12-126" aria-hidden="true" tabindex="-1"></a>      <span class="co">#or bloody diarrhoea...</span></span>
+<span id="cb12-127"><a href="#cb12-127" aria-hidden="true" tabindex="-1"></a>    bloody <span class="sc">==</span> <span class="cn">TRUE</span> <span class="sc">|</span></span>
+<span id="cb12-128"><a href="#cb12-128" aria-hidden="true" tabindex="-1"></a>      <span class="co"># or vomiting, are marked as TRUE (fell ill after the meal)</span></span>
+<span id="cb12-129"><a href="#cb12-129" aria-hidden="true" tabindex="-1"></a>    vomiting <span class="sc">==</span> <span class="cn">TRUE</span> <span class="sc">~</span> <span class="cn">TRUE</span>,</span>
+<span id="cb12-130"><a href="#cb12-130" aria-hidden="true" tabindex="-1"></a>    <span class="co"># The rest are FALSE. This includes those who ate a meal but had no symptoms (did not fell ill after the meal)</span></span>
+<span id="cb12-131"><a href="#cb12-131" aria-hidden="true" tabindex="-1"></a>    <span class="at">.default =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb12-132"><a href="#cb12-132" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb12-133"><a href="#cb12-133" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb12-134"><a href="#cb12-134" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-135"><a href="#cb12-135" aria-hidden="true" tabindex="-1"></a><span class="fu">### c) Fell ill within the time period of interest</span></span>
+<span id="cb12-136"><a href="#cb12-136" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-137"><a href="#cb12-137" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Hmmm... what is the time period of interest? You could start calculating the incubation period, which can be defined by calculating the time between exposure (the meal) and onset of symptoms, and then looking at the distribution of these time differences. In this outbreak, incubation periods are easy to calculate, because everyone was exposed at (roughly) the same time and on the same day (eating the meal at the school dinner party).</span>
+<span id="cb12-138"><a href="#cb12-138" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Dinner was served at 18:00 roughly for everyone. Create a new <span class="in">`meal_datetime`</span> variable with this information for all people in your dataset (as per 11 Nov 2006, at 18:00h).</span>
+<span id="cb12-139"><a href="#cb12-139" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-142"><a href="#cb12-142" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb12-143"><a href="#cb12-143" aria-hidden="true" tabindex="-1"></a><span class="co"># Start with copdata:</span></span>
+<span id="cb12-144"><a href="#cb12-144" aria-hidden="true" tabindex="-1"></a>copdata <span class="ot">&lt;-</span> copdata <span class="sc">%&gt;%</span> </span>
+<span id="cb12-145"><a href="#cb12-145" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Create new column for meal date and time:</span></span>
+<span id="cb12-146"><a href="#cb12-146" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">meal_datetime =</span> lubridate<span class="sc">::</span><span class="fu">ymd_hm</span>(<span class="st">"2006-11-11 18:00"</span>))</span>
+<span id="cb12-147"><a href="#cb12-147" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb12-148"><a href="#cb12-148" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-149"><a href="#cb12-149" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>You can calculate the incubation period for each participant by subtracting <span class="in">`onset_datetime`</span> - <span class="in">`meal_datetime.`</span></span>
+<span id="cb12-150"><a href="#cb12-150" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Then, take the <span class="in">`median()`</span> of that column to calculate a median incubation period, this will help you start having some hypothesis about the type of pathogen we are dealing with until the lab results come back.</span>
 <span id="cb12-151"><a href="#cb12-151" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-152"><a href="#cb12-152" aria-hidden="true" tabindex="-1"></a>::: {.callout-note title="Note" collapse="true"}</span>
-<span id="cb12-153"><a href="#cb12-153" aria-hidden="true" tabindex="-1"></a>The **incubation period** of a disease is the time from an exposure resulting in infection until the onset of disease. Because infection usually occurs immediately after exposure, the incubation period is generally the duration of the period from the onset of infection to the onset of disease -- Rothman, Greenland, Lash (2017): Modern Epidemiology, 3rd edition</span>
+<span id="cb12-152"><a href="#cb12-152" aria-hidden="true" tabindex="-1"></a>::: {.callout-tip title="Need a little bit of help?" collapse="true"}</span>
+<span id="cb12-153"><a href="#cb12-153" aria-hidden="true" tabindex="-1"></a>Be aware of the type of variable <span class="in">`incubation`</span> is (check <span class="in">`class()`</span>), as well as of missing values<span class="in">`NA`</span>.</span>
 <span id="cb12-154"><a href="#cb12-154" aria-hidden="true" tabindex="-1"></a>:::</span>
 <span id="cb12-155"><a href="#cb12-155" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-158"><a href="#cb12-158" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb12-159"><a href="#cb12-159" aria-hidden="true" tabindex="-1"></a>copdata <span class="ot">&lt;-</span> copdata <span class="sc">%&gt;%</span> </span>
-<span id="cb12-160"><a href="#cb12-160" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">incubation =</span> onset_datetime <span class="sc">-</span> meal_datetime,</span>
-<span id="cb12-161"><a href="#cb12-161" aria-hidden="true" tabindex="-1"></a>         <span class="at">incubation =</span> <span class="fu">as.numeric</span> (incubation))</span>
-<span id="cb12-162"><a href="#cb12-162" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-163"><a href="#cb12-163" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-164"><a href="#cb12-164" aria-hidden="true" tabindex="-1"></a><span class="fu">median</span>(<span class="fu">as.numeric</span>(copdata<span class="sc">$</span>incubation), <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb12-165"><a href="#cb12-165" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-166"><a href="#cb12-166" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb12-156"><a href="#cb12-156" aria-hidden="true" tabindex="-1"></a>::: {.callout-note title="Note" collapse="true"}</span>
+<span id="cb12-157"><a href="#cb12-157" aria-hidden="true" tabindex="-1"></a>The **incubation period** of a disease is the time from an exposure resulting in infection until the onset of disease. Because infection usually occurs immediately after exposure, the incubation period is generally the duration of the period from the onset of infection to the onset of disease -- Rothman, Greenland, Lash (2017): Modern Epidemiology, 3rd edition</span>
+<span id="cb12-158"><a href="#cb12-158" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb12-159"><a href="#cb12-159" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-162"><a href="#cb12-162" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb12-163"><a href="#cb12-163" aria-hidden="true" tabindex="-1"></a>copdata <span class="ot">&lt;-</span> copdata <span class="sc">%&gt;%</span> </span>
+<span id="cb12-164"><a href="#cb12-164" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">incubation =</span> onset_datetime <span class="sc">-</span> meal_datetime,</span>
+<span id="cb12-165"><a href="#cb12-165" aria-hidden="true" tabindex="-1"></a>         <span class="at">incubation =</span> <span class="fu">as.numeric</span> (incubation))</span>
+<span id="cb12-166"><a href="#cb12-166" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb12-167"><a href="#cb12-167" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-168"><a href="#cb12-168" aria-hidden="true" tabindex="-1"></a>::: {.callout-caution title="Now we are messing up with your brain..." collapse="true"}</span>
-<span id="cb12-169"><a href="#cb12-169" aria-hidden="true" tabindex="-1"></a>If you pay attention, there were two individuals who don't have a time recorded, only a date (Nov 11), the day of the dinner. These people probably got sick the same night they had the dinner, but the exact time was not recoded. They way we've managed the data will insert "00:00" in a missing value of a time. This means that the 2 people that got sick the day of the dinner have been recorded sick *before* the dinner (in the early morning of Nov 11). The two people have a negative incubation period! This should not happen. Ifyou feel the force is with you, you can modify this and fix the error (if you do this, your results will be a bit different than your colleagues, but similar). We will continue with this "erroneous" data, for easiness. But note that in real life, as soon as you realise there is a coding error like this, you would have to go back to your cleaning code and fix the error! This may happen a couple of times during your outbreak investigation, and is totally normal. Cleaning data is not an easy job!</span>
-<span id="cb12-170"><a href="#cb12-170" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb12-168"><a href="#cb12-168" aria-hidden="true" tabindex="-1"></a><span class="fu">median</span>(<span class="fu">as.numeric</span>(copdata<span class="sc">$</span>incubation), <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb12-169"><a href="#cb12-169" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-170"><a href="#cb12-170" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb12-171"><a href="#cb12-171" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-172"><a href="#cb12-172" aria-hidden="true" tabindex="-1"></a>We see that the median incubation time is <span class="in">`r median(as.numeric(copdata$incubation), na.rm = TRUE)`</span> hours. This is useful information, as incubation periods tend to be relatively pathogen-specific.</span>
-<span id="cb12-173"><a href="#cb12-173" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-174"><a href="#cb12-174" aria-hidden="true" tabindex="-1"></a>Based on this, say you define and limit the maximum incubation period to 48 hours after the meal, as the data points to a fast-acting bacterial toxin or a virus. That is, dinner participants should have developed (<span class="in">`onset_datetime`</span>) at least one symptom (<span class="in">`diarrhoea`</span>, <span class="in">`bloody`</span> or <span class="in">`vomiting`</span>) 48h after <span class="in">`meal_datetime`</span> to become a <span class="in">`case.`</span></span>
+<span id="cb12-172"><a href="#cb12-172" aria-hidden="true" tabindex="-1"></a>::: {.callout-caution title="Now we are messing up with your brain..." collapse="true"}</span>
+<span id="cb12-173"><a href="#cb12-173" aria-hidden="true" tabindex="-1"></a>If you pay attention, there were two individuals who don't have a time recorded, only a date (Nov 11), the day of the dinner. These people probably got sick the same night they had the dinner, but the exact time was not recoded. They way we've managed the data will insert "00:00" in a missing value of a time. This means that the 2 people that got sick the day of the dinner have been recorded sick *before* the dinner (in the early morning of Nov 11). The two people have a negative incubation period! This should not happen. Ifyou feel the force is with you, you can modify this and fix the error (if you do this, your results will be a bit different than your colleagues, but similar). We will continue with this "erroneous" data, for easiness. But note that in real life, as soon as you realise there is a coding error like this, you would have to go back to your cleaning code and fix the error! This may happen a couple of times during your outbreak investigation, and is totally normal. Cleaning data is not an easy job!</span>
+<span id="cb12-174"><a href="#cb12-174" aria-hidden="true" tabindex="-1"></a>:::</span>
 <span id="cb12-175"><a href="#cb12-175" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-176"><a href="#cb12-176" aria-hidden="true" tabindex="-1"></a>::: {.callout-warning title="Let's stop and... think!" collapse="true"}</span>
-<span id="cb12-177"><a href="#cb12-177" aria-hidden="true" tabindex="-1"></a>What are some of the implications this decision may lead to? (implications of this case definition)</span>
-<span id="cb12-178"><a href="#cb12-178" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb12-176"><a href="#cb12-176" aria-hidden="true" tabindex="-1"></a>We see that the median incubation time is <span class="in">`r median(as.numeric(copdata$incubation), na.rm = TRUE)`</span> hours. This is useful information, as incubation periods tend to be relatively pathogen-specific.</span>
+<span id="cb12-177"><a href="#cb12-177" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-178"><a href="#cb12-178" aria-hidden="true" tabindex="-1"></a>Based on this, say you define and limit the maximum incubation period to 48 hours after the meal, as the data points to a fast-acting bacterial toxin or a virus. That is, dinner participants should have developed (<span class="in">`onset_datetime`</span>) at least one symptom (<span class="in">`diarrhoea`</span>, <span class="in">`bloody`</span> or <span class="in">`vomiting`</span>) 48h after <span class="in">`meal_datetime`</span> to become a <span class="in">`case.`</span></span>
 <span id="cb12-179"><a href="#cb12-179" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-180"><a href="#cb12-180" aria-hidden="true" tabindex="-1"></a>::: {.callout-note title="If you've thought about the above, have a look here" collapse="true"}</span>
-<span id="cb12-181"><a href="#cb12-181" aria-hidden="true" tabindex="-1"></a>All those not developing at least one symptom (diarrhoea with OR without blood, OR vomiting) 48h after the dinner are considered non-cases. This could (depending on how you decide to analyse your data) include those who had no symptoms at all, those who have missing data on the <span class="in">`onset_datetime`</span> variable, and/or those who had symptoms before eating the meal. *This is a reminder that you need to be both careful and aware of the implications of your data analysis decisions.* If a person had clinical symptoms before eating the meal, they are considered as not-cases. However, it could be that a person had symptoms before the meal, and yet, still got infected by the pathogen when eating their meal (bad luck, we know...). According to this definition, we would be missing that case.</span>
+<span id="cb12-180"><a href="#cb12-180" aria-hidden="true" tabindex="-1"></a>::: {.callout-warning title="Let's stop and... think!" collapse="true"}</span>
+<span id="cb12-181"><a href="#cb12-181" aria-hidden="true" tabindex="-1"></a>What are some of the implications this decision may lead to? (implications of this case definition)</span>
 <span id="cb12-182"><a href="#cb12-182" aria-hidden="true" tabindex="-1"></a>:::</span>
 <span id="cb12-183"><a href="#cb12-183" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-184"><a href="#cb12-184" aria-hidden="true" tabindex="-1"></a><span class="fu">### d) Finally, with this information you can create a new `case` column to hold the binary (`TRUE`/`FALSE`) case definition variable.</span></span>
-<span id="cb12-185"><a href="#cb12-185" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-188"><a href="#cb12-188" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb12-189"><a href="#cb12-189" aria-hidden="true" tabindex="-1"></a>copdata <span class="ot">&lt;-</span> copdata <span class="sc">%&gt;%</span> </span>
-<span id="cb12-190"><a href="#cb12-190" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">case =</span> <span class="fu">case_when</span>(</span>
-<span id="cb12-191"><a href="#cb12-191" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Those who had symptoms &lt;48h from the meal are cases (TRUE)</span></span>
-<span id="cb12-192"><a href="#cb12-192" aria-hidden="true" tabindex="-1"></a>    gastrosymptoms <span class="sc">==</span> <span class="cn">TRUE</span> <span class="sc">&amp;</span> </span>
-<span id="cb12-193"><a href="#cb12-193" aria-hidden="true" tabindex="-1"></a>      onset_datetime <span class="sc">&gt;=</span> meal_datetime <span class="sc">&amp;</span></span>
-<span id="cb12-194"><a href="#cb12-194" aria-hidden="true" tabindex="-1"></a>      onset_datetime <span class="sc">&lt;=</span> (meal_datetime <span class="sc">+</span> <span class="fu">days</span>(<span class="dv">2</span>)) <span class="sc">~</span> <span class="cn">TRUE</span>,</span>
-<span id="cb12-195"><a href="#cb12-195" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Those who had symptoms &gt;48h from the meal are non-cases (FALSE)</span></span>
+<span id="cb12-184"><a href="#cb12-184" aria-hidden="true" tabindex="-1"></a>::: {.callout-note title="If you've thought about the above, have a look here" collapse="true"}</span>
+<span id="cb12-185"><a href="#cb12-185" aria-hidden="true" tabindex="-1"></a>All those not developing at least one symptom (diarrhoea with OR without blood, OR vomiting) 48h after the dinner are considered non-cases. This could (depending on how you decide to analyse your data) include those who had no symptoms at all, those who have missing data on the <span class="in">`onset_datetime`</span> variable, and/or those who had symptoms before eating the meal. *This is a reminder that you need to be both careful and aware of the implications of your data analysis decisions.* If a person had clinical symptoms before eating the meal, they are considered as not-cases. However, it could be that a person had symptoms before the meal, and yet, still got infected by the pathogen when eating their meal (bad luck, we know...). According to this definition, we would be missing that case.</span>
+<span id="cb12-186"><a href="#cb12-186" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb12-187"><a href="#cb12-187" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-188"><a href="#cb12-188" aria-hidden="true" tabindex="-1"></a><span class="fu">### d) Finally, with this information you can create a new `case` column to hold the binary (`TRUE`/`FALSE`) case definition variable.</span></span>
+<span id="cb12-189"><a href="#cb12-189" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-192"><a href="#cb12-192" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb12-193"><a href="#cb12-193" aria-hidden="true" tabindex="-1"></a>copdata <span class="ot">&lt;-</span> copdata <span class="sc">%&gt;%</span> </span>
+<span id="cb12-194"><a href="#cb12-194" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">case =</span> <span class="fu">case_when</span>(</span>
+<span id="cb12-195"><a href="#cb12-195" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Those who had symptoms &lt;48h from the meal are cases (TRUE)</span></span>
 <span id="cb12-196"><a href="#cb12-196" aria-hidden="true" tabindex="-1"></a>    gastrosymptoms <span class="sc">==</span> <span class="cn">TRUE</span> <span class="sc">&amp;</span> </span>
-<span id="cb12-197"><a href="#cb12-197" aria-hidden="true" tabindex="-1"></a>      onset_datetime <span class="sc">&gt;</span> (meal_datetime <span class="sc">+</span> <span class="fu">days</span>(<span class="dv">2</span>)) <span class="sc">~</span> <span class="cn">FALSE</span>,</span>
-<span id="cb12-198"><a href="#cb12-198" aria-hidden="true" tabindex="-1"></a>    <span class="co"># The rest are considered non-cases. Including, those who had no symptoms at all, who have missing data on the onset_datetime variable, or who had symptoms before eating the meal </span></span>
-<span id="cb12-199"><a href="#cb12-199" aria-hidden="true" tabindex="-1"></a>    <span class="at">.default =</span> <span class="cn">FALSE</span>)</span>
-<span id="cb12-200"><a href="#cb12-200" aria-hidden="true" tabindex="-1"></a>  )</span>
-<span id="cb12-201"><a href="#cb12-201" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb12-202"><a href="#cb12-202" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-203"><a href="#cb12-203" aria-hidden="true" tabindex="-1"></a>Note that we may be incurring in misclassification bias with the code above. The last section indicates that if a person had clinical symptoms before eating the meal, they are considered as non-cases. However, it could be that a person had symptoms before the meal, and yet, still got infected by the pathogen when eating their meal (bad luck, we know...).</span>
-<span id="cb12-204"><a href="#cb12-204" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-205"><a href="#cb12-205" aria-hidden="true" tabindex="-1"></a>Moreover, if you remember from Inject 09, there were a couple of people with an <span class="in">`dayonset`</span>, but no <span class="in">`starthour`</span>. The code we used (<span class="in">`lubridate::ymd_h`</span> with argument <span class="in">`truncated = 2`</span>) results in dates with missing <span class="in">`starthour`</span> being converted to date-time, with the missing time being set to <span class="in">`00:00`</span> (midnight). This means that these two people don't fulfill the case definition criteria because we marked their symptoms started early in the morning of Nov 11 (at 00:00), before the meal time (18:00), and thus, they did not "fell ill within the time period of interest".</span>
+<span id="cb12-197"><a href="#cb12-197" aria-hidden="true" tabindex="-1"></a>      onset_datetime <span class="sc">&gt;=</span> meal_datetime <span class="sc">&amp;</span></span>
+<span id="cb12-198"><a href="#cb12-198" aria-hidden="true" tabindex="-1"></a>      onset_datetime <span class="sc">&lt;=</span> (meal_datetime <span class="sc">+</span> <span class="fu">days</span>(<span class="dv">2</span>)) <span class="sc">~</span> <span class="cn">TRUE</span>,</span>
+<span id="cb12-199"><a href="#cb12-199" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Those who had symptoms &gt;48h from the meal are non-cases (FALSE)</span></span>
+<span id="cb12-200"><a href="#cb12-200" aria-hidden="true" tabindex="-1"></a>    gastrosymptoms <span class="sc">==</span> <span class="cn">TRUE</span> <span class="sc">&amp;</span> </span>
+<span id="cb12-201"><a href="#cb12-201" aria-hidden="true" tabindex="-1"></a>      onset_datetime <span class="sc">&gt;</span> (meal_datetime <span class="sc">+</span> <span class="fu">days</span>(<span class="dv">2</span>)) <span class="sc">~</span> <span class="cn">FALSE</span>,</span>
+<span id="cb12-202"><a href="#cb12-202" aria-hidden="true" tabindex="-1"></a>    <span class="co"># The rest are considered non-cases. Including, those who had no symptoms at all, who have missing data on the onset_datetime variable, or who had symptoms before eating the meal </span></span>
+<span id="cb12-203"><a href="#cb12-203" aria-hidden="true" tabindex="-1"></a>    <span class="at">.default =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb12-204"><a href="#cb12-204" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb12-205"><a href="#cb12-205" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb12-206"><a href="#cb12-206" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-207"><a href="#cb12-207" aria-hidden="true" tabindex="-1"></a>The two situations above are a reminder that you need to be both careful and aware of the implications of your data analysis decisions.</span>
+<span id="cb12-207"><a href="#cb12-207" aria-hidden="true" tabindex="-1"></a>Note that we may be incurring in misclassification bias with the code above. The last section indicates that if a person had clinical symptoms before eating the meal, they are considered as non-cases. However, it could be that a person had symptoms before the meal, and yet, still got infected by the pathogen when eating their meal (bad luck, we know...).</span>
 <span id="cb12-208"><a href="#cb12-208" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-209"><a href="#cb12-209" aria-hidden="true" tabindex="-1"></a>::: {.callout-warning title="Let's stop and... think!" collapse="true"}</span>
-<span id="cb12-210"><a href="#cb12-210" aria-hidden="true" tabindex="-1"></a>What do you think are the risks of mis-classifying cases as non-cases in your analysis?</span>
-<span id="cb12-211"><a href="#cb12-211" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb12-209"><a href="#cb12-209" aria-hidden="true" tabindex="-1"></a>Moreover, if you remember, there were a couple of people with an <span class="in">`dayonset`</span>, but no <span class="in">`starthour`</span>. The code we used (<span class="in">`lubridate::ymd_h`</span> with argument <span class="in">`truncated = 2`</span>) results in dates with missing <span class="in">`starthour`</span> being converted to date-time, with the missing time being set to <span class="in">`00:00`</span> (midnight). This means that these two people don't fulfill the case definition criteria because we marked their symptoms started early in the morning of Nov 11 (at 00:00), before the meal time (18:00), and thus, they did not "fell ill within the time period of interest".</span>
+<span id="cb12-210"><a href="#cb12-210" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-211"><a href="#cb12-211" aria-hidden="true" tabindex="-1"></a>The two situations above are a reminder that you need to be both careful and aware of the implications of your data analysis decisions.</span>
 <span id="cb12-212"><a href="#cb12-212" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-213"><a href="#cb12-213" aria-hidden="true" tabindex="-1"></a>::: {.callout-note title="If you've thought about the above, have a look here" collapse="true"}</span>
-<span id="cb12-214"><a href="#cb12-214" aria-hidden="true" tabindex="-1"></a>We will have bias either towards or away from the null, depending on the proportions of subjects misclassified.</span>
+<span id="cb12-213"><a href="#cb12-213" aria-hidden="true" tabindex="-1"></a>::: {.callout-warning title="Let's stop and... think!" collapse="true"}</span>
+<span id="cb12-214"><a href="#cb12-214" aria-hidden="true" tabindex="-1"></a>What do you think are the risks of mis-classifying cases as non-cases in your analysis?</span>
 <span id="cb12-215"><a href="#cb12-215" aria-hidden="true" tabindex="-1"></a>:::</span>
 <span id="cb12-216"><a href="#cb12-216" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-219"><a href="#cb12-219" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb12-220"><a href="#cb12-220" aria-hidden="true" tabindex="-1"></a><span class="co"># Tabulate cases:</span></span>
-<span id="cb12-221"><a href="#cb12-221" aria-hidden="true" tabindex="-1"></a>janitor<span class="sc">::</span><span class="fu">tabyl</span>(<span class="at">dat =</span> copdata, case)</span>
-<span id="cb12-222"><a href="#cb12-222" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb12-223"><a href="#cb12-223" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-224"><a href="#cb12-224" aria-hidden="true" tabindex="-1"></a>Let's have a look at how many people ate a meal, had symptoms, and were considered as cases after applying our case definition:</span>
-<span id="cb12-225"><a href="#cb12-225" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-226"><a href="#cb12-226" aria-hidden="true" tabindex="-1"></a><span class="in">```{r overview}</span></span>
-<span id="cb12-227"><a href="#cb12-227" aria-hidden="true" tabindex="-1"></a>copdata <span class="sc">%&gt;%</span> </span>
-<span id="cb12-228"><a href="#cb12-228" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">atemeal =</span> <span class="fu">sum</span>(meal <span class="sc">==</span> <span class="cn">TRUE</span>),</span>
-<span id="cb12-229"><a href="#cb12-229" aria-hidden="true" tabindex="-1"></a>            <span class="at">hadsympt =</span> <span class="fu">sum</span>(gastrosymptoms <span class="sc">==</span> <span class="cn">TRUE</span>),</span>
-<span id="cb12-230"><a href="#cb12-230" aria-hidden="true" tabindex="-1"></a>            <span class="at">nb_cases =</span> <span class="fu">sum</span>(case <span class="sc">==</span> <span class="cn">TRUE</span>)</span>
-<span id="cb12-231"><a href="#cb12-231" aria-hidden="true" tabindex="-1"></a>            )</span>
-<span id="cb12-232"><a href="#cb12-232" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb12-233"><a href="#cb12-233" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-234"><a href="#cb12-234" aria-hidden="true" tabindex="-1"></a><span class="fu"># 4. Export clean data</span></span>
-<span id="cb12-235"><a href="#cb12-235" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-236"><a href="#cb12-236" aria-hidden="true" tabindex="-1"></a>Finally, we can save the cleaned data set as a new file <span class="in">`Copenhagen_clean2_YOURINITIALS`</span>, under the data folder, before we proceeding with descriptive analysis.</span>
+<span id="cb12-217"><a href="#cb12-217" aria-hidden="true" tabindex="-1"></a>::: {.callout-note title="If you've thought about the above, have a look here" collapse="true"}</span>
+<span id="cb12-218"><a href="#cb12-218" aria-hidden="true" tabindex="-1"></a>We will have bias either towards or away from the null, depending on the proportions of subjects misclassified.</span>
+<span id="cb12-219"><a href="#cb12-219" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb12-220"><a href="#cb12-220" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-223"><a href="#cb12-223" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb12-224"><a href="#cb12-224" aria-hidden="true" tabindex="-1"></a><span class="co"># Tabulate cases:</span></span>
+<span id="cb12-225"><a href="#cb12-225" aria-hidden="true" tabindex="-1"></a>janitor<span class="sc">::</span><span class="fu">tabyl</span>(<span class="at">dat =</span> copdata, case)</span>
+<span id="cb12-226"><a href="#cb12-226" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb12-227"><a href="#cb12-227" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-228"><a href="#cb12-228" aria-hidden="true" tabindex="-1"></a>Let's have a look at how many people ate a meal, had symptoms, and were considered as cases after applying our case definition:</span>
+<span id="cb12-229"><a href="#cb12-229" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-230"><a href="#cb12-230" aria-hidden="true" tabindex="-1"></a><span class="in">```{r overview}</span></span>
+<span id="cb12-231"><a href="#cb12-231" aria-hidden="true" tabindex="-1"></a>copdata <span class="sc">%&gt;%</span> </span>
+<span id="cb12-232"><a href="#cb12-232" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">atemeal =</span> <span class="fu">sum</span>(meal <span class="sc">==</span> <span class="cn">TRUE</span>),</span>
+<span id="cb12-233"><a href="#cb12-233" aria-hidden="true" tabindex="-1"></a>            <span class="at">hadsympt =</span> <span class="fu">sum</span>(gastrosymptoms <span class="sc">==</span> <span class="cn">TRUE</span>),</span>
+<span id="cb12-234"><a href="#cb12-234" aria-hidden="true" tabindex="-1"></a>            <span class="at">nb_cases =</span> <span class="fu">sum</span>(case <span class="sc">==</span> <span class="cn">TRUE</span>)</span>
+<span id="cb12-235"><a href="#cb12-235" aria-hidden="true" tabindex="-1"></a>            )</span>
+<span id="cb12-236"><a href="#cb12-236" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb12-237"><a href="#cb12-237" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-238"><a href="#cb12-238" aria-hidden="true" tabindex="-1"></a><span class="in">```{r export_clean_data}</span></span>
+<span id="cb12-238"><a href="#cb12-238" aria-hidden="true" tabindex="-1"></a><span class="fu"># 4. Export clean data</span></span>
 <span id="cb12-239"><a href="#cb12-239" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-240"><a href="#cb12-240" aria-hidden="true" tabindex="-1"></a>rio<span class="sc">::</span><span class="fu">export</span>(<span class="at">x =</span> copdata, </span>
-<span id="cb12-241"><a href="#cb12-241" aria-hidden="true" tabindex="-1"></a>            <span class="at">file =</span> here<span class="sc">::</span><span class="fu">here</span>(<span class="st">"data"</span>, <span class="st">"Copenhagen_clean2.rds"</span>))</span>
-<span id="cb12-242"><a href="#cb12-242" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-243"><a href="#cb12-243" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb12-240"><a href="#cb12-240" aria-hidden="true" tabindex="-1"></a>Finally, we can save the cleaned data set as a new file <span class="in">`Copenhagen_clean2_YOURINITIALS`</span>, under the data folder, before we proceeding with descriptive analysis.</span>
+<span id="cb12-241"><a href="#cb12-241" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-242"><a href="#cb12-242" aria-hidden="true" tabindex="-1"></a><span class="in">```{r export_clean_data}</span></span>
+<span id="cb12-243"><a href="#cb12-243" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-244"><a href="#cb12-244" aria-hidden="true" tabindex="-1"></a>rio<span class="sc">::</span><span class="fu">export</span>(<span class="at">x =</span> copdata, </span>
+<span id="cb12-245"><a href="#cb12-245" aria-hidden="true" tabindex="-1"></a>            <span class="at">file =</span> here<span class="sc">::</span><span class="fu">here</span>(<span class="st">"data"</span>, <span class="st">"Copenhagen_clean2_2024.rds"</span>))</span>
+<span id="cb12-246"><a href="#cb12-246" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-247"><a href="#cb12-247" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 </code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
