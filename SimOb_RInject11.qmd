@@ -50,13 +50,15 @@ copdata <- rio::import(here::here("data", "Copenhagen_clean2_2024.rds"))
 lab <- rio::import(here::here("data", "lab_pos.xlsx")) 
 ```
 
-## 3.4 Describe the outbreak in terms of time.
+## 3.3 Merge and explore the lab data
 
 ```{r, merge_lab_data}
-
+copdatalab <- left_join(copdata, lab, by = "id")
+# Tabulate:
+janitor::tabyl(dat = copdatalab, result)
 ```
 
-## 3.3 Describe the outbreak in terms of time.
+## 3.4 Describe the outbreak in terms of time.
 
 You could use `ggplot2`.To learn more about `ggplot2` you can check [The Epidemiologist R Handbook: Chapter on ggplot](https://extranet.ecdc.europa.eu/Training/PM/Documents/Module%20Preparations/Intro%20Course/Track%20-%20Simulated%20Outbreak/Injects/The%20Epidemiologist%20R%20Handbook:%20Chapter%20on%20ggplot) and [ggplot2 - Elegant Graphics for Data Analysis](https://ggplot2-book.org/index.html).
 
@@ -167,7 +169,7 @@ epicurve_strata <- cases %>%
        y = "Number of cases", 
        fill = "Group", 
        title = "Epicurve of the outbreak, stratified by sex",
-       subtitle = str_glue("Copenhagen, November 2006, N = {sum(copdata$case)}")) +
+       subtitle = str_glue("Spetses, October 2024, N = {sum(copdata$case)}")) +
   # Stratify by sex:
   facet_wrap(facets = "sex",
              ncol = 2) +
@@ -192,7 +194,7 @@ The unimodal shape with the sharp peak suggests a point source, while the tail o
 The above results are in line with norovirus as the prime suspect, but the symptoms are not a textbook fit. There are too few people that experienced vomiting! Looking forward to receiving the lab results!
 :::
 
-## 3.4. Describe the outbreak in terms of person.
+## 3.5. Describe the outbreak in terms of person.
 
 You could use `tabyl()`. For more detail on the `tabyl()` function and the `adorn_XYZ` helpers, see the [janitor documentation](https://cran.r-project.org/web/packages/janitor/vignettes/tabyls.html) or [The Epidemiologist R Handbook section on tabulation](https://epirhandbook.com/en/descriptive-tables.html#tbl_janitor).
 
@@ -271,7 +273,7 @@ agesex <- copdata %>%
 agesex
 ```
 
-## 3.5 Explore the distribution of all clinical signs (symptoms).
+## 3.6 Explore the distribution of all clinical signs (symptoms).
 
 ### a) Create a summary table with symptoms stratified by case definition, and present an overall column as well. You could use `tabyl()` or `gtsummary::tbl_summary()`. You can find further information about `gtsummary` in [The Epidemiologist R handbook section on gtsummary](https://www.epirhandbook.com/en/descriptive-tables.html#tbl_gt).
 
@@ -394,7 +396,7 @@ symptom_bar <- copdata %>%
 symptom_bar
 ```
 
-## 3.6 Attack proportions
+## 3.7 Attack proportions
 
 ### a) Calculate the overall attack proportions (percentage of cases among the total observed individuals). You could use `tabyl()`.
 
@@ -463,7 +465,7 @@ attack_prop
 
 ```
 
-## 3.7 Draft the relevant paragraph(s) and table(s) and/or figure(s) in your outbreak report (Methods and results).
+## 3.8 Draft the relevant paragraph(s) and table(s) and/or figure(s) in your outbreak report (Methods and results).
 
 ::: {.callout-tip title="Need a little bit of help?" collapse="true"}
 To save your tabyl table as a .docx, you could convert your tabyl to flextable (`as_flex_table()`), ensure only one line per row (`flextable::autofit()`) and save as .docx (`flextable::save_as_docx(path = "nameoftable.docx"`)
