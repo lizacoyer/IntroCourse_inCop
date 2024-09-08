@@ -1,5 +1,5 @@
 ---
-title: "Inject 14: Stratified analysis"
+title: "Stratified analysis"
 editor: visual
 ---
 
@@ -92,7 +92,7 @@ wilcox.test(orzo ~ moussaka,
             data = copdata)
 ```
 
-### c) Champagne as exposure of interest, stratified by having eaten orzo
+### b) Champagne as exposure of interest, stratified by having eaten orzo
 
 ```{r}
 # Pass data to the csinter function:
