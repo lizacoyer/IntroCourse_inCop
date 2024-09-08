@@ -29,7 +29,7 @@ pacman::p_load(rio,
 
 ```{r, Import_data}
 # Import the raw data set:
-copdata <- rio::import(here::here("data", "Copenhagen_clean2.rds"))
+copdata <- rio::import(here::here("data", "Copenhagen_clean2_2024.rds"))
 ```
 
 ## 3. Hypothesis tests for other variables
@@ -102,24 +102,24 @@ copdata %>%
 
 ## 4. Risk Ratios
 
-The risk ratios of each food item (including the 2x2 table) are reported below. The output of the CS() command is two tables (one with the 2x2 table and one with the risk difference, the risk ratio and the attributable fraction among exposed as well as the attributable fraction among the population (and the confidence intervals for all the estimates). The Chi-square and the p-value are also reported. In the second part, a table with all the food items is printed including attack rates for exposed and unexposed as well as risk ratios and the 95% confidence intervals (CI ll and CI ul, for the lower and upper interval) and p-values.
+The risk ratios of each food item (including the 2x2 table) are reported below. The output of the `CS()` command is two tables: one with the 2x2 table and one with the risk difference, the risk ratio and the attributable fraction among exposed as well as the attributable fraction among the population (and the confidence intervals for all the estimates). The Chi-square and the p-value are also reported. In the second part, a table with all the food items is printed including attack rates for exposed and unexposed as well as risk ratios and the 95% confidence intervals (CI ll and CI ul, for the lower and upper interval) and p-values.
 
 ### a) Calculate 95% CI Risk Ratios for food
 
 ```{r}
 # You could use the EpiStats package for each food item
-CS(copdata, "case", "tuna")
-CS(copdata, "case", "shrimps")
-CS(copdata, "case", "green")
-CS(copdata, "case", "veal")
+CS(copdata, "case", "feta")
+CS(copdata, "case", "sardines")
+CS(copdata, "case", "eggplant")
+CS(copdata, "case", "moussaka")
 # And so one
 ```
 
 ```{r}
 # You can save time (and probably typos!) by creating a vector for food variables...
-food_vars <- c("tuna", "shrimps", "green", "veal", 
-                "pasta", "rocket", "sauce", "bread",
-                "champagne", "beer", "redwine", "whitewine")
+food_vars <- c("feta", "sardines", "eggplant", "moussaka", 
+               "orzo", "greeksal", "dessert", "bread",  
+               "champagne", "beer", "redwine", "whitewine")
 
 # ...and using EpiStats::CSTable() to run all variables together!
 CSTable(copdata, "case", food_vars)
@@ -148,34 +148,34 @@ rr_tbl <- CSTable(copdata, "case", food_vars) %>%
 
 ## 5. Dose Response
 
-#### a) Pasta
+#### a) Orzo
 
 ```{r}
 # Binomial regression for RRs. 
 # The outcome needs to be exponentiated so we can interpret it properly!
-binom_pastaD <- glm(case ~ pastaD, data = copdata, 
+binom_orzoD <- glm(case ~ orzoD, data = copdata, 
              family = binomial(link = "log"))
 
 # To get exponentiated:
-binom_pastaD_exp <- glm(case ~ pastaD, data = copdata, 
+binom_orzoD_exp <- glm(case ~ orzoD, data = copdata, 
                        family = binomial(link = "log")) %>% 
   tidy(exponentiate = TRUE, 
        conf.int = TRUE)
 
-binom_pastaD_exp
+binom_orzoD_exp
 ```
 
-#### b) Veal
+#### b) Moussaka
 
 ```{r}
 
 # Let's get the results directly exponentiated
-binom_vealD_exp <- glm(case ~ vealD, data = copdata, 
+binom_moussakaD_exp <- glm(case ~ moussakaD, data = copdata, 
                        family = binomial(link = "log")) %>% 
   tidy(exponentiate = TRUE, 
        conf.int = TRUE)
 
-binom_vealD_exp
+binom_moussakaD_exp
 ```
 
 #### c) Champagne
