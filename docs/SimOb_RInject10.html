@@ -134,7 +134,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="./SimOb_RInject11.html" rel="" target="">
- <span class="menu-text">Inject 11: Descriptive analysis</span></a>
+ <span class="menu-text">Laboratory data and descriptive analysis</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="./SimOb_RInject14.html" rel="" target="">
@@ -432,7 +432,7 @@ If you’ve thought about the above, have a look here
 <h3 class="anchored" data-anchor-id="c-fell-ill-within-the-time-period-of-interest">c) Fell ill within the time period of interest</h3>
 <ul>
 <li>Hmmm… what is the time period of interest? You could start calculating the incubation period, which can be defined by calculating the time between exposure (the meal) and onset of symptoms, and then looking at the distribution of these time differences. In this outbreak, incubation periods are easy to calculate, because everyone was exposed at (roughly) the same time and on the same day (eating the meal at the school dinner party).</li>
-<li>Dinner was served at 18:00 roughly for everyone. Create a new <code>meal_datetime</code> variable with this information for all people in your dataset (as per 11 Nov 2006, at 18:00h).</li>
+<li>Dinner was served at 18:00 roughly for everyone. Create a new <code>meal_datetime</code> variable with this information for all people in your dataset (as per 05 Oct 2024, at 18:00h).</li>
 </ul>
 <div class="cell">
 <details open="">
@@ -440,7 +440,7 @@ If you’ve thought about the above, have a look here
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Start with copdata:</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>copdata <span class="ot">&lt;-</span> copdata <span class="sc">%&gt;%</span> </span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Create new column for meal date and time:</span></span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">meal_datetime =</span> lubridate<span class="sc">::</span><span class="fu">ymd_hm</span>(<span class="st">"2006-11-11 18:00"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">meal_datetime =</span> lubridate<span class="sc">::</span><span class="fu">ymd_hm</span>(<span class="st">"2024-10-05 18:00"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 <ul>
@@ -490,7 +490,7 @@ Note
 <span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="fu">median</span>(<span class="fu">as.numeric</span>(copdata<span class="sc">$</span>incubation), <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 6538.625</code></pre>
+<pre><code>[1] 15</code></pre>
 </div>
 </div>
 <div class="callout callout-style-default callout-caution callout-titled" title="Now we are messing up with your brain...">
@@ -505,11 +505,11 @@ Now we are messing up with your brain…
 </div>
 <div id="callout-10" class="callout-10-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>If you pay attention, there were two individuals who don’t have a time recorded, only a date (Nov 11), the day of the dinner. These people probably got sick the same night they had the dinner, but the exact time was not recoded. They way we’ve managed the data will insert “00:00” in a missing value of a time. This means that the 2 people that got sick the day of the dinner have been recorded sick <em>before</em> the dinner (in the early morning of Nov 11). The two people have a negative incubation period! This should not happen. Ifyou feel the force is with you, you can modify this and fix the error (if you do this, your results will be a bit different than your colleagues, but similar). We will continue with this “erroneous” data, for easiness. But note that in real life, as soon as you realise there is a coding error like this, you would have to go back to your cleaning code and fix the error! This may happen a couple of times during your outbreak investigation, and is totally normal. Cleaning data is not an easy job!</p>
+<p>If you pay attention, there were two individuals who don’t have a time recorded, only a date, the day of the dinner. These people probably got sick the same night they had the dinner, but the exact time was not recoded. They way we’ve managed the data will insert “00:00” in a missing value of a time. This means that the 2 people that got sick the day of the dinner have been recorded sick <em>before</em> the dinner (in the early morning of the day of the dinner). The two people have a negative incubation period! This should not happen. If you feel the force is with you, you can modify this and fix the error (if you do this, your results will be a bit different than your colleagues, but similar). We will continue with this “erroneous” data, for easiness. But note that in real life, as soon as you realise there is a coding error like this, you would have to go back to your cleaning code and fix the error! This may happen a couple of times during your outbreak investigation, and is totally normal. Cleaning data is not an easy job!</p>
 </div>
 </div>
 </div>
-<p>We see that the median incubation time is 6538.625 hours. This is useful information, as incubation periods tend to be relatively pathogen-specific.</p>
+<p>We see that the median incubation time is 15 hours. This is useful information, as incubation periods tend to be relatively pathogen-specific.</p>
 <p>Based on this, say you define and limit the maximum incubation period to 48 hours after the meal, as the data points to a fast-acting bacterial toxin or a virus. That is, dinner participants should have developed (<code>onset_datetime</code>) at least one symptom (<code>diarrhoea</code>, <code>bloody</code> or <code>vomiting</code>) 48h after <code>meal_datetime</code> to become a <code>case.</code></p>
 <div class="callout callout-style-default callout-warning callout-titled" title="Let's stop and... think!">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-11-contents" aria-controls="callout-11" aria-expanded="false" aria-label="Toggle callout">
@@ -608,7 +608,7 @@ If you’ve thought about the above, have a look here
 
 <div data-pagedtable="false">
   <script data-pagedtable-source="" type="application/json">
-{"columns":[{"label":["case"],"name":[1],"type":["lgl"],"align":["right"]},{"label":["n"],"name":[2],"type":["int"],"align":["right"]},{"label":["percent"],"name":[3],"type":["dbl"],"align":["right"]}],"data":[{"1":"FALSE","2":"377","3":"1"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+{"columns":[{"label":["case"],"name":[1],"type":["lgl"],"align":["right"]},{"label":["n"],"name":[2],"type":["int"],"align":["right"]},{"label":["percent"],"name":[3],"type":["dbl"],"align":["right"]}],"data":[{"1":"FALSE","2":"161","3":"0.4270557"},{"1":"TRUE","2":"216","3":"0.5729443"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
   </script>
 </div>
 </div>
@@ -627,7 +627,7 @@ If you’ve thought about the above, have a look here
 
 <div data-pagedtable="false">
   <script data-pagedtable-source="" type="application/json">
-{"columns":[{"label":["atemeal"],"name":[1],"type":["int"],"align":["right"]},{"label":["hadsympt"],"name":[2],"type":["int"],"align":["right"]},{"label":["nb_cases"],"name":[3],"type":["int"],"align":["right"]}],"data":[{"1":"377","2":"216","3":"0"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+{"columns":[{"label":["atemeal"],"name":[1],"type":["int"],"align":["right"]},{"label":["hadsympt"],"name":[2],"type":["int"],"align":["right"]},{"label":["nb_cases"],"name":[3],"type":["int"],"align":["right"]}],"data":[{"1":"377","2":"216","3":"216"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
   </script>
 </div>
 </div>
@@ -1183,13 +1183,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb12-135"><a href="#cb12-135" aria-hidden="true" tabindex="-1"></a><span class="fu">### c) Fell ill within the time period of interest</span></span>
 <span id="cb12-136"><a href="#cb12-136" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb12-137"><a href="#cb12-137" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Hmmm... what is the time period of interest? You could start calculating the incubation period, which can be defined by calculating the time between exposure (the meal) and onset of symptoms, and then looking at the distribution of these time differences. In this outbreak, incubation periods are easy to calculate, because everyone was exposed at (roughly) the same time and on the same day (eating the meal at the school dinner party).</span>
-<span id="cb12-138"><a href="#cb12-138" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Dinner was served at 18:00 roughly for everyone. Create a new <span class="in">`meal_datetime`</span> variable with this information for all people in your dataset (as per 11 Nov 2006, at 18:00h).</span>
+<span id="cb12-138"><a href="#cb12-138" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Dinner was served at 18:00 roughly for everyone. Create a new <span class="in">`meal_datetime`</span> variable with this information for all people in your dataset (as per 05 Oct 2024, at 18:00h).</span>
 <span id="cb12-139"><a href="#cb12-139" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb12-142"><a href="#cb12-142" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
 <span id="cb12-143"><a href="#cb12-143" aria-hidden="true" tabindex="-1"></a><span class="co"># Start with copdata:</span></span>
 <span id="cb12-144"><a href="#cb12-144" aria-hidden="true" tabindex="-1"></a>copdata <span class="ot">&lt;-</span> copdata <span class="sc">%&gt;%</span> </span>
 <span id="cb12-145"><a href="#cb12-145" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Create new column for meal date and time:</span></span>
-<span id="cb12-146"><a href="#cb12-146" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">meal_datetime =</span> lubridate<span class="sc">::</span><span class="fu">ymd_hm</span>(<span class="st">"2006-11-11 18:00"</span>))</span>
+<span id="cb12-146"><a href="#cb12-146" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">meal_datetime =</span> lubridate<span class="sc">::</span><span class="fu">ymd_hm</span>(<span class="st">"2024-10-05 18:00"</span>))</span>
 <span id="cb12-147"><a href="#cb12-147" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb12-148"><a href="#cb12-148" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb12-149"><a href="#cb12-149" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>You can calculate the incubation period for each participant by subtracting <span class="in">`onset_datetime`</span> - <span class="in">`meal_datetime.`</span></span>
@@ -1214,7 +1214,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb12-170"><a href="#cb12-170" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb12-171"><a href="#cb12-171" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb12-172"><a href="#cb12-172" aria-hidden="true" tabindex="-1"></a>::: {.callout-caution title="Now we are messing up with your brain..." collapse="true"}</span>
-<span id="cb12-173"><a href="#cb12-173" aria-hidden="true" tabindex="-1"></a>If you pay attention, there were two individuals who don't have a time recorded, only a date (Nov 11), the day of the dinner. These people probably got sick the same night they had the dinner, but the exact time was not recoded. They way we've managed the data will insert "00:00" in a missing value of a time. This means that the 2 people that got sick the day of the dinner have been recorded sick *before* the dinner (in the early morning of Nov 11). The two people have a negative incubation period! This should not happen. Ifyou feel the force is with you, you can modify this and fix the error (if you do this, your results will be a bit different than your colleagues, but similar). We will continue with this "erroneous" data, for easiness. But note that in real life, as soon as you realise there is a coding error like this, you would have to go back to your cleaning code and fix the error! This may happen a couple of times during your outbreak investigation, and is totally normal. Cleaning data is not an easy job!</span>
+<span id="cb12-173"><a href="#cb12-173" aria-hidden="true" tabindex="-1"></a>If you pay attention, there were two individuals who don't have a time recorded, only a date, the day of the dinner. These people probably got sick the same night they had the dinner, but the exact time was not recoded. They way we've managed the data will insert "00:00" in a missing value of a time. This means that the 2 people that got sick the day of the dinner have been recorded sick *before* the dinner (in the early morning of the day of the dinner). The two people have a negative incubation period! This should not happen. If you feel the force is with you, you can modify this and fix the error (if you do this, your results will be a bit different than your colleagues, but similar). We will continue with this "erroneous" data, for easiness. But note that in real life, as soon as you realise there is a coding error like this, you would have to go back to your cleaning code and fix the error! This may happen a couple of times during your outbreak investigation, and is totally normal. Cleaning data is not an easy job!</span>
 <span id="cb12-174"><a href="#cb12-174" aria-hidden="true" tabindex="-1"></a>:::</span>
 <span id="cb12-175"><a href="#cb12-175" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb12-176"><a href="#cb12-176" aria-hidden="true" tabindex="-1"></a>We see that the median incubation time is <span class="in">`r median(as.numeric(copdata$incubation), na.rm = TRUE)`</span> hours. This is useful information, as incubation periods tend to be relatively pathogen-specific.</span>
@@ -1284,7 +1284,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb12-244"><a href="#cb12-244" aria-hidden="true" tabindex="-1"></a>rio<span class="sc">::</span><span class="fu">export</span>(<span class="at">x =</span> copdata, </span>
 <span id="cb12-245"><a href="#cb12-245" aria-hidden="true" tabindex="-1"></a>            <span class="at">file =</span> here<span class="sc">::</span><span class="fu">here</span>(<span class="st">"data"</span>, <span class="st">"Copenhagen_clean2_2024.rds"</span>))</span>
 <span id="cb12-246"><a href="#cb12-246" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-247"><a href="#cb12-247" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb12-247"><a href="#cb12-247" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-248"><a href="#cb12-248" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 </code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->

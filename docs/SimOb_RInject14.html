@@ -126,15 +126,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="./SimOb_RInject09.html" rel="" target="">
- <span class="menu-text">Inject 09: Data import and cleaning</span></a>
+ <span class="menu-text">Data import and cleaning</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="./SimOb_RInject10.html" rel="" target="">
- <span class="menu-text">Inject 10: Case Definition</span></a>
+ <span class="menu-text">Case Definition</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="./SimOb_RInject11.html" rel="" target="">
- <span class="menu-text">Inject 11: Descriptive analysis</span></a>
+ <span class="menu-text">Laboratory data and descriptive analysis</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link active" href="./SimOb_RInject14.html" rel="" target="" aria-current="page">
@@ -176,15 +176,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#install-packages-and-load-libraries" id="toc-install-packages-and-load-libraries" class="nav-link active" data-scroll-target="#install-packages-and-load-libraries">1. Install packages and load libraries</a></li>
-  <li><a href="#import-your-data" id="toc-import-your-data" class="nav-link" data-scroll-target="#import-your-data">2. Import your data</a></li>
-  <li><a href="#hypothesis-tests-for-other-variables" id="toc-hypothesis-tests-for-other-variables" class="nav-link" data-scroll-target="#hypothesis-tests-for-other-variables">3. Hypothesis tests for other variables</a></li>
-  <li><a href="#risk-ratios" id="toc-risk-ratios" class="nav-link" data-scroll-target="#risk-ratios">4. Risk Ratios</a>
+  <li><a href="#learning-outcomes" id="toc-learning-outcomes" class="nav-link active" data-scroll-target="#learning-outcomes">1. Learning outcomes</a></li>
+  <li><a href="#storyplot-description" id="toc-storyplot-description" class="nav-link" data-scroll-target="#storyplot-description">2. Story/plot description</a></li>
+  <li><a href="#questionsassignments" id="toc-questionsassignments" class="nav-link" data-scroll-target="#questionsassignments">3. Questions/Assignments</a></li>
+  <li><a href="#install-packages-and-load-libraries" id="toc-install-packages-and-load-libraries" class="nav-link" data-scroll-target="#install-packages-and-load-libraries">3.1. Install packages and load libraries</a></li>
+  <li><a href="#import-your-data" id="toc-import-your-data" class="nav-link" data-scroll-target="#import-your-data">3.2. Import your data</a></li>
+  <li><a href="#hypothesis-tests-for-other-variables" id="toc-hypothesis-tests-for-other-variables" class="nav-link" data-scroll-target="#hypothesis-tests-for-other-variables">3.3. Hypothesis tests for other variables</a></li>
+  <li><a href="#risk-ratios" id="toc-risk-ratios" class="nav-link" data-scroll-target="#risk-ratios">3.4. Risk Ratios</a>
   <ul class="collapse">
   <li><a href="#a-calculate-95-ci-risk-ratios-for-food" id="toc-a-calculate-95-ci-risk-ratios-for-food" class="nav-link" data-scroll-target="#a-calculate-95-ci-risk-ratios-for-food">a) Calculate 95% CI Risk Ratios for food</a></li>
   <li><a href="#b-prepare-the-rr-table-for-publication" id="toc-b-prepare-the-rr-table-for-publication" class="nav-link" data-scroll-target="#b-prepare-the-rr-table-for-publication">b) Prepare the RR table for publication</a></li>
   </ul></li>
-  <li><a href="#dose-response" id="toc-dose-response" class="nav-link" data-scroll-target="#dose-response">5. Dose Response</a></li>
+  <li><a href="#optional-dose-response" id="toc-optional-dose-response" class="nav-link" data-scroll-target="#optional-dose-response">3.5. (Optional) Dose Response</a></li>
+  <li><a href="#summary" id="toc-summary" class="nav-link" data-scroll-target="#summary">3.6 Summary</a></li>
   </ul>
 </nav>
     </div>
@@ -208,8 +212,40 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 </header>
 
+<section id="learning-outcomes" class="level2">
+<h2 class="anchored" data-anchor-id="learning-outcomes">1. Learning outcomes</h2>
+<p>At the end of the session, participants will be able to:</p>
+<ul>
+<li><p>Perform hypothesis tests.</p></li>
+<li><p>Estimate risk ratios (also called relative risk) for categorical data.</p></li>
+<li><p>Interpret the univariable results.</p></li>
+<li><p>(Optional) Investigate dose-response relationships in categorical data.2. Story/plot description</p></li>
+</ul>
+</section>
+<section id="storyplot-description" class="level2">
+<h2 class="anchored" data-anchor-id="storyplot-description">2. Story/plot description</h2>
+<p>You have just estimated risk ratios (RR) of individual food items manually to better understand the concept. RR give you an idea of which food items could be the culprit(s) of the outbreak.</p>
+<p>Now, you will practice performing hypothesis testing and calculating RR in R to investigate the associations of suspicious food items with the disease.</p>
+<p>Note that, although this is not an exhaustive list of tests, the following can be useful for this exercise (relevant for comparisons between two groups):</p>
+<ul>
+<li><p><strong>For continuous variables:</strong></p>
+<ul>
+<li><p><code>shapiro.test()</code> (for checking if normally distributed)</p></li>
+<li><p><code>t.test()</code> (for normal distributions)</p></li>
+<li><p><code>wilcox.test()</code> (for non-parametric testing. Used to determine if two numeric samples are from the same distribution, when their populations are not normally distributed or have unequal variance.)</p></li>
+</ul></li>
+<li><p><strong>For categorical variables:</strong></p>
+<ul>
+<li><p><code>chisq.test()</code> (if all comparisons include at least 5 cases)</p></li>
+<li><p><code>fisher.test()</code> (if there are &lt; 5 cases for any comparison)</p></li>
+</ul></li>
+</ul>
+</section>
+<section id="questionsassignments" class="level2">
+<h2 class="anchored" data-anchor-id="questionsassignments">3. Questions/Assignments</h2>
+</section>
 <section id="install-packages-and-load-libraries" class="level2">
-<h2 class="anchored" data-anchor-id="install-packages-and-load-libraries">1. Install packages and load libraries</h2>
+<h2 class="anchored" data-anchor-id="install-packages-and-load-libraries">3.1. Install packages and load libraries</h2>
 <div class="cell">
 <details open="">
 <summary>Code</summary>
@@ -233,17 +269,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </section>
 <section id="import-your-data" class="level2">
-<h2 class="anchored" data-anchor-id="import-your-data">2. Import your data</h2>
+<h2 class="anchored" data-anchor-id="import-your-data">3.2. Import your data</h2>
 <div class="cell">
 <details open="">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Import the raw data set:</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>copdata <span class="ot">&lt;-</span> rio<span class="sc">::</span><span class="fu">import</span>(here<span class="sc">::</span><span class="fu">here</span>(<span class="st">"data"</span>, <span class="st">"Copenhagen_clean2.rds"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>copdata <span class="ot">&lt;-</span> rio<span class="sc">::</span><span class="fu">import</span>(here<span class="sc">::</span><span class="fu">here</span>(<span class="st">"data"</span>, <span class="st">"Copenhagen_clean2_2024.rds"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 </section>
 <section id="hypothesis-tests-for-other-variables" class="level2">
-<h2 class="anchored" data-anchor-id="hypothesis-tests-for-other-variables">3. Hypothesis tests for other variables</h2>
+<h2 class="anchored" data-anchor-id="hypothesis-tests-for-other-variables">3.3. Hypothesis tests for other variables</h2>
+<p>Check if the following variables are associated with being a case: age, sex, class and group.</p>
 <section id="a-age" class="level4">
 <h4 class="anchored" data-anchor-id="a-age">a) age</h4>
 <p>With the Shapiro-Wilk test we check if the variables are following the normal distribution. The null hypothesis is that the data follow a normal distribution, therefore, rejecting the null hypothesis means that the data do not follow the normal distribution. A p-value below the cutoff for rejecting the null hypothesis, e.g., a p-value&lt;0.05 means that we reject the null hypothesis that the data follow the normal distribution. For age, the p-value is &lt;0.05, therefore we reject the null hypothesis that the data are normally distributed. As we see in the graph most frequently reported age is &lt;20 years.</p>
@@ -310,23 +347,23 @@ alternative hypothesis: true location shift is not equal to 0</code></pre>
 </details>
 <div class="cell-output-display">
 
-<div id="xzlpkuibev" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#xzlpkuibev table {
+<div id="xkvbnrpvws" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#xkvbnrpvws table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#xzlpkuibev thead, #xzlpkuibev tbody, #xzlpkuibev tfoot, #xzlpkuibev tr, #xzlpkuibev td, #xzlpkuibev th {
+#xkvbnrpvws thead, #xkvbnrpvws tbody, #xkvbnrpvws tfoot, #xkvbnrpvws tr, #xkvbnrpvws td, #xkvbnrpvws th {
   border-style: none;
 }
 
-#xzlpkuibev p {
+#xkvbnrpvws p {
   margin: 0;
   padding: 0;
 }
 
-#xzlpkuibev .gt_table {
+#xkvbnrpvws .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -352,12 +389,12 @@ alternative hypothesis: true location shift is not equal to 0</code></pre>
   border-left-color: #D3D3D3;
 }
 
-#xzlpkuibev .gt_caption {
+#xkvbnrpvws .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#xzlpkuibev .gt_title {
+#xkvbnrpvws .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -369,7 +406,7 @@ alternative hypothesis: true location shift is not equal to 0</code></pre>
   border-bottom-width: 0;
 }
 
-#xzlpkuibev .gt_subtitle {
+#xkvbnrpvws .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -381,7 +418,7 @@ alternative hypothesis: true location shift is not equal to 0</code></pre>
   border-top-width: 0;
 }
 
-#xzlpkuibev .gt_heading {
+#xkvbnrpvws .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -393,13 +430,13 @@ alternative hypothesis: true location shift is not equal to 0</code></pre>
   border-right-color: #D3D3D3;
 }
 
-#xzlpkuibev .gt_bottom_border {
+#xkvbnrpvws .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#xzlpkuibev .gt_col_headings {
+#xkvbnrpvws .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -414,7 +451,7 @@ alternative hypothesis: true location shift is not equal to 0</code></pre>
   border-right-color: #D3D3D3;
 }
 
-#xzlpkuibev .gt_col_heading {
+#xkvbnrpvws .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -434,7 +471,7 @@ alternative hypothesis: true location shift is not equal to 0</code></pre>
   overflow-x: hidden;
 }
 
-#xzlpkuibev .gt_column_spanner_outer {
+#xkvbnrpvws .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -446,15 +483,15 @@ alternative hypothesis: true location shift is not equal to 0</code></pre>
   padding-right: 4px;
 }
 
-#xzlpkuibev .gt_column_spanner_outer:first-child {
+#xkvbnrpvws .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#xzlpkuibev .gt_column_spanner_outer:last-child {
+#xkvbnrpvws .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#xzlpkuibev .gt_column_spanner {
+#xkvbnrpvws .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -466,11 +503,11 @@ alternative hypothesis: true location shift is not equal to 0</code></pre>
   width: 100%;
 }
 
-#xzlpkuibev .gt_spanner_row {
+#xkvbnrpvws .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#xzlpkuibev .gt_group_heading {
+#xkvbnrpvws .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -496,7 +533,7 @@ alternative hypothesis: true location shift is not equal to 0</code></pre>
   text-align: left;
 }
 
-#xzlpkuibev .gt_empty_group_heading {
+#xkvbnrpvws .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -511,15 +548,15 @@ alternative hypothesis: true location shift is not equal to 0</code></pre>
   vertical-align: middle;
 }
 
-#xzlpkuibev .gt_from_md > :first-child {
+#xkvbnrpvws .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#xzlpkuibev .gt_from_md > :last-child {
+#xkvbnrpvws .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#xzlpkuibev .gt_row {
+#xkvbnrpvws .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -538,7 +575,7 @@ alternative hypothesis: true location shift is not equal to 0</code></pre>
   overflow-x: hidden;
 }
 
-#xzlpkuibev .gt_stub {
+#xkvbnrpvws .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -551,7 +588,7 @@ alternative hypothesis: true location shift is not equal to 0</code></pre>
   padding-right: 5px;
 }
 
-#xzlpkuibev .gt_stub_row_group {
+#xkvbnrpvws .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -565,15 +602,15 @@ alternative hypothesis: true location shift is not equal to 0</code></pre>
   vertical-align: top;
 }
 
-#xzlpkuibev .gt_row_group_first td {
+#xkvbnrpvws .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#xzlpkuibev .gt_row_group_first th {
+#xkvbnrpvws .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#xzlpkuibev .gt_summary_row {
+#xkvbnrpvws .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -583,16 +620,16 @@ alternative hypothesis: true location shift is not equal to 0</code></pre>
   padding-right: 5px;
 }
 
-#xzlpkuibev .gt_first_summary_row {
+#xkvbnrpvws .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#xzlpkuibev .gt_first_summary_row.thick {
+#xkvbnrpvws .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#xzlpkuibev .gt_last_summary_row {
+#xkvbnrpvws .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -602,7 +639,7 @@ alternative hypothesis: true location shift is not equal to 0</code></pre>
   border-bottom-color: #D3D3D3;
 }
 
-#xzlpkuibev .gt_grand_summary_row {
+#xkvbnrpvws .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -612,7 +649,7 @@ alternative hypothesis: true location shift is not equal to 0</code></pre>
   padding-right: 5px;
 }
 
-#xzlpkuibev .gt_first_grand_summary_row {
+#xkvbnrpvws .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -622,7 +659,7 @@ alternative hypothesis: true location shift is not equal to 0</code></pre>
   border-top-color: #D3D3D3;
 }
 
-#xzlpkuibev .gt_last_grand_summary_row_top {
+#xkvbnrpvws .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -632,11 +669,11 @@ alternative hypothesis: true location shift is not equal to 0</code></pre>
   border-bottom-color: #D3D3D3;
 }
 
-#xzlpkuibev .gt_striped {
+#xkvbnrpvws .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#xzlpkuibev .gt_table_body {
+#xkvbnrpvws .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -645,7 +682,7 @@ alternative hypothesis: true location shift is not equal to 0</code></pre>
   border-bottom-color: #D3D3D3;
 }
 
-#xzlpkuibev .gt_footnotes {
+#xkvbnrpvws .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -659,7 +696,7 @@ alternative hypothesis: true location shift is not equal to 0</code></pre>
   border-right-color: #D3D3D3;
 }
 
-#xzlpkuibev .gt_footnote {
+#xkvbnrpvws .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -668,7 +705,7 @@ alternative hypothesis: true location shift is not equal to 0</code></pre>
   padding-right: 5px;
 }
 
-#xzlpkuibev .gt_sourcenotes {
+#xkvbnrpvws .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -682,7 +719,7 @@ alternative hypothesis: true location shift is not equal to 0</code></pre>
   border-right-color: #D3D3D3;
 }
 
-#xzlpkuibev .gt_sourcenote {
+#xkvbnrpvws .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -690,63 +727,63 @@ alternative hypothesis: true location shift is not equal to 0</code></pre>
   padding-right: 5px;
 }
 
-#xzlpkuibev .gt_left {
+#xkvbnrpvws .gt_left {
   text-align: left;
 }
 
-#xzlpkuibev .gt_center {
+#xkvbnrpvws .gt_center {
   text-align: center;
 }
 
-#xzlpkuibev .gt_right {
+#xkvbnrpvws .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#xzlpkuibev .gt_font_normal {
+#xkvbnrpvws .gt_font_normal {
   font-weight: normal;
 }
 
-#xzlpkuibev .gt_font_bold {
+#xkvbnrpvws .gt_font_bold {
   font-weight: bold;
 }
 
-#xzlpkuibev .gt_font_italic {
+#xkvbnrpvws .gt_font_italic {
   font-style: italic;
 }
 
-#xzlpkuibev .gt_super {
+#xkvbnrpvws .gt_super {
   font-size: 65%;
 }
 
-#xzlpkuibev .gt_footnote_marks {
+#xkvbnrpvws .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#xzlpkuibev .gt_asterisk {
+#xkvbnrpvws .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#xzlpkuibev .gt_indent_1 {
+#xkvbnrpvws .gt_indent_1 {
   text-indent: 5px;
 }
 
-#xzlpkuibev .gt_indent_2 {
+#xkvbnrpvws .gt_indent_2 {
   text-indent: 10px;
 }
 
-#xzlpkuibev .gt_indent_3 {
+#xkvbnrpvws .gt_indent_3 {
   text-indent: 15px;
 }
 
-#xzlpkuibev .gt_indent_4 {
+#xkvbnrpvws .gt_indent_4 {
   text-indent: 20px;
 }
 
-#xzlpkuibev .gt_indent_5 {
+#xkvbnrpvws .gt_indent_5 {
   text-indent: 25px;
 }
 </style>
@@ -787,6 +824,23 @@ alternative hypothesis: true location shift is not equal to 0</code></pre>
 </div>
 </div>
 </div>
+<div class="callout callout-style-default callout-warning callout-titled" title="Let's stop and... think!">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Let’s stop and… think!
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>What do these results tell you - is there an association between sex and being a case?</p>
+<p>Do these results differ from what you expected when looking at the descriptive figures (case proportions stratified by sex, or the age sex pyramid)? If so, why do you think this is?</p>
+</div>
+</div>
+</div>
 </section>
 <section id="c-class" class="level4">
 <h4 class="anchored" data-anchor-id="c-class">c) class</h4>
@@ -800,23 +854,23 @@ alternative hypothesis: true location shift is not equal to 0</code></pre>
 </details>
 <div class="cell-output-display">
 
-<div id="uiykilteft" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#uiykilteft table {
+<div id="nvaizglwlg" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#nvaizglwlg table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#uiykilteft thead, #uiykilteft tbody, #uiykilteft tfoot, #uiykilteft tr, #uiykilteft td, #uiykilteft th {
+#nvaizglwlg thead, #nvaizglwlg tbody, #nvaizglwlg tfoot, #nvaizglwlg tr, #nvaizglwlg td, #nvaizglwlg th {
   border-style: none;
 }
 
-#uiykilteft p {
+#nvaizglwlg p {
   margin: 0;
   padding: 0;
 }
 
-#uiykilteft .gt_table {
+#nvaizglwlg .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -842,12 +896,12 @@ alternative hypothesis: true location shift is not equal to 0</code></pre>
   border-left-color: #D3D3D3;
 }
 
-#uiykilteft .gt_caption {
+#nvaizglwlg .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#uiykilteft .gt_title {
+#nvaizglwlg .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -859,7 +913,7 @@ alternative hypothesis: true location shift is not equal to 0</code></pre>
   border-bottom-width: 0;
 }
 
-#uiykilteft .gt_subtitle {
+#nvaizglwlg .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -871,7 +925,7 @@ alternative hypothesis: true location shift is not equal to 0</code></pre>
   border-top-width: 0;
 }
 
-#uiykilteft .gt_heading {
+#nvaizglwlg .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -883,13 +937,13 @@ alternative hypothesis: true location shift is not equal to 0</code></pre>
   border-right-color: #D3D3D3;
 }
 
-#uiykilteft .gt_bottom_border {
+#nvaizglwlg .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#uiykilteft .gt_col_headings {
+#nvaizglwlg .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -904,7 +958,7 @@ alternative hypothesis: true location shift is not equal to 0</code></pre>
   border-right-color: #D3D3D3;
 }
 
-#uiykilteft .gt_col_heading {
+#nvaizglwlg .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -924,7 +978,7 @@ alternative hypothesis: true location shift is not equal to 0</code></pre>
   overflow-x: hidden;
 }
 
-#uiykilteft .gt_column_spanner_outer {
+#nvaizglwlg .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -936,15 +990,15 @@ alternative hypothesis: true location shift is not equal to 0</code></pre>
   padding-right: 4px;
 }
 
-#uiykilteft .gt_column_spanner_outer:first-child {
+#nvaizglwlg .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#uiykilteft .gt_column_spanner_outer:last-child {
+#nvaizglwlg .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#uiykilteft .gt_column_spanner {
+#nvaizglwlg .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -956,11 +1010,11 @@ alternative hypothesis: true location shift is not equal to 0</code></pre>
   width: 100%;
 }
 
-#uiykilteft .gt_spanner_row {
+#nvaizglwlg .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#uiykilteft .gt_group_heading {
+#nvaizglwlg .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -986,7 +1040,7 @@ alternative hypothesis: true location shift is not equal to 0</code></pre>
   text-align: left;
 }
 
-#uiykilteft .gt_empty_group_heading {
+#nvaizglwlg .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -1001,15 +1055,15 @@ alternative hypothesis: true location shift is not equal to 0</code></pre>
   vertical-align: middle;
 }
 
-#uiykilteft .gt_from_md > :first-child {
+#nvaizglwlg .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#uiykilteft .gt_from_md > :last-child {
+#nvaizglwlg .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#uiykilteft .gt_row {
+#nvaizglwlg .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1028,7 +1082,7 @@ alternative hypothesis: true location shift is not equal to 0</code></pre>
   overflow-x: hidden;
 }
 
-#uiykilteft .gt_stub {
+#nvaizglwlg .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1041,7 +1095,7 @@ alternative hypothesis: true location shift is not equal to 0</code></pre>
   padding-right: 5px;
 }
 
-#uiykilteft .gt_stub_row_group {
+#nvaizglwlg .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1055,15 +1109,15 @@ alternative hypothesis: true location shift is not equal to 0</code></pre>
   vertical-align: top;
 }
 
-#uiykilteft .gt_row_group_first td {
+#nvaizglwlg .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#uiykilteft .gt_row_group_first th {
+#nvaizglwlg .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#uiykilteft .gt_summary_row {
+#nvaizglwlg .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1073,16 +1127,16 @@ alternative hypothesis: true location shift is not equal to 0</code></pre>
   padding-right: 5px;
 }
 
-#uiykilteft .gt_first_summary_row {
+#nvaizglwlg .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#uiykilteft .gt_first_summary_row.thick {
+#nvaizglwlg .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#uiykilteft .gt_last_summary_row {
+#nvaizglwlg .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1092,7 +1146,7 @@ alternative hypothesis: true location shift is not equal to 0</code></pre>
   border-bottom-color: #D3D3D3;
 }
 
-#uiykilteft .gt_grand_summary_row {
+#nvaizglwlg .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1102,7 +1156,7 @@ alternative hypothesis: true location shift is not equal to 0</code></pre>
   padding-right: 5px;
 }
 
-#uiykilteft .gt_first_grand_summary_row {
+#nvaizglwlg .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1112,7 +1166,7 @@ alternative hypothesis: true location shift is not equal to 0</code></pre>
   border-top-color: #D3D3D3;
 }
 
-#uiykilteft .gt_last_grand_summary_row_top {
+#nvaizglwlg .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1122,11 +1176,11 @@ alternative hypothesis: true location shift is not equal to 0</code></pre>
   border-bottom-color: #D3D3D3;
 }
 
-#uiykilteft .gt_striped {
+#nvaizglwlg .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#uiykilteft .gt_table_body {
+#nvaizglwlg .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1135,7 +1189,7 @@ alternative hypothesis: true location shift is not equal to 0</code></pre>
   border-bottom-color: #D3D3D3;
 }
 
-#uiykilteft .gt_footnotes {
+#nvaizglwlg .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1149,7 +1203,7 @@ alternative hypothesis: true location shift is not equal to 0</code></pre>
   border-right-color: #D3D3D3;
 }
 
-#uiykilteft .gt_footnote {
+#nvaizglwlg .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -1158,7 +1212,7 @@ alternative hypothesis: true location shift is not equal to 0</code></pre>
   padding-right: 5px;
 }
 
-#uiykilteft .gt_sourcenotes {
+#nvaizglwlg .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1172,7 +1226,7 @@ alternative hypothesis: true location shift is not equal to 0</code></pre>
   border-right-color: #D3D3D3;
 }
 
-#uiykilteft .gt_sourcenote {
+#nvaizglwlg .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -1180,63 +1234,63 @@ alternative hypothesis: true location shift is not equal to 0</code></pre>
   padding-right: 5px;
 }
 
-#uiykilteft .gt_left {
+#nvaizglwlg .gt_left {
   text-align: left;
 }
 
-#uiykilteft .gt_center {
+#nvaizglwlg .gt_center {
   text-align: center;
 }
 
-#uiykilteft .gt_right {
+#nvaizglwlg .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#uiykilteft .gt_font_normal {
+#nvaizglwlg .gt_font_normal {
   font-weight: normal;
 }
 
-#uiykilteft .gt_font_bold {
+#nvaizglwlg .gt_font_bold {
   font-weight: bold;
 }
 
-#uiykilteft .gt_font_italic {
+#nvaizglwlg .gt_font_italic {
   font-style: italic;
 }
 
-#uiykilteft .gt_super {
+#nvaizglwlg .gt_super {
   font-size: 65%;
 }
 
-#uiykilteft .gt_footnote_marks {
+#nvaizglwlg .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#uiykilteft .gt_asterisk {
+#nvaizglwlg .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#uiykilteft .gt_indent_1 {
+#nvaizglwlg .gt_indent_1 {
   text-indent: 5px;
 }
 
-#uiykilteft .gt_indent_2 {
+#nvaizglwlg .gt_indent_2 {
   text-indent: 10px;
 }
 
-#uiykilteft .gt_indent_3 {
+#nvaizglwlg .gt_indent_3 {
   text-indent: 15px;
 }
 
-#uiykilteft .gt_indent_4 {
+#nvaizglwlg .gt_indent_4 {
   text-indent: 20px;
 }
 
-#uiykilteft .gt_indent_5 {
+#nvaizglwlg .gt_indent_5 {
   text-indent: 25px;
 }
 </style>
@@ -1285,6 +1339,8 @@ alternative hypothesis: true location shift is not equal to 0</code></pre>
 </div>
 </div>
 </div>
+<p>In this case you have a 2x3 contingency table of class against disease status, we can use a chi-square here. P-value of the association between class and age is p-val = 0.09, suggesting that there is an association at the p-val = 0.20 level among at least one of the 3 different classes. Fellows may want to investigate this further, but in the remaining of the study this is not explored further.</p>
+<p>A hypothesis could be that one of the classes sat together and, for whatever reason, they ate more of the contaminated food item at those tables. This could be further studied if we had the spatial distribution of where the people sat at the dinner. Another hypothesis is that one of the classes differ from other classes in some characteristics that made them more susceptible or more exposed to the infected food item.</p>
 </section>
 <section id="d-group" class="level4">
 <h4 class="anchored" data-anchor-id="d-group">d) group</h4>
@@ -1298,23 +1354,23 @@ alternative hypothesis: true location shift is not equal to 0</code></pre>
 </details>
 <div class="cell-output-display">
 
-<div id="gquarlqgpu" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#gquarlqgpu table {
+<div id="fhcygqlwds" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#fhcygqlwds table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#gquarlqgpu thead, #gquarlqgpu tbody, #gquarlqgpu tfoot, #gquarlqgpu tr, #gquarlqgpu td, #gquarlqgpu th {
+#fhcygqlwds thead, #fhcygqlwds tbody, #fhcygqlwds tfoot, #fhcygqlwds tr, #fhcygqlwds td, #fhcygqlwds th {
   border-style: none;
 }
 
-#gquarlqgpu p {
+#fhcygqlwds p {
   margin: 0;
   padding: 0;
 }
 
-#gquarlqgpu .gt_table {
+#fhcygqlwds .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -1340,12 +1396,12 @@ alternative hypothesis: true location shift is not equal to 0</code></pre>
   border-left-color: #D3D3D3;
 }
 
-#gquarlqgpu .gt_caption {
+#fhcygqlwds .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#gquarlqgpu .gt_title {
+#fhcygqlwds .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -1357,7 +1413,7 @@ alternative hypothesis: true location shift is not equal to 0</code></pre>
   border-bottom-width: 0;
 }
 
-#gquarlqgpu .gt_subtitle {
+#fhcygqlwds .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -1369,7 +1425,7 @@ alternative hypothesis: true location shift is not equal to 0</code></pre>
   border-top-width: 0;
 }
 
-#gquarlqgpu .gt_heading {
+#fhcygqlwds .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -1381,13 +1437,13 @@ alternative hypothesis: true location shift is not equal to 0</code></pre>
   border-right-color: #D3D3D3;
 }
 
-#gquarlqgpu .gt_bottom_border {
+#fhcygqlwds .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#gquarlqgpu .gt_col_headings {
+#fhcygqlwds .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1402,7 +1458,7 @@ alternative hypothesis: true location shift is not equal to 0</code></pre>
   border-right-color: #D3D3D3;
 }
 
-#gquarlqgpu .gt_col_heading {
+#fhcygqlwds .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1422,7 +1478,7 @@ alternative hypothesis: true location shift is not equal to 0</code></pre>
   overflow-x: hidden;
 }
 
-#gquarlqgpu .gt_column_spanner_outer {
+#fhcygqlwds .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1434,15 +1490,15 @@ alternative hypothesis: true location shift is not equal to 0</code></pre>
   padding-right: 4px;
 }
 
-#gquarlqgpu .gt_column_spanner_outer:first-child {
+#fhcygqlwds .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#gquarlqgpu .gt_column_spanner_outer:last-child {
+#fhcygqlwds .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#gquarlqgpu .gt_column_spanner {
+#fhcygqlwds .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -1454,11 +1510,11 @@ alternative hypothesis: true location shift is not equal to 0</code></pre>
   width: 100%;
 }
 
-#gquarlqgpu .gt_spanner_row {
+#fhcygqlwds .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#gquarlqgpu .gt_group_heading {
+#fhcygqlwds .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1484,7 +1540,7 @@ alternative hypothesis: true location shift is not equal to 0</code></pre>
   text-align: left;
 }
 
-#gquarlqgpu .gt_empty_group_heading {
+#fhcygqlwds .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -1499,15 +1555,15 @@ alternative hypothesis: true location shift is not equal to 0</code></pre>
   vertical-align: middle;
 }
 
-#gquarlqgpu .gt_from_md > :first-child {
+#fhcygqlwds .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#gquarlqgpu .gt_from_md > :last-child {
+#fhcygqlwds .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#gquarlqgpu .gt_row {
+#fhcygqlwds .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1526,7 +1582,7 @@ alternative hypothesis: true location shift is not equal to 0</code></pre>
   overflow-x: hidden;
 }
 
-#gquarlqgpu .gt_stub {
+#fhcygqlwds .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1539,7 +1595,7 @@ alternative hypothesis: true location shift is not equal to 0</code></pre>
   padding-right: 5px;
 }
 
-#gquarlqgpu .gt_stub_row_group {
+#fhcygqlwds .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1553,15 +1609,15 @@ alternative hypothesis: true location shift is not equal to 0</code></pre>
   vertical-align: top;
 }
 
-#gquarlqgpu .gt_row_group_first td {
+#fhcygqlwds .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#gquarlqgpu .gt_row_group_first th {
+#fhcygqlwds .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#gquarlqgpu .gt_summary_row {
+#fhcygqlwds .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1571,16 +1627,16 @@ alternative hypothesis: true location shift is not equal to 0</code></pre>
   padding-right: 5px;
 }
 
-#gquarlqgpu .gt_first_summary_row {
+#fhcygqlwds .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#gquarlqgpu .gt_first_summary_row.thick {
+#fhcygqlwds .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#gquarlqgpu .gt_last_summary_row {
+#fhcygqlwds .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1590,7 +1646,7 @@ alternative hypothesis: true location shift is not equal to 0</code></pre>
   border-bottom-color: #D3D3D3;
 }
 
-#gquarlqgpu .gt_grand_summary_row {
+#fhcygqlwds .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1600,7 +1656,7 @@ alternative hypothesis: true location shift is not equal to 0</code></pre>
   padding-right: 5px;
 }
 
-#gquarlqgpu .gt_first_grand_summary_row {
+#fhcygqlwds .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1610,7 +1666,7 @@ alternative hypothesis: true location shift is not equal to 0</code></pre>
   border-top-color: #D3D3D3;
 }
 
-#gquarlqgpu .gt_last_grand_summary_row_top {
+#fhcygqlwds .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1620,11 +1676,11 @@ alternative hypothesis: true location shift is not equal to 0</code></pre>
   border-bottom-color: #D3D3D3;
 }
 
-#gquarlqgpu .gt_striped {
+#fhcygqlwds .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#gquarlqgpu .gt_table_body {
+#fhcygqlwds .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1633,7 +1689,7 @@ alternative hypothesis: true location shift is not equal to 0</code></pre>
   border-bottom-color: #D3D3D3;
 }
 
-#gquarlqgpu .gt_footnotes {
+#fhcygqlwds .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1647,7 +1703,7 @@ alternative hypothesis: true location shift is not equal to 0</code></pre>
   border-right-color: #D3D3D3;
 }
 
-#gquarlqgpu .gt_footnote {
+#fhcygqlwds .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -1656,7 +1712,7 @@ alternative hypothesis: true location shift is not equal to 0</code></pre>
   padding-right: 5px;
 }
 
-#gquarlqgpu .gt_sourcenotes {
+#fhcygqlwds .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1670,7 +1726,7 @@ alternative hypothesis: true location shift is not equal to 0</code></pre>
   border-right-color: #D3D3D3;
 }
 
-#gquarlqgpu .gt_sourcenote {
+#fhcygqlwds .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -1678,63 +1734,63 @@ alternative hypothesis: true location shift is not equal to 0</code></pre>
   padding-right: 5px;
 }
 
-#gquarlqgpu .gt_left {
+#fhcygqlwds .gt_left {
   text-align: left;
 }
 
-#gquarlqgpu .gt_center {
+#fhcygqlwds .gt_center {
   text-align: center;
 }
 
-#gquarlqgpu .gt_right {
+#fhcygqlwds .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#gquarlqgpu .gt_font_normal {
+#fhcygqlwds .gt_font_normal {
   font-weight: normal;
 }
 
-#gquarlqgpu .gt_font_bold {
+#fhcygqlwds .gt_font_bold {
   font-weight: bold;
 }
 
-#gquarlqgpu .gt_font_italic {
+#fhcygqlwds .gt_font_italic {
   font-style: italic;
 }
 
-#gquarlqgpu .gt_super {
+#fhcygqlwds .gt_super {
   font-size: 65%;
 }
 
-#gquarlqgpu .gt_footnote_marks {
+#fhcygqlwds .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#gquarlqgpu .gt_asterisk {
+#fhcygqlwds .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#gquarlqgpu .gt_indent_1 {
+#fhcygqlwds .gt_indent_1 {
   text-indent: 5px;
 }
 
-#gquarlqgpu .gt_indent_2 {
+#fhcygqlwds .gt_indent_2 {
   text-indent: 10px;
 }
 
-#gquarlqgpu .gt_indent_3 {
+#fhcygqlwds .gt_indent_3 {
   text-indent: 15px;
 }
 
-#gquarlqgpu .gt_indent_4 {
+#fhcygqlwds .gt_indent_4 {
   text-indent: 20px;
 }
 
-#gquarlqgpu .gt_indent_5 {
+#fhcygqlwds .gt_indent_5 {
   text-indent: 25px;
 }
 </style>
@@ -1775,6 +1831,7 @@ alternative hypothesis: true location shift is not equal to 0</code></pre>
 </div>
 </div>
 </div>
+<p>P-value of the association between group and age is p-val = 0.2, suggesting that there may be an association at the p-val = 0.20 level. Explanations are like above, with variable class.</p>
 </section>
 <section id="lets-do-all-together" class="level4">
 <h4 class="anchored" data-anchor-id="lets-do-all-together">Let’s do all together</h4>
@@ -1788,23 +1845,23 @@ alternative hypothesis: true location shift is not equal to 0</code></pre>
 </details>
 <div class="cell-output-display">
 
-<div id="uyenzbmvil" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#uyenzbmvil table {
+<div id="zhvyqnydgy" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#zhvyqnydgy table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#uyenzbmvil thead, #uyenzbmvil tbody, #uyenzbmvil tfoot, #uyenzbmvil tr, #uyenzbmvil td, #uyenzbmvil th {
+#zhvyqnydgy thead, #zhvyqnydgy tbody, #zhvyqnydgy tfoot, #zhvyqnydgy tr, #zhvyqnydgy td, #zhvyqnydgy th {
   border-style: none;
 }
 
-#uyenzbmvil p {
+#zhvyqnydgy p {
   margin: 0;
   padding: 0;
 }
 
-#uyenzbmvil .gt_table {
+#zhvyqnydgy .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -1830,12 +1887,12 @@ alternative hypothesis: true location shift is not equal to 0</code></pre>
   border-left-color: #D3D3D3;
 }
 
-#uyenzbmvil .gt_caption {
+#zhvyqnydgy .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#uyenzbmvil .gt_title {
+#zhvyqnydgy .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -1847,7 +1904,7 @@ alternative hypothesis: true location shift is not equal to 0</code></pre>
   border-bottom-width: 0;
 }
 
-#uyenzbmvil .gt_subtitle {
+#zhvyqnydgy .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -1859,7 +1916,7 @@ alternative hypothesis: true location shift is not equal to 0</code></pre>
   border-top-width: 0;
 }
 
-#uyenzbmvil .gt_heading {
+#zhvyqnydgy .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -1871,13 +1928,13 @@ alternative hypothesis: true location shift is not equal to 0</code></pre>
   border-right-color: #D3D3D3;
 }
 
-#uyenzbmvil .gt_bottom_border {
+#zhvyqnydgy .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#uyenzbmvil .gt_col_headings {
+#zhvyqnydgy .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1892,7 +1949,7 @@ alternative hypothesis: true location shift is not equal to 0</code></pre>
   border-right-color: #D3D3D3;
 }
 
-#uyenzbmvil .gt_col_heading {
+#zhvyqnydgy .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1912,7 +1969,7 @@ alternative hypothesis: true location shift is not equal to 0</code></pre>
   overflow-x: hidden;
 }
 
-#uyenzbmvil .gt_column_spanner_outer {
+#zhvyqnydgy .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1924,15 +1981,15 @@ alternative hypothesis: true location shift is not equal to 0</code></pre>
   padding-right: 4px;
 }
 
-#uyenzbmvil .gt_column_spanner_outer:first-child {
+#zhvyqnydgy .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#uyenzbmvil .gt_column_spanner_outer:last-child {
+#zhvyqnydgy .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#uyenzbmvil .gt_column_spanner {
+#zhvyqnydgy .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -1944,11 +2001,11 @@ alternative hypothesis: true location shift is not equal to 0</code></pre>
   width: 100%;
 }
 
-#uyenzbmvil .gt_spanner_row {
+#zhvyqnydgy .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#uyenzbmvil .gt_group_heading {
+#zhvyqnydgy .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1974,7 +2031,7 @@ alternative hypothesis: true location shift is not equal to 0</code></pre>
   text-align: left;
 }
 
-#uyenzbmvil .gt_empty_group_heading {
+#zhvyqnydgy .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -1989,15 +2046,15 @@ alternative hypothesis: true location shift is not equal to 0</code></pre>
   vertical-align: middle;
 }
 
-#uyenzbmvil .gt_from_md > :first-child {
+#zhvyqnydgy .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#uyenzbmvil .gt_from_md > :last-child {
+#zhvyqnydgy .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#uyenzbmvil .gt_row {
+#zhvyqnydgy .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2016,7 +2073,7 @@ alternative hypothesis: true location shift is not equal to 0</code></pre>
   overflow-x: hidden;
 }
 
-#uyenzbmvil .gt_stub {
+#zhvyqnydgy .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2029,7 +2086,7 @@ alternative hypothesis: true location shift is not equal to 0</code></pre>
   padding-right: 5px;
 }
 
-#uyenzbmvil .gt_stub_row_group {
+#zhvyqnydgy .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2043,15 +2100,15 @@ alternative hypothesis: true location shift is not equal to 0</code></pre>
   vertical-align: top;
 }
 
-#uyenzbmvil .gt_row_group_first td {
+#zhvyqnydgy .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#uyenzbmvil .gt_row_group_first th {
+#zhvyqnydgy .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#uyenzbmvil .gt_summary_row {
+#zhvyqnydgy .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -2061,16 +2118,16 @@ alternative hypothesis: true location shift is not equal to 0</code></pre>
   padding-right: 5px;
 }
 
-#uyenzbmvil .gt_first_summary_row {
+#zhvyqnydgy .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#uyenzbmvil .gt_first_summary_row.thick {
+#zhvyqnydgy .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#uyenzbmvil .gt_last_summary_row {
+#zhvyqnydgy .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2080,7 +2137,7 @@ alternative hypothesis: true location shift is not equal to 0</code></pre>
   border-bottom-color: #D3D3D3;
 }
 
-#uyenzbmvil .gt_grand_summary_row {
+#zhvyqnydgy .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -2090,7 +2147,7 @@ alternative hypothesis: true location shift is not equal to 0</code></pre>
   padding-right: 5px;
 }
 
-#uyenzbmvil .gt_first_grand_summary_row {
+#zhvyqnydgy .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2100,7 +2157,7 @@ alternative hypothesis: true location shift is not equal to 0</code></pre>
   border-top-color: #D3D3D3;
 }
 
-#uyenzbmvil .gt_last_grand_summary_row_top {
+#zhvyqnydgy .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2110,11 +2167,11 @@ alternative hypothesis: true location shift is not equal to 0</code></pre>
   border-bottom-color: #D3D3D3;
 }
 
-#uyenzbmvil .gt_striped {
+#zhvyqnydgy .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#uyenzbmvil .gt_table_body {
+#zhvyqnydgy .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -2123,7 +2180,7 @@ alternative hypothesis: true location shift is not equal to 0</code></pre>
   border-bottom-color: #D3D3D3;
 }
 
-#uyenzbmvil .gt_footnotes {
+#zhvyqnydgy .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -2137,7 +2194,7 @@ alternative hypothesis: true location shift is not equal to 0</code></pre>
   border-right-color: #D3D3D3;
 }
 
-#uyenzbmvil .gt_footnote {
+#zhvyqnydgy .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -2146,7 +2203,7 @@ alternative hypothesis: true location shift is not equal to 0</code></pre>
   padding-right: 5px;
 }
 
-#uyenzbmvil .gt_sourcenotes {
+#zhvyqnydgy .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -2160,7 +2217,7 @@ alternative hypothesis: true location shift is not equal to 0</code></pre>
   border-right-color: #D3D3D3;
 }
 
-#uyenzbmvil .gt_sourcenote {
+#zhvyqnydgy .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -2168,63 +2225,63 @@ alternative hypothesis: true location shift is not equal to 0</code></pre>
   padding-right: 5px;
 }
 
-#uyenzbmvil .gt_left {
+#zhvyqnydgy .gt_left {
   text-align: left;
 }
 
-#uyenzbmvil .gt_center {
+#zhvyqnydgy .gt_center {
   text-align: center;
 }
 
-#uyenzbmvil .gt_right {
+#zhvyqnydgy .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#uyenzbmvil .gt_font_normal {
+#zhvyqnydgy .gt_font_normal {
   font-weight: normal;
 }
 
-#uyenzbmvil .gt_font_bold {
+#zhvyqnydgy .gt_font_bold {
   font-weight: bold;
 }
 
-#uyenzbmvil .gt_font_italic {
+#zhvyqnydgy .gt_font_italic {
   font-style: italic;
 }
 
-#uyenzbmvil .gt_super {
+#zhvyqnydgy .gt_super {
   font-size: 65%;
 }
 
-#uyenzbmvil .gt_footnote_marks {
+#zhvyqnydgy .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#uyenzbmvil .gt_asterisk {
+#zhvyqnydgy .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#uyenzbmvil .gt_indent_1 {
+#zhvyqnydgy .gt_indent_1 {
   text-indent: 5px;
 }
 
-#uyenzbmvil .gt_indent_2 {
+#zhvyqnydgy .gt_indent_2 {
   text-indent: 10px;
 }
 
-#uyenzbmvil .gt_indent_3 {
+#zhvyqnydgy .gt_indent_3 {
   text-indent: 15px;
 }
 
-#uyenzbmvil .gt_indent_4 {
+#zhvyqnydgy .gt_indent_4 {
   text-indent: 20px;
 }
 
-#uyenzbmvil .gt_indent_5 {
+#zhvyqnydgy .gt_indent_5 {
   text-indent: 25px;
 }
 </style>
@@ -2300,15 +2357,33 @@ alternative hypothesis: true location shift is not equal to 0</code></pre>
 </section>
 </section>
 <section id="risk-ratios" class="level2">
-<h2 class="anchored" data-anchor-id="risk-ratios">4. Risk Ratios</h2>
-<p>The risk ratios of each food item (including the 2x2 table) are reported below. The output of the CS() command is two tables (one with the 2x2 table and one with the risk difference, the risk ratio and the attributable fraction among exposed as well as the attributable fraction among the population (and the confidence intervals for all the estimates). The Chi-square and the p-value are also reported. In the second part, a table with all the food items is printed including attack rates for exposed and unexposed as well as risk ratios and the 95% confidence intervals (CI ll and CI ul, for the lower and upper interval) and p-values.</p>
+<h2 class="anchored" data-anchor-id="risk-ratios">3.4. Risk Ratios</h2>
+<p>The risk ratios of each food item (including the 2x2 table) are reported below. The output of the <code>CS()</code> command is two tables: one with the 2x2 table and one with the risk difference, the risk ratio and the attributable fraction among exposed as well as the attributable fraction among the population (and the confidence intervals for all the estimates). The Chi-square and the p-value are also reported. In the second part, a table with all the food items is printed including attack rates for exposed and unexposed as well as risk ratios and the 95% confidence intervals (CI ll and CI ul, for the lower and upper interval) and p-values.</p>
 <section id="a-calculate-95-ci-risk-ratios-for-food" class="level3">
 <h3 class="anchored" data-anchor-id="a-calculate-95-ci-risk-ratios-for-food">a) Calculate 95% CI Risk Ratios for food</h3>
+<p>To see if food items (note these are categorical variables) are associated with being a case, calculate risk ratios and 95% confidence intervals for food items. You can calculate this individually for each food item (using <code>CSTable()</code>), or all at once (see hint below).</p>
+<div class="callout callout-style-default callout-tip callout-titled" title="Need a little bit of help?">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Need a little bit of help?
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Create a <code>food_vars</code> vector containing food variables of interest and use the function <code>CSTable()</code> of the EpiStats package.</p>
+<p><em>Using this hint, you will create a table with the name of exposure variables, the total number of exposed, the number of exposed cases, the attack rate among the exposed, the total number of unexposed, the number of unexposed cases, the attack rate among the unexposed, risk ratios, 95% percent confidence intervals, and p-values. Amazing, isn’t it? Have a look at <code>??CSTable</code> to learn more.</em></p>
+</div>
+</div>
+</div>
 <div class="cell">
 <details open="">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># You could use the EpiStats package for each food item</span></span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="fu">CS</span>(copdata, <span class="st">"case"</span>, <span class="st">"tuna"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="fu">CS</span>(copdata, <span class="st">"case"</span>, <span class="st">"feta"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>$df1
@@ -2318,7 +2393,7 @@ Unexposed    60        42   102 0.59
 Total       216       157   373 0.58
 
 $df2
-                Point estimate 95%CI ll 95%CI ul
+                Point estimate 95%CI.ll 95%CI.ul
 Risk difference          -0.01    -0.12     0.10
 Risk ratio                0.98     0.81     1.19
 Prev. frac. ex.           0.02    -0.19     0.19
@@ -2328,7 +2403,7 @@ Pr&gt;chi2                  0.826       NA       NA</code></pre>
 </div>
 <details open="">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">CS</span>(copdata, <span class="st">"case"</span>, <span class="st">"shrimps"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">CS</span>(copdata, <span class="st">"case"</span>, <span class="st">"sardines"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>$df1
@@ -2338,7 +2413,7 @@ Unexposed    65        52   117 0.56
 Total       215       157   372 0.58
 
 $df2
-                Point estimate 95%CI ll 95%CI ul
+                Point estimate 95%CI.ll 95%CI.ul
 Risk difference           0.03    -0.08     0.14
 Risk ratio                1.06     0.87     1.28
 Attr. frac. ex.           0.06    -0.14     0.22
@@ -2348,7 +2423,7 @@ Pr&gt;chi2                  0.553       NA       NA</code></pre>
 </div>
 <details open="">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">CS</span>(copdata, <span class="st">"case"</span>, <span class="st">"green"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">CS</span>(copdata, <span class="st">"case"</span>, <span class="st">"eggplant"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>$df1
@@ -2358,7 +2433,7 @@ Unexposed    83        60   143 0.58
 Total       206       153   359 0.57
 
 $df2
-                Point estimate 95%CI ll 95%CI ul
+                Point estimate 95%CI.ll 95%CI.ul
 Risk difference          -0.01    -0.12     0.09
 Risk ratio                0.98     0.82     1.18
 Prev. frac. ex.           0.02    -0.18     0.18
@@ -2368,7 +2443,7 @@ Pr&gt;chi2                  0.837       NA       NA</code></pre>
 </div>
 <details open="">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">CS</span>(copdata, <span class="st">"case"</span>, <span class="st">"veal"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">CS</span>(copdata, <span class="st">"case"</span>, <span class="st">"moussaka"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>$df1
@@ -2378,7 +2453,7 @@ Unexposed    14        22    36 0.39
 Total       215       159   374 0.57
 
 $df2
-                Point estimate 95%CI ll 95%CI ul
+                Point estimate 95%CI.ll 95%CI.ul
 Risk difference           0.21     0.04     0.37
 Risk ratio                1.53     1.01     2.32
 Attr. frac. ex.           0.35     0.01     0.57
@@ -2386,126 +2461,176 @@ Attr. frac. pop           0.32       NA       NA
 chi2(1)                   5.64       NA       NA
 Pr&gt;chi2                  0.018       NA       NA</code></pre>
 </div>
-<details open="">
-<summary>Code</summary>
-<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co"># And so one</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 </div>
 <div class="cell">
 <details open="">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co"># You can save time (and probably typos!) by creating a vector for food variables...</span></span>
-<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>food_vars <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"tuna"</span>, <span class="st">"shrimps"</span>, <span class="st">"green"</span>, <span class="st">"veal"</span>, </span>
-<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>                <span class="st">"pasta"</span>, <span class="st">"rocket"</span>, <span class="st">"sauce"</span>, <span class="st">"bread"</span>,</span>
-<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>                <span class="st">"champagne"</span>, <span class="st">"beer"</span>, <span class="st">"redwine"</span>, <span class="st">"whitewine"</span>)</span>
-<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a><span class="co"># ...and using EpiStats::CSTable() to run all variables together!</span></span>
-<span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a><span class="fu">CSTable</span>(copdata, <span class="st">"case"</span>, food_vars)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co"># You can save time (and probably typos!) by creating a vector for food variables...</span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>food_vars <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"feta"</span>, <span class="st">"sardines"</span>, <span class="st">"eggplant"</span>, <span class="st">"moussaka"</span>, </span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>               <span class="st">"orzo"</span>, <span class="st">"greeksal"</span>, <span class="st">"dessert"</span>, <span class="st">"bread"</span>,  </span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>               <span class="st">"champagne"</span>, <span class="st">"beer"</span>, <span class="st">"redwine"</span>, <span class="st">"whitewine"</span>)</span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a><span class="co"># ...and using EpiStats::CSTable() to run all variables together!</span></span>
+<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a><span class="fu">CSTable</span>(copdata, <span class="st">"case"</span>, food_vars)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>$df
-          Tot.Exp. Exp.Cases   AR% Tot.Unex. Unex.Cases   AR%   RR CI ll CI ul
-pasta          338       202 59.76        36         13 36.11 1.65  1.06  2.58
-veal           338       201 59.47        36         14 38.89 1.53  1.01  2.32
-champagne      316       187 59.18        48         21 43.75 1.35  0.97  1.89
-rocket         211       114 54.03       154         95 61.69 0.88  0.73  1.04
-sauce          149        90 60.40       198        106 53.54 1.13  0.94  1.36
-beer           281       166 59.07        78         41 52.56 1.12  0.89  1.42
-redwine         80        42 52.50       259        150 57.92 0.91  0.72  1.14
-shrimps        255       150 58.82       117         65 55.56 1.06  0.87  1.28
-whitewine      260       150 57.69        98         54 55.10 1.05  0.85  1.29
-bread          342       196 57.31        29         16 55.17 1.04  0.74  1.46
-tuna           271       156 57.56       102         60 58.82 0.98  0.81  1.19
-green          216       123 56.94       143         83 58.04 0.98  0.82  1.18
-          p(Chi2)
-pasta       0.006
-veal        0.018
-champagne   0.044
-rocket      0.144
-sauce       0.202
-beer        0.303
-redwine     0.393
-shrimps     0.553
-whitewine   0.659
-bread       0.823
-tuna        0.826
-green       0.837</code></pre>
+          Tot.Exp Cases.Exp AR.Exp% Tot.Unexp Cases.Unexp AR.Unexp%   RR CI.ll
+orzo          338       202   59.76        36          13     36.11 1.65  1.06
+moussaka      338       201   59.47        36          14     38.89 1.53  1.01
+champagne     316       187   59.18        48          21     43.75 1.35  0.97
+greeksal      211       114   54.03       154          95     61.69 0.88  0.73
+dessert       149        90   60.40       198         106     53.54 1.13  0.94
+beer          281       166   59.07        78          41     52.56 1.12  0.89
+redwine        80        42   52.50       259         150     57.92 0.91  0.72
+sardines      255       150   58.82       117          65     55.56 1.06  0.87
+whitewine     260       150   57.69        98          54     55.10 1.05  0.85
+bread         342       196   57.31        29          16     55.17 1.04  0.74
+feta          271       156   57.56       102          60     58.82 0.98  0.81
+eggplant      216       123   56.94       143          83     58.04 0.98  0.82
+          CI.ul p(Chi2)
+orzo       2.58   0.006
+moussaka   2.32   0.018
+champagne  1.89   0.044
+greeksal   1.04   0.144
+dessert    1.36   0.202
+beer       1.42   0.303
+redwine    1.14   0.393
+sardines   1.28   0.553
+whitewine  1.29   0.659
+bread      1.46   0.823
+feta       1.19   0.826
+eggplant   1.18   0.837</code></pre>
 </div>
 </div>
 </section>
 <section id="b-prepare-the-rr-table-for-publication" class="level3">
 <h3 class="anchored" data-anchor-id="b-prepare-the-rr-table-for-publication">b) Prepare the RR table for publication</h3>
+<div class="callout callout-style-default callout-tip callout-titled" title="Need a little bit of help?">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Need a little bit of help?
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Use <code>flextable()</code> and <code>set_header_labels()</code>.</p>
+</div>
+</div>
+</div>
 <div class="cell">
 <details open="">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>rr_tbl <span class="ot">&lt;-</span> <span class="fu">CSTable</span>(copdata, <span class="st">"case"</span>, food_vars) <span class="sc">%&gt;%</span> </span>
-<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">as.data.frame</span>() <span class="sc">%&gt;%</span> </span>
-<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rownames_to_column</span>() <span class="sc">%&gt;%</span> </span>
-<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">flextable</span>() <span class="sc">%&gt;%</span> </span>
-<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a>   <span class="fu">set_header_labels</span>(</span>
-<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a>     <span class="at">values =</span> <span class="fu">c</span>(<span class="st">"Food Item"</span>,</span>
-<span id="cb24-7"><a href="#cb24-7" aria-hidden="true" tabindex="-1"></a>                <span class="st">"Total exposed"</span>,     </span>
-<span id="cb24-8"><a href="#cb24-8" aria-hidden="true" tabindex="-1"></a>               <span class="st">"Cases exposed"</span>, </span>
-<span id="cb24-9"><a href="#cb24-9" aria-hidden="true" tabindex="-1"></a>               <span class="st">"AR among exposed"</span>,    </span>
-<span id="cb24-10"><a href="#cb24-10" aria-hidden="true" tabindex="-1"></a>               <span class="st">"Total unexposed"</span>,</span>
-<span id="cb24-11"><a href="#cb24-11" aria-hidden="true" tabindex="-1"></a>               <span class="st">"Cases unexposed"</span>,</span>
-<span id="cb24-12"><a href="#cb24-12" aria-hidden="true" tabindex="-1"></a>               <span class="st">"AR among unexposed"</span>,</span>
-<span id="cb24-13"><a href="#cb24-13" aria-hidden="true" tabindex="-1"></a>               <span class="st">"RR"</span>,         </span>
-<span id="cb24-14"><a href="#cb24-14" aria-hidden="true" tabindex="-1"></a>               <span class="st">"95% lower CI"</span>,             </span>
-<span id="cb24-15"><a href="#cb24-15" aria-hidden="true" tabindex="-1"></a>               <span class="st">"95% upper CI"</span>,</span>
-<span id="cb24-16"><a href="#cb24-16" aria-hidden="true" tabindex="-1"></a>               <span class="st">"p-value"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>rr_tbl <span class="ot">&lt;-</span> <span class="fu">CSTable</span>(copdata, <span class="st">"case"</span>, food_vars) <span class="sc">%&gt;%</span> </span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">as.data.frame</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rownames_to_column</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">flextable</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a>   <span class="fu">set_header_labels</span>(</span>
+<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a>     <span class="at">values =</span> <span class="fu">c</span>(<span class="st">"Food Item"</span>,</span>
+<span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a>                <span class="st">"Total exposed"</span>,     </span>
+<span id="cb23-8"><a href="#cb23-8" aria-hidden="true" tabindex="-1"></a>               <span class="st">"Cases exposed"</span>, </span>
+<span id="cb23-9"><a href="#cb23-9" aria-hidden="true" tabindex="-1"></a>               <span class="st">"AR among exposed"</span>,    </span>
+<span id="cb23-10"><a href="#cb23-10" aria-hidden="true" tabindex="-1"></a>               <span class="st">"Total unexposed"</span>,</span>
+<span id="cb23-11"><a href="#cb23-11" aria-hidden="true" tabindex="-1"></a>               <span class="st">"Cases unexposed"</span>,</span>
+<span id="cb23-12"><a href="#cb23-12" aria-hidden="true" tabindex="-1"></a>               <span class="st">"AR among unexposed"</span>,</span>
+<span id="cb23-13"><a href="#cb23-13" aria-hidden="true" tabindex="-1"></a>               <span class="st">"RR"</span>,         </span>
+<span id="cb23-14"><a href="#cb23-14" aria-hidden="true" tabindex="-1"></a>               <span class="st">"95% lower CI"</span>,             </span>
+<span id="cb23-15"><a href="#cb23-15" aria-hidden="true" tabindex="-1"></a>               <span class="st">"95% upper CI"</span>,</span>
+<span id="cb23-16"><a href="#cb23-16" aria-hidden="true" tabindex="-1"></a>               <span class="st">"p-value"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
+<div class="callout callout-style-default callout-warning callout-titled" title="Let's stop and... think!">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Let’s stop and… think!
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>· What can you infer from this table?</p>
+<p>· Considering the relative risks, which food or drink items do you think were most likely to be the vehicle(s) of infection in this outbreak?</p>
+<p>· Do you think there are any confounders or effect modifiers? If so, how would you investigate these further?</p>
+</div>
+</div>
+</div>
+<p>The interesting results here are that the food items that are most suspicious are orzo, moussaka and champagne. Orzo as such is unlikely to be contaminated, but as you can see in the picture (and from the dinner night), it was served with pesto! Maybe it was the pesto? Who-ho-ho!</p>
+<p>Before one jumps into conclusions, consider that this result could be due to confounding! Maybe orzo was "clean" but eaten by all the people who ate the food item that actually was contaminated!(Optional)</p>
 </section>
 </section>
-<section id="dose-response" class="level2">
-<h2 class="anchored" data-anchor-id="dose-response">5. Dose Response</h2>
-<section id="a-pasta" class="level4">
-<h4 class="anchored" data-anchor-id="a-pasta">a) Pasta</h4>
+<section id="optional-dose-response" class="level2">
+<h2 class="anchored" data-anchor-id="optional-dose-response">3.5. (Optional) Dose Response</h2>
+<p>Check for a dose-response relationship between the food items with the highest RR values (the top 3) and being a case.</p>
+<section id="a-orzo" class="level4">
+<h4 class="anchored" data-anchor-id="a-orzo">a) Orzo</h4>
 <div class="cell">
 <details open="">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Binomial regression for RRs. </span></span>
-<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="co"># The outcome needs to be exponentiated so we can interpret it properly!</span></span>
-<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>binom_pastaD <span class="ot">&lt;-</span> <span class="fu">glm</span>(case <span class="sc">~</span> pastaD, <span class="at">data =</span> copdata, </span>
-<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a>             <span class="at">family =</span> <span class="fu">binomial</span>(<span class="at">link =</span> <span class="st">"log"</span>))</span>
-<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a><span class="co"># To get exponentiated:</span></span>
-<span id="cb25-7"><a href="#cb25-7" aria-hidden="true" tabindex="-1"></a>binom_pastaD_exp <span class="ot">&lt;-</span> <span class="fu">glm</span>(case <span class="sc">~</span> pastaD, <span class="at">data =</span> copdata, </span>
-<span id="cb25-8"><a href="#cb25-8" aria-hidden="true" tabindex="-1"></a>                       <span class="at">family =</span> <span class="fu">binomial</span>(<span class="at">link =</span> <span class="st">"log"</span>)) <span class="sc">%&gt;%</span> </span>
-<span id="cb25-9"><a href="#cb25-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tidy</span>(<span class="at">exponentiate =</span> <span class="cn">TRUE</span>, </span>
-<span id="cb25-10"><a href="#cb25-10" aria-hidden="true" tabindex="-1"></a>       <span class="at">conf.int =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb25-11"><a href="#cb25-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-12"><a href="#cb25-12" aria-hidden="true" tabindex="-1"></a>binom_pastaD_exp</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Binomial regression for RRs. </span></span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a><span class="co"># The outcome needs to be exponentiated so we can interpret it properly!</span></span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>binom_orzoD <span class="ot">&lt;-</span> <span class="fu">glm</span>(case <span class="sc">~</span> orzoD, <span class="at">data =</span> copdata, </span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>             <span class="at">family =</span> <span class="fu">binomial</span>(<span class="at">link =</span> <span class="st">"log"</span>))</span>
+<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a><span class="co"># To get exponentiated:</span></span>
+<span id="cb24-7"><a href="#cb24-7" aria-hidden="true" tabindex="-1"></a>binom_orzoD_exp <span class="ot">&lt;-</span> <span class="fu">glm</span>(case <span class="sc">~</span> orzoD, <span class="at">data =</span> copdata, </span>
+<span id="cb24-8"><a href="#cb24-8" aria-hidden="true" tabindex="-1"></a>                       <span class="at">family =</span> <span class="fu">binomial</span>(<span class="at">link =</span> <span class="st">"log"</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb24-9"><a href="#cb24-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tidy</span>(<span class="at">exponentiate =</span> <span class="cn">TRUE</span>, </span>
+<span id="cb24-10"><a href="#cb24-10" aria-hidden="true" tabindex="-1"></a>       <span class="at">conf.int =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb24-11"><a href="#cb24-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-12"><a href="#cb24-12" aria-hidden="true" tabindex="-1"></a>binom_orzoD_exp</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
 
 <div data-pagedtable="false">
   <script data-pagedtable-source="" type="application/json">
-{"columns":[{"label":["term"],"name":[1],"type":["chr"],"align":["left"]},{"label":["estimate"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["std.error"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["statistic"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["p.value"],"name":[5],"type":["dbl"],"align":["right"]},{"label":["conf.low"],"name":[6],"type":["dbl"],"align":["right"]},{"label":["conf.high"],"name":[7],"type":["dbl"],"align":["right"]}],"data":[{"1":"(Intercept)","2":"0.3611111","3":"0.2216676","4":"-4.595030","5":"4.326861e-06","6":"0.2177022","7":"0.5235932"},{"1":"pastaD1","2":"1.5032967","3":"0.2473185","4":"1.648322","5":"9.928664e-02","6":"0.9630031","7":"2.5843736"},{"1":"pastaD2","2":"1.6191677","3":"0.2302560","4":"2.092941","5":"3.635441e-02","6":"1.0901317","7":"2.7190340"},{"1":"pastaD3","2":"1.8570136","3":"0.2343410","4":"2.641320","5":"8.258357e-03","6":"1.2344067","7":"3.1353759"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+{"columns":[{"label":["term"],"name":[1],"type":["chr"],"align":["left"]},{"label":["estimate"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["std.error"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["statistic"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["p.value"],"name":[5],"type":["dbl"],"align":["right"]},{"label":["conf.low"],"name":[6],"type":["dbl"],"align":["right"]},{"label":["conf.high"],"name":[7],"type":["dbl"],"align":["right"]}],"data":[{"1":"(Intercept)","2":"0.3611111","3":"0.2216676","4":"-4.595030","5":"4.326861e-06","6":"0.2177022","7":"0.5235932"},{"1":"orzoD1","2":"1.5032967","3":"0.2473185","4":"1.648322","5":"9.928664e-02","6":"0.9630031","7":"2.5843736"},{"1":"orzoD2","2":"1.6191677","3":"0.2302560","4":"2.092941","5":"3.635441e-02","6":"1.0901317","7":"2.7190340"},{"1":"orzoD3","2":"1.8570136","3":"0.2343410","4":"2.641320","5":"8.258357e-03","6":"1.2344067","7":"3.1353759"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
   </script>
 </div>
 </div>
 </div>
+<div class="callout callout-style-default callout-warning callout-titled" title="Let's stop and... think!">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Let’s stop and… think!
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-5" class="callout-5-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>What do these results tell you?</p>
+</div>
+</div>
+</div>
+<p>Results suggest a dose response relationship of having eaten orzo, pointing towards orzoas the potential vehicle. The higher the amount of orzothey ate, the stronger is the association (RR) with getting ill/being a case.</p>
 </section>
-<section id="b-veal" class="level4">
-<h4 class="anchored" data-anchor-id="b-veal">b) Veal</h4>
+<section id="b-moussaka" class="level4">
+<h4 class="anchored" data-anchor-id="b-moussaka">b) Moussaka</h4>
 <div class="cell">
 <details open="">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Let's get the results directly exponentiated</span></span>
-<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>binom_vealD_exp <span class="ot">&lt;-</span> <span class="fu">glm</span>(case <span class="sc">~</span> vealD, <span class="at">data =</span> copdata, </span>
-<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>                       <span class="at">family =</span> <span class="fu">binomial</span>(<span class="at">link =</span> <span class="st">"log"</span>)) <span class="sc">%&gt;%</span> </span>
-<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tidy</span>(<span class="at">exponentiate =</span> <span class="cn">TRUE</span>, </span>
-<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a>       <span class="at">conf.int =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb26-6"><a href="#cb26-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-7"><a href="#cb26-7" aria-hidden="true" tabindex="-1"></a>binom_vealD_exp</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Let's get the results directly exponentiated</span></span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>binom_moussakaD_exp <span class="ot">&lt;-</span> <span class="fu">glm</span>(case <span class="sc">~</span> moussakaD, <span class="at">data =</span> copdata, </span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>                       <span class="at">family =</span> <span class="fu">binomial</span>(<span class="at">link =</span> <span class="st">"log"</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tidy</span>(<span class="at">exponentiate =</span> <span class="cn">TRUE</span>, </span>
+<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a>       <span class="at">conf.int =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-7"><a href="#cb25-7" aria-hidden="true" tabindex="-1"></a>binom_moussakaD_exp</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
 
 <div data-pagedtable="false">
   <script data-pagedtable-source="" type="application/json">
-{"columns":[{"label":["term"],"name":[1],"type":["chr"],"align":["left"]},{"label":["estimate"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["std.error"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["statistic"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["p.value"],"name":[5],"type":["dbl"],"align":["right"]},{"label":["conf.low"],"name":[6],"type":["dbl"],"align":["right"]},{"label":["conf.high"],"name":[7],"type":["dbl"],"align":["right"]}],"data":[{"1":"(Intercept)","2":"0.4411765","3":"0.1930091","4":"-4.239749","5":"2.237698e-05","6":"0.2831200","7":"0.6077136"},{"1":"vealD1","2":"1.2952381","3":"0.2190130","4":"1.181183","5":"2.375299e-01","6":"0.8713777","7":"2.0919282"},{"1":"vealD2","2":"1.3057971","3":"0.2031051","4":"1.313673","5":"1.889563e-01","6":"0.9210122","7":"2.0641020"},{"1":"vealD3","2":"1.4068966","3":"0.2104204","4":"1.622401","5":"1.047176e-01","6":"0.9704903","7":"2.2457999"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+{"columns":[{"label":["term"],"name":[1],"type":["chr"],"align":["left"]},{"label":["estimate"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["std.error"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["statistic"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["p.value"],"name":[5],"type":["dbl"],"align":["right"]},{"label":["conf.low"],"name":[6],"type":["dbl"],"align":["right"]},{"label":["conf.high"],"name":[7],"type":["dbl"],"align":["right"]}],"data":[{"1":"(Intercept)","2":"0.4411765","3":"0.1930091","4":"-4.239749","5":"2.237698e-05","6":"0.2831200","7":"0.6077136"},{"1":"moussakaD1","2":"1.2952381","3":"0.2190130","4":"1.181183","5":"2.375299e-01","6":"0.8713777","7":"2.0919282"},{"1":"moussakaD2","2":"1.3057971","3":"0.2031051","4":"1.313673","5":"1.889563e-01","6":"0.9210122","7":"2.0641020"},{"1":"moussakaD3","2":"1.4068966","3":"0.2104204","4":"1.622401","5":"1.047176e-01","6":"0.9704903","7":"2.2457999"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
   </script>
 </div>
 </div>
@@ -2516,13 +2641,13 @@ green       0.837</code></pre>
 <div class="cell">
 <details open="">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Let's get the results directly exponentiated</span></span>
-<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>binom_champagneD_exp <span class="ot">&lt;-</span> <span class="fu">glm</span>(case <span class="sc">~</span> champagneD, <span class="at">data =</span> copdata, </span>
-<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>                       <span class="at">family =</span> <span class="fu">binomial</span>(<span class="at">link =</span> <span class="st">"log"</span>)) <span class="sc">%&gt;%</span> </span>
-<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tidy</span>(<span class="at">exponentiate =</span> <span class="cn">TRUE</span>, </span>
-<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a>       <span class="at">conf.int =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb27-6"><a href="#cb27-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-7"><a href="#cb27-7" aria-hidden="true" tabindex="-1"></a>binom_champagneD_exp</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Let's get the results directly exponentiated</span></span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>binom_champagneD_exp <span class="ot">&lt;-</span> <span class="fu">glm</span>(case <span class="sc">~</span> champagneD, <span class="at">data =</span> copdata, </span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>                       <span class="at">family =</span> <span class="fu">binomial</span>(<span class="at">link =</span> <span class="st">"log"</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tidy</span>(<span class="at">exponentiate =</span> <span class="cn">TRUE</span>, </span>
+<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a>       <span class="at">conf.int =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb26-6"><a href="#cb26-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-7"><a href="#cb26-7" aria-hidden="true" tabindex="-1"></a>binom_champagneD_exp</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
 
@@ -2533,11 +2658,22 @@ green       0.837</code></pre>
 </div>
 </div>
 </div>
+</section>
+</section>
+<section id="summary" class="level2">
+<h2 class="anchored" data-anchor-id="summary">3.6 Summary</h2>
+<p>As a summary of what you've done above, answer these questions:</p>
+<ul>
+<li><p>Is the respondents' sex associated with being a case?</p></li>
+<li><p>Is the school class associated with being a case?</p></li>
+<li><p>Which foods increase the risk of being a case?</p></li>
+<li><p>(Optional) Is there a dose-response relationship between the food items and being a case?</p></li>
+<li><p>What do you think is the most likely culprit(s) of this outbreak at this point? Are there any risk factors you would like to highlight?</p></li>
+</ul>
 
 
 <!-- -->
 
-</section>
 </section>
 
 </main> <!-- /main -->
@@ -2940,195 +3076,290 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
-<div class="sourceCode" id="cb28" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "Inject 14: Univariable analysis"</span></span>
-<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a><span class="an">editor:</span><span class="co"> visual</span></span>
-<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-6"><a href="#cb28-6" aria-hidden="true" tabindex="-1"></a><span class="fu">## 1. Install packages and load libraries</span></span>
-<span id="cb28-7"><a href="#cb28-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-10"><a href="#cb28-10" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb28-11"><a href="#cb28-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Load the required libraries into the current R session:</span></span>
-<span id="cb28-12"><a href="#cb28-12" aria-hidden="true" tabindex="-1"></a>pacman<span class="sc">::</span><span class="fu">p_load</span>(rio, </span>
-<span id="cb28-13"><a href="#cb28-13" aria-hidden="true" tabindex="-1"></a>               here, </span>
-<span id="cb28-14"><a href="#cb28-14" aria-hidden="true" tabindex="-1"></a>               tidyverse, </span>
-<span id="cb28-15"><a href="#cb28-15" aria-hidden="true" tabindex="-1"></a>               skimr,</span>
-<span id="cb28-16"><a href="#cb28-16" aria-hidden="true" tabindex="-1"></a>               plyr,</span>
-<span id="cb28-17"><a href="#cb28-17" aria-hidden="true" tabindex="-1"></a>               janitor,</span>
-<span id="cb28-18"><a href="#cb28-18" aria-hidden="true" tabindex="-1"></a>               lubridate,</span>
-<span id="cb28-19"><a href="#cb28-19" aria-hidden="true" tabindex="-1"></a>               gtsummary, </span>
-<span id="cb28-20"><a href="#cb28-20" aria-hidden="true" tabindex="-1"></a>               flextable,</span>
-<span id="cb28-21"><a href="#cb28-21" aria-hidden="true" tabindex="-1"></a>               officer,</span>
-<span id="cb28-22"><a href="#cb28-22" aria-hidden="true" tabindex="-1"></a>               epikit, </span>
-<span id="cb28-23"><a href="#cb28-23" aria-hidden="true" tabindex="-1"></a>               apyramid, </span>
-<span id="cb28-24"><a href="#cb28-24" aria-hidden="true" tabindex="-1"></a>               scales,</span>
-<span id="cb28-25"><a href="#cb28-25" aria-hidden="true" tabindex="-1"></a>               EpiStats,</span>
-<span id="cb28-26"><a href="#cb28-26" aria-hidden="true" tabindex="-1"></a>               broom)</span>
-<span id="cb28-27"><a href="#cb28-27" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-28"><a href="#cb28-28" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb28-29"><a href="#cb28-29" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-30"><a href="#cb28-30" aria-hidden="true" tabindex="-1"></a><span class="fu">## 2. Import your data</span></span>
-<span id="cb28-31"><a href="#cb28-31" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-32"><a href="#cb28-32" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, Import_data}</span></span>
-<span id="cb28-33"><a href="#cb28-33" aria-hidden="true" tabindex="-1"></a><span class="co"># Import the raw data set:</span></span>
-<span id="cb28-34"><a href="#cb28-34" aria-hidden="true" tabindex="-1"></a>copdata <span class="ot">&lt;-</span> rio<span class="sc">::</span><span class="fu">import</span>(here<span class="sc">::</span><span class="fu">here</span>(<span class="st">"data"</span>, <span class="st">"Copenhagen_clean2.rds"</span>))</span>
-<span id="cb28-35"><a href="#cb28-35" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb28-36"><a href="#cb28-36" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-37"><a href="#cb28-37" aria-hidden="true" tabindex="-1"></a><span class="fu">## 3. Hypothesis tests for other variables</span></span>
-<span id="cb28-38"><a href="#cb28-38" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-39"><a href="#cb28-39" aria-hidden="true" tabindex="-1"></a><span class="fu">#### a) age</span></span>
-<span id="cb28-40"><a href="#cb28-40" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-41"><a href="#cb28-41" aria-hidden="true" tabindex="-1"></a>With the Shapiro-Wilk test we check if the variables are following the normal distribution. The null hypothesis is that the data follow a normal distribution, therefore, rejecting the null hypothesis means that the data do not follow the normal distribution. A p-value below the cutoff for rejecting the null hypothesis, e.g., a p-value<span class="sc">\&lt;</span>0.05 means that we reject the null hypothesis that the data follow the normal distribution. For age, the p-value is <span class="sc">\&lt;</span>0.05, therefore we reject the null hypothesis that the data are normally distributed. As we see in the graph most frequently reported age is <span class="sc">\&lt;</span>20 years.</span>
-<span id="cb28-42"><a href="#cb28-42" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-45"><a href="#cb28-45" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb28-46"><a href="#cb28-46" aria-hidden="true" tabindex="-1"></a><span class="co"># Check if age overall follows a normal distribution:</span></span>
-<span id="cb28-47"><a href="#cb28-47" aria-hidden="true" tabindex="-1"></a><span class="fu">shapiro.test</span>(copdata<span class="sc">$</span>age)</span>
-<span id="cb28-48"><a href="#cb28-48" aria-hidden="true" tabindex="-1"></a><span class="co"># Can simply have a look at</span></span>
-<span id="cb28-49"><a href="#cb28-49" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(copdata<span class="sc">$</span>age)</span>
-<span id="cb28-50"><a href="#cb28-50" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-51"><a href="#cb28-51" aria-hidden="true" tabindex="-1"></a><span class="co"># Looking only at the students:</span></span>
-<span id="cb28-52"><a href="#cb28-52" aria-hidden="true" tabindex="-1"></a>students <span class="ot">&lt;-</span> copdata <span class="sc">%&gt;%</span> </span>
-<span id="cb28-53"><a href="#cb28-53" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(group <span class="sc">==</span> <span class="st">"student"</span>)</span>
-<span id="cb28-54"><a href="#cb28-54" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(students<span class="sc">$</span>age)</span>
-<span id="cb28-55"><a href="#cb28-55" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb28-56"><a href="#cb28-56" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-57"><a href="#cb28-57" aria-hidden="true" tabindex="-1"></a>Age overall (nor within the students' group) is not normally distributed.</span>
-<span id="cb28-58"><a href="#cb28-58" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-59"><a href="#cb28-59" aria-hidden="true" tabindex="-1"></a>We compare the age for cases and non-cases using the Wilcoxon test that is used when the data are not normally distributed. The null hypothesis is that there is no difference in the age between the two groups compared. Given that p-value<span class="sc">\&gt;</span>0.05 we do not reject the null hypothesis.</span>
-<span id="cb28-60"><a href="#cb28-60" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-63"><a href="#cb28-63" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb28-64"><a href="#cb28-64" aria-hidden="true" tabindex="-1"></a><span class="co"># Perform Wilcoxon rank sum test on age and sex:</span></span>
-<span id="cb28-65"><a href="#cb28-65" aria-hidden="true" tabindex="-1"></a><span class="fu">wilcox.test</span>(age <span class="sc">~</span> case, </span>
-<span id="cb28-66"><a href="#cb28-66" aria-hidden="true" tabindex="-1"></a>            <span class="at">data =</span> copdata)</span>
-<span id="cb28-67"><a href="#cb28-67" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb28-68"><a href="#cb28-68" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-69"><a href="#cb28-69" aria-hidden="true" tabindex="-1"></a><span class="fu">#### b) sex</span></span>
-<span id="cb28-70"><a href="#cb28-70" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-73"><a href="#cb28-73" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb28-74"><a href="#cb28-74" aria-hidden="true" tabindex="-1"></a>copdata <span class="sc">%&gt;%</span> </span>
-<span id="cb28-75"><a href="#cb28-75" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(sex, case) <span class="sc">%&gt;%</span> </span>
-<span id="cb28-76"><a href="#cb28-76" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tbl_summary</span>(<span class="at">by =</span> case) <span class="sc">%&gt;%</span> </span>
-<span id="cb28-77"><a href="#cb28-77" aria-hidden="true" tabindex="-1"></a>  <span class="fu">add_p</span>()</span>
-<span id="cb28-78"><a href="#cb28-78" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-79"><a href="#cb28-79" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb28-80"><a href="#cb28-80" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-81"><a href="#cb28-81" aria-hidden="true" tabindex="-1"></a><span class="fu">#### c) class</span></span>
-<span id="cb28-82"><a href="#cb28-82" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-85"><a href="#cb28-85" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb28-86"><a href="#cb28-86" aria-hidden="true" tabindex="-1"></a>copdata <span class="sc">%&gt;%</span> </span>
-<span id="cb28-87"><a href="#cb28-87" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(class, case) <span class="sc">%&gt;%</span> </span>
-<span id="cb28-88"><a href="#cb28-88" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tbl_summary</span>(<span class="at">by =</span> case) <span class="sc">%&gt;%</span> </span>
-<span id="cb28-89"><a href="#cb28-89" aria-hidden="true" tabindex="-1"></a>  <span class="fu">add_p</span>()</span>
-<span id="cb28-90"><a href="#cb28-90" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-91"><a href="#cb28-91" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb28-92"><a href="#cb28-92" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-93"><a href="#cb28-93" aria-hidden="true" tabindex="-1"></a><span class="fu">#### d) group</span></span>
-<span id="cb28-94"><a href="#cb28-94" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-97"><a href="#cb28-97" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb28-98"><a href="#cb28-98" aria-hidden="true" tabindex="-1"></a>copdata <span class="sc">%&gt;%</span> </span>
-<span id="cb28-99"><a href="#cb28-99" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(group, case) <span class="sc">%&gt;%</span> </span>
-<span id="cb28-100"><a href="#cb28-100" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tbl_summary</span>(<span class="at">by =</span> case) <span class="sc">%&gt;%</span> </span>
-<span id="cb28-101"><a href="#cb28-101" aria-hidden="true" tabindex="-1"></a>  <span class="fu">add_p</span>()</span>
-<span id="cb28-102"><a href="#cb28-102" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb28-103"><a href="#cb28-103" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-104"><a href="#cb28-104" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Let's do all together</span></span>
-<span id="cb28-105"><a href="#cb28-105" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-108"><a href="#cb28-108" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb28-109"><a href="#cb28-109" aria-hidden="true" tabindex="-1"></a>copdata <span class="sc">%&gt;%</span> </span>
-<span id="cb28-110"><a href="#cb28-110" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(sex, class, group, case) <span class="sc">%&gt;%</span> </span>
-<span id="cb28-111"><a href="#cb28-111" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tbl_summary</span>(<span class="at">by =</span> case) <span class="sc">%&gt;%</span> </span>
-<span id="cb28-112"><a href="#cb28-112" aria-hidden="true" tabindex="-1"></a>  <span class="fu">add_p</span>()</span>
-<span id="cb28-113"><a href="#cb28-113" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-114"><a href="#cb28-114" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb28-115"><a href="#cb28-115" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-116"><a href="#cb28-116" aria-hidden="true" tabindex="-1"></a><span class="fu">## 4. Risk Ratios</span></span>
-<span id="cb28-117"><a href="#cb28-117" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-118"><a href="#cb28-118" aria-hidden="true" tabindex="-1"></a>The risk ratios of each food item (including the 2x2 table) are reported below. The output of the CS() command is two tables (one with the 2x2 table and one with the risk difference, the risk ratio and the attributable fraction among exposed as well as the attributable fraction among the population (and the confidence intervals for all the estimates). The Chi-square and the p-value are also reported. In the second part, a table with all the food items is printed including attack rates for exposed and unexposed as well as risk ratios and the 95% confidence intervals (CI ll and CI ul, for the lower and upper interval) and p-values.</span>
-<span id="cb28-119"><a href="#cb28-119" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-120"><a href="#cb28-120" aria-hidden="true" tabindex="-1"></a><span class="fu">### a) Calculate 95% CI Risk Ratios for food</span></span>
-<span id="cb28-121"><a href="#cb28-121" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-124"><a href="#cb28-124" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb28-125"><a href="#cb28-125" aria-hidden="true" tabindex="-1"></a><span class="co"># You could use the EpiStats package for each food item</span></span>
-<span id="cb28-126"><a href="#cb28-126" aria-hidden="true" tabindex="-1"></a><span class="fu">CS</span>(copdata, <span class="st">"case"</span>, <span class="st">"tuna"</span>)</span>
-<span id="cb28-127"><a href="#cb28-127" aria-hidden="true" tabindex="-1"></a><span class="fu">CS</span>(copdata, <span class="st">"case"</span>, <span class="st">"shrimps"</span>)</span>
-<span id="cb28-128"><a href="#cb28-128" aria-hidden="true" tabindex="-1"></a><span class="fu">CS</span>(copdata, <span class="st">"case"</span>, <span class="st">"green"</span>)</span>
-<span id="cb28-129"><a href="#cb28-129" aria-hidden="true" tabindex="-1"></a><span class="fu">CS</span>(copdata, <span class="st">"case"</span>, <span class="st">"veal"</span>)</span>
-<span id="cb28-130"><a href="#cb28-130" aria-hidden="true" tabindex="-1"></a><span class="co"># And so one</span></span>
-<span id="cb28-131"><a href="#cb28-131" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb28-132"><a href="#cb28-132" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-135"><a href="#cb28-135" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb28-136"><a href="#cb28-136" aria-hidden="true" tabindex="-1"></a><span class="co"># You can save time (and probably typos!) by creating a vector for food variables...</span></span>
-<span id="cb28-137"><a href="#cb28-137" aria-hidden="true" tabindex="-1"></a>food_vars <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"tuna"</span>, <span class="st">"shrimps"</span>, <span class="st">"green"</span>, <span class="st">"veal"</span>, </span>
-<span id="cb28-138"><a href="#cb28-138" aria-hidden="true" tabindex="-1"></a>                <span class="st">"pasta"</span>, <span class="st">"rocket"</span>, <span class="st">"sauce"</span>, <span class="st">"bread"</span>,</span>
-<span id="cb28-139"><a href="#cb28-139" aria-hidden="true" tabindex="-1"></a>                <span class="st">"champagne"</span>, <span class="st">"beer"</span>, <span class="st">"redwine"</span>, <span class="st">"whitewine"</span>)</span>
-<span id="cb28-140"><a href="#cb28-140" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-141"><a href="#cb28-141" aria-hidden="true" tabindex="-1"></a><span class="co"># ...and using EpiStats::CSTable() to run all variables together!</span></span>
-<span id="cb28-142"><a href="#cb28-142" aria-hidden="true" tabindex="-1"></a><span class="fu">CSTable</span>(copdata, <span class="st">"case"</span>, food_vars)</span>
-<span id="cb28-143"><a href="#cb28-143" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb28-144"><a href="#cb28-144" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-145"><a href="#cb28-145" aria-hidden="true" tabindex="-1"></a><span class="fu">### b) Prepare the RR table for publication</span></span>
-<span id="cb28-146"><a href="#cb28-146" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-149"><a href="#cb28-149" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb28-150"><a href="#cb28-150" aria-hidden="true" tabindex="-1"></a>rr_tbl <span class="ot">&lt;-</span> <span class="fu">CSTable</span>(copdata, <span class="st">"case"</span>, food_vars) <span class="sc">%&gt;%</span> </span>
-<span id="cb28-151"><a href="#cb28-151" aria-hidden="true" tabindex="-1"></a>  <span class="fu">as.data.frame</span>() <span class="sc">%&gt;%</span> </span>
-<span id="cb28-152"><a href="#cb28-152" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rownames_to_column</span>() <span class="sc">%&gt;%</span> </span>
-<span id="cb28-153"><a href="#cb28-153" aria-hidden="true" tabindex="-1"></a>  <span class="fu">flextable</span>() <span class="sc">%&gt;%</span> </span>
-<span id="cb28-154"><a href="#cb28-154" aria-hidden="true" tabindex="-1"></a>   <span class="fu">set_header_labels</span>(</span>
-<span id="cb28-155"><a href="#cb28-155" aria-hidden="true" tabindex="-1"></a>     <span class="at">values =</span> <span class="fu">c</span>(<span class="st">"Food Item"</span>,</span>
-<span id="cb28-156"><a href="#cb28-156" aria-hidden="true" tabindex="-1"></a>                <span class="st">"Total exposed"</span>,     </span>
-<span id="cb28-157"><a href="#cb28-157" aria-hidden="true" tabindex="-1"></a>               <span class="st">"Cases exposed"</span>, </span>
-<span id="cb28-158"><a href="#cb28-158" aria-hidden="true" tabindex="-1"></a>               <span class="st">"AR among exposed"</span>,    </span>
-<span id="cb28-159"><a href="#cb28-159" aria-hidden="true" tabindex="-1"></a>               <span class="st">"Total unexposed"</span>,</span>
-<span id="cb28-160"><a href="#cb28-160" aria-hidden="true" tabindex="-1"></a>               <span class="st">"Cases unexposed"</span>,</span>
-<span id="cb28-161"><a href="#cb28-161" aria-hidden="true" tabindex="-1"></a>               <span class="st">"AR among unexposed"</span>,</span>
-<span id="cb28-162"><a href="#cb28-162" aria-hidden="true" tabindex="-1"></a>               <span class="st">"RR"</span>,         </span>
-<span id="cb28-163"><a href="#cb28-163" aria-hidden="true" tabindex="-1"></a>               <span class="st">"95% lower CI"</span>,             </span>
-<span id="cb28-164"><a href="#cb28-164" aria-hidden="true" tabindex="-1"></a>               <span class="st">"95% upper CI"</span>,</span>
-<span id="cb28-165"><a href="#cb28-165" aria-hidden="true" tabindex="-1"></a>               <span class="st">"p-value"</span>))</span>
-<span id="cb28-166"><a href="#cb28-166" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb28-167"><a href="#cb28-167" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-168"><a href="#cb28-168" aria-hidden="true" tabindex="-1"></a><span class="fu">## 5. Dose Response</span></span>
-<span id="cb28-169"><a href="#cb28-169" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-170"><a href="#cb28-170" aria-hidden="true" tabindex="-1"></a><span class="fu">#### a) Pasta</span></span>
-<span id="cb28-171"><a href="#cb28-171" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-174"><a href="#cb28-174" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb28-175"><a href="#cb28-175" aria-hidden="true" tabindex="-1"></a><span class="co"># Binomial regression for RRs. </span></span>
-<span id="cb28-176"><a href="#cb28-176" aria-hidden="true" tabindex="-1"></a><span class="co"># The outcome needs to be exponentiated so we can interpret it properly!</span></span>
-<span id="cb28-177"><a href="#cb28-177" aria-hidden="true" tabindex="-1"></a>binom_pastaD <span class="ot">&lt;-</span> <span class="fu">glm</span>(case <span class="sc">~</span> pastaD, <span class="at">data =</span> copdata, </span>
-<span id="cb28-178"><a href="#cb28-178" aria-hidden="true" tabindex="-1"></a>             <span class="at">family =</span> <span class="fu">binomial</span>(<span class="at">link =</span> <span class="st">"log"</span>))</span>
-<span id="cb28-179"><a href="#cb28-179" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-180"><a href="#cb28-180" aria-hidden="true" tabindex="-1"></a><span class="co"># To get exponentiated:</span></span>
-<span id="cb28-181"><a href="#cb28-181" aria-hidden="true" tabindex="-1"></a>binom_pastaD_exp <span class="ot">&lt;-</span> <span class="fu">glm</span>(case <span class="sc">~</span> pastaD, <span class="at">data =</span> copdata, </span>
-<span id="cb28-182"><a href="#cb28-182" aria-hidden="true" tabindex="-1"></a>                       <span class="at">family =</span> <span class="fu">binomial</span>(<span class="at">link =</span> <span class="st">"log"</span>)) <span class="sc">%&gt;%</span> </span>
-<span id="cb28-183"><a href="#cb28-183" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tidy</span>(<span class="at">exponentiate =</span> <span class="cn">TRUE</span>, </span>
-<span id="cb28-184"><a href="#cb28-184" aria-hidden="true" tabindex="-1"></a>       <span class="at">conf.int =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb28-185"><a href="#cb28-185" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-186"><a href="#cb28-186" aria-hidden="true" tabindex="-1"></a>binom_pastaD_exp</span>
-<span id="cb28-187"><a href="#cb28-187" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb28-188"><a href="#cb28-188" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-189"><a href="#cb28-189" aria-hidden="true" tabindex="-1"></a><span class="fu">#### b) Veal</span></span>
-<span id="cb28-190"><a href="#cb28-190" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-193"><a href="#cb28-193" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb28-194"><a href="#cb28-194" aria-hidden="true" tabindex="-1"></a><span class="co"># Let's get the results directly exponentiated</span></span>
-<span id="cb28-195"><a href="#cb28-195" aria-hidden="true" tabindex="-1"></a>binom_vealD_exp <span class="ot">&lt;-</span> <span class="fu">glm</span>(case <span class="sc">~</span> vealD, <span class="at">data =</span> copdata, </span>
-<span id="cb28-196"><a href="#cb28-196" aria-hidden="true" tabindex="-1"></a>                       <span class="at">family =</span> <span class="fu">binomial</span>(<span class="at">link =</span> <span class="st">"log"</span>)) <span class="sc">%&gt;%</span> </span>
-<span id="cb28-197"><a href="#cb28-197" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tidy</span>(<span class="at">exponentiate =</span> <span class="cn">TRUE</span>, </span>
-<span id="cb28-198"><a href="#cb28-198" aria-hidden="true" tabindex="-1"></a>       <span class="at">conf.int =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb28-199"><a href="#cb28-199" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-200"><a href="#cb28-200" aria-hidden="true" tabindex="-1"></a>binom_vealD_exp</span>
-<span id="cb28-201"><a href="#cb28-201" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb28-202"><a href="#cb28-202" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-203"><a href="#cb28-203" aria-hidden="true" tabindex="-1"></a><span class="fu">#### c) Champagne</span></span>
-<span id="cb28-204"><a href="#cb28-204" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-207"><a href="#cb28-207" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb28-208"><a href="#cb28-208" aria-hidden="true" tabindex="-1"></a><span class="co"># Let's get the results directly exponentiated</span></span>
-<span id="cb28-209"><a href="#cb28-209" aria-hidden="true" tabindex="-1"></a>binom_champagneD_exp <span class="ot">&lt;-</span> <span class="fu">glm</span>(case <span class="sc">~</span> champagneD, <span class="at">data =</span> copdata, </span>
-<span id="cb28-210"><a href="#cb28-210" aria-hidden="true" tabindex="-1"></a>                       <span class="at">family =</span> <span class="fu">binomial</span>(<span class="at">link =</span> <span class="st">"log"</span>)) <span class="sc">%&gt;%</span> </span>
-<span id="cb28-211"><a href="#cb28-211" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tidy</span>(<span class="at">exponentiate =</span> <span class="cn">TRUE</span>, </span>
-<span id="cb28-212"><a href="#cb28-212" aria-hidden="true" tabindex="-1"></a>       <span class="at">conf.int =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb28-213"><a href="#cb28-213" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-214"><a href="#cb28-214" aria-hidden="true" tabindex="-1"></a>binom_champagneD_exp</span>
-<span id="cb28-215"><a href="#cb28-215" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<div class="sourceCode" id="cb27" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "Inject 14: Univariable analysis"</span></span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a><span class="an">editor:</span><span class="co"> visual</span></span>
+<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-6"><a href="#cb27-6" aria-hidden="true" tabindex="-1"></a><span class="fu">## 1. Learning outcomes</span></span>
+<span id="cb27-7"><a href="#cb27-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-8"><a href="#cb27-8" aria-hidden="true" tabindex="-1"></a>At the end of the session, participants will be able to:</span>
+<span id="cb27-9"><a href="#cb27-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-10"><a href="#cb27-10" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Perform hypothesis tests.</span>
+<span id="cb27-11"><a href="#cb27-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-12"><a href="#cb27-12" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Estimate risk ratios (also called relative risk) for categorical data.</span>
+<span id="cb27-13"><a href="#cb27-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-14"><a href="#cb27-14" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Interpret the univariable results.</span>
+<span id="cb27-15"><a href="#cb27-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-16"><a href="#cb27-16" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>(Optional) Investigate dose-response relationships in categorical data.2. Story/plot description</span>
+<span id="cb27-17"><a href="#cb27-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-18"><a href="#cb27-18" aria-hidden="true" tabindex="-1"></a><span class="fu">## 2. Story/plot description</span></span>
+<span id="cb27-19"><a href="#cb27-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-20"><a href="#cb27-20" aria-hidden="true" tabindex="-1"></a>You have just estimated risk ratios (RR) of individual food items manually to better understand the concept. RR give you an idea of which food items could be the culprit(s) of the outbreak.</span>
+<span id="cb27-21"><a href="#cb27-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-22"><a href="#cb27-22" aria-hidden="true" tabindex="-1"></a>Now, you will practice performing hypothesis testing and calculating RR in R to investigate the associations of suspicious food items with the disease.</span>
+<span id="cb27-23"><a href="#cb27-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-24"><a href="#cb27-24" aria-hidden="true" tabindex="-1"></a>Note that, although this is not an exhaustive list of tests, the following can be useful for this exercise (relevant for comparisons between two groups):</span>
+<span id="cb27-25"><a href="#cb27-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-26"><a href="#cb27-26" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>**For continuous variables:**</span>
+<span id="cb27-27"><a href="#cb27-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-28"><a href="#cb27-28" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span><span class="in">`shapiro.test()`</span> (for checking if normally distributed)</span>
+<span id="cb27-29"><a href="#cb27-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-30"><a href="#cb27-30" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span><span class="in">`t.test()`</span> (for normal distributions)</span>
+<span id="cb27-31"><a href="#cb27-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-32"><a href="#cb27-32" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span><span class="in">`wilcox.test()`</span> (for non-parametric testing. Used to determine if two numeric samples are from the same distribution, when their populations are not normally distributed or have unequal variance.)</span>
+<span id="cb27-33"><a href="#cb27-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-34"><a href="#cb27-34" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>**For categorical variables:**</span>
+<span id="cb27-35"><a href="#cb27-35" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-36"><a href="#cb27-36" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span><span class="in">`chisq.test()`</span> (if all comparisons include at least 5 cases)</span>
+<span id="cb27-37"><a href="#cb27-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-38"><a href="#cb27-38" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span><span class="in">`fisher.test()`</span> (if there are <span class="sc">\&lt;</span> 5 cases for any comparison)</span>
+<span id="cb27-39"><a href="#cb27-39" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-40"><a href="#cb27-40" aria-hidden="true" tabindex="-1"></a><span class="fu">## 3. Questions/Assignments</span></span>
+<span id="cb27-41"><a href="#cb27-41" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-42"><a href="#cb27-42" aria-hidden="true" tabindex="-1"></a><span class="fu">## 3.1. Install packages and load libraries</span></span>
+<span id="cb27-43"><a href="#cb27-43" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-46"><a href="#cb27-46" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb27-47"><a href="#cb27-47" aria-hidden="true" tabindex="-1"></a><span class="co"># Load the required libraries into the current R session:</span></span>
+<span id="cb27-48"><a href="#cb27-48" aria-hidden="true" tabindex="-1"></a>pacman<span class="sc">::</span><span class="fu">p_load</span>(rio, </span>
+<span id="cb27-49"><a href="#cb27-49" aria-hidden="true" tabindex="-1"></a>               here, </span>
+<span id="cb27-50"><a href="#cb27-50" aria-hidden="true" tabindex="-1"></a>               tidyverse, </span>
+<span id="cb27-51"><a href="#cb27-51" aria-hidden="true" tabindex="-1"></a>               skimr,</span>
+<span id="cb27-52"><a href="#cb27-52" aria-hidden="true" tabindex="-1"></a>               plyr,</span>
+<span id="cb27-53"><a href="#cb27-53" aria-hidden="true" tabindex="-1"></a>               janitor,</span>
+<span id="cb27-54"><a href="#cb27-54" aria-hidden="true" tabindex="-1"></a>               lubridate,</span>
+<span id="cb27-55"><a href="#cb27-55" aria-hidden="true" tabindex="-1"></a>               gtsummary, </span>
+<span id="cb27-56"><a href="#cb27-56" aria-hidden="true" tabindex="-1"></a>               flextable,</span>
+<span id="cb27-57"><a href="#cb27-57" aria-hidden="true" tabindex="-1"></a>               officer,</span>
+<span id="cb27-58"><a href="#cb27-58" aria-hidden="true" tabindex="-1"></a>               epikit, </span>
+<span id="cb27-59"><a href="#cb27-59" aria-hidden="true" tabindex="-1"></a>               apyramid, </span>
+<span id="cb27-60"><a href="#cb27-60" aria-hidden="true" tabindex="-1"></a>               scales,</span>
+<span id="cb27-61"><a href="#cb27-61" aria-hidden="true" tabindex="-1"></a>               EpiStats,</span>
+<span id="cb27-62"><a href="#cb27-62" aria-hidden="true" tabindex="-1"></a>               broom)</span>
+<span id="cb27-63"><a href="#cb27-63" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-64"><a href="#cb27-64" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb27-65"><a href="#cb27-65" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-66"><a href="#cb27-66" aria-hidden="true" tabindex="-1"></a><span class="fu">## 3.2. Import your data</span></span>
+<span id="cb27-67"><a href="#cb27-67" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-68"><a href="#cb27-68" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, Import_data}</span></span>
+<span id="cb27-69"><a href="#cb27-69" aria-hidden="true" tabindex="-1"></a><span class="co"># Import the raw data set:</span></span>
+<span id="cb27-70"><a href="#cb27-70" aria-hidden="true" tabindex="-1"></a>copdata <span class="ot">&lt;-</span> rio<span class="sc">::</span><span class="fu">import</span>(here<span class="sc">::</span><span class="fu">here</span>(<span class="st">"data"</span>, <span class="st">"Copenhagen_clean2_2024.rds"</span>))</span>
+<span id="cb27-71"><a href="#cb27-71" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb27-72"><a href="#cb27-72" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-73"><a href="#cb27-73" aria-hidden="true" tabindex="-1"></a><span class="fu">## 3.3. Hypothesis tests for other variables</span></span>
+<span id="cb27-74"><a href="#cb27-74" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-75"><a href="#cb27-75" aria-hidden="true" tabindex="-1"></a>Check if the following variables are associated with being a case: age, sex, class and group.</span>
+<span id="cb27-76"><a href="#cb27-76" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-77"><a href="#cb27-77" aria-hidden="true" tabindex="-1"></a><span class="fu">#### a) age</span></span>
+<span id="cb27-78"><a href="#cb27-78" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-79"><a href="#cb27-79" aria-hidden="true" tabindex="-1"></a>With the Shapiro-Wilk test we check if the variables are following the normal distribution. The null hypothesis is that the data follow a normal distribution, therefore, rejecting the null hypothesis means that the data do not follow the normal distribution. A p-value below the cutoff for rejecting the null hypothesis, e.g., a p-value<span class="sc">\&lt;</span>0.05 means that we reject the null hypothesis that the data follow the normal distribution. For age, the p-value is <span class="sc">\&lt;</span>0.05, therefore we reject the null hypothesis that the data are normally distributed. As we see in the graph most frequently reported age is <span class="sc">\&lt;</span>20 years.</span>
+<span id="cb27-80"><a href="#cb27-80" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-83"><a href="#cb27-83" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb27-84"><a href="#cb27-84" aria-hidden="true" tabindex="-1"></a><span class="co"># Check if age overall follows a normal distribution:</span></span>
+<span id="cb27-85"><a href="#cb27-85" aria-hidden="true" tabindex="-1"></a><span class="fu">shapiro.test</span>(copdata<span class="sc">$</span>age)</span>
+<span id="cb27-86"><a href="#cb27-86" aria-hidden="true" tabindex="-1"></a><span class="co"># Can simply have a look at</span></span>
+<span id="cb27-87"><a href="#cb27-87" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(copdata<span class="sc">$</span>age)</span>
+<span id="cb27-88"><a href="#cb27-88" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-89"><a href="#cb27-89" aria-hidden="true" tabindex="-1"></a><span class="co"># Looking only at the students:</span></span>
+<span id="cb27-90"><a href="#cb27-90" aria-hidden="true" tabindex="-1"></a>students <span class="ot">&lt;-</span> copdata <span class="sc">%&gt;%</span> </span>
+<span id="cb27-91"><a href="#cb27-91" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(group <span class="sc">==</span> <span class="st">"student"</span>)</span>
+<span id="cb27-92"><a href="#cb27-92" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(students<span class="sc">$</span>age)</span>
+<span id="cb27-93"><a href="#cb27-93" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb27-94"><a href="#cb27-94" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-95"><a href="#cb27-95" aria-hidden="true" tabindex="-1"></a>Age overall (nor within the students' group) is not normally distributed.</span>
+<span id="cb27-96"><a href="#cb27-96" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-97"><a href="#cb27-97" aria-hidden="true" tabindex="-1"></a>We compare the age for cases and non-cases using the Wilcoxon test that is used when the data are not normally distributed. The null hypothesis is that there is no difference in the age between the two groups compared. Given that p-value<span class="sc">\&gt;</span>0.05 we do not reject the null hypothesis.</span>
+<span id="cb27-98"><a href="#cb27-98" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-101"><a href="#cb27-101" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb27-102"><a href="#cb27-102" aria-hidden="true" tabindex="-1"></a><span class="co"># Perform Wilcoxon rank sum test on age and sex:</span></span>
+<span id="cb27-103"><a href="#cb27-103" aria-hidden="true" tabindex="-1"></a><span class="fu">wilcox.test</span>(age <span class="sc">~</span> case, </span>
+<span id="cb27-104"><a href="#cb27-104" aria-hidden="true" tabindex="-1"></a>            <span class="at">data =</span> copdata)</span>
+<span id="cb27-105"><a href="#cb27-105" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb27-106"><a href="#cb27-106" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-107"><a href="#cb27-107" aria-hidden="true" tabindex="-1"></a><span class="fu">#### b) sex</span></span>
+<span id="cb27-108"><a href="#cb27-108" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-111"><a href="#cb27-111" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb27-112"><a href="#cb27-112" aria-hidden="true" tabindex="-1"></a>copdata <span class="sc">%&gt;%</span> </span>
+<span id="cb27-113"><a href="#cb27-113" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(sex, case) <span class="sc">%&gt;%</span> </span>
+<span id="cb27-114"><a href="#cb27-114" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tbl_summary</span>(<span class="at">by =</span> case) <span class="sc">%&gt;%</span> </span>
+<span id="cb27-115"><a href="#cb27-115" aria-hidden="true" tabindex="-1"></a>  <span class="fu">add_p</span>()</span>
+<span id="cb27-116"><a href="#cb27-116" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-117"><a href="#cb27-117" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb27-118"><a href="#cb27-118" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-119"><a href="#cb27-119" aria-hidden="true" tabindex="-1"></a>::: {.callout-warning title="Let's stop and... think!" collapse="true"}</span>
+<span id="cb27-120"><a href="#cb27-120" aria-hidden="true" tabindex="-1"></a>What do these results tell you - is there an association between sex and being a case?</span>
+<span id="cb27-121"><a href="#cb27-121" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-122"><a href="#cb27-122" aria-hidden="true" tabindex="-1"></a>Do these results differ from what you expected when looking at the descriptive figures (case proportions stratified by sex, or the age sex pyramid)? If so, why do you think this is?</span>
+<span id="cb27-123"><a href="#cb27-123" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb27-124"><a href="#cb27-124" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-125"><a href="#cb27-125" aria-hidden="true" tabindex="-1"></a><span class="fu">#### c) class</span></span>
+<span id="cb27-126"><a href="#cb27-126" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-129"><a href="#cb27-129" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb27-130"><a href="#cb27-130" aria-hidden="true" tabindex="-1"></a>copdata <span class="sc">%&gt;%</span> </span>
+<span id="cb27-131"><a href="#cb27-131" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(class, case) <span class="sc">%&gt;%</span> </span>
+<span id="cb27-132"><a href="#cb27-132" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tbl_summary</span>(<span class="at">by =</span> case) <span class="sc">%&gt;%</span> </span>
+<span id="cb27-133"><a href="#cb27-133" aria-hidden="true" tabindex="-1"></a>  <span class="fu">add_p</span>()</span>
+<span id="cb27-134"><a href="#cb27-134" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-135"><a href="#cb27-135" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb27-136"><a href="#cb27-136" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-137"><a href="#cb27-137" aria-hidden="true" tabindex="-1"></a>In this case you have a 2x3 contingency table of class against disease status, we can use a chi-square here. P-value of the association between class and age is p-val = 0.09, suggesting that there is an association at the p-val = 0.20 level among at least one of the 3 different classes. Fellows may want to investigate this further, but in the remaining of the study this is not explored further.</span>
+<span id="cb27-138"><a href="#cb27-138" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-139"><a href="#cb27-139" aria-hidden="true" tabindex="-1"></a>A hypothesis could be that one of the classes sat together and, for whatever reason, they ate more of the contaminated food item at those tables. This could be further studied if we had the spatial distribution of where the people sat at the dinner. Another hypothesis is that one of the classes differ from other classes in some characteristics that made them more susceptible or more exposed to the infected food item.</span>
+<span id="cb27-140"><a href="#cb27-140" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-141"><a href="#cb27-141" aria-hidden="true" tabindex="-1"></a><span class="fu">#### d) group</span></span>
+<span id="cb27-142"><a href="#cb27-142" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-145"><a href="#cb27-145" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb27-146"><a href="#cb27-146" aria-hidden="true" tabindex="-1"></a>copdata <span class="sc">%&gt;%</span> </span>
+<span id="cb27-147"><a href="#cb27-147" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(group, case) <span class="sc">%&gt;%</span> </span>
+<span id="cb27-148"><a href="#cb27-148" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tbl_summary</span>(<span class="at">by =</span> case) <span class="sc">%&gt;%</span> </span>
+<span id="cb27-149"><a href="#cb27-149" aria-hidden="true" tabindex="-1"></a>  <span class="fu">add_p</span>()</span>
+<span id="cb27-150"><a href="#cb27-150" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb27-151"><a href="#cb27-151" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-152"><a href="#cb27-152" aria-hidden="true" tabindex="-1"></a>P-value of the association between group and age is p-val = 0.2, suggesting that there may be an association at the p-val = 0.20 level. Explanations are like above, with variable class.</span>
+<span id="cb27-153"><a href="#cb27-153" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-154"><a href="#cb27-154" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Let's do all together</span></span>
+<span id="cb27-155"><a href="#cb27-155" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-158"><a href="#cb27-158" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb27-159"><a href="#cb27-159" aria-hidden="true" tabindex="-1"></a>copdata <span class="sc">%&gt;%</span> </span>
+<span id="cb27-160"><a href="#cb27-160" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(sex, class, group, case) <span class="sc">%&gt;%</span> </span>
+<span id="cb27-161"><a href="#cb27-161" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tbl_summary</span>(<span class="at">by =</span> case) <span class="sc">%&gt;%</span> </span>
+<span id="cb27-162"><a href="#cb27-162" aria-hidden="true" tabindex="-1"></a>  <span class="fu">add_p</span>()</span>
+<span id="cb27-163"><a href="#cb27-163" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-164"><a href="#cb27-164" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb27-165"><a href="#cb27-165" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-166"><a href="#cb27-166" aria-hidden="true" tabindex="-1"></a><span class="fu">## 3.4. Risk Ratios</span></span>
+<span id="cb27-167"><a href="#cb27-167" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-168"><a href="#cb27-168" aria-hidden="true" tabindex="-1"></a>The risk ratios of each food item (including the 2x2 table) are reported below. The output of the <span class="in">`CS()`</span> command is two tables: one with the 2x2 table and one with the risk difference, the risk ratio and the attributable fraction among exposed as well as the attributable fraction among the population (and the confidence intervals for all the estimates). The Chi-square and the p-value are also reported. In the second part, a table with all the food items is printed including attack rates for exposed and unexposed as well as risk ratios and the 95% confidence intervals (CI ll and CI ul, for the lower and upper interval) and p-values.</span>
+<span id="cb27-169"><a href="#cb27-169" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-170"><a href="#cb27-170" aria-hidden="true" tabindex="-1"></a><span class="fu">### a) Calculate 95% CI Risk Ratios for food</span></span>
+<span id="cb27-171"><a href="#cb27-171" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-172"><a href="#cb27-172" aria-hidden="true" tabindex="-1"></a>To see if food items (note these are categorical variables) are associated with being a case, calculate risk ratios and 95% confidence intervals for food items. You can calculate this individually for each food item (using <span class="in">`CSTable()`</span>), or all at once (see hint below).</span>
+<span id="cb27-173"><a href="#cb27-173" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-174"><a href="#cb27-174" aria-hidden="true" tabindex="-1"></a>::: {.callout-tip title="Need a little bit of help?" collapse="true"}</span>
+<span id="cb27-175"><a href="#cb27-175" aria-hidden="true" tabindex="-1"></a>Create a <span class="in">`food_vars`</span> vector containing food variables of interest and use the function <span class="in">`CSTable()`</span> of the EpiStats package.</span>
+<span id="cb27-176"><a href="#cb27-176" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-177"><a href="#cb27-177" aria-hidden="true" tabindex="-1"></a>*Using this hint, you will create a table with the name of exposure variables, the total number of exposed, the number of exposed cases, the attack rate among the exposed, the total number of unexposed, the number of unexposed cases, the attack rate among the unexposed, risk ratios, 95% percent confidence intervals, and p-values. Amazing, isn't it? Have a look at `??CSTable` to learn more.*</span>
+<span id="cb27-178"><a href="#cb27-178" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb27-179"><a href="#cb27-179" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-182"><a href="#cb27-182" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb27-183"><a href="#cb27-183" aria-hidden="true" tabindex="-1"></a><span class="co"># You could use the EpiStats package for each food item</span></span>
+<span id="cb27-184"><a href="#cb27-184" aria-hidden="true" tabindex="-1"></a><span class="fu">CS</span>(copdata, <span class="st">"case"</span>, <span class="st">"feta"</span>)</span>
+<span id="cb27-185"><a href="#cb27-185" aria-hidden="true" tabindex="-1"></a><span class="fu">CS</span>(copdata, <span class="st">"case"</span>, <span class="st">"sardines"</span>)</span>
+<span id="cb27-186"><a href="#cb27-186" aria-hidden="true" tabindex="-1"></a><span class="fu">CS</span>(copdata, <span class="st">"case"</span>, <span class="st">"eggplant"</span>)</span>
+<span id="cb27-187"><a href="#cb27-187" aria-hidden="true" tabindex="-1"></a><span class="fu">CS</span>(copdata, <span class="st">"case"</span>, <span class="st">"moussaka"</span>)</span>
+<span id="cb27-188"><a href="#cb27-188" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb27-189"><a href="#cb27-189" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-192"><a href="#cb27-192" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb27-193"><a href="#cb27-193" aria-hidden="true" tabindex="-1"></a><span class="co"># You can save time (and probably typos!) by creating a vector for food variables...</span></span>
+<span id="cb27-194"><a href="#cb27-194" aria-hidden="true" tabindex="-1"></a>food_vars <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"feta"</span>, <span class="st">"sardines"</span>, <span class="st">"eggplant"</span>, <span class="st">"moussaka"</span>, </span>
+<span id="cb27-195"><a href="#cb27-195" aria-hidden="true" tabindex="-1"></a>               <span class="st">"orzo"</span>, <span class="st">"greeksal"</span>, <span class="st">"dessert"</span>, <span class="st">"bread"</span>,  </span>
+<span id="cb27-196"><a href="#cb27-196" aria-hidden="true" tabindex="-1"></a>               <span class="st">"champagne"</span>, <span class="st">"beer"</span>, <span class="st">"redwine"</span>, <span class="st">"whitewine"</span>)</span>
+<span id="cb27-197"><a href="#cb27-197" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-198"><a href="#cb27-198" aria-hidden="true" tabindex="-1"></a><span class="co"># ...and using EpiStats::CSTable() to run all variables together!</span></span>
+<span id="cb27-199"><a href="#cb27-199" aria-hidden="true" tabindex="-1"></a><span class="fu">CSTable</span>(copdata, <span class="st">"case"</span>, food_vars)</span>
+<span id="cb27-200"><a href="#cb27-200" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb27-201"><a href="#cb27-201" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-202"><a href="#cb27-202" aria-hidden="true" tabindex="-1"></a><span class="fu">### b) Prepare the RR table for publication</span></span>
+<span id="cb27-203"><a href="#cb27-203" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-204"><a href="#cb27-204" aria-hidden="true" tabindex="-1"></a>::: {.callout-tip title="Need a little bit of help?" collapse="true"}</span>
+<span id="cb27-205"><a href="#cb27-205" aria-hidden="true" tabindex="-1"></a>Use <span class="in">`flextable()`</span> and <span class="in">`set_header_labels()`</span>.</span>
+<span id="cb27-206"><a href="#cb27-206" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb27-207"><a href="#cb27-207" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-210"><a href="#cb27-210" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb27-211"><a href="#cb27-211" aria-hidden="true" tabindex="-1"></a>rr_tbl <span class="ot">&lt;-</span> <span class="fu">CSTable</span>(copdata, <span class="st">"case"</span>, food_vars) <span class="sc">%&gt;%</span> </span>
+<span id="cb27-212"><a href="#cb27-212" aria-hidden="true" tabindex="-1"></a>  <span class="fu">as.data.frame</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb27-213"><a href="#cb27-213" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rownames_to_column</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb27-214"><a href="#cb27-214" aria-hidden="true" tabindex="-1"></a>  <span class="fu">flextable</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb27-215"><a href="#cb27-215" aria-hidden="true" tabindex="-1"></a>   <span class="fu">set_header_labels</span>(</span>
+<span id="cb27-216"><a href="#cb27-216" aria-hidden="true" tabindex="-1"></a>     <span class="at">values =</span> <span class="fu">c</span>(<span class="st">"Food Item"</span>,</span>
+<span id="cb27-217"><a href="#cb27-217" aria-hidden="true" tabindex="-1"></a>                <span class="st">"Total exposed"</span>,     </span>
+<span id="cb27-218"><a href="#cb27-218" aria-hidden="true" tabindex="-1"></a>               <span class="st">"Cases exposed"</span>, </span>
+<span id="cb27-219"><a href="#cb27-219" aria-hidden="true" tabindex="-1"></a>               <span class="st">"AR among exposed"</span>,    </span>
+<span id="cb27-220"><a href="#cb27-220" aria-hidden="true" tabindex="-1"></a>               <span class="st">"Total unexposed"</span>,</span>
+<span id="cb27-221"><a href="#cb27-221" aria-hidden="true" tabindex="-1"></a>               <span class="st">"Cases unexposed"</span>,</span>
+<span id="cb27-222"><a href="#cb27-222" aria-hidden="true" tabindex="-1"></a>               <span class="st">"AR among unexposed"</span>,</span>
+<span id="cb27-223"><a href="#cb27-223" aria-hidden="true" tabindex="-1"></a>               <span class="st">"RR"</span>,         </span>
+<span id="cb27-224"><a href="#cb27-224" aria-hidden="true" tabindex="-1"></a>               <span class="st">"95% lower CI"</span>,             </span>
+<span id="cb27-225"><a href="#cb27-225" aria-hidden="true" tabindex="-1"></a>               <span class="st">"95% upper CI"</span>,</span>
+<span id="cb27-226"><a href="#cb27-226" aria-hidden="true" tabindex="-1"></a>               <span class="st">"p-value"</span>))</span>
+<span id="cb27-227"><a href="#cb27-227" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb27-228"><a href="#cb27-228" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-229"><a href="#cb27-229" aria-hidden="true" tabindex="-1"></a>::: {.callout-warning title="Let's stop and... think!" collapse="true"}</span>
+<span id="cb27-230"><a href="#cb27-230" aria-hidden="true" tabindex="-1"></a>· What can you infer from this table?</span>
+<span id="cb27-231"><a href="#cb27-231" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-232"><a href="#cb27-232" aria-hidden="true" tabindex="-1"></a>· Considering the relative risks, which food or drink items do you think were most likely to be the vehicle(s) of infection in this outbreak?</span>
+<span id="cb27-233"><a href="#cb27-233" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-234"><a href="#cb27-234" aria-hidden="true" tabindex="-1"></a>· Do you think there are any confounders or effect modifiers? If so, how would you investigate these further?</span>
+<span id="cb27-235"><a href="#cb27-235" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb27-236"><a href="#cb27-236" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-237"><a href="#cb27-237" aria-hidden="true" tabindex="-1"></a>The interesting results here are that the food items that are most suspicious are orzo, moussaka and champagne. Orzo as such is unlikely to be contaminated, but as you can see in the picture (and from the dinner night), it was served with pesto! Maybe it was the pesto? Who-ho-ho!</span>
+<span id="cb27-238"><a href="#cb27-238" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-239"><a href="#cb27-239" aria-hidden="true" tabindex="-1"></a>Before one jumps into conclusions, consider that this result could be due to confounding! Maybe orzo was \"clean\" but eaten by all the people who ate the food item that actually was contaminated!(Optional)</span>
+<span id="cb27-240"><a href="#cb27-240" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-241"><a href="#cb27-241" aria-hidden="true" tabindex="-1"></a><span class="fu">## 3.5. (Optional) Dose Response</span></span>
+<span id="cb27-242"><a href="#cb27-242" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-243"><a href="#cb27-243" aria-hidden="true" tabindex="-1"></a>Check for a dose-response relationship between the food items with the highest RR values (the top 3) and being a case.</span>
+<span id="cb27-244"><a href="#cb27-244" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-245"><a href="#cb27-245" aria-hidden="true" tabindex="-1"></a><span class="fu">#### a) Orzo</span></span>
+<span id="cb27-246"><a href="#cb27-246" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-249"><a href="#cb27-249" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb27-250"><a href="#cb27-250" aria-hidden="true" tabindex="-1"></a><span class="co"># Binomial regression for RRs. </span></span>
+<span id="cb27-251"><a href="#cb27-251" aria-hidden="true" tabindex="-1"></a><span class="co"># The outcome needs to be exponentiated so we can interpret it properly!</span></span>
+<span id="cb27-252"><a href="#cb27-252" aria-hidden="true" tabindex="-1"></a>binom_orzoD <span class="ot">&lt;-</span> <span class="fu">glm</span>(case <span class="sc">~</span> orzoD, <span class="at">data =</span> copdata, </span>
+<span id="cb27-253"><a href="#cb27-253" aria-hidden="true" tabindex="-1"></a>             <span class="at">family =</span> <span class="fu">binomial</span>(<span class="at">link =</span> <span class="st">"log"</span>))</span>
+<span id="cb27-254"><a href="#cb27-254" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-255"><a href="#cb27-255" aria-hidden="true" tabindex="-1"></a><span class="co"># To get exponentiated:</span></span>
+<span id="cb27-256"><a href="#cb27-256" aria-hidden="true" tabindex="-1"></a>binom_orzoD_exp <span class="ot">&lt;-</span> <span class="fu">glm</span>(case <span class="sc">~</span> orzoD, <span class="at">data =</span> copdata, </span>
+<span id="cb27-257"><a href="#cb27-257" aria-hidden="true" tabindex="-1"></a>                       <span class="at">family =</span> <span class="fu">binomial</span>(<span class="at">link =</span> <span class="st">"log"</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb27-258"><a href="#cb27-258" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tidy</span>(<span class="at">exponentiate =</span> <span class="cn">TRUE</span>, </span>
+<span id="cb27-259"><a href="#cb27-259" aria-hidden="true" tabindex="-1"></a>       <span class="at">conf.int =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb27-260"><a href="#cb27-260" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-261"><a href="#cb27-261" aria-hidden="true" tabindex="-1"></a>binom_orzoD_exp</span>
+<span id="cb27-262"><a href="#cb27-262" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb27-263"><a href="#cb27-263" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-264"><a href="#cb27-264" aria-hidden="true" tabindex="-1"></a>::: {.callout-warning title="Let's stop and... think!" collapse="true"}</span>
+<span id="cb27-265"><a href="#cb27-265" aria-hidden="true" tabindex="-1"></a>What do these results tell you?</span>
+<span id="cb27-266"><a href="#cb27-266" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb27-267"><a href="#cb27-267" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-268"><a href="#cb27-268" aria-hidden="true" tabindex="-1"></a>Results suggest a dose response relationship of having eaten orzo, pointing towards orzoas the potential vehicle. The higher the amount of orzothey ate, the stronger is the association (RR) with getting ill/being a case.</span>
+<span id="cb27-269"><a href="#cb27-269" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-270"><a href="#cb27-270" aria-hidden="true" tabindex="-1"></a><span class="fu">#### b) Moussaka</span></span>
+<span id="cb27-271"><a href="#cb27-271" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-274"><a href="#cb27-274" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb27-275"><a href="#cb27-275" aria-hidden="true" tabindex="-1"></a><span class="co"># Let's get the results directly exponentiated</span></span>
+<span id="cb27-276"><a href="#cb27-276" aria-hidden="true" tabindex="-1"></a>binom_moussakaD_exp <span class="ot">&lt;-</span> <span class="fu">glm</span>(case <span class="sc">~</span> moussakaD, <span class="at">data =</span> copdata, </span>
+<span id="cb27-277"><a href="#cb27-277" aria-hidden="true" tabindex="-1"></a>                       <span class="at">family =</span> <span class="fu">binomial</span>(<span class="at">link =</span> <span class="st">"log"</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb27-278"><a href="#cb27-278" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tidy</span>(<span class="at">exponentiate =</span> <span class="cn">TRUE</span>, </span>
+<span id="cb27-279"><a href="#cb27-279" aria-hidden="true" tabindex="-1"></a>       <span class="at">conf.int =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb27-280"><a href="#cb27-280" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-281"><a href="#cb27-281" aria-hidden="true" tabindex="-1"></a>binom_moussakaD_exp</span>
+<span id="cb27-282"><a href="#cb27-282" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb27-283"><a href="#cb27-283" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-284"><a href="#cb27-284" aria-hidden="true" tabindex="-1"></a><span class="fu">#### c) Champagne</span></span>
+<span id="cb27-285"><a href="#cb27-285" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-288"><a href="#cb27-288" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb27-289"><a href="#cb27-289" aria-hidden="true" tabindex="-1"></a><span class="co"># Let's get the results directly exponentiated</span></span>
+<span id="cb27-290"><a href="#cb27-290" aria-hidden="true" tabindex="-1"></a>binom_champagneD_exp <span class="ot">&lt;-</span> <span class="fu">glm</span>(case <span class="sc">~</span> champagneD, <span class="at">data =</span> copdata, </span>
+<span id="cb27-291"><a href="#cb27-291" aria-hidden="true" tabindex="-1"></a>                       <span class="at">family =</span> <span class="fu">binomial</span>(<span class="at">link =</span> <span class="st">"log"</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb27-292"><a href="#cb27-292" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tidy</span>(<span class="at">exponentiate =</span> <span class="cn">TRUE</span>, </span>
+<span id="cb27-293"><a href="#cb27-293" aria-hidden="true" tabindex="-1"></a>       <span class="at">conf.int =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb27-294"><a href="#cb27-294" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-295"><a href="#cb27-295" aria-hidden="true" tabindex="-1"></a>binom_champagneD_exp</span>
+<span id="cb27-296"><a href="#cb27-296" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb27-297"><a href="#cb27-297" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-298"><a href="#cb27-298" aria-hidden="true" tabindex="-1"></a><span class="fu">## 3.6 Summary</span></span>
+<span id="cb27-299"><a href="#cb27-299" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-300"><a href="#cb27-300" aria-hidden="true" tabindex="-1"></a>As a summary of what you\'ve done above, answer these questions:</span>
+<span id="cb27-301"><a href="#cb27-301" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-302"><a href="#cb27-302" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Is the respondents\' sex associated with being a case?</span>
+<span id="cb27-303"><a href="#cb27-303" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-304"><a href="#cb27-304" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Is the school class associated with being a case?</span>
+<span id="cb27-305"><a href="#cb27-305" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-306"><a href="#cb27-306" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Which foods increase the risk of being a case?</span>
+<span id="cb27-307"><a href="#cb27-307" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-308"><a href="#cb27-308" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>(Optional) Is there a dose-response relationship between the food items and being a case?</span>
+<span id="cb27-309"><a href="#cb27-309" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-310"><a href="#cb27-310" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>What do you think is the most likely culprit(s) of this outbreak at this point? Are there any risk factors you would like to highlight?</span>
 </code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
