@@ -54,8 +54,7 @@ copdata <- rio::import(here::here("data", "Copenhagen_clean2_2024.rds"))
 
 ## 3.4. Consider and assess for confounding and/or effect modification
 
-Have a look at the relative risk for being a case having eaten a specific food item (for example, moussake), when stratified by another variable (for example, orzo). You may consider stratifying by orzo, as it has the highest
-RR in the univariable analysis.
+Have a look at the relative risk for being a case having eaten a specific food item (for example, moussake), when stratified by another variable (for example, orzo). You may consider stratifying by orzo, as it has the highest RR in the univariable analysis.
 
 There are many variables in this dataset and it might not make sense to stratify each variable by each other variable on our search for effect modifiers and confounders.
 
@@ -108,9 +107,9 @@ Are there any indications to make you think there may be effect modification and
 
 We could stratify by orzo (the strongest risk factor in the univariable analysis), to examine if orzo confounds the association between eating moussaka and being a case. Before stratification, we will need to check if orzo meets the conditions of being a confounder. For a variable to be a confounder it needs to be associated both with the outcome (being a case) and with the exposure (and not be in the causal pathway between exposure and outcome). We know from univariable analysis that orzo is associated with being a case. If we run a Wilcoxon rank sum test, we will see that orzo is also associated with moussaka (indeed, you can see that most people either had both moussaka and orzo or neither of these food items, so they are associated with each other).
 
-Above, we uses `ccinter` to stratify and save the object as \"orzostrata\".
+Above, we uses `ccinter` to stratify and save the object as "orzostrata".
 
-orzostrata: Within the stratum of the people who ate orzo, moussaka has no significant effect (RR = 1.20, CI: 0.60 - 2.41). The same holds within the stratum of people who didn\'t eat orzo (RR = 1.05, CI = 0.38, 2.92). The adjusted MH-RR also suggests that moussaka has no effect (RRadj = 1.15, CI: 0.80 - 2.85).  To identify confounding, we want to look at the % change between the crude and the adjusted RR. This is given by the csinter output \"Adjusted/crude relative change\".  The difference between the crude and the MH-RR in this case is \>20% suggesting that orzo confounds the association between moussaka and the disease.
+orzostrata: Within the stratum of the people who ate orzo, moussaka has no significant effect (RR = 1.20, CI: 0.60 - 2.41). The same holds within the stratum of people who didn't eat orzo (RR = 1.05, CI = 0.38, 2.92). The adjusted MH-RR also suggests that moussaka has no effect (RRadj = 1.15, CI: 0.80 - 2.85).  To identify confounding, we want to look at the % change between the crude and the adjusted RR. This is given by the csinter output "Adjusted/crude relative change".  The difference between the crude and the MH-RR in this case is \>20% suggesting that orzo confounds the association between moussaka and the disease.
 
 This result suggest that moussaka is not a risk factor of the disease and that the crude observed effect was due to the confounding effect of orzo.
 

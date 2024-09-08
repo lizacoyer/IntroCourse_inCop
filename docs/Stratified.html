@@ -122,26 +122,26 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
     <a class="nav-link" href="./index.html" rel="" target="">
- <span class="menu-text">Home</span></a>
+ <span class="menu-text">What is this?</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="./Data_import_cleaning.html" rel="" target="">
  <span class="menu-text">Data import and cleaning</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./SimOb_RInject10.html" rel="" target="">
+    <a class="nav-link" href="./Case_definition.html" rel="" target="">
  <span class="menu-text">Case Definition</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./SimOb_RInject11.html" rel="" target="">
+    <a class="nav-link" href="./Lab_and_Descriptive.html" rel="" target="">
  <span class="menu-text">Laboratory data and descriptive analysis</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./SimOb_RInject14.html" rel="" target="">
+    <a class="nav-link" href="./Univariate.html" rel="" target="">
  <span class="menu-text">Univariable analysis</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="./SimOb_RInject15.html" rel="" target="" aria-current="page">
+    <a class="nav-link active" href="./Stratified.html" rel="" target="" aria-current="page">
  <span class="menu-text">Stratified analysis</span></a>
   </li>  
 </ul>
@@ -382,8 +382,8 @@ Let’s stop and… think!
 </div>
 </div>
 <p>We could stratify by orzo (the strongest risk factor in the univariable analysis), to examine if orzo confounds the association between eating moussaka and being a case. Before stratification, we will need to check if orzo meets the conditions of being a confounder. For a variable to be a confounder it needs to be associated both with the outcome (being a case) and with the exposure (and not be in the causal pathway between exposure and outcome). We know from univariable analysis that orzo is associated with being a case. If we run a Wilcoxon rank sum test, we will see that orzo is also associated with moussaka (indeed, you can see that most people either had both moussaka and orzo or neither of these food items, so they are associated with each other).</p>
-<p>Above, we uses <code>ccinter</code> to stratify and save the object as "orzostrata".</p>
-<p>orzostrata: Within the stratum of the people who ate orzo, moussaka has no significant effect (RR = 1.20, CI: 0.60 - 2.41). The same holds within the stratum of people who didn't eat orzo (RR = 1.05, CI = 0.38, 2.92). The adjusted MH-RR also suggests that moussaka has no effect (RRadj = 1.15, CI: 0.80 - 2.85). &nbsp;To identify confounding, we want to look at the % change between the crude and the adjusted RR. This is given by the csinter output "Adjusted/crude relative change".&nbsp; The difference between the crude and the MH-RR in this case is &gt;20% suggesting that orzo confounds the association between moussaka and the disease.</p>
+<p>Above, we uses <code>ccinter</code> to stratify and save the object as “orzostrata”.</p>
+<p>orzostrata: Within the stratum of the people who ate orzo, moussaka has no significant effect (RR = 1.20, CI: 0.60 - 2.41). The same holds within the stratum of people who didn’t eat orzo (RR = 1.05, CI = 0.38, 2.92). The adjusted MH-RR also suggests that moussaka has no effect (RRadj = 1.15, CI: 0.80 - 2.85). &nbsp;To identify confounding, we want to look at the % change between the crude and the adjusted RR. This is given by the csinter output “Adjusted/crude relative change”.&nbsp; The difference between the crude and the MH-RR in this case is &gt;20% suggesting that orzo confounds the association between moussaka and the disease.</p>
 <p>This result suggest that moussaka is not a risk factor of the disease and that the crude observed effect was due to the confounding effect of orzo.</p>
 <p>If you stratify by moussaka, you see that moussaka does not confound the association between orzo and the disease. The same applies if you stratify the exposure to orzo by other variables. The above, the higher RR for orzo and the dose response relationship we found earlier for orzo (remember this was optional) provide additional evidence that there was something going on with the orzo with pesto dish!</p>
 
@@ -849,67 +849,66 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb8-56"><a href="#cb8-56" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb8-57"><a href="#cb8-57" aria-hidden="true" tabindex="-1"></a><span class="fu">## 3.4. Consider and assess for confounding and/or effect modification</span></span>
 <span id="cb8-58"><a href="#cb8-58" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-59"><a href="#cb8-59" aria-hidden="true" tabindex="-1"></a>Have a look at the relative risk for being a case having eaten a specific food item (for example, moussake), when stratified by another variable (for example, orzo). You may consider stratifying by orzo, as it has the highest</span>
-<span id="cb8-60"><a href="#cb8-60" aria-hidden="true" tabindex="-1"></a>RR in the univariable analysis.</span>
-<span id="cb8-61"><a href="#cb8-61" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-62"><a href="#cb8-62" aria-hidden="true" tabindex="-1"></a>There are many variables in this dataset and it might not make sense to stratify each variable by each other variable on our search for effect modifiers and confounders.</span>
-<span id="cb8-63"><a href="#cb8-63" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-64"><a href="#cb8-64" aria-hidden="true" tabindex="-1"></a>However, we also don't want to be too restrictive as a variable which actually (i.e. causally) is associated with the outcome might not show a significant association at the significant level we decided (say 5%) in the univariable analysis due to confounding. Therefore, we could test all variables statistically significant at the 15%, 20%, or 25% level (specific percentage to be decided by your group). In our solutions here, we are looking at moussaka and champagne, stratified by orzo, but you may decide to look at other food items as well.</span>
-<span id="cb8-65"><a href="#cb8-65" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-66"><a href="#cb8-66" aria-hidden="true" tabindex="-1"></a>::: {.callout-tip title="Need a little bit of help?" collapse="true"}</span>
-<span id="cb8-67"><a href="#cb8-67" aria-hidden="true" tabindex="-1"></a>Use the function <span class="in">`csinter()`</span> of the EpiStats package.</span>
-<span id="cb8-68"><a href="#cb8-68" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb8-69"><a href="#cb8-69" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-70"><a href="#cb8-70" aria-hidden="true" tabindex="-1"></a><span class="fu">### a) Moussaka as exposure of interest, stratified by having eaten orzo</span></span>
-<span id="cb8-71"><a href="#cb8-71" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-72"><a href="#cb8-72" aria-hidden="true" tabindex="-1"></a>If we stratify the **effect of moussaka by orzo** we ask the question: does eating orzo modify or confound the association between eating moussaka and being a case?</span>
-<span id="cb8-73"><a href="#cb8-73" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-76"><a href="#cb8-76" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb8-77"><a href="#cb8-77" aria-hidden="true" tabindex="-1"></a>stratall <span class="ot">&lt;-</span> copdata <span class="sc">%&gt;%</span> </span>
-<span id="cb8-78"><a href="#cb8-78" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Mutate across to convert cases to numeric:</span></span>
-<span id="cb8-79"><a href="#cb8-79" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="fu">across</span>(<span class="at">.cols =</span> case, </span>
-<span id="cb8-80"><a href="#cb8-80" aria-hidden="true" tabindex="-1"></a>                <span class="at">.fns =</span> <span class="sc">~</span> <span class="fu">as.numeric</span>(.)))</span>
-<span id="cb8-81"><a href="#cb8-81" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-82"><a href="#cb8-82" aria-hidden="true" tabindex="-1"></a><span class="co"># Pass data to the csinter function:</span></span>
-<span id="cb8-83"><a href="#cb8-83" aria-hidden="true" tabindex="-1"></a>orzostrata <span class="ot">&lt;-</span> <span class="fu">csinter</span>(<span class="at">x =</span> stratall, </span>
-<span id="cb8-84"><a href="#cb8-84" aria-hidden="true" tabindex="-1"></a>                       <span class="at">cases =</span> <span class="st">"case"</span>, </span>
-<span id="cb8-85"><a href="#cb8-85" aria-hidden="true" tabindex="-1"></a>                       <span class="at">exposure =</span> <span class="st">"moussaka"</span>, </span>
-<span id="cb8-86"><a href="#cb8-86" aria-hidden="true" tabindex="-1"></a>                       <span class="at">by =</span> <span class="st">"orzo"</span>)</span>
-<span id="cb8-87"><a href="#cb8-87" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-88"><a href="#cb8-88" aria-hidden="true" tabindex="-1"></a>orzostrata</span>
-<span id="cb8-89"><a href="#cb8-89" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb8-90"><a href="#cb8-90" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-91"><a href="#cb8-91" aria-hidden="true" tabindex="-1"></a>Let's check if orzo is associated with moussaka (if we are thinking moussaka may be a confounder, we need to see if there is an association between the potential confounder (moussaka) and the exposure (orzo)):</span>
-<span id="cb8-92"><a href="#cb8-92" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-95"><a href="#cb8-95" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb8-96"><a href="#cb8-96" aria-hidden="true" tabindex="-1"></a><span class="co"># Perform Wilcoxon rank sum test on orzo and moussaka:</span></span>
-<span id="cb8-97"><a href="#cb8-97" aria-hidden="true" tabindex="-1"></a><span class="fu">wilcox.test</span>(orzo <span class="sc">~</span> moussaka, </span>
-<span id="cb8-98"><a href="#cb8-98" aria-hidden="true" tabindex="-1"></a>            <span class="at">data =</span> copdata)</span>
-<span id="cb8-99"><a href="#cb8-99" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb8-100"><a href="#cb8-100" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-101"><a href="#cb8-101" aria-hidden="true" tabindex="-1"></a><span class="fu">### b) Champagne as exposure of interest, stratified by having eaten orzo</span></span>
-<span id="cb8-102"><a href="#cb8-102" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-105"><a href="#cb8-105" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb8-106"><a href="#cb8-106" aria-hidden="true" tabindex="-1"></a><span class="co"># Pass data to the csinter function:</span></span>
-<span id="cb8-107"><a href="#cb8-107" aria-hidden="true" tabindex="-1"></a>champstrata <span class="ot">&lt;-</span> <span class="fu">csinter</span>(<span class="at">x =</span> stratall, </span>
-<span id="cb8-108"><a href="#cb8-108" aria-hidden="true" tabindex="-1"></a>                       <span class="at">cases =</span> <span class="st">"case"</span>, </span>
-<span id="cb8-109"><a href="#cb8-109" aria-hidden="true" tabindex="-1"></a>                       <span class="at">exposure =</span> <span class="st">"champagne"</span>, </span>
-<span id="cb8-110"><a href="#cb8-110" aria-hidden="true" tabindex="-1"></a>                       <span class="at">by =</span> <span class="st">"orzo"</span>)</span>
-<span id="cb8-111"><a href="#cb8-111" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb8-112"><a href="#cb8-112" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-113"><a href="#cb8-113" aria-hidden="true" tabindex="-1"></a>::: {.callout-warning title="Let's stop and... think!" collapse="true"}</span>
-<span id="cb8-114"><a href="#cb8-114" aria-hidden="true" tabindex="-1"></a>Are there any indications to make you think there may be effect modification and/or confounding?</span>
-<span id="cb8-115"><a href="#cb8-115" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb8-116"><a href="#cb8-116" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-117"><a href="#cb8-117" aria-hidden="true" tabindex="-1"></a>We could stratify by orzo (the strongest risk factor in the univariable analysis), to examine if orzo confounds the association between eating moussaka and being a case. Before stratification, we will need to check if orzo meets the conditions of being a confounder. For a variable to be a confounder it needs to be associated both with the outcome (being a case) and with the exposure (and not be in the causal pathway between exposure and outcome). We know from univariable analysis that orzo is associated with being a case. If we run a Wilcoxon rank sum test, we will see that orzo is also associated with moussaka (indeed, you can see that most people either had both moussaka and orzo or neither of these food items, so they are associated with each other).</span>
-<span id="cb8-118"><a href="#cb8-118" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-119"><a href="#cb8-119" aria-hidden="true" tabindex="-1"></a>Above, we uses <span class="in">`ccinter`</span> to stratify and save the object as \"orzostrata\".</span>
-<span id="cb8-120"><a href="#cb8-120" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-121"><a href="#cb8-121" aria-hidden="true" tabindex="-1"></a>orzostrata: Within the stratum of the people who ate orzo, moussaka has no significant effect (RR = 1.20, CI: 0.60 - 2.41). The same holds within the stratum of people who didn\'t eat orzo (RR = 1.05, CI = 0.38, 2.92). The adjusted MH-RR also suggests that moussaka has no effect (RRadj = 1.15, CI: 0.80 - 2.85). &nbsp;To identify confounding, we want to look at the % change between the crude and the adjusted RR. This is given by the csinter output \"Adjusted/crude relative change\".&nbsp; The difference between the crude and the MH-RR in this case is <span class="sc">\&gt;</span>20% suggesting that orzo confounds the association between moussaka and the disease.</span>
-<span id="cb8-122"><a href="#cb8-122" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-123"><a href="#cb8-123" aria-hidden="true" tabindex="-1"></a>This result suggest that moussaka is not a risk factor of the disease and that the crude observed effect was due to the confounding effect of orzo.</span>
-<span id="cb8-124"><a href="#cb8-124" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-125"><a href="#cb8-125" aria-hidden="true" tabindex="-1"></a>If you stratify by moussaka, you see that moussaka does not confound the association between orzo and the disease. The same applies if you stratify the exposure to orzo by other variables. The above, the higher RR for orzo and the dose response relationship we found earlier for orzo (remember this was optional) provide additional evidence that there was something going on with the orzo with pesto dish!</span>
+<span id="cb8-59"><a href="#cb8-59" aria-hidden="true" tabindex="-1"></a>Have a look at the relative risk for being a case having eaten a specific food item (for example, moussake), when stratified by another variable (for example, orzo). You may consider stratifying by orzo, as it has the highest RR in the univariable analysis.</span>
+<span id="cb8-60"><a href="#cb8-60" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-61"><a href="#cb8-61" aria-hidden="true" tabindex="-1"></a>There are many variables in this dataset and it might not make sense to stratify each variable by each other variable on our search for effect modifiers and confounders.</span>
+<span id="cb8-62"><a href="#cb8-62" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-63"><a href="#cb8-63" aria-hidden="true" tabindex="-1"></a>However, we also don't want to be too restrictive as a variable which actually (i.e. causally) is associated with the outcome might not show a significant association at the significant level we decided (say 5%) in the univariable analysis due to confounding. Therefore, we could test all variables statistically significant at the 15%, 20%, or 25% level (specific percentage to be decided by your group). In our solutions here, we are looking at moussaka and champagne, stratified by orzo, but you may decide to look at other food items as well.</span>
+<span id="cb8-64"><a href="#cb8-64" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-65"><a href="#cb8-65" aria-hidden="true" tabindex="-1"></a>::: {.callout-tip title="Need a little bit of help?" collapse="true"}</span>
+<span id="cb8-66"><a href="#cb8-66" aria-hidden="true" tabindex="-1"></a>Use the function <span class="in">`csinter()`</span> of the EpiStats package.</span>
+<span id="cb8-67"><a href="#cb8-67" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb8-68"><a href="#cb8-68" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-69"><a href="#cb8-69" aria-hidden="true" tabindex="-1"></a><span class="fu">### a) Moussaka as exposure of interest, stratified by having eaten orzo</span></span>
+<span id="cb8-70"><a href="#cb8-70" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-71"><a href="#cb8-71" aria-hidden="true" tabindex="-1"></a>If we stratify the **effect of moussaka by orzo** we ask the question: does eating orzo modify or confound the association between eating moussaka and being a case?</span>
+<span id="cb8-72"><a href="#cb8-72" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-75"><a href="#cb8-75" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb8-76"><a href="#cb8-76" aria-hidden="true" tabindex="-1"></a>stratall <span class="ot">&lt;-</span> copdata <span class="sc">%&gt;%</span> </span>
+<span id="cb8-77"><a href="#cb8-77" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Mutate across to convert cases to numeric:</span></span>
+<span id="cb8-78"><a href="#cb8-78" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="fu">across</span>(<span class="at">.cols =</span> case, </span>
+<span id="cb8-79"><a href="#cb8-79" aria-hidden="true" tabindex="-1"></a>                <span class="at">.fns =</span> <span class="sc">~</span> <span class="fu">as.numeric</span>(.)))</span>
+<span id="cb8-80"><a href="#cb8-80" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-81"><a href="#cb8-81" aria-hidden="true" tabindex="-1"></a><span class="co"># Pass data to the csinter function:</span></span>
+<span id="cb8-82"><a href="#cb8-82" aria-hidden="true" tabindex="-1"></a>orzostrata <span class="ot">&lt;-</span> <span class="fu">csinter</span>(<span class="at">x =</span> stratall, </span>
+<span id="cb8-83"><a href="#cb8-83" aria-hidden="true" tabindex="-1"></a>                       <span class="at">cases =</span> <span class="st">"case"</span>, </span>
+<span id="cb8-84"><a href="#cb8-84" aria-hidden="true" tabindex="-1"></a>                       <span class="at">exposure =</span> <span class="st">"moussaka"</span>, </span>
+<span id="cb8-85"><a href="#cb8-85" aria-hidden="true" tabindex="-1"></a>                       <span class="at">by =</span> <span class="st">"orzo"</span>)</span>
+<span id="cb8-86"><a href="#cb8-86" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-87"><a href="#cb8-87" aria-hidden="true" tabindex="-1"></a>orzostrata</span>
+<span id="cb8-88"><a href="#cb8-88" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb8-89"><a href="#cb8-89" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-90"><a href="#cb8-90" aria-hidden="true" tabindex="-1"></a>Let's check if orzo is associated with moussaka (if we are thinking moussaka may be a confounder, we need to see if there is an association between the potential confounder (moussaka) and the exposure (orzo)):</span>
+<span id="cb8-91"><a href="#cb8-91" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-94"><a href="#cb8-94" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb8-95"><a href="#cb8-95" aria-hidden="true" tabindex="-1"></a><span class="co"># Perform Wilcoxon rank sum test on orzo and moussaka:</span></span>
+<span id="cb8-96"><a href="#cb8-96" aria-hidden="true" tabindex="-1"></a><span class="fu">wilcox.test</span>(orzo <span class="sc">~</span> moussaka, </span>
+<span id="cb8-97"><a href="#cb8-97" aria-hidden="true" tabindex="-1"></a>            <span class="at">data =</span> copdata)</span>
+<span id="cb8-98"><a href="#cb8-98" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb8-99"><a href="#cb8-99" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-100"><a href="#cb8-100" aria-hidden="true" tabindex="-1"></a><span class="fu">### b) Champagne as exposure of interest, stratified by having eaten orzo</span></span>
+<span id="cb8-101"><a href="#cb8-101" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-104"><a href="#cb8-104" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb8-105"><a href="#cb8-105" aria-hidden="true" tabindex="-1"></a><span class="co"># Pass data to the csinter function:</span></span>
+<span id="cb8-106"><a href="#cb8-106" aria-hidden="true" tabindex="-1"></a>champstrata <span class="ot">&lt;-</span> <span class="fu">csinter</span>(<span class="at">x =</span> stratall, </span>
+<span id="cb8-107"><a href="#cb8-107" aria-hidden="true" tabindex="-1"></a>                       <span class="at">cases =</span> <span class="st">"case"</span>, </span>
+<span id="cb8-108"><a href="#cb8-108" aria-hidden="true" tabindex="-1"></a>                       <span class="at">exposure =</span> <span class="st">"champagne"</span>, </span>
+<span id="cb8-109"><a href="#cb8-109" aria-hidden="true" tabindex="-1"></a>                       <span class="at">by =</span> <span class="st">"orzo"</span>)</span>
+<span id="cb8-110"><a href="#cb8-110" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb8-111"><a href="#cb8-111" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-112"><a href="#cb8-112" aria-hidden="true" tabindex="-1"></a>::: {.callout-warning title="Let's stop and... think!" collapse="true"}</span>
+<span id="cb8-113"><a href="#cb8-113" aria-hidden="true" tabindex="-1"></a>Are there any indications to make you think there may be effect modification and/or confounding?</span>
+<span id="cb8-114"><a href="#cb8-114" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb8-115"><a href="#cb8-115" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-116"><a href="#cb8-116" aria-hidden="true" tabindex="-1"></a>We could stratify by orzo (the strongest risk factor in the univariable analysis), to examine if orzo confounds the association between eating moussaka and being a case. Before stratification, we will need to check if orzo meets the conditions of being a confounder. For a variable to be a confounder it needs to be associated both with the outcome (being a case) and with the exposure (and not be in the causal pathway between exposure and outcome). We know from univariable analysis that orzo is associated with being a case. If we run a Wilcoxon rank sum test, we will see that orzo is also associated with moussaka (indeed, you can see that most people either had both moussaka and orzo or neither of these food items, so they are associated with each other).</span>
+<span id="cb8-117"><a href="#cb8-117" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-118"><a href="#cb8-118" aria-hidden="true" tabindex="-1"></a>Above, we uses <span class="in">`ccinter`</span> to stratify and save the object as "orzostrata".</span>
+<span id="cb8-119"><a href="#cb8-119" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-120"><a href="#cb8-120" aria-hidden="true" tabindex="-1"></a>orzostrata: Within the stratum of the people who ate orzo, moussaka has no significant effect (RR = 1.20, CI: 0.60 - 2.41). The same holds within the stratum of people who didn't eat orzo (RR = 1.05, CI = 0.38, 2.92). The adjusted MH-RR also suggests that moussaka has no effect (RRadj = 1.15, CI: 0.80 - 2.85). &nbsp;To identify confounding, we want to look at the % change between the crude and the adjusted RR. This is given by the csinter output "Adjusted/crude relative change".&nbsp; The difference between the crude and the MH-RR in this case is <span class="sc">\&gt;</span>20% suggesting that orzo confounds the association between moussaka and the disease.</span>
+<span id="cb8-121"><a href="#cb8-121" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-122"><a href="#cb8-122" aria-hidden="true" tabindex="-1"></a>This result suggest that moussaka is not a risk factor of the disease and that the crude observed effect was due to the confounding effect of orzo.</span>
+<span id="cb8-123"><a href="#cb8-123" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-124"><a href="#cb8-124" aria-hidden="true" tabindex="-1"></a>If you stratify by moussaka, you see that moussaka does not confound the association between orzo and the disease. The same applies if you stratify the exposure to orzo by other variables. The above, the higher RR for orzo and the dose response relationship we found earlier for orzo (remember this was optional) provide additional evidence that there was something going on with the orzo with pesto dish!</span>
 </code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->

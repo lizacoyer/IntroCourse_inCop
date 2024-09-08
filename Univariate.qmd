@@ -217,7 +217,7 @@ rr_tbl <- CSTable(copdata, "case", food_vars) %>%
 
 The interesting results here are that the food items that are most suspicious are orzo, moussaka and champagne. Orzo as such is unlikely to be contaminated, but as you can see in the picture (and from the dinner night), it was served with pesto! Maybe it was the pesto? Who-ho-ho!
 
-Before one jumps into conclusions, consider that this result could be due to confounding! Maybe orzo was \"clean\" but eaten by all the people who ate the food item that actually was contaminated!(Optional)
+Before one jumps into conclusions, consider that this result could be due to confounding! Maybe orzo was "clean" but eaten by all the people who ate the food item that actually was contaminated!(Optional)
 
 ## 3.5. (Optional) Dose Response
 
@@ -273,9 +273,9 @@ binom_champagneD_exp
 
 ## 3.6 Summary
 
-As a summary of what you\'ve done above, answer these questions:
+As a summary of what you've done above, answer these questions:
 
--   Is the respondents\' sex associated with being a case?
+-   Is the respondents' sex associated with being a case?
 
 -   Is the school class associated with being a case?
 

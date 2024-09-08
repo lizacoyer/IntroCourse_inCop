@@ -7,12 +7,12 @@ website:
   navbar:
     left:
       - href: index.qmd
-        text: Home
+        text: What is this?
       - Data_import_cleaning.qmd
-      - SimOb_RInject10.qmd
-      - SimOb_RInject11.qmd
-      - SimOb_RInject14.qmd
-      - SimOb_RInject15.qmd
+      - Case_definition.qmd
+      - Lab_and_Descriptive.qmd
+      - Univariate.qmd
+      - Stratified.qmd
     search: true
     tools:
       - icon: github
