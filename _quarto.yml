@@ -3,7 +3,7 @@ project:
   output-dir: docs
 
 website:
-  title: "Copenhagen Introductory Course"
+  title: "Spetses Introductory Course"
   navbar:
     left:
       - href: index.qmd
