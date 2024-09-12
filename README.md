@@ -1,23 +1,22 @@
-# IntroCourse_inCop
+# Introductory Course
 
-IntroCourse R injects for Copenhagen Simulated Outbreak
+IntroCourse R material for "Spetses Simulated Outbreak"
 
 ### Background:
 
-This repository is for the development and maintenance of R teaching material for use in the **Simulated Outbreak (SimOb) section of the Introductory Course module** of the EPIET (European Programme of Intervention Epidemiology Training), EUPHEM (European Public Health Microbiology) and MediPIET (Mediterranean and Black Sea Programme for Intervention Epidemiology Training) fellowships.
+This repository contains the R teaching material that can be used (it is not compulsory) during the Simulated Outbreak (SimOb) section of the Introductory Course module of the EPIET (European Programme of Intervention Epidemiology Training), EUPHEM (European Public Health Microbiology) and MediPIET (Mediterranean and Black Sea Programme for Intervention Epidemiology Training) fellowships.
 
-The SimOb is an 4-day exercise where fellows are provided a series of 18 injects through which they will follow a 10-steps framework to investigate a specific outbreak. Role plays happen through the whole SimOb. 
-Five of the 18 injects are dedicated to R-exercises that can be proved quite handy during an outbreak investigation. Those injects are maintain in this repository and are stored as different .qmd files, under the root folder:
+The SimOb is an 4-day exercise where fellows are provided a series of injects through which they will follow a 10-steps framework to investigate a specific outbreak. Some of the injects are dedicated to R-exercises that can be proved quite handy during an outbreak investigation. Those injects are maintained in this repository and are stored as different .qmd files, under the root folder:
 
--   `SimOb_RInject09.qmd`: Inject number 9, focused on Data import and cleaning.
--   `SimOb_RInject10.qmd`: Inject number 10, focused on Case definition.
--   `SimOb_RInject11.qmd`: Inject number 11, focused on Descriptive analysis.
--   `SimOb_RInject14.qmd`: Inject number 14, focused on Univariate analysis.
--   `SimOb_RInject15.qmd`: Inject number 15, focused on Stratified analysis.
-
+- Data_import_cleaning.qmd
+- Case_definition.qmd
+- Lab_and_Descriptive.qmd
+- Univariate.qmd
+- Stratified.qmd
 
 
-REST (FROM TO HEREFORWARDS) NEEDS UPDATING
+
+# REST (FROM TO HEREFORWARDS) NEEDS UPDATING
 
 For each exercise, a HTML R case study guide has been provided, as well as a .zip folder containing all the required materials (data, scripts and a copy of the guide). The R guides and compressed folders of the associated materials can be accessed online and downloaded from the links [on this web page](https://epiet.github.io/OutbreakInvestigation/).
 
