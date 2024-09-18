@@ -14,9 +14,9 @@ At the end of the session, participants will be able to:
 
 ## 2. Story/plot description
 
-You received data from the laboratory regarding \[**WE NEED LAB DATA AND DECISIONS ON WHAT TO ADD HERE**\]. You will have to merge the questionnaire data with the data coming from the laboratory.
+You have received the laboratory results for the samples collected from some of the cases. The lab conducted an RT-PCR panel targeting various gastrointestinal pathogens and also gathered additional metadata. Your task is to merge the questionnaire data with the data you have received from the lab, using the unique identifiers that both datasets share (`id` column), and explore that lab data. What does it tell you?
 
-Now that your dataset is clean and the lab data merged, it is time to describe the people identified as cases so far and generate a hypothesis to inform the next steps in the outbreak investigation. Note that you should try to have a data analysis plan *before* any data collection. Nevertheless, during the urgency of outbreak investigations, questionnaire development may sometimes occur before you had time to draft a proper analysis plan (as it is the case in this simulated outbreak). Drawing "dummy" tables and graphs will help you precise the type of statistics you will carry out later on.
+Once your dataset is clean and the lab data merged, you can describe the people identified as cases so far and generate a hypothesis to inform the next steps in the outbreak investigation. Note that you should try to have a data analysis plan *before* any data collection. Nevertheless, during the urgency of outbreak investigations, questionnaire development may sometimes occur before you had time to draft a proper analysis plan (as it is the case in this simulated outbreak). Drawing "dummy" tables and graphs will help you precise the type of statistics you will carry out later on.
 
 ## 3. Questions/Assignments
 

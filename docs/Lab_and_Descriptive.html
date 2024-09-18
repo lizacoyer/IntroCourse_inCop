@@ -239,8 +239,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="storyplot-description" class="level2">
 <h2 class="anchored" data-anchor-id="storyplot-description">2. Story/plot description</h2>
-<p>You received data from the laboratory regarding [<strong>WE NEED LAB DATA AND DECISIONS ON WHAT TO ADD HERE</strong>]. You will have to merge the questionnaire data with the data coming from the laboratory.</p>
-<p>Now that your dataset is clean and the lab data merged, it is time to describe the people identified as cases so far and generate a hypothesis to inform the next steps in the outbreak investigation. Note that you should try to have a data analysis plan <em>before</em> any data collection. Nevertheless, during the urgency of outbreak investigations, questionnaire development may sometimes occur before you had time to draft a proper analysis plan (as it is the case in this simulated outbreak). Drawing “dummy” tables and graphs will help you precise the type of statistics you will carry out later on.</p>
+<p>You have received the laboratory results for the samples collected from some of the cases. The lab conducted an RT-PCR panel targeting various gastrointestinal pathogens and also gathered additional metadata. Your task is to merge the questionnaire data with the data you have received from the lab, using the unique identifiers that both datasets share (<code>id</code> column), and explore that lab data. What does it tell you?</p>
+<p>Once your dataset is clean and the lab data merged, you can describe the people identified as cases so far and generate a hypothesis to inform the next steps in the outbreak investigation. Note that you should try to have a data analysis plan <em>before</em> any data collection. Nevertheless, during the urgency of outbreak investigations, questionnaire development may sometimes occur before you had time to draft a proper analysis plan (as it is the case in this simulated outbreak). Drawing “dummy” tables and graphs will help you precise the type of statistics you will carry out later on.</p>
 </section>
 <section id="questionsassignments" class="level2">
 <h2 class="anchored" data-anchor-id="questionsassignments">3. Questions/Assignments</h2>
@@ -276,7 +276,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Import the clean data set:</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>copdata <span class="ot">&lt;-</span> rio<span class="sc">::</span><span class="fu">import</span>(here<span class="sc">::</span><span class="fu">here</span>(<span class="st">"data"</span>, <span class="st">"Spetses_clean2_2024.rds"</span>)) </span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>lab <span class="ot">&lt;-</span> rio<span class="sc">::</span><span class="fu">import</span>(here<span class="sc">::</span><span class="fu">here</span>(<span class="st">"data"</span>, <span class="st">"Lab data.xlsx"</span>),</span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>                   <span class="at">skip =</span> <span class="dv">1</span>) <span class="co"># skip the first row</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>                   <span class="at">skip =</span> <span class="dv">1</span>) <span class="co"># skip the first row.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 </section>
@@ -726,23 +726,23 @@ Do you feel like a challenge?
 </details>
 <div class="cell-output-display">
 
-<div id="faaxdnqrni" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#faaxdnqrni table {
+<div id="khmiwbjitn" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#khmiwbjitn table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#faaxdnqrni thead, #faaxdnqrni tbody, #faaxdnqrni tfoot, #faaxdnqrni tr, #faaxdnqrni td, #faaxdnqrni th {
+#khmiwbjitn thead, #khmiwbjitn tbody, #khmiwbjitn tfoot, #khmiwbjitn tr, #khmiwbjitn td, #khmiwbjitn th {
   border-style: none;
 }
 
-#faaxdnqrni p {
+#khmiwbjitn p {
   margin: 0;
   padding: 0;
 }
 
-#faaxdnqrni .gt_table {
+#khmiwbjitn .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -768,12 +768,12 @@ Do you feel like a challenge?
   border-left-color: #D3D3D3;
 }
 
-#faaxdnqrni .gt_caption {
+#khmiwbjitn .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#faaxdnqrni .gt_title {
+#khmiwbjitn .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -785,7 +785,7 @@ Do you feel like a challenge?
   border-bottom-width: 0;
 }
 
-#faaxdnqrni .gt_subtitle {
+#khmiwbjitn .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -797,7 +797,7 @@ Do you feel like a challenge?
   border-top-width: 0;
 }
 
-#faaxdnqrni .gt_heading {
+#khmiwbjitn .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -809,13 +809,13 @@ Do you feel like a challenge?
   border-right-color: #D3D3D3;
 }
 
-#faaxdnqrni .gt_bottom_border {
+#khmiwbjitn .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#faaxdnqrni .gt_col_headings {
+#khmiwbjitn .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -830,7 +830,7 @@ Do you feel like a challenge?
   border-right-color: #D3D3D3;
 }
 
-#faaxdnqrni .gt_col_heading {
+#khmiwbjitn .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -850,7 +850,7 @@ Do you feel like a challenge?
   overflow-x: hidden;
 }
 
-#faaxdnqrni .gt_column_spanner_outer {
+#khmiwbjitn .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -862,15 +862,15 @@ Do you feel like a challenge?
   padding-right: 4px;
 }
 
-#faaxdnqrni .gt_column_spanner_outer:first-child {
+#khmiwbjitn .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#faaxdnqrni .gt_column_spanner_outer:last-child {
+#khmiwbjitn .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#faaxdnqrni .gt_column_spanner {
+#khmiwbjitn .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -882,11 +882,11 @@ Do you feel like a challenge?
   width: 100%;
 }
 
-#faaxdnqrni .gt_spanner_row {
+#khmiwbjitn .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#faaxdnqrni .gt_group_heading {
+#khmiwbjitn .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -912,7 +912,7 @@ Do you feel like a challenge?
   text-align: left;
 }
 
-#faaxdnqrni .gt_empty_group_heading {
+#khmiwbjitn .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -927,15 +927,15 @@ Do you feel like a challenge?
   vertical-align: middle;
 }
 
-#faaxdnqrni .gt_from_md > :first-child {
+#khmiwbjitn .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#faaxdnqrni .gt_from_md > :last-child {
+#khmiwbjitn .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#faaxdnqrni .gt_row {
+#khmiwbjitn .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -954,7 +954,7 @@ Do you feel like a challenge?
   overflow-x: hidden;
 }
 
-#faaxdnqrni .gt_stub {
+#khmiwbjitn .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -967,7 +967,7 @@ Do you feel like a challenge?
   padding-right: 5px;
 }
 
-#faaxdnqrni .gt_stub_row_group {
+#khmiwbjitn .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -981,15 +981,15 @@ Do you feel like a challenge?
   vertical-align: top;
 }
 
-#faaxdnqrni .gt_row_group_first td {
+#khmiwbjitn .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#faaxdnqrni .gt_row_group_first th {
+#khmiwbjitn .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#faaxdnqrni .gt_summary_row {
+#khmiwbjitn .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -999,16 +999,16 @@ Do you feel like a challenge?
   padding-right: 5px;
 }
 
-#faaxdnqrni .gt_first_summary_row {
+#khmiwbjitn .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#faaxdnqrni .gt_first_summary_row.thick {
+#khmiwbjitn .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#faaxdnqrni .gt_last_summary_row {
+#khmiwbjitn .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1018,7 +1018,7 @@ Do you feel like a challenge?
   border-bottom-color: #D3D3D3;
 }
 
-#faaxdnqrni .gt_grand_summary_row {
+#khmiwbjitn .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1028,7 +1028,7 @@ Do you feel like a challenge?
   padding-right: 5px;
 }
 
-#faaxdnqrni .gt_first_grand_summary_row {
+#khmiwbjitn .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1038,7 +1038,7 @@ Do you feel like a challenge?
   border-top-color: #D3D3D3;
 }
 
-#faaxdnqrni .gt_last_grand_summary_row_top {
+#khmiwbjitn .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1048,11 +1048,11 @@ Do you feel like a challenge?
   border-bottom-color: #D3D3D3;
 }
 
-#faaxdnqrni .gt_striped {
+#khmiwbjitn .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#faaxdnqrni .gt_table_body {
+#khmiwbjitn .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1061,7 +1061,7 @@ Do you feel like a challenge?
   border-bottom-color: #D3D3D3;
 }
 
-#faaxdnqrni .gt_footnotes {
+#khmiwbjitn .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1075,7 +1075,7 @@ Do you feel like a challenge?
   border-right-color: #D3D3D3;
 }
 
-#faaxdnqrni .gt_footnote {
+#khmiwbjitn .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -1084,7 +1084,7 @@ Do you feel like a challenge?
   padding-right: 5px;
 }
 
-#faaxdnqrni .gt_sourcenotes {
+#khmiwbjitn .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1098,7 +1098,7 @@ Do you feel like a challenge?
   border-right-color: #D3D3D3;
 }
 
-#faaxdnqrni .gt_sourcenote {
+#khmiwbjitn .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -1106,63 +1106,63 @@ Do you feel like a challenge?
   padding-right: 5px;
 }
 
-#faaxdnqrni .gt_left {
+#khmiwbjitn .gt_left {
   text-align: left;
 }
 
-#faaxdnqrni .gt_center {
+#khmiwbjitn .gt_center {
   text-align: center;
 }
 
-#faaxdnqrni .gt_right {
+#khmiwbjitn .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#faaxdnqrni .gt_font_normal {
+#khmiwbjitn .gt_font_normal {
   font-weight: normal;
 }
 
-#faaxdnqrni .gt_font_bold {
+#khmiwbjitn .gt_font_bold {
   font-weight: bold;
 }
 
-#faaxdnqrni .gt_font_italic {
+#khmiwbjitn .gt_font_italic {
   font-style: italic;
 }
 
-#faaxdnqrni .gt_super {
+#khmiwbjitn .gt_super {
   font-size: 65%;
 }
 
-#faaxdnqrni .gt_footnote_marks {
+#khmiwbjitn .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#faaxdnqrni .gt_asterisk {
+#khmiwbjitn .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#faaxdnqrni .gt_indent_1 {
+#khmiwbjitn .gt_indent_1 {
   text-indent: 5px;
 }
 
-#faaxdnqrni .gt_indent_2 {
+#khmiwbjitn .gt_indent_2 {
   text-indent: 10px;
 }
 
-#faaxdnqrni .gt_indent_3 {
+#khmiwbjitn .gt_indent_3 {
   text-indent: 15px;
 }
 
-#faaxdnqrni .gt_indent_4 {
+#khmiwbjitn .gt_indent_4 {
   text-indent: 20px;
 }
 
-#faaxdnqrni .gt_indent_5 {
+#khmiwbjitn .gt_indent_5 {
   text-indent: 25px;
 }
 </style>
@@ -1490,23 +1490,23 @@ If you’ve thought about the above questions, have a look here
 </details>
 <div class="cell-output-display">
 
-<div id="eauxyowlgs" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#eauxyowlgs table {
+<div id="qutkqjjycw" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#qutkqjjycw table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#eauxyowlgs thead, #eauxyowlgs tbody, #eauxyowlgs tfoot, #eauxyowlgs tr, #eauxyowlgs td, #eauxyowlgs th {
+#qutkqjjycw thead, #qutkqjjycw tbody, #qutkqjjycw tfoot, #qutkqjjycw tr, #qutkqjjycw td, #qutkqjjycw th {
   border-style: none;
 }
 
-#eauxyowlgs p {
+#qutkqjjycw p {
   margin: 0;
   padding: 0;
 }
 
-#eauxyowlgs .gt_table {
+#qutkqjjycw .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -1532,12 +1532,12 @@ If you’ve thought about the above questions, have a look here
   border-left-color: #D3D3D3;
 }
 
-#eauxyowlgs .gt_caption {
+#qutkqjjycw .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#eauxyowlgs .gt_title {
+#qutkqjjycw .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -1549,7 +1549,7 @@ If you’ve thought about the above questions, have a look here
   border-bottom-width: 0;
 }
 
-#eauxyowlgs .gt_subtitle {
+#qutkqjjycw .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -1561,7 +1561,7 @@ If you’ve thought about the above questions, have a look here
   border-top-width: 0;
 }
 
-#eauxyowlgs .gt_heading {
+#qutkqjjycw .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -1573,13 +1573,13 @@ If you’ve thought about the above questions, have a look here
   border-right-color: #D3D3D3;
 }
 
-#eauxyowlgs .gt_bottom_border {
+#qutkqjjycw .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#eauxyowlgs .gt_col_headings {
+#qutkqjjycw .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1594,7 +1594,7 @@ If you’ve thought about the above questions, have a look here
   border-right-color: #D3D3D3;
 }
 
-#eauxyowlgs .gt_col_heading {
+#qutkqjjycw .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1614,7 +1614,7 @@ If you’ve thought about the above questions, have a look here
   overflow-x: hidden;
 }
 
-#eauxyowlgs .gt_column_spanner_outer {
+#qutkqjjycw .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1626,15 +1626,15 @@ If you’ve thought about the above questions, have a look here
   padding-right: 4px;
 }
 
-#eauxyowlgs .gt_column_spanner_outer:first-child {
+#qutkqjjycw .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#eauxyowlgs .gt_column_spanner_outer:last-child {
+#qutkqjjycw .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#eauxyowlgs .gt_column_spanner {
+#qutkqjjycw .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -1646,11 +1646,11 @@ If you’ve thought about the above questions, have a look here
   width: 100%;
 }
 
-#eauxyowlgs .gt_spanner_row {
+#qutkqjjycw .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#eauxyowlgs .gt_group_heading {
+#qutkqjjycw .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1676,7 +1676,7 @@ If you’ve thought about the above questions, have a look here
   text-align: left;
 }
 
-#eauxyowlgs .gt_empty_group_heading {
+#qutkqjjycw .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -1691,15 +1691,15 @@ If you’ve thought about the above questions, have a look here
   vertical-align: middle;
 }
 
-#eauxyowlgs .gt_from_md > :first-child {
+#qutkqjjycw .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#eauxyowlgs .gt_from_md > :last-child {
+#qutkqjjycw .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#eauxyowlgs .gt_row {
+#qutkqjjycw .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1718,7 +1718,7 @@ If you’ve thought about the above questions, have a look here
   overflow-x: hidden;
 }
 
-#eauxyowlgs .gt_stub {
+#qutkqjjycw .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1731,7 +1731,7 @@ If you’ve thought about the above questions, have a look here
   padding-right: 5px;
 }
 
-#eauxyowlgs .gt_stub_row_group {
+#qutkqjjycw .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1745,15 +1745,15 @@ If you’ve thought about the above questions, have a look here
   vertical-align: top;
 }
 
-#eauxyowlgs .gt_row_group_first td {
+#qutkqjjycw .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#eauxyowlgs .gt_row_group_first th {
+#qutkqjjycw .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#eauxyowlgs .gt_summary_row {
+#qutkqjjycw .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1763,16 +1763,16 @@ If you’ve thought about the above questions, have a look here
   padding-right: 5px;
 }
 
-#eauxyowlgs .gt_first_summary_row {
+#qutkqjjycw .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#eauxyowlgs .gt_first_summary_row.thick {
+#qutkqjjycw .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#eauxyowlgs .gt_last_summary_row {
+#qutkqjjycw .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1782,7 +1782,7 @@ If you’ve thought about the above questions, have a look here
   border-bottom-color: #D3D3D3;
 }
 
-#eauxyowlgs .gt_grand_summary_row {
+#qutkqjjycw .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1792,7 +1792,7 @@ If you’ve thought about the above questions, have a look here
   padding-right: 5px;
 }
 
-#eauxyowlgs .gt_first_grand_summary_row {
+#qutkqjjycw .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1802,7 +1802,7 @@ If you’ve thought about the above questions, have a look here
   border-top-color: #D3D3D3;
 }
 
-#eauxyowlgs .gt_last_grand_summary_row_top {
+#qutkqjjycw .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1812,11 +1812,11 @@ If you’ve thought about the above questions, have a look here
   border-bottom-color: #D3D3D3;
 }
 
-#eauxyowlgs .gt_striped {
+#qutkqjjycw .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#eauxyowlgs .gt_table_body {
+#qutkqjjycw .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1825,7 +1825,7 @@ If you’ve thought about the above questions, have a look here
   border-bottom-color: #D3D3D3;
 }
 
-#eauxyowlgs .gt_footnotes {
+#qutkqjjycw .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1839,7 +1839,7 @@ If you’ve thought about the above questions, have a look here
   border-right-color: #D3D3D3;
 }
 
-#eauxyowlgs .gt_footnote {
+#qutkqjjycw .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -1848,7 +1848,7 @@ If you’ve thought about the above questions, have a look here
   padding-right: 5px;
 }
 
-#eauxyowlgs .gt_sourcenotes {
+#qutkqjjycw .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1862,7 +1862,7 @@ If you’ve thought about the above questions, have a look here
   border-right-color: #D3D3D3;
 }
 
-#eauxyowlgs .gt_sourcenote {
+#qutkqjjycw .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -1870,63 +1870,63 @@ If you’ve thought about the above questions, have a look here
   padding-right: 5px;
 }
 
-#eauxyowlgs .gt_left {
+#qutkqjjycw .gt_left {
   text-align: left;
 }
 
-#eauxyowlgs .gt_center {
+#qutkqjjycw .gt_center {
   text-align: center;
 }
 
-#eauxyowlgs .gt_right {
+#qutkqjjycw .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#eauxyowlgs .gt_font_normal {
+#qutkqjjycw .gt_font_normal {
   font-weight: normal;
 }
 
-#eauxyowlgs .gt_font_bold {
+#qutkqjjycw .gt_font_bold {
   font-weight: bold;
 }
 
-#eauxyowlgs .gt_font_italic {
+#qutkqjjycw .gt_font_italic {
   font-style: italic;
 }
 
-#eauxyowlgs .gt_super {
+#qutkqjjycw .gt_super {
   font-size: 65%;
 }
 
-#eauxyowlgs .gt_footnote_marks {
+#qutkqjjycw .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#eauxyowlgs .gt_asterisk {
+#qutkqjjycw .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#eauxyowlgs .gt_indent_1 {
+#qutkqjjycw .gt_indent_1 {
   text-indent: 5px;
 }
 
-#eauxyowlgs .gt_indent_2 {
+#qutkqjjycw .gt_indent_2 {
   text-indent: 10px;
 }
 
-#eauxyowlgs .gt_indent_3 {
+#qutkqjjycw .gt_indent_3 {
   text-indent: 15px;
 }
 
-#eauxyowlgs .gt_indent_4 {
+#qutkqjjycw .gt_indent_4 {
   text-indent: 20px;
 }
 
-#eauxyowlgs .gt_indent_5 {
+#qutkqjjycw .gt_indent_5 {
   text-indent: 25px;
 }
 </style>
@@ -2438,9 +2438,9 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb18-14"><a href="#cb18-14" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb18-15"><a href="#cb18-15" aria-hidden="true" tabindex="-1"></a><span class="fu">## 2. Story/plot description</span></span>
 <span id="cb18-16"><a href="#cb18-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-17"><a href="#cb18-17" aria-hidden="true" tabindex="-1"></a>You received data from the laboratory regarding <span class="sc">\[</span>**WE NEED LAB DATA AND DECISIONS ON WHAT TO ADD HERE**<span class="sc">\]</span>. You will have to merge the questionnaire data with the data coming from the laboratory.</span>
+<span id="cb18-17"><a href="#cb18-17" aria-hidden="true" tabindex="-1"></a>You have received the laboratory results for the samples collected from some of the cases. The lab conducted an RT-PCR panel targeting various gastrointestinal pathogens and also gathered additional metadata. Your task is to merge the questionnaire data with the data you have received from the lab, using the unique identifiers that both datasets share (<span class="in">`id`</span> column), and explore that lab data. What does it tell you?</span>
 <span id="cb18-18"><a href="#cb18-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-19"><a href="#cb18-19" aria-hidden="true" tabindex="-1"></a>Now that your dataset is clean and the lab data merged, it is time to describe the people identified as cases so far and generate a hypothesis to inform the next steps in the outbreak investigation. Note that you should try to have a data analysis plan *before* any data collection. Nevertheless, during the urgency of outbreak investigations, questionnaire development may sometimes occur before you had time to draft a proper analysis plan (as it is the case in this simulated outbreak). Drawing "dummy" tables and graphs will help you precise the type of statistics you will carry out later on.</span>
+<span id="cb18-19"><a href="#cb18-19" aria-hidden="true" tabindex="-1"></a>Once your dataset is clean and the lab data merged, you can describe the people identified as cases so far and generate a hypothesis to inform the next steps in the outbreak investigation. Note that you should try to have a data analysis plan *before* any data collection. Nevertheless, during the urgency of outbreak investigations, questionnaire development may sometimes occur before you had time to draft a proper analysis plan (as it is the case in this simulated outbreak). Drawing "dummy" tables and graphs will help you precise the type of statistics you will carry out later on.</span>
 <span id="cb18-20"><a href="#cb18-20" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb18-21"><a href="#cb18-21" aria-hidden="true" tabindex="-1"></a><span class="fu">## 3. Questions/Assignments</span></span>
 <span id="cb18-22"><a href="#cb18-22" aria-hidden="true" tabindex="-1"></a></span>
@@ -2472,7 +2472,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb18-50"><a href="#cb18-50" aria-hidden="true" tabindex="-1"></a><span class="co"># Import the clean data set:</span></span>
 <span id="cb18-51"><a href="#cb18-51" aria-hidden="true" tabindex="-1"></a>copdata <span class="ot">&lt;-</span> rio<span class="sc">::</span><span class="fu">import</span>(here<span class="sc">::</span><span class="fu">here</span>(<span class="st">"data"</span>, <span class="st">"Spetses_clean2_2024.rds"</span>)) </span>
 <span id="cb18-52"><a href="#cb18-52" aria-hidden="true" tabindex="-1"></a>lab <span class="ot">&lt;-</span> rio<span class="sc">::</span><span class="fu">import</span>(here<span class="sc">::</span><span class="fu">here</span>(<span class="st">"data"</span>, <span class="st">"Lab data.xlsx"</span>),</span>
-<span id="cb18-53"><a href="#cb18-53" aria-hidden="true" tabindex="-1"></a>                   <span class="at">skip =</span> <span class="dv">1</span>) <span class="co"># skip the first row</span></span>
+<span id="cb18-53"><a href="#cb18-53" aria-hidden="true" tabindex="-1"></a>                   <span class="at">skip =</span> <span class="dv">1</span>) <span class="co"># skip the first row.</span></span>
 <span id="cb18-54"><a href="#cb18-54" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb18-55"><a href="#cb18-55" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb18-56"><a href="#cb18-56" aria-hidden="true" tabindex="-1"></a><span class="fu">## 3.3 Merge and explore the lab data. Explore it as you wish!</span></span>

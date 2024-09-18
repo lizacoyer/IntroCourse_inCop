@@ -438,7 +438,7 @@
     "href": "Lab_and_Descriptive.html#storyplot-description",
     "title": "Laboratory data and descriptive analysis",
     "section": "2. Story/plot description",
-    "text": "2. Story/plot description\nYou received data from the laboratory regarding [WE NEED LAB DATA AND DECISIONS ON WHAT TO ADD HERE]. You will have to merge the questionnaire data with the data coming from the laboratory.\nNow that your dataset is clean and the lab data merged, it is time to describe the people identified as cases so far and generate a hypothesis to inform the next steps in the outbreak investigation. Note that you should try to have a data analysis plan before any data collection. Nevertheless, during the urgency of outbreak investigations, questionnaire development may sometimes occur before you had time to draft a proper analysis plan (as it is the case in this simulated outbreak). Drawing “dummy” tables and graphs will help you precise the type of statistics you will carry out later on."
+    "text": "2. Story/plot description\nYou have received the laboratory results for the samples collected from some of the cases. The lab conducted an RT-PCR panel targeting various gastrointestinal pathogens and also gathered additional metadata. Your task is to merge the questionnaire data with the data you have received from the lab, using the unique identifiers that both datasets share (id column), and explore that lab data. What does it tell you?\nOnce your dataset is clean and the lab data merged, you can describe the people identified as cases so far and generate a hypothesis to inform the next steps in the outbreak investigation. Note that you should try to have a data analysis plan before any data collection. Nevertheless, during the urgency of outbreak investigations, questionnaire development may sometimes occur before you had time to draft a proper analysis plan (as it is the case in this simulated outbreak). Drawing “dummy” tables and graphs will help you precise the type of statistics you will carry out later on."
   },
   {
     "objectID": "Lab_and_Descriptive.html#questionsassignments",
@@ -459,7 +459,7 @@
     "href": "Lab_and_Descriptive.html#import-your-data",
     "title": "Laboratory data and descriptive analysis",
     "section": "3.2 Import your data",
-    "text": "3.2 Import your data\n\n\nCode\n# Import the clean data set:\ncopdata &lt;- rio::import(here::here(\"data\", \"Spetses_clean2_2024.rds\")) \nlab &lt;- rio::import(here::here(\"data\", \"Lab data.xlsx\"),\n                   skip = 1) # skip the first row"
+    "text": "3.2 Import your data\n\n\nCode\n# Import the clean data set:\ncopdata &lt;- rio::import(here::here(\"data\", \"Spetses_clean2_2024.rds\")) \nlab &lt;- rio::import(here::here(\"data\", \"Lab data.xlsx\"),\n                   skip = 1) # skip the first row."
   },
   {
     "objectID": "Lab_and_Descriptive.html#merge-and-explore-the-lab-data",
