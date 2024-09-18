@@ -48,7 +48,7 @@ pacman::p_load(rio,
 # Import the clean data set:
 copdata <- rio::import(here::here("data", "Spetses_clean2_2024.rds")) 
 lab <- rio::import(here::here("data", "Lab data.xlsx"),
-                   skip = 1) # skip the first row
+                   skip = 1) # skip the first row.
 ```
 
 ## 3.3 Merge and explore the lab data. Explore it as you wish!
