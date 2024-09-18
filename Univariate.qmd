@@ -65,7 +65,7 @@ pacman::p_load(rio,
 
 ```{r, Import_data}
 # Import the raw data set:
-copdata <- rio::import(here::here("data", "Copenhagen_clean2_2024.rds"))
+copdata <- rio::import(here::here("data", "Spetses_clean2_2024.rds"))
 ```
 
 ## 3.3. Hypothesis tests for other variables

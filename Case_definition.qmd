@@ -15,7 +15,7 @@ You will now create a new column in the data set to hold the case definition you
 
 ## 3. Questions/Assignments
 
-If you closed your R project, please open it again and load the clean dataset. We strongly recommend you use the `Copenhagen_clean1_2024.rds` provided by us in EVA. This is just to be sure all needed changes in that file for the code to work have been done (as you may have changed the file in a slightly different way than we have).
+If you closed your R project, please open it again and load the clean dataset. We strongly recommend you use the `Spetses_clean1_2024.rds` provided by us in EVA. This is just to be sure all needed changes in that file for the code to work have been done (as you may have changed the file in a slightly different way than we have).
 
 To be sure we all start from the same case definition, let's agree that a case was defined as a person who:
 
@@ -56,7 +56,7 @@ pacman::p_load(rio,
 
 ```{r, Import_data}
 # Import the clean data set:
-copdata <- rio::import(here::here("data", "Copenhagen_clean1_2024.rds"))
+copdata <- rio::import(here::here("data", "Spetses_clean1_2024.rds"))
 ```
 
 ## 3.3 Identify the variables you need to apply the case definition criteria.
@@ -227,12 +227,12 @@ copdata %>%
 
 # 4. Export clean data
 
-Finally, we can save the cleaned data set as a new file `Copenhagen_clean2_YOURINITIALS`, under the data folder, before we proceeding with descriptive analysis.
+Finally, we can save the cleaned data set as a new file `Spetses_clean2_YOURINITIALS`, under the data folder, before we proceeding with descriptive analysis.
 
 ```{r export_clean_data}
 
 rio::export(x = copdata, 
-            file = here::here("data", "Copenhagen_clean2_2024.rds"))
+            file = here::here("data", "Spetses_clean2_2024.rds"))
 
 
 ```

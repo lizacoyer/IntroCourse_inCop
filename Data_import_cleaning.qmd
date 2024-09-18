@@ -325,7 +325,7 @@ head(copdata$onset_datetime)
 
 Save the cleaned data set before proceeding with using your case definition to identify cases in your dataset. Use the .rds format, as it preserves column classes. This ensures you will have only minimal cleaning to do after importing the data into R at the next inject.
 
-Save your clean data as a new file "Copenhagen_clean1_YOURINITIALS.rds", under the data folder of your Rproject.
+Save your clean data as a new file "Spetses_clean1_YOURINITIALS.rds", under the data folder of your Rproject.
 
 ::: {.callout-tip title="Need a little bit of help?" collapse="true"}
 Use `rio::export()`.
@@ -334,7 +334,7 @@ Use `rio::export()`.
 ```{r export_clean_data}
 
 rio::export(x = copdata, 
-            file = here::here("data", "Copenhagen_clean1_2024.rds"))
+            file = here::here("data", "Spetses_clean1_2024.rds"))
 
 ```
 

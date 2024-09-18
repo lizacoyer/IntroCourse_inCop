@@ -20,7 +20,7 @@ Now that your dataset is clean and the lab data merged, it is time to describe t
 
 ## 3. Questions/Assignments
 
-If you closed your R project, please open it again and load the clean dataset. We recommend you use the `Copenhagen_clean2_2024.rds` provided by us in EVA. This is just to be sure all needed changes in that file for the code to work have been done (as you may have changed the file in a slightly different way than we have).
+If you closed your R project, please open it again and load the clean dataset. We recommend you use the `Spetses_clean2_2024.rds` provided by us in EVA. This is just to be sure all needed changes in that file for the code to work have been done (as you may have changed the file in a slightly different way than we have).
 
 ## 3.1 Install packages (if needed) and load libraries
 
@@ -46,7 +46,7 @@ pacman::p_load(rio,
 
 ```{r, Import_data}
 # Import the clean data set:
-copdata <- rio::import(here::here("data", "Copenhagen_clean2_2024.rds")) 
+copdata <- rio::import(here::here("data", "Spetses_clean2_2024.rds")) 
 lab <- rio::import(here::here("data", "lab_pos.xlsx")) 
 ```
 

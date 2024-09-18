@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Copenhagen Introductory Course - Case Definition</title>
+<title>Spetses Introductory Course - Case Definition</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -111,7 +111,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container">
     <a class="navbar-brand" href="./index.html">
-    <span class="navbar-title">Copenhagen Introductory Course</span>
+    <span class="navbar-title">Spetses Introductory Course</span>
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
@@ -226,7 +226,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="questionsassignments" class="level2">
 <h2 class="anchored" data-anchor-id="questionsassignments">3. Questions/Assignments</h2>
-<p>If you closed your R project, please open it again and load the clean dataset. We strongly recommend you use the <code>Copenhagen_clean1_2024.rds</code> provided by us in EVA. This is just to be sure all needed changes in that file for the code to work have been done (as you may have changed the file in a slightly different way than we have).</p>
+<p>If you closed your R project, please open it again and load the clean dataset. We strongly recommend you use the <code>Spetses_clean1_2024.rds</code> provided by us in EVA. This is just to be sure all needed changes in that file for the code to work have been done (as you may have changed the file in a slightly different way than we have).</p>
 <p>To be sure we all start from the same case definition, let’s agree that a case was defined as a person who:</p>
 <ul class="task-list">
 <li><input type="checkbox" checked="">attended the school dinner on 11 November 2006 (i.e.&nbsp;is on the linelist)</li>
@@ -271,7 +271,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <details open="">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Import the clean data set:</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>copdata <span class="ot">&lt;-</span> rio<span class="sc">::</span><span class="fu">import</span>(here<span class="sc">::</span><span class="fu">here</span>(<span class="st">"data"</span>, <span class="st">"Copenhagen_clean1_2024.rds"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>copdata <span class="ot">&lt;-</span> rio<span class="sc">::</span><span class="fu">import</span>(here<span class="sc">::</span><span class="fu">here</span>(<span class="st">"data"</span>, <span class="st">"Spetses_clean1_2024.rds"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 </section>
@@ -636,12 +636,12 @@ If you’ve thought about the above, have a look here
 </section>
 <section id="export-clean-data" class="level1">
 <h1>4. Export clean data</h1>
-<p>Finally, we can save the cleaned data set as a new file <code>Copenhagen_clean2_YOURINITIALS</code>, under the data folder, before we proceeding with descriptive analysis.</p>
+<p>Finally, we can save the cleaned data set as a new file <code>Spetses_clean2_YOURINITIALS</code>, under the data folder, before we proceeding with descriptive analysis.</p>
 <div class="cell">
 <details open="">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>rio<span class="sc">::</span><span class="fu">export</span>(<span class="at">x =</span> copdata, </span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>            <span class="at">file =</span> here<span class="sc">::</span><span class="fu">here</span>(<span class="st">"data"</span>, <span class="st">"Copenhagen_clean2_2024.rds"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>            <span class="at">file =</span> here<span class="sc">::</span><span class="fu">here</span>(<span class="st">"data"</span>, <span class="st">"Spetses_clean2_2024.rds"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 
@@ -1067,7 +1067,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb12-15"><a href="#cb12-15" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb12-16"><a href="#cb12-16" aria-hidden="true" tabindex="-1"></a><span class="fu">## 3. Questions/Assignments</span></span>
 <span id="cb12-17"><a href="#cb12-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-18"><a href="#cb12-18" aria-hidden="true" tabindex="-1"></a>If you closed your R project, please open it again and load the clean dataset. We strongly recommend you use the <span class="in">`Copenhagen_clean1_2024.rds`</span> provided by us in EVA. This is just to be sure all needed changes in that file for the code to work have been done (as you may have changed the file in a slightly different way than we have).</span>
+<span id="cb12-18"><a href="#cb12-18" aria-hidden="true" tabindex="-1"></a>If you closed your R project, please open it again and load the clean dataset. We strongly recommend you use the <span class="in">`Spetses_clean1_2024.rds`</span> provided by us in EVA. This is just to be sure all needed changes in that file for the code to work have been done (as you may have changed the file in a slightly different way than we have).</span>
 <span id="cb12-19"><a href="#cb12-19" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb12-20"><a href="#cb12-20" aria-hidden="true" tabindex="-1"></a>To be sure we all start from the same case definition, let's agree that a case was defined as a person who:</span>
 <span id="cb12-21"><a href="#cb12-21" aria-hidden="true" tabindex="-1"></a></span>
@@ -1108,7 +1108,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb12-56"><a href="#cb12-56" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb12-57"><a href="#cb12-57" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, Import_data}</span></span>
 <span id="cb12-58"><a href="#cb12-58" aria-hidden="true" tabindex="-1"></a><span class="co"># Import the clean data set:</span></span>
-<span id="cb12-59"><a href="#cb12-59" aria-hidden="true" tabindex="-1"></a>copdata <span class="ot">&lt;-</span> rio<span class="sc">::</span><span class="fu">import</span>(here<span class="sc">::</span><span class="fu">here</span>(<span class="st">"data"</span>, <span class="st">"Copenhagen_clean1_2024.rds"</span>))</span>
+<span id="cb12-59"><a href="#cb12-59" aria-hidden="true" tabindex="-1"></a>copdata <span class="ot">&lt;-</span> rio<span class="sc">::</span><span class="fu">import</span>(here<span class="sc">::</span><span class="fu">here</span>(<span class="st">"data"</span>, <span class="st">"Spetses_clean1_2024.rds"</span>))</span>
 <span id="cb12-60"><a href="#cb12-60" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb12-61"><a href="#cb12-61" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb12-62"><a href="#cb12-62" aria-hidden="true" tabindex="-1"></a><span class="fu">## 3.3 Identify the variables you need to apply the case definition criteria.</span></span>
@@ -1277,12 +1277,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb12-237"><a href="#cb12-237" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb12-238"><a href="#cb12-238" aria-hidden="true" tabindex="-1"></a><span class="fu"># 4. Export clean data</span></span>
 <span id="cb12-239"><a href="#cb12-239" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-240"><a href="#cb12-240" aria-hidden="true" tabindex="-1"></a>Finally, we can save the cleaned data set as a new file <span class="in">`Copenhagen_clean2_YOURINITIALS`</span>, under the data folder, before we proceeding with descriptive analysis.</span>
+<span id="cb12-240"><a href="#cb12-240" aria-hidden="true" tabindex="-1"></a>Finally, we can save the cleaned data set as a new file <span class="in">`Spetses_clean2_YOURINITIALS`</span>, under the data folder, before we proceeding with descriptive analysis.</span>
 <span id="cb12-241"><a href="#cb12-241" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb12-242"><a href="#cb12-242" aria-hidden="true" tabindex="-1"></a><span class="in">```{r export_clean_data}</span></span>
 <span id="cb12-243"><a href="#cb12-243" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb12-244"><a href="#cb12-244" aria-hidden="true" tabindex="-1"></a>rio<span class="sc">::</span><span class="fu">export</span>(<span class="at">x =</span> copdata, </span>
-<span id="cb12-245"><a href="#cb12-245" aria-hidden="true" tabindex="-1"></a>            <span class="at">file =</span> here<span class="sc">::</span><span class="fu">here</span>(<span class="st">"data"</span>, <span class="st">"Copenhagen_clean2_2024.rds"</span>))</span>
+<span id="cb12-245"><a href="#cb12-245" aria-hidden="true" tabindex="-1"></a>            <span class="at">file =</span> here<span class="sc">::</span><span class="fu">here</span>(<span class="st">"data"</span>, <span class="st">"Spetses_clean2_2024.rds"</span>))</span>
 <span id="cb12-246"><a href="#cb12-246" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb12-247"><a href="#cb12-247" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb12-248"><a href="#cb12-248" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
