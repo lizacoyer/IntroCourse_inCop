@@ -445,7 +445,7 @@
     "href": "Lab_and_Descriptive.html#questionsassignments",
     "title": "Laboratory data and descriptive analysis",
     "section": "3. Questions/Assignments",
-    "text": "3. Questions/Assignments\nIf you closed your R project, please open it again and load the clean dataset. We recommend you use the Spetses_clean2_2024.rds provided by us in EVA. This is just to be sure all needed changes in that file for the code to work have been done (as you may have changed the file in a slightly different way than we have)."
+    "text": "3. Questions/Assignments\nIf you closed your R project, please open it again and load the clean dataset. We recommend you use the Spetses_clean2_2024.rds. This is just to be sure all needed changes in that file for the code to work have been done (as you may have changed the file in a slightly different way than we have)."
   },
   {
     "objectID": "Lab_and_Descriptive.html#install-packages-if-needed-and-load-libraries",
@@ -655,7 +655,7 @@
     "href": "Case_definition.html#questionsassignments",
     "title": "Case Definition",
     "section": "3. Questions/Assignments",
-    "text": "3. Questions/Assignments\nIf you closed your R project, please open it again and load the clean dataset. We strongly recommend you use the Spetses_clean1_2024.rds provided by us in EVA. This is just to be sure all needed changes in that file for the code to work have been done (as you may have changed the file in a slightly different way than we have).\nTo be sure we all start from the same case definition, let’s agree that a case was defined as a person who:\n\nattended the school dinner on 11 November 2006 (i.e. is on the linelist)\nate a meal at the school dinner (i.e. was exposed)\nfell ill after the start of the meal\nfell ill within the time period of interest after the school dinner\nsuffered from diarrhoea with or without blood, or vomiting\n\nNon cases (not-ill) were defined as people who:\n\nattended the school dinner on 11 November 2006 (i.e. are on the linelist)\nate a meal at the school dinner (i.e. were exposed)\ndid not fall ill within the time period of interest\ndid not develop diarrhoea (with or without blood) or vomiting"
+    "text": "3. Questions/Assignments\nIf you closed your R project, please open it again and load the clean dataset. We strongly recommend you use the Spetses_clean1_2024.rds. This is just to be sure all needed changes in that file for the code to work have been done (as you may have changed the file in a slightly different way than we have).\nTo be sure we all start from the same case definition, let’s agree that a case was defined as a person who:\n\nattended the school dinner on 11 November 2006 (i.e. is on the linelist)\nate a meal at the school dinner (i.e. was exposed)\nfell ill after the start of the meal\nfell ill within the time period of interest after the school dinner\nsuffered from diarrhoea with or without blood, or vomiting\n\nNon cases (not-ill) were defined as people who:\n\nattended the school dinner on 11 November 2006 (i.e. are on the linelist)\nate a meal at the school dinner (i.e. were exposed)\ndid not fall ill within the time period of interest\ndid not develop diarrhoea (with or without blood) or vomiting"
   },
   {
     "objectID": "Case_definition.html#install-packages-if-needed-and-load-libraries",

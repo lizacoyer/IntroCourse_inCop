@@ -15,7 +15,7 @@ You will now create a new column in the data set to hold the case definition you
 
 ## 3. Questions/Assignments
 
-If you closed your R project, please open it again and load the clean dataset. We strongly recommend you use the `Spetses_clean1_2024.rds` provided by us in EVA. This is just to be sure all needed changes in that file for the code to work have been done (as you may have changed the file in a slightly different way than we have).
+If you closed your R project, please open it again and load the clean dataset. We strongly recommend you use the `Spetses_clean1_2024.rds`. This is just to be sure all needed changes in that file for the code to work have been done (as you may have changed the file in a slightly different way than we have).
 
 To be sure we all start from the same case definition, let's agree that a case was defined as a person who:
 
