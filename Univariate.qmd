@@ -13,7 +13,7 @@ At the end of the session, participants will be able to:
 
 -   Interpret the univariable results.
 
--   (Optional) Investigate dose-response relationships in categorical data.2. Story/plot description
+-   (Optional) Investigate dose-response relationships in categorical data.
 
 ## 2. Story/plot description
 
