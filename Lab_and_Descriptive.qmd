@@ -291,16 +291,19 @@ tabsymptoms <- copdata %>%
     across(.cols = c(diarrhoea, bloody, vomiting,
              abdo, nausea, fever,headache, jointpain), 
            .fns = ~as.factor(.))) %>%
+  # The enxt paragraph does not work with Rversion 4.4.0
   # Make NA a explicit level of factor variables
-  dplyr::mutate(
-    across(.cols = c(diarrhoea, bloody, vomiting,
-           abdo, nausea, fever,headache, jointpain),
-           .fns = ~forcats::fct_na_value_to_level(.))) %>% 
-    
+  # dplyr::mutate(
+  #   across(.cols = c(diarrhoea, bloody, vomiting,
+  #          abdo, nausea, fever,headache, jointpain),
+  #          .fns = ~forcats::fct_na_value_to_level(.))) %>% 
+     
   # Create the summary table:
   gtsummary::tbl_summary(
     # Stratify by case:
     by = case, 
+    # take care of missing values
+    missing = "no", 
     # Calculate row percentages:
     percent = "column",
     # Create nice labels:
