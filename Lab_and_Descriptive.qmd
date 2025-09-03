@@ -46,7 +46,7 @@ pacman::p_load(rio,
 
 ```{r, Import_data}
 # Import the clean data set:
-copdata <- rio::import(here::here("data", "Spetses_clean2_2024.rds")) 
+copdata <- rio::import(here::here("data", "Spetses_clean2_2024.rds"), trust = T) 
 lab <- rio::import(here::here("data", "Lab data.xlsx"),
                    skip = 1) # skip the first row.
 ```
@@ -76,7 +76,7 @@ What can you infer from the incubation periods in the histogram?
 
 # Create a dataset with only cases
 cases <- copdata %>% 
-  filter(case == TRUE)
+  filter(case == 1)
 
 incplot <- cases %>% 
   # Create an empty ggplot frame:
@@ -359,8 +359,8 @@ symptoms <- c("diarrhoea",
               "jointpain")
 
 # Create nice labels for case definition:
-caselabs <- ggplot2::as_labeller(c(`FALSE` = "Non-case", 
-                                   `TRUE` = "Case"))
+caselabs <- ggplot2::as_labeller(c("0" = "Non-case", 
+                                   "1" = "Case"))
 # Select variables and cases:
 symptom_bar <- copdata %>% 
   # Select symptom columns:
@@ -372,7 +372,7 @@ symptom_bar <- copdata %>%
                names_to = "Symptoms", 
                values_drop_na = TRUE) %>% 
   # Keep only TRUE values:
-  filter(value == TRUE) %>% 
+  filter(value == "1") %>% 
  
    # Group by symptoms and case:
   group_by(Symptoms, case) %>% 
@@ -414,7 +414,7 @@ total_ap <- tabyl(copdata, case) %>%
   # Add percentages with 1 digit after the decimal point:
   adorn_pct_formatting(digits = 1) %>% 
   # Filter to rows where case is TRUE:
-  filter(case == TRUE) %>% 
+  filter(case == "1") %>% 
   # Select the column percent:
   select(percent) %>% 
   # Extract (pull) the value from this cell:

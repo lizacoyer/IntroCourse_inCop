@@ -15,7 +15,7 @@ At the end of the session, participants will be able to:
 
 ## 2. Story/plot description
 
-From the univariable analysis, it seems that eating orzpo and eating moussaka as well as drinking champagne are associated with the highest risk of becoming ill. There are, however, many other food items that are associated with an increased risk (even if not statistically significant).
+From the univariable analysis, it seems that eating pasta and eating veal as well as drinking champagne are associated with the highest risk of becoming ill. There are, however, many other food items that are associated with an increased risk (even if not statistically significant).
 
 You should next think about potential confounders and about effect modification. Think about which variables you might want to check for effect modification or confounding. One common strategy is to base this decision on the results obtained in the univariable analysis and a p-value threshold of 0.20-0.25. Also, food items that are known risk factors for gastroenteritis could also be included regardless of their univariable p-value.
 
@@ -49,24 +49,24 @@ pacman::p_load(rio,
 
 ```{r, Import_data}
 # Import the raw data set: 
-copdata <- rio::import(here::here("data", "Spetses_clean2_2024.rds"))
+copdata <- rio::import(here::here("data", "Spetses_clean2_2024.rds"), trust = T)
 ```
 
 ## 3.4. Consider and assess for confounding and/or effect modification
 
-Have a look at the relative risk for being a case having eaten a specific food item (for example, moussake), when stratified by another variable (for example, orzo). You may consider stratifying by orzo, as it has the highest RR in the univariable analysis.
+Have a look at the relative risk for being a case having eaten a specific food item (for example, veal), when stratified by another variable (for example, pasta). You may consider stratifying by pasta, as it has the highest RR in the univariable analysis.
 
 There are many variables in this dataset and it might not make sense to stratify each variable by each other variable on our search for effect modifiers and confounders.
 
-However, we also don't want to be too restrictive as a variable which actually (i.e. causally) is associated with the outcome might not show a significant association at the significant level we decided (say 5%) in the univariable analysis due to confounding. Therefore, we could test all variables statistically significant at the 15%, 20%, or 25% level (specific percentage to be decided by your group). In our solutions here, we are looking at moussaka and champagne, stratified by orzo, but you may decide to look at other food items as well.
+However, we also don't want to be too restrictive as a variable which actually (i.e. causally) is associated with the outcome might not show a significant association at the significant level we decided (say 5%) in the univariable analysis due to confounding. Therefore, we could test all variables statistically significant at the 15%, 20%, or 25% level (specific percentage to be decided by your group). In our solutions here, we are looking at veal and champagne, stratified by pasta, but you may decide to look at other food items as well.
 
 ::: {.callout-tip title="Need a little bit of help?" collapse="true"}
 Use the function `csinter()` of the EpiStats package.
 :::
 
-### a) Moussaka as exposure of interest, stratified by having eaten orzo
+### a) Veal as exposure of interest, stratified by having eaten pasta
 
-If we stratify the **effect of moussaka by orzo** we ask the question: does eating orzo modify or confound the association between eating moussaka and being a case?
+If we stratify the **effect of veal by pasta** we ask the question: does eating pasta modify or confound the association between eating veal and being a case?
 
 ```{r}
 stratall <- copdata %>% 
@@ -75,42 +75,42 @@ stratall <- copdata %>%
                 .fns = ~ as.numeric(.)))
 
 # Pass data to the csinter function:
-orzostrata <- csinter(x = stratall, 
+pastastrata <- csinter(x = stratall, 
                        cases = "case", 
-                       exposure = "moussaka", 
-                       by = "orzo")
+                       exposure = "veal", 
+                       by = "pasta")
 
-orzostrata
+pastastrata
 ```
 
-Let's check if orzo is associated with moussaka (if we are thinking moussaka may be a confounder, we need to see if there is an association between the potential confounder (moussaka) and the exposure (orzo)):
+Let's check if pasta is associated with veal (if we are thinking pasta may be a confounder, we need to see if there is an association between the potential confounder (pasta) and the exposure (veal)):
 
 ```{r}
-# Perform Wilcoxon rank sum test on orzo and moussaka:
-wilcox.test(orzo ~ moussaka, 
+# Perform Wilcoxon rank sum test on veal and pasta:
+wilcox.test(veal ~ pasta, 
             data = copdata)
 ```
 
-### b) Champagne as exposure of interest, stratified by having eaten orzo
+### b) Champagne as exposure of interest, stratified by having eaten pasta
 
 ```{r}
 # Pass data to the csinter function:
 champstrata <- csinter(x = stratall, 
                        cases = "case", 
                        exposure = "champagne", 
-                       by = "orzo")
+                       by = "pasta")
 ```
 
 ::: {.callout-warning title="Let's stop and... think!" collapse="true"}
 Are there any indications to make you think there may be effect modification and/or confounding?
 :::
 
-We could stratify by orzo (the strongest risk factor in the univariable analysis), to examine if orzo confounds the association between eating moussaka and being a case. Before stratification, we will need to check if orzo meets the conditions of being a confounder. For a variable to be a confounder it needs to be associated both with the outcome (being a case) and with the exposure (and not be in the causal pathway between exposure and outcome). We know from univariable analysis that orzo is associated with being a case. If we run a Wilcoxon rank sum test, we will see that orzo is also associated with moussaka (indeed, you can see that most people either had both moussaka and orzo or neither of these food items, so they are associated with each other).
+We could stratify by pasta (the strongest risk factor in the univariable analysis), to examine if pasta confounds the association between eating veal and being a case. Before stratification, we will need to check if pasta meets the conditions of being a confounder. For a variable to be a confounder it needs to be associated both with the outcome (being a case) and with the exposure (and not be in the causal pathway between exposure and outcome). We know from univariable analysis that pasta is associated with being a case. If we run a Wilcoxon rank sum test, we will see that pasta is also associated with veal (indeed, you can see that most people either had both pasta and veal or neither of these food items, so they are associated with each other).
 
-Above, we uses `ccinter` to stratify and save the object as "orzostrata".
+Above, we uses `ccinter` to stratify and save the object as "pastastrata".
 
-orzostrata: Within the stratum of the people who ate orzo, moussaka has no significant effect (RR = 1.20, CI: 0.60 - 2.41). The same holds within the stratum of people who didn't eat orzo (RR = 1.05, CI = 0.38, 2.92). The adjusted MH-RR also suggests that moussaka has no effect (RRadj = 1.15, CI: 0.80 - 2.85).  To identify confounding, we want to look at the % change between the crude and the adjusted RR. This is given by the csinter output "Adjusted/crude relative change".  The difference between the crude and the MH-RR in this case is \>20% suggesting that orzo confounds the association between moussaka and the disease.
+pastastrata: Within the stratum of the people who ate pasta, veal has no significant effect (RR = 1.20, CI: 0.60 - 2.41). The same holds within the stratum of people who didn't eat pasta (RR = 1.05, CI = 0.38, 2.92). The adjusted MH-RR also suggests that veal has no effect (RRadj = 1.15, CI: 0.80 - 2.85).  To identify confounding, we want to look at the % change between the crude and the adjusted RR. This is given by the csinter output "Adjusted/crude relative change".  The difference between the crude and the MH-RR in this case is \>20% suggesting that pasta confounds the association between veal and the disease.
 
-This result suggest that moussaka is not a risk factor of the disease and that the crude observed effect was due to the confounding effect of orzo.
+This result suggest that veal is not a risk factor of the disease and that the crude observed effect was due to the confounding effect of pasta.
 
-If you stratify by moussaka, you see that moussaka does not confound the association between orzo and the disease. The same applies if you stratify the exposure to orzo by other variables. The above, the higher RR for orzo and the dose response relationship we found earlier for orzo (remember this was optional) provide additional evidence that there was something going on with the orzo with pesto dish!
+If you stratify by veal, you see that veal does not confound the association between pasta and the disease. The same applies if you stratify the exposure to pasta by other variables. The above, the higher RR for pasta and the dose response relationship we found earlier for pasta (remember this was optional) provide additional evidence that there was something going on with the pasta with pesto dish!

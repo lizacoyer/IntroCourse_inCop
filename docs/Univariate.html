@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.433">
+<meta name="generator" content="quarto-1.5.57">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Spetses Introductory Course - Univariable analysis</title>
+<title>Univariable analysis – Spetses Introductory Course</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -22,7 +22,7 @@ ul.task-list li input[type="checkbox"] {
 }
 /* CSS for syntax highlighting */
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span { line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -33,7 +33,7 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -81,7 +81,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   "collapse-after": 3,
   "panel-placement": "end",
   "type": "overlay",
-  "limit": 20,
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -90,14 +96,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-more-match-text": "more match in this document",
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
     "search-detached-cancel-button-title": "Cancel",
     "search-submit-button-title": "Submit",
     "search-label": "Search"
   }
 }</script>
-
 <link href="site_libs/pagedtable-1.1/css/pagedtable.css" rel="stylesheet">
+
 <script src="site_libs/pagedtable-1.1/js/pagedtable.js"></script>
+
 
 
 <link rel="stylesheet" href="styles.css">
@@ -107,55 +115,56 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
-    <nav class="navbar navbar-expand-lg navbar-dark ">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
-      <div class="navbar-brand-container">
+      <div class="navbar-brand-container mx-auto">
     <a class="navbar-brand" href="./index.html">
     <span class="navbar-title">Spetses Introductory Course</span>
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./index.html" rel="" target="">
- <span class="menu-text">What is this?</span></a>
+    <a class="nav-link" href="./index.html"> 
+<span class="menu-text">What is this?</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./Data_import_cleaning.html" rel="" target="">
- <span class="menu-text">Data import and cleaning</span></a>
+    <a class="nav-link" href="./Data_import_cleaning.html"> 
+<span class="menu-text">Data import and cleaning</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./Case_definition.html" rel="" target="">
- <span class="menu-text">Case Definition</span></a>
+    <a class="nav-link" href="./Case_definition.html"> 
+<span class="menu-text">Case Definition</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./Lab_and_Descriptive.html" rel="" target="">
- <span class="menu-text">Laboratory data and descriptive analysis</span></a>
+    <a class="nav-link" href="./Lab_and_Descriptive.html"> 
+<span class="menu-text">Laboratory data and descriptive analysis</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="./Univariate.html" rel="" target="" aria-current="page">
- <span class="menu-text">Univariable analysis</span></a>
+    <a class="nav-link active" href="./Univariate.html" aria-current="page"> 
+<span class="menu-text">Univariable analysis</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./Stratified.html" rel="" target="">
- <span class="menu-text">Stratified analysis</span></a>
+    <a class="nav-link" href="./Stratified.html"> 
+<span class="menu-text">Stratified analysis</span></a>
   </li>  
 </ul>
-            <div class="quarto-navbar-tools ms-auto">
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
     <div class="dropdown">
-      <a href="" title="" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" aria-label=""><i class="bi bi-github"></i></a>
-      <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="quarto-navigation-tool-dropdown-0">
+      <a href="" title="" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" role="link" aria-label=""><i class="bi bi-github"></i></a>
+      <ul class="dropdown-menu" aria-labelledby="quarto-navigation-tool-dropdown-0">
           <li>
-            <a class="dropdown-item quarto-navbar-tools ms-auto-item" href="https://github.com/EPIET/IntroCourse_inCop/tree/main">
+            <a class="dropdown-item quarto-navbar-tools-item" href="https://github.com/EPIET/IntroCourse_inCop/tree/main">
             Source Code
             </a>
           </li>
           <li>
-            <a class="dropdown-item quarto-navbar-tools ms-auto-item" href="https://github.com/EPIET/IntroCourse_inCop/issues">
+            <a class="dropdown-item quarto-navbar-tools-item" href="https://github.com/EPIET/IntroCourse_inCop/issues">
             Report a code issue
             </a>
           </li>
@@ -163,7 +172,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     </div>
   <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
 </div>
-          </div> <!-- /navcollapse -->
       </div> <!-- /container-fluid -->
     </nav>
 </header>
@@ -210,7 +218,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </div>
   
 
+
 </header>
+
 
 <section id="learning-outcomes" class="level2">
 <h2 class="anchored" data-anchor-id="learning-outcomes">1. Learning outcomes</h2>
@@ -247,8 +257,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="install-packages-and-load-libraries" class="level2">
 <h2 class="anchored" data-anchor-id="install-packages-and-load-libraries">3.1. Install packages and load libraries</h2>
 <div class="cell">
-<details open="">
-<summary>Code</summary>
+<details open="" class="code-fold">
+<summary>Show the code</summary>
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load the required libraries into the current R session:</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>pacman<span class="sc">::</span><span class="fu">p_load</span>(rio, </span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>               here, </span>
@@ -271,10 +281,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="import-your-data" class="level2">
 <h2 class="anchored" data-anchor-id="import-your-data">3.2. Import your data</h2>
 <div class="cell">
-<details open="">
-<summary>Code</summary>
+<details open="" class="code-fold">
+<summary>Show the code</summary>
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Import the raw data set:</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>copdata <span class="ot">&lt;-</span> rio<span class="sc">::</span><span class="fu">import</span>(here<span class="sc">::</span><span class="fu">here</span>(<span class="st">"data"</span>, <span class="st">"Spetses_clean2_2024.rds"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>copdata <span class="ot">&lt;-</span> rio<span class="sc">::</span><span class="fu">import</span>(here<span class="sc">::</span><span class="fu">here</span>(<span class="st">"data"</span>, <span class="st">"Spetses_clean2_2024.rds"</span>), <span class="at">trust =</span> T)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 </section>
@@ -285,8 +295,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h4 class="anchored" data-anchor-id="a-age">a) age</h4>
 <p>With the Shapiro-Wilk test we check if the variables are following the normal distribution. The null hypothesis is that the data follow a normal distribution, therefore, rejecting the null hypothesis means that the data do not follow the normal distribution. A p-value below the cutoff for rejecting the null hypothesis, e.g., a p-value&lt;0.05 means that we reject the null hypothesis that the data follow the normal distribution. For age, the p-value is &lt;0.05, therefore we reject the null hypothesis that the data are normally distributed. As we see in the graph most frequently reported age is &lt;20 years.</p>
 <div class="cell">
-<details open="">
-<summary>Code</summary>
+<details open="" class="code-fold">
+<summary>Show the code</summary>
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Check if age overall follows a normal distribution:</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">shapiro.test</span>(copdata<span class="sc">$</span>age)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
@@ -297,30 +307,38 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 data:  copdata$age
 W = 0.31302, p-value &lt; 2.2e-16</code></pre>
 </div>
-<details open="">
-<summary>Code</summary>
+<details open="" class="code-fold">
+<summary>Show the code</summary>
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Can simply have a look at</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(copdata<span class="sc">$</span>age)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
-<p><img src="Univariate_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid" width="672"></p>
+<div>
+<figure class="figure">
+<p><img src="Univariate_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
 </div>
-<details open="">
-<summary>Code</summary>
+</div>
+<details open="" class="code-fold">
+<summary>Show the code</summary>
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Looking only at the students:</span></span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>students <span class="ot">&lt;-</span> copdata <span class="sc">%&gt;%</span> </span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(group <span class="sc">==</span> <span class="st">"student"</span>)</span>
 <span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(students<span class="sc">$</span>age)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
-<p><img src="Univariate_files/figure-html/unnamed-chunk-2-2.png" class="img-fluid" width="672"></p>
+<div>
+<figure class="figure">
+<p><img src="Univariate_files/figure-html/unnamed-chunk-2-2.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
 </div>
 </div>
 <p>Age overall (nor within the students’ group) is not normally distributed.</p>
 <p>We compare the age for cases and non-cases using the Wilcoxon test that is used when the data are not normally distributed. The null hypothesis is that there is no difference in the age between the two groups compared. Given that p-value&gt;0.05 we do not reject the null hypothesis.</p>
 <div class="cell">
-<details open="">
-<summary>Code</summary>
+<details open="" class="code-fold">
+<summary>Show the code</summary>
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Perform Wilcoxon rank sum test on age and sex:</span></span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">wilcox.test</span>(age <span class="sc">~</span> case, </span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>            <span class="at">data =</span> copdata)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -338,32 +356,31 @@ alternative hypothesis: true location shift is not equal to 0</code></pre>
 <section id="b-sex" class="level4">
 <h4 class="anchored" data-anchor-id="b-sex">b) sex</h4>
 <div class="cell">
-<details open="">
-<summary>Code</summary>
+<details open="" class="code-fold">
+<summary>Show the code</summary>
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>copdata <span class="sc">%&gt;%</span> </span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(sex, case) <span class="sc">%&gt;%</span> </span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tbl_summary</span>(<span class="at">by =</span> case) <span class="sc">%&gt;%</span> </span>
 <span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">add_p</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
-
-<div id="ejslxsewkv" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#ejslxsewkv table {
+<div id="xenbdksvol" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#xenbdksvol table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#ejslxsewkv thead, #ejslxsewkv tbody, #ejslxsewkv tfoot, #ejslxsewkv tr, #ejslxsewkv td, #ejslxsewkv th {
+#xenbdksvol thead, #xenbdksvol tbody, #xenbdksvol tfoot, #xenbdksvol tr, #xenbdksvol td, #xenbdksvol th {
   border-style: none;
 }
 
-#ejslxsewkv p {
+#xenbdksvol p {
   margin: 0;
   padding: 0;
 }
 
-#ejslxsewkv .gt_table {
+#xenbdksvol .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -389,12 +406,12 @@ alternative hypothesis: true location shift is not equal to 0</code></pre>
   border-left-color: #D3D3D3;
 }
 
-#ejslxsewkv .gt_caption {
+#xenbdksvol .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#ejslxsewkv .gt_title {
+#xenbdksvol .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -406,7 +423,7 @@ alternative hypothesis: true location shift is not equal to 0</code></pre>
   border-bottom-width: 0;
 }
 
-#ejslxsewkv .gt_subtitle {
+#xenbdksvol .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -418,7 +435,7 @@ alternative hypothesis: true location shift is not equal to 0</code></pre>
   border-top-width: 0;
 }
 
-#ejslxsewkv .gt_heading {
+#xenbdksvol .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -430,13 +447,13 @@ alternative hypothesis: true location shift is not equal to 0</code></pre>
   border-right-color: #D3D3D3;
 }
 
-#ejslxsewkv .gt_bottom_border {
+#xenbdksvol .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#ejslxsewkv .gt_col_headings {
+#xenbdksvol .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -451,7 +468,7 @@ alternative hypothesis: true location shift is not equal to 0</code></pre>
   border-right-color: #D3D3D3;
 }
 
-#ejslxsewkv .gt_col_heading {
+#xenbdksvol .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -471,7 +488,7 @@ alternative hypothesis: true location shift is not equal to 0</code></pre>
   overflow-x: hidden;
 }
 
-#ejslxsewkv .gt_column_spanner_outer {
+#xenbdksvol .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -483,15 +500,15 @@ alternative hypothesis: true location shift is not equal to 0</code></pre>
   padding-right: 4px;
 }
 
-#ejslxsewkv .gt_column_spanner_outer:first-child {
+#xenbdksvol .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#ejslxsewkv .gt_column_spanner_outer:last-child {
+#xenbdksvol .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#ejslxsewkv .gt_column_spanner {
+#xenbdksvol .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -503,11 +520,11 @@ alternative hypothesis: true location shift is not equal to 0</code></pre>
   width: 100%;
 }
 
-#ejslxsewkv .gt_spanner_row {
+#xenbdksvol .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#ejslxsewkv .gt_group_heading {
+#xenbdksvol .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -533,7 +550,7 @@ alternative hypothesis: true location shift is not equal to 0</code></pre>
   text-align: left;
 }
 
-#ejslxsewkv .gt_empty_group_heading {
+#xenbdksvol .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -548,15 +565,15 @@ alternative hypothesis: true location shift is not equal to 0</code></pre>
   vertical-align: middle;
 }
 
-#ejslxsewkv .gt_from_md > :first-child {
+#xenbdksvol .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#ejslxsewkv .gt_from_md > :last-child {
+#xenbdksvol .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#ejslxsewkv .gt_row {
+#xenbdksvol .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -575,7 +592,7 @@ alternative hypothesis: true location shift is not equal to 0</code></pre>
   overflow-x: hidden;
 }
 
-#ejslxsewkv .gt_stub {
+#xenbdksvol .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -588,7 +605,7 @@ alternative hypothesis: true location shift is not equal to 0</code></pre>
   padding-right: 5px;
 }
 
-#ejslxsewkv .gt_stub_row_group {
+#xenbdksvol .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -602,15 +619,15 @@ alternative hypothesis: true location shift is not equal to 0</code></pre>
   vertical-align: top;
 }
 
-#ejslxsewkv .gt_row_group_first td {
+#xenbdksvol .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#ejslxsewkv .gt_row_group_first th {
+#xenbdksvol .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#ejslxsewkv .gt_summary_row {
+#xenbdksvol .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -620,16 +637,16 @@ alternative hypothesis: true location shift is not equal to 0</code></pre>
   padding-right: 5px;
 }
 
-#ejslxsewkv .gt_first_summary_row {
+#xenbdksvol .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#ejslxsewkv .gt_first_summary_row.thick {
+#xenbdksvol .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#ejslxsewkv .gt_last_summary_row {
+#xenbdksvol .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -639,7 +656,7 @@ alternative hypothesis: true location shift is not equal to 0</code></pre>
   border-bottom-color: #D3D3D3;
 }
 
-#ejslxsewkv .gt_grand_summary_row {
+#xenbdksvol .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -649,7 +666,7 @@ alternative hypothesis: true location shift is not equal to 0</code></pre>
   padding-right: 5px;
 }
 
-#ejslxsewkv .gt_first_grand_summary_row {
+#xenbdksvol .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -659,7 +676,7 @@ alternative hypothesis: true location shift is not equal to 0</code></pre>
   border-top-color: #D3D3D3;
 }
 
-#ejslxsewkv .gt_last_grand_summary_row_top {
+#xenbdksvol .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -669,11 +686,11 @@ alternative hypothesis: true location shift is not equal to 0</code></pre>
   border-bottom-color: #D3D3D3;
 }
 
-#ejslxsewkv .gt_striped {
+#xenbdksvol .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#ejslxsewkv .gt_table_body {
+#xenbdksvol .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -682,7 +699,7 @@ alternative hypothesis: true location shift is not equal to 0</code></pre>
   border-bottom-color: #D3D3D3;
 }
 
-#ejslxsewkv .gt_footnotes {
+#xenbdksvol .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -696,7 +713,7 @@ alternative hypothesis: true location shift is not equal to 0</code></pre>
   border-right-color: #D3D3D3;
 }
 
-#ejslxsewkv .gt_footnote {
+#xenbdksvol .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -705,7 +722,7 @@ alternative hypothesis: true location shift is not equal to 0</code></pre>
   padding-right: 5px;
 }
 
-#ejslxsewkv .gt_sourcenotes {
+#xenbdksvol .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -719,7 +736,7 @@ alternative hypothesis: true location shift is not equal to 0</code></pre>
   border-right-color: #D3D3D3;
 }
 
-#ejslxsewkv .gt_sourcenote {
+#xenbdksvol .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -727,100 +744,127 @@ alternative hypothesis: true location shift is not equal to 0</code></pre>
   padding-right: 5px;
 }
 
-#ejslxsewkv .gt_left {
+#xenbdksvol .gt_left {
   text-align: left;
 }
 
-#ejslxsewkv .gt_center {
+#xenbdksvol .gt_center {
   text-align: center;
 }
 
-#ejslxsewkv .gt_right {
+#xenbdksvol .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#ejslxsewkv .gt_font_normal {
+#xenbdksvol .gt_font_normal {
   font-weight: normal;
 }
 
-#ejslxsewkv .gt_font_bold {
+#xenbdksvol .gt_font_bold {
   font-weight: bold;
 }
 
-#ejslxsewkv .gt_font_italic {
+#xenbdksvol .gt_font_italic {
   font-style: italic;
 }
 
-#ejslxsewkv .gt_super {
+#xenbdksvol .gt_super {
   font-size: 65%;
 }
 
-#ejslxsewkv .gt_footnote_marks {
+#xenbdksvol .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#ejslxsewkv .gt_asterisk {
+#xenbdksvol .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#ejslxsewkv .gt_indent_1 {
+#xenbdksvol .gt_indent_1 {
   text-indent: 5px;
 }
 
-#ejslxsewkv .gt_indent_2 {
+#xenbdksvol .gt_indent_2 {
   text-indent: 10px;
 }
 
-#ejslxsewkv .gt_indent_3 {
+#xenbdksvol .gt_indent_3 {
   text-indent: 15px;
 }
 
-#ejslxsewkv .gt_indent_4 {
+#xenbdksvol .gt_indent_4 {
   text-indent: 20px;
 }
 
-#ejslxsewkv .gt_indent_5 {
+#xenbdksvol .gt_indent_5 {
   text-indent: 25px;
 }
+
+#xenbdksvol .katex-display {
+  display: inline-flex !important;
+  margin-bottom: 0.75em !important;
+}
+
+#xenbdksvol div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+  height: 0px !important;
+}
 </style>
-<table class="gt_table" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
-  <thead>
-    
-    <tr class="gt_col_headings">
-      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id="<strong>Characteristic</strong>"><strong>Characteristic</strong></th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="<strong>FALSE</strong>, N = 161<span class=&quot;gt_footnote_marks&quot; style=&quot;white-space:nowrap;font-style:italic;font-weight:normal;&quot;><sup>1</sup></span>"><strong>FALSE</strong>, N = 161<span class="gt_footnote_marks" style="white-space:nowrap;font-style:italic;font-weight:normal;"><sup>1</sup></span></th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="<strong>TRUE</strong>, N = 216<span class=&quot;gt_footnote_marks&quot; style=&quot;white-space:nowrap;font-style:italic;font-weight:normal;&quot;><sup>1</sup></span>"><strong>TRUE</strong>, N = 216<span class="gt_footnote_marks" style="white-space:nowrap;font-style:italic;font-weight:normal;"><sup>1</sup></span></th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="<strong>p-value</strong><span class=&quot;gt_footnote_marks&quot; style=&quot;white-space:nowrap;font-style:italic;font-weight:normal;&quot;><sup>2</sup></span>"><strong>p-value</strong><span class="gt_footnote_marks" style="white-space:nowrap;font-style:italic;font-weight:normal;"><sup>2</sup></span></th>
-    </tr>
-  </thead>
-  <tbody class="gt_table_body">
-    <tr><td headers="label" class="gt_row gt_left">sex</td>
-<td headers="stat_1" class="gt_row gt_center"></td>
-<td headers="stat_2" class="gt_row gt_center"></td>
-<td headers="p.value" class="gt_row gt_center">0.3</td></tr>
-    <tr><td headers="label" class="gt_row gt_left">&nbsp;&nbsp;&nbsp;&nbsp;female</td>
-<td headers="stat_1" class="gt_row gt_center">96 (60%)</td>
-<td headers="stat_2" class="gt_row gt_center">117 (54%)</td>
-<td headers="p.value" class="gt_row gt_center"></td></tr>
-    <tr><td headers="label" class="gt_row gt_left">&nbsp;&nbsp;&nbsp;&nbsp;male</td>
-<td headers="stat_1" class="gt_row gt_center">65 (40%)</td>
-<td headers="stat_2" class="gt_row gt_center">99 (46%)</td>
-<td headers="p.value" class="gt_row gt_center"></td></tr>
-  </tbody>
-  
-  <tfoot class="gt_footnotes">
-    <tr>
-      <td class="gt_footnote" colspan="4"><span class="gt_footnote_marks" style="white-space:nowrap;font-style:italic;font-weight:normal;"><sup>1</sup></span> n (%)</td>
-    </tr>
-    <tr>
-      <td class="gt_footnote" colspan="4"><span class="gt_footnote_marks" style="white-space:nowrap;font-style:italic;font-weight:normal;"><sup>2</sup></span> Pearson’s Chi-squared test</td>
-    </tr>
-  </tfoot>
+
+<table class="gt_table caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header gt_col_headings">
+<th id="label" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col"><strong>Characteristic</strong></th>
+<th id="stat_1" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col"><strong>0</strong><br>
+N = 161<span class="gt_footnote_marks" style="white-space:nowrap;font-style:italic;font-weight:normal;line-height:0;"><sup>1</sup></span></th>
+<th id="stat_2" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col"><strong>1</strong><br>
+N = 216<span class="gt_footnote_marks" style="white-space:nowrap;font-style:italic;font-weight:normal;line-height:0;"><sup>1</sup></span></th>
+<th id="p.value" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col"><strong>p-value</strong><span class="gt_footnote_marks" style="white-space:nowrap;font-style:italic;font-weight:normal;line-height:0;"><sup>2</sup></span></th>
+</tr>
+</thead>
+<tbody class="gt_table_body">
+<tr class="odd">
+<td class="gt_row gt_left" headers="label">sex</td>
+<td class="gt_row gt_center" headers="stat_1"><br>
+</td>
+<td class="gt_row gt_center" headers="stat_2"><br>
+</td>
+<td class="gt_row gt_center" headers="p.value">0.3</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;female</td>
+<td class="gt_row gt_center" headers="stat_1">96 (60%)</td>
+<td class="gt_row gt_center" headers="stat_2">117 (54%)</td>
+<td class="gt_row gt_center" headers="p.value"><br>
+</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;male</td>
+<td class="gt_row gt_center" headers="stat_1">65 (40%)</td>
+<td class="gt_row gt_center" headers="stat_2">99 (46%)</td>
+<td class="gt_row gt_center" headers="p.value"><br>
+</td>
+</tr>
+</tbody><tfoot class="gt_footnotes">
+<tr class="even">
+<td colspan="4" class="gt_footnote"><span class="gt_footnote_marks" style="white-space:nowrap;font-style:italic;font-weight:normal;line-height:0;"><sup>1</sup></span> n (%)</td>
+</tr>
+<tr class="odd">
+<td colspan="4" class="gt_footnote"><span class="gt_footnote_marks" style="white-space:nowrap;font-style:italic;font-weight:normal;line-height:0;"><sup>2</sup></span> Pearson’s Chi-squared test</td>
+</tr>
+</tfoot>
+
 </table>
+
 </div>
 </div>
 </div>
@@ -845,32 +889,31 @@ Let’s stop and… think!
 <section id="c-class" class="level4">
 <h4 class="anchored" data-anchor-id="c-class">c) class</h4>
 <div class="cell">
-<details open="">
-<summary>Code</summary>
+<details open="" class="code-fold">
+<summary>Show the code</summary>
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>copdata <span class="sc">%&gt;%</span> </span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(class, case) <span class="sc">%&gt;%</span> </span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tbl_summary</span>(<span class="at">by =</span> case) <span class="sc">%&gt;%</span> </span>
 <span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">add_p</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
-
-<div id="ohmysgnkhm" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#ohmysgnkhm table {
+<div id="kgvwmkbuxg" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#kgvwmkbuxg table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#ohmysgnkhm thead, #ohmysgnkhm tbody, #ohmysgnkhm tfoot, #ohmysgnkhm tr, #ohmysgnkhm td, #ohmysgnkhm th {
+#kgvwmkbuxg thead, #kgvwmkbuxg tbody, #kgvwmkbuxg tfoot, #kgvwmkbuxg tr, #kgvwmkbuxg td, #kgvwmkbuxg th {
   border-style: none;
 }
 
-#ohmysgnkhm p {
+#kgvwmkbuxg p {
   margin: 0;
   padding: 0;
 }
 
-#ohmysgnkhm .gt_table {
+#kgvwmkbuxg .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -896,12 +939,12 @@ Let’s stop and… think!
   border-left-color: #D3D3D3;
 }
 
-#ohmysgnkhm .gt_caption {
+#kgvwmkbuxg .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#ohmysgnkhm .gt_title {
+#kgvwmkbuxg .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -913,7 +956,7 @@ Let’s stop and… think!
   border-bottom-width: 0;
 }
 
-#ohmysgnkhm .gt_subtitle {
+#kgvwmkbuxg .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -925,7 +968,7 @@ Let’s stop and… think!
   border-top-width: 0;
 }
 
-#ohmysgnkhm .gt_heading {
+#kgvwmkbuxg .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -937,13 +980,13 @@ Let’s stop and… think!
   border-right-color: #D3D3D3;
 }
 
-#ohmysgnkhm .gt_bottom_border {
+#kgvwmkbuxg .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#ohmysgnkhm .gt_col_headings {
+#kgvwmkbuxg .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -958,7 +1001,7 @@ Let’s stop and… think!
   border-right-color: #D3D3D3;
 }
 
-#ohmysgnkhm .gt_col_heading {
+#kgvwmkbuxg .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -978,7 +1021,7 @@ Let’s stop and… think!
   overflow-x: hidden;
 }
 
-#ohmysgnkhm .gt_column_spanner_outer {
+#kgvwmkbuxg .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -990,15 +1033,15 @@ Let’s stop and… think!
   padding-right: 4px;
 }
 
-#ohmysgnkhm .gt_column_spanner_outer:first-child {
+#kgvwmkbuxg .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#ohmysgnkhm .gt_column_spanner_outer:last-child {
+#kgvwmkbuxg .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#ohmysgnkhm .gt_column_spanner {
+#kgvwmkbuxg .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -1010,11 +1053,11 @@ Let’s stop and… think!
   width: 100%;
 }
 
-#ohmysgnkhm .gt_spanner_row {
+#kgvwmkbuxg .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#ohmysgnkhm .gt_group_heading {
+#kgvwmkbuxg .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1040,7 +1083,7 @@ Let’s stop and… think!
   text-align: left;
 }
 
-#ohmysgnkhm .gt_empty_group_heading {
+#kgvwmkbuxg .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -1055,15 +1098,15 @@ Let’s stop and… think!
   vertical-align: middle;
 }
 
-#ohmysgnkhm .gt_from_md > :first-child {
+#kgvwmkbuxg .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#ohmysgnkhm .gt_from_md > :last-child {
+#kgvwmkbuxg .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#ohmysgnkhm .gt_row {
+#kgvwmkbuxg .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1082,7 +1125,7 @@ Let’s stop and… think!
   overflow-x: hidden;
 }
 
-#ohmysgnkhm .gt_stub {
+#kgvwmkbuxg .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1095,7 +1138,7 @@ Let’s stop and… think!
   padding-right: 5px;
 }
 
-#ohmysgnkhm .gt_stub_row_group {
+#kgvwmkbuxg .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1109,15 +1152,15 @@ Let’s stop and… think!
   vertical-align: top;
 }
 
-#ohmysgnkhm .gt_row_group_first td {
+#kgvwmkbuxg .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#ohmysgnkhm .gt_row_group_first th {
+#kgvwmkbuxg .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#ohmysgnkhm .gt_summary_row {
+#kgvwmkbuxg .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1127,16 +1170,16 @@ Let’s stop and… think!
   padding-right: 5px;
 }
 
-#ohmysgnkhm .gt_first_summary_row {
+#kgvwmkbuxg .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#ohmysgnkhm .gt_first_summary_row.thick {
+#kgvwmkbuxg .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#ohmysgnkhm .gt_last_summary_row {
+#kgvwmkbuxg .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1146,7 +1189,7 @@ Let’s stop and… think!
   border-bottom-color: #D3D3D3;
 }
 
-#ohmysgnkhm .gt_grand_summary_row {
+#kgvwmkbuxg .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1156,7 +1199,7 @@ Let’s stop and… think!
   padding-right: 5px;
 }
 
-#ohmysgnkhm .gt_first_grand_summary_row {
+#kgvwmkbuxg .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1166,7 +1209,7 @@ Let’s stop and… think!
   border-top-color: #D3D3D3;
 }
 
-#ohmysgnkhm .gt_last_grand_summary_row_top {
+#kgvwmkbuxg .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1176,11 +1219,11 @@ Let’s stop and… think!
   border-bottom-color: #D3D3D3;
 }
 
-#ohmysgnkhm .gt_striped {
+#kgvwmkbuxg .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#ohmysgnkhm .gt_table_body {
+#kgvwmkbuxg .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1189,7 +1232,7 @@ Let’s stop and… think!
   border-bottom-color: #D3D3D3;
 }
 
-#ohmysgnkhm .gt_footnotes {
+#kgvwmkbuxg .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1203,7 +1246,7 @@ Let’s stop and… think!
   border-right-color: #D3D3D3;
 }
 
-#ohmysgnkhm .gt_footnote {
+#kgvwmkbuxg .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -1212,7 +1255,7 @@ Let’s stop and… think!
   padding-right: 5px;
 }
 
-#ohmysgnkhm .gt_sourcenotes {
+#kgvwmkbuxg .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1226,7 +1269,7 @@ Let’s stop and… think!
   border-right-color: #D3D3D3;
 }
 
-#ohmysgnkhm .gt_sourcenote {
+#kgvwmkbuxg .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -1234,108 +1277,141 @@ Let’s stop and… think!
   padding-right: 5px;
 }
 
-#ohmysgnkhm .gt_left {
+#kgvwmkbuxg .gt_left {
   text-align: left;
 }
 
-#ohmysgnkhm .gt_center {
+#kgvwmkbuxg .gt_center {
   text-align: center;
 }
 
-#ohmysgnkhm .gt_right {
+#kgvwmkbuxg .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#ohmysgnkhm .gt_font_normal {
+#kgvwmkbuxg .gt_font_normal {
   font-weight: normal;
 }
 
-#ohmysgnkhm .gt_font_bold {
+#kgvwmkbuxg .gt_font_bold {
   font-weight: bold;
 }
 
-#ohmysgnkhm .gt_font_italic {
+#kgvwmkbuxg .gt_font_italic {
   font-style: italic;
 }
 
-#ohmysgnkhm .gt_super {
+#kgvwmkbuxg .gt_super {
   font-size: 65%;
 }
 
-#ohmysgnkhm .gt_footnote_marks {
+#kgvwmkbuxg .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#ohmysgnkhm .gt_asterisk {
+#kgvwmkbuxg .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#ohmysgnkhm .gt_indent_1 {
+#kgvwmkbuxg .gt_indent_1 {
   text-indent: 5px;
 }
 
-#ohmysgnkhm .gt_indent_2 {
+#kgvwmkbuxg .gt_indent_2 {
   text-indent: 10px;
 }
 
-#ohmysgnkhm .gt_indent_3 {
+#kgvwmkbuxg .gt_indent_3 {
   text-indent: 15px;
 }
 
-#ohmysgnkhm .gt_indent_4 {
+#kgvwmkbuxg .gt_indent_4 {
   text-indent: 20px;
 }
 
-#ohmysgnkhm .gt_indent_5 {
+#kgvwmkbuxg .gt_indent_5 {
   text-indent: 25px;
 }
+
+#kgvwmkbuxg .katex-display {
+  display: inline-flex !important;
+  margin-bottom: 0.75em !important;
+}
+
+#kgvwmkbuxg div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+  height: 0px !important;
+}
 </style>
-<table class="gt_table" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
-  <thead>
-    
-    <tr class="gt_col_headings">
-      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id="<strong>Characteristic</strong>"><strong>Characteristic</strong></th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="<strong>FALSE</strong>, N = 161<span class=&quot;gt_footnote_marks&quot; style=&quot;white-space:nowrap;font-style:italic;font-weight:normal;&quot;><sup>1</sup></span>"><strong>FALSE</strong>, N = 161<span class="gt_footnote_marks" style="white-space:nowrap;font-style:italic;font-weight:normal;"><sup>1</sup></span></th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="<strong>TRUE</strong>, N = 216<span class=&quot;gt_footnote_marks&quot; style=&quot;white-space:nowrap;font-style:italic;font-weight:normal;&quot;><sup>1</sup></span>"><strong>TRUE</strong>, N = 216<span class="gt_footnote_marks" style="white-space:nowrap;font-style:italic;font-weight:normal;"><sup>1</sup></span></th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="<strong>p-value</strong><span class=&quot;gt_footnote_marks&quot; style=&quot;white-space:nowrap;font-style:italic;font-weight:normal;&quot;><sup>2</sup></span>"><strong>p-value</strong><span class="gt_footnote_marks" style="white-space:nowrap;font-style:italic;font-weight:normal;"><sup>2</sup></span></th>
-    </tr>
-  </thead>
-  <tbody class="gt_table_body">
-    <tr><td headers="label" class="gt_row gt_left">class</td>
-<td headers="stat_1" class="gt_row gt_center"></td>
-<td headers="stat_2" class="gt_row gt_center"></td>
-<td headers="p.value" class="gt_row gt_center">0.090</td></tr>
-    <tr><td headers="label" class="gt_row gt_left">&nbsp;&nbsp;&nbsp;&nbsp;1</td>
-<td headers="stat_1" class="gt_row gt_center">63 (43%)</td>
-<td headers="stat_2" class="gt_row gt_center">68 (34%)</td>
-<td headers="p.value" class="gt_row gt_center"></td></tr>
-    <tr><td headers="label" class="gt_row gt_left">&nbsp;&nbsp;&nbsp;&nbsp;2</td>
-<td headers="stat_1" class="gt_row gt_center">44 (30%)</td>
-<td headers="stat_2" class="gt_row gt_center">57 (29%)</td>
-<td headers="p.value" class="gt_row gt_center"></td></tr>
-    <tr><td headers="label" class="gt_row gt_left">&nbsp;&nbsp;&nbsp;&nbsp;3</td>
-<td headers="stat_1" class="gt_row gt_center">38 (26%)</td>
-<td headers="stat_2" class="gt_row gt_center">73 (37%)</td>
-<td headers="p.value" class="gt_row gt_center"></td></tr>
-    <tr><td headers="label" class="gt_row gt_left">&nbsp;&nbsp;&nbsp;&nbsp;Unknown</td>
-<td headers="stat_1" class="gt_row gt_center">16</td>
-<td headers="stat_2" class="gt_row gt_center">18</td>
-<td headers="p.value" class="gt_row gt_center"></td></tr>
-  </tbody>
-  
-  <tfoot class="gt_footnotes">
-    <tr>
-      <td class="gt_footnote" colspan="4"><span class="gt_footnote_marks" style="white-space:nowrap;font-style:italic;font-weight:normal;"><sup>1</sup></span> n (%)</td>
-    </tr>
-    <tr>
-      <td class="gt_footnote" colspan="4"><span class="gt_footnote_marks" style="white-space:nowrap;font-style:italic;font-weight:normal;"><sup>2</sup></span> Pearson’s Chi-squared test</td>
-    </tr>
-  </tfoot>
+
+<table class="gt_table caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header gt_col_headings">
+<th id="label" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col"><strong>Characteristic</strong></th>
+<th id="stat_1" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col"><strong>0</strong><br>
+N = 161<span class="gt_footnote_marks" style="white-space:nowrap;font-style:italic;font-weight:normal;line-height:0;"><sup>1</sup></span></th>
+<th id="stat_2" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col"><strong>1</strong><br>
+N = 216<span class="gt_footnote_marks" style="white-space:nowrap;font-style:italic;font-weight:normal;line-height:0;"><sup>1</sup></span></th>
+<th id="p.value" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col"><strong>p-value</strong><span class="gt_footnote_marks" style="white-space:nowrap;font-style:italic;font-weight:normal;line-height:0;"><sup>2</sup></span></th>
+</tr>
+</thead>
+<tbody class="gt_table_body">
+<tr class="odd">
+<td class="gt_row gt_left" headers="label">class</td>
+<td class="gt_row gt_center" headers="stat_1"><br>
+</td>
+<td class="gt_row gt_center" headers="stat_2"><br>
+</td>
+<td class="gt_row gt_center" headers="p.value">0.090</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;1</td>
+<td class="gt_row gt_center" headers="stat_1">63 (43%)</td>
+<td class="gt_row gt_center" headers="stat_2">68 (34%)</td>
+<td class="gt_row gt_center" headers="p.value"><br>
+</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;2</td>
+<td class="gt_row gt_center" headers="stat_1">44 (30%)</td>
+<td class="gt_row gt_center" headers="stat_2">57 (29%)</td>
+<td class="gt_row gt_center" headers="p.value"><br>
+</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;3</td>
+<td class="gt_row gt_center" headers="stat_1">38 (26%)</td>
+<td class="gt_row gt_center" headers="stat_2">73 (37%)</td>
+<td class="gt_row gt_center" headers="p.value"><br>
+</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;Unknown</td>
+<td class="gt_row gt_center" headers="stat_1">16</td>
+<td class="gt_row gt_center" headers="stat_2">18</td>
+<td class="gt_row gt_center" headers="p.value"><br>
+</td>
+</tr>
+</tbody><tfoot class="gt_footnotes">
+<tr class="even">
+<td colspan="4" class="gt_footnote"><span class="gt_footnote_marks" style="white-space:nowrap;font-style:italic;font-weight:normal;line-height:0;"><sup>1</sup></span> n (%)</td>
+</tr>
+<tr class="odd">
+<td colspan="4" class="gt_footnote"><span class="gt_footnote_marks" style="white-space:nowrap;font-style:italic;font-weight:normal;line-height:0;"><sup>2</sup></span> Pearson’s Chi-squared test</td>
+</tr>
+</tfoot>
+
 </table>
+
 </div>
 </div>
 </div>
@@ -1345,32 +1421,31 @@ Let’s stop and… think!
 <section id="d-group" class="level4">
 <h4 class="anchored" data-anchor-id="d-group">d) group</h4>
 <div class="cell">
-<details open="">
-<summary>Code</summary>
+<details open="" class="code-fold">
+<summary>Show the code</summary>
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>copdata <span class="sc">%&gt;%</span> </span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(group, case) <span class="sc">%&gt;%</span> </span>
 <span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tbl_summary</span>(<span class="at">by =</span> case) <span class="sc">%&gt;%</span> </span>
 <span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">add_p</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
-
-<div id="atlbekfxdc" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#atlbekfxdc table {
+<div id="wytvxdlqcn" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#wytvxdlqcn table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#atlbekfxdc thead, #atlbekfxdc tbody, #atlbekfxdc tfoot, #atlbekfxdc tr, #atlbekfxdc td, #atlbekfxdc th {
+#wytvxdlqcn thead, #wytvxdlqcn tbody, #wytvxdlqcn tfoot, #wytvxdlqcn tr, #wytvxdlqcn td, #wytvxdlqcn th {
   border-style: none;
 }
 
-#atlbekfxdc p {
+#wytvxdlqcn p {
   margin: 0;
   padding: 0;
 }
 
-#atlbekfxdc .gt_table {
+#wytvxdlqcn .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -1396,12 +1471,12 @@ Let’s stop and… think!
   border-left-color: #D3D3D3;
 }
 
-#atlbekfxdc .gt_caption {
+#wytvxdlqcn .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#atlbekfxdc .gt_title {
+#wytvxdlqcn .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -1413,7 +1488,7 @@ Let’s stop and… think!
   border-bottom-width: 0;
 }
 
-#atlbekfxdc .gt_subtitle {
+#wytvxdlqcn .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -1425,7 +1500,7 @@ Let’s stop and… think!
   border-top-width: 0;
 }
 
-#atlbekfxdc .gt_heading {
+#wytvxdlqcn .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -1437,13 +1512,13 @@ Let’s stop and… think!
   border-right-color: #D3D3D3;
 }
 
-#atlbekfxdc .gt_bottom_border {
+#wytvxdlqcn .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#atlbekfxdc .gt_col_headings {
+#wytvxdlqcn .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1458,7 +1533,7 @@ Let’s stop and… think!
   border-right-color: #D3D3D3;
 }
 
-#atlbekfxdc .gt_col_heading {
+#wytvxdlqcn .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1478,7 +1553,7 @@ Let’s stop and… think!
   overflow-x: hidden;
 }
 
-#atlbekfxdc .gt_column_spanner_outer {
+#wytvxdlqcn .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1490,15 +1565,15 @@ Let’s stop and… think!
   padding-right: 4px;
 }
 
-#atlbekfxdc .gt_column_spanner_outer:first-child {
+#wytvxdlqcn .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#atlbekfxdc .gt_column_spanner_outer:last-child {
+#wytvxdlqcn .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#atlbekfxdc .gt_column_spanner {
+#wytvxdlqcn .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -1510,11 +1585,11 @@ Let’s stop and… think!
   width: 100%;
 }
 
-#atlbekfxdc .gt_spanner_row {
+#wytvxdlqcn .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#atlbekfxdc .gt_group_heading {
+#wytvxdlqcn .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1540,7 +1615,7 @@ Let’s stop and… think!
   text-align: left;
 }
 
-#atlbekfxdc .gt_empty_group_heading {
+#wytvxdlqcn .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -1555,15 +1630,15 @@ Let’s stop and… think!
   vertical-align: middle;
 }
 
-#atlbekfxdc .gt_from_md > :first-child {
+#wytvxdlqcn .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#atlbekfxdc .gt_from_md > :last-child {
+#wytvxdlqcn .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#atlbekfxdc .gt_row {
+#wytvxdlqcn .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1582,7 +1657,7 @@ Let’s stop and… think!
   overflow-x: hidden;
 }
 
-#atlbekfxdc .gt_stub {
+#wytvxdlqcn .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1595,7 +1670,7 @@ Let’s stop and… think!
   padding-right: 5px;
 }
 
-#atlbekfxdc .gt_stub_row_group {
+#wytvxdlqcn .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1609,15 +1684,15 @@ Let’s stop and… think!
   vertical-align: top;
 }
 
-#atlbekfxdc .gt_row_group_first td {
+#wytvxdlqcn .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#atlbekfxdc .gt_row_group_first th {
+#wytvxdlqcn .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#atlbekfxdc .gt_summary_row {
+#wytvxdlqcn .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1627,16 +1702,16 @@ Let’s stop and… think!
   padding-right: 5px;
 }
 
-#atlbekfxdc .gt_first_summary_row {
+#wytvxdlqcn .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#atlbekfxdc .gt_first_summary_row.thick {
+#wytvxdlqcn .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#atlbekfxdc .gt_last_summary_row {
+#wytvxdlqcn .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1646,7 +1721,7 @@ Let’s stop and… think!
   border-bottom-color: #D3D3D3;
 }
 
-#atlbekfxdc .gt_grand_summary_row {
+#wytvxdlqcn .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1656,7 +1731,7 @@ Let’s stop and… think!
   padding-right: 5px;
 }
 
-#atlbekfxdc .gt_first_grand_summary_row {
+#wytvxdlqcn .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1666,7 +1741,7 @@ Let’s stop and… think!
   border-top-color: #D3D3D3;
 }
 
-#atlbekfxdc .gt_last_grand_summary_row_top {
+#wytvxdlqcn .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1676,11 +1751,11 @@ Let’s stop and… think!
   border-bottom-color: #D3D3D3;
 }
 
-#atlbekfxdc .gt_striped {
+#wytvxdlqcn .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#atlbekfxdc .gt_table_body {
+#wytvxdlqcn .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1689,7 +1764,7 @@ Let’s stop and… think!
   border-bottom-color: #D3D3D3;
 }
 
-#atlbekfxdc .gt_footnotes {
+#wytvxdlqcn .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1703,7 +1778,7 @@ Let’s stop and… think!
   border-right-color: #D3D3D3;
 }
 
-#atlbekfxdc .gt_footnote {
+#wytvxdlqcn .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -1712,7 +1787,7 @@ Let’s stop and… think!
   padding-right: 5px;
 }
 
-#atlbekfxdc .gt_sourcenotes {
+#wytvxdlqcn .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1726,7 +1801,7 @@ Let’s stop and… think!
   border-right-color: #D3D3D3;
 }
 
-#atlbekfxdc .gt_sourcenote {
+#wytvxdlqcn .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -1734,100 +1809,127 @@ Let’s stop and… think!
   padding-right: 5px;
 }
 
-#atlbekfxdc .gt_left {
+#wytvxdlqcn .gt_left {
   text-align: left;
 }
 
-#atlbekfxdc .gt_center {
+#wytvxdlqcn .gt_center {
   text-align: center;
 }
 
-#atlbekfxdc .gt_right {
+#wytvxdlqcn .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#atlbekfxdc .gt_font_normal {
+#wytvxdlqcn .gt_font_normal {
   font-weight: normal;
 }
 
-#atlbekfxdc .gt_font_bold {
+#wytvxdlqcn .gt_font_bold {
   font-weight: bold;
 }
 
-#atlbekfxdc .gt_font_italic {
+#wytvxdlqcn .gt_font_italic {
   font-style: italic;
 }
 
-#atlbekfxdc .gt_super {
+#wytvxdlqcn .gt_super {
   font-size: 65%;
 }
 
-#atlbekfxdc .gt_footnote_marks {
+#wytvxdlqcn .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#atlbekfxdc .gt_asterisk {
+#wytvxdlqcn .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#atlbekfxdc .gt_indent_1 {
+#wytvxdlqcn .gt_indent_1 {
   text-indent: 5px;
 }
 
-#atlbekfxdc .gt_indent_2 {
+#wytvxdlqcn .gt_indent_2 {
   text-indent: 10px;
 }
 
-#atlbekfxdc .gt_indent_3 {
+#wytvxdlqcn .gt_indent_3 {
   text-indent: 15px;
 }
 
-#atlbekfxdc .gt_indent_4 {
+#wytvxdlqcn .gt_indent_4 {
   text-indent: 20px;
 }
 
-#atlbekfxdc .gt_indent_5 {
+#wytvxdlqcn .gt_indent_5 {
   text-indent: 25px;
 }
+
+#wytvxdlqcn .katex-display {
+  display: inline-flex !important;
+  margin-bottom: 0.75em !important;
+}
+
+#wytvxdlqcn div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+  height: 0px !important;
+}
 </style>
-<table class="gt_table" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
-  <thead>
-    
-    <tr class="gt_col_headings">
-      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id="<strong>Characteristic</strong>"><strong>Characteristic</strong></th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="<strong>FALSE</strong>, N = 161<span class=&quot;gt_footnote_marks&quot; style=&quot;white-space:nowrap;font-style:italic;font-weight:normal;&quot;><sup>1</sup></span>"><strong>FALSE</strong>, N = 161<span class="gt_footnote_marks" style="white-space:nowrap;font-style:italic;font-weight:normal;"><sup>1</sup></span></th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="<strong>TRUE</strong>, N = 216<span class=&quot;gt_footnote_marks&quot; style=&quot;white-space:nowrap;font-style:italic;font-weight:normal;&quot;><sup>1</sup></span>"><strong>TRUE</strong>, N = 216<span class="gt_footnote_marks" style="white-space:nowrap;font-style:italic;font-weight:normal;"><sup>1</sup></span></th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="<strong>p-value</strong><span class=&quot;gt_footnote_marks&quot; style=&quot;white-space:nowrap;font-style:italic;font-weight:normal;&quot;><sup>2</sup></span>"><strong>p-value</strong><span class="gt_footnote_marks" style="white-space:nowrap;font-style:italic;font-weight:normal;"><sup>2</sup></span></th>
-    </tr>
-  </thead>
-  <tbody class="gt_table_body">
-    <tr><td headers="label" class="gt_row gt_left">group</td>
-<td headers="stat_1" class="gt_row gt_center"></td>
-<td headers="stat_2" class="gt_row gt_center"></td>
-<td headers="p.value" class="gt_row gt_center">0.2</td></tr>
-    <tr><td headers="label" class="gt_row gt_left">&nbsp;&nbsp;&nbsp;&nbsp;teacher</td>
-<td headers="stat_1" class="gt_row gt_center">9 (5.6%)</td>
-<td headers="stat_2" class="gt_row gt_center">6 (2.8%)</td>
-<td headers="p.value" class="gt_row gt_center"></td></tr>
-    <tr><td headers="label" class="gt_row gt_left">&nbsp;&nbsp;&nbsp;&nbsp;student</td>
-<td headers="stat_1" class="gt_row gt_center">152 (94%)</td>
-<td headers="stat_2" class="gt_row gt_center">210 (97%)</td>
-<td headers="p.value" class="gt_row gt_center"></td></tr>
-  </tbody>
-  
-  <tfoot class="gt_footnotes">
-    <tr>
-      <td class="gt_footnote" colspan="4"><span class="gt_footnote_marks" style="white-space:nowrap;font-style:italic;font-weight:normal;"><sup>1</sup></span> n (%)</td>
-    </tr>
-    <tr>
-      <td class="gt_footnote" colspan="4"><span class="gt_footnote_marks" style="white-space:nowrap;font-style:italic;font-weight:normal;"><sup>2</sup></span> Pearson’s Chi-squared test</td>
-    </tr>
-  </tfoot>
+
+<table class="gt_table caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header gt_col_headings">
+<th id="label" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col"><strong>Characteristic</strong></th>
+<th id="stat_1" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col"><strong>0</strong><br>
+N = 161<span class="gt_footnote_marks" style="white-space:nowrap;font-style:italic;font-weight:normal;line-height:0;"><sup>1</sup></span></th>
+<th id="stat_2" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col"><strong>1</strong><br>
+N = 216<span class="gt_footnote_marks" style="white-space:nowrap;font-style:italic;font-weight:normal;line-height:0;"><sup>1</sup></span></th>
+<th id="p.value" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col"><strong>p-value</strong><span class="gt_footnote_marks" style="white-space:nowrap;font-style:italic;font-weight:normal;line-height:0;"><sup>2</sup></span></th>
+</tr>
+</thead>
+<tbody class="gt_table_body">
+<tr class="odd">
+<td class="gt_row gt_left" headers="label">group</td>
+<td class="gt_row gt_center" headers="stat_1"><br>
+</td>
+<td class="gt_row gt_center" headers="stat_2"><br>
+</td>
+<td class="gt_row gt_center" headers="p.value">0.2</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;teacher</td>
+<td class="gt_row gt_center" headers="stat_1">9 (5.6%)</td>
+<td class="gt_row gt_center" headers="stat_2">6 (2.8%)</td>
+<td class="gt_row gt_center" headers="p.value"><br>
+</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;student</td>
+<td class="gt_row gt_center" headers="stat_1">152 (94%)</td>
+<td class="gt_row gt_center" headers="stat_2">210 (97%)</td>
+<td class="gt_row gt_center" headers="p.value"><br>
+</td>
+</tr>
+</tbody><tfoot class="gt_footnotes">
+<tr class="even">
+<td colspan="4" class="gt_footnote"><span class="gt_footnote_marks" style="white-space:nowrap;font-style:italic;font-weight:normal;line-height:0;"><sup>1</sup></span> n (%)</td>
+</tr>
+<tr class="odd">
+<td colspan="4" class="gt_footnote"><span class="gt_footnote_marks" style="white-space:nowrap;font-style:italic;font-weight:normal;line-height:0;"><sup>2</sup></span> Pearson’s Chi-squared test</td>
+</tr>
+</tfoot>
+
 </table>
+
 </div>
 </div>
 </div>
@@ -1836,32 +1938,31 @@ Let’s stop and… think!
 <section id="lets-do-all-together" class="level4">
 <h4 class="anchored" data-anchor-id="lets-do-all-together">Let’s do all together</h4>
 <div class="cell">
-<details open="">
-<summary>Code</summary>
+<details open="" class="code-fold">
+<summary>Show the code</summary>
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>copdata <span class="sc">%&gt;%</span> </span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(sex, class, group, case) <span class="sc">%&gt;%</span> </span>
 <span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tbl_summary</span>(<span class="at">by =</span> case) <span class="sc">%&gt;%</span> </span>
 <span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">add_p</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
-
-<div id="dxysyxwvuc" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#dxysyxwvuc table {
+<div id="ipxlpexyyh" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#ipxlpexyyh table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#dxysyxwvuc thead, #dxysyxwvuc tbody, #dxysyxwvuc tfoot, #dxysyxwvuc tr, #dxysyxwvuc td, #dxysyxwvuc th {
+#ipxlpexyyh thead, #ipxlpexyyh tbody, #ipxlpexyyh tfoot, #ipxlpexyyh tr, #ipxlpexyyh td, #ipxlpexyyh th {
   border-style: none;
 }
 
-#dxysyxwvuc p {
+#ipxlpexyyh p {
   margin: 0;
   padding: 0;
 }
 
-#dxysyxwvuc .gt_table {
+#ipxlpexyyh .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -1887,12 +1988,12 @@ Let’s stop and… think!
   border-left-color: #D3D3D3;
 }
 
-#dxysyxwvuc .gt_caption {
+#ipxlpexyyh .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#dxysyxwvuc .gt_title {
+#ipxlpexyyh .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -1904,7 +2005,7 @@ Let’s stop and… think!
   border-bottom-width: 0;
 }
 
-#dxysyxwvuc .gt_subtitle {
+#ipxlpexyyh .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -1916,7 +2017,7 @@ Let’s stop and… think!
   border-top-width: 0;
 }
 
-#dxysyxwvuc .gt_heading {
+#ipxlpexyyh .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -1928,13 +2029,13 @@ Let’s stop and… think!
   border-right-color: #D3D3D3;
 }
 
-#dxysyxwvuc .gt_bottom_border {
+#ipxlpexyyh .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#dxysyxwvuc .gt_col_headings {
+#ipxlpexyyh .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1949,7 +2050,7 @@ Let’s stop and… think!
   border-right-color: #D3D3D3;
 }
 
-#dxysyxwvuc .gt_col_heading {
+#ipxlpexyyh .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1969,7 +2070,7 @@ Let’s stop and… think!
   overflow-x: hidden;
 }
 
-#dxysyxwvuc .gt_column_spanner_outer {
+#ipxlpexyyh .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1981,15 +2082,15 @@ Let’s stop and… think!
   padding-right: 4px;
 }
 
-#dxysyxwvuc .gt_column_spanner_outer:first-child {
+#ipxlpexyyh .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#dxysyxwvuc .gt_column_spanner_outer:last-child {
+#ipxlpexyyh .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#dxysyxwvuc .gt_column_spanner {
+#ipxlpexyyh .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -2001,11 +2102,11 @@ Let’s stop and… think!
   width: 100%;
 }
 
-#dxysyxwvuc .gt_spanner_row {
+#ipxlpexyyh .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#dxysyxwvuc .gt_group_heading {
+#ipxlpexyyh .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2031,7 +2132,7 @@ Let’s stop and… think!
   text-align: left;
 }
 
-#dxysyxwvuc .gt_empty_group_heading {
+#ipxlpexyyh .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -2046,15 +2147,15 @@ Let’s stop and… think!
   vertical-align: middle;
 }
 
-#dxysyxwvuc .gt_from_md > :first-child {
+#ipxlpexyyh .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#dxysyxwvuc .gt_from_md > :last-child {
+#ipxlpexyyh .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#dxysyxwvuc .gt_row {
+#ipxlpexyyh .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2073,7 +2174,7 @@ Let’s stop and… think!
   overflow-x: hidden;
 }
 
-#dxysyxwvuc .gt_stub {
+#ipxlpexyyh .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2086,7 +2187,7 @@ Let’s stop and… think!
   padding-right: 5px;
 }
 
-#dxysyxwvuc .gt_stub_row_group {
+#ipxlpexyyh .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2100,15 +2201,15 @@ Let’s stop and… think!
   vertical-align: top;
 }
 
-#dxysyxwvuc .gt_row_group_first td {
+#ipxlpexyyh .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#dxysyxwvuc .gt_row_group_first th {
+#ipxlpexyyh .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#dxysyxwvuc .gt_summary_row {
+#ipxlpexyyh .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -2118,16 +2219,16 @@ Let’s stop and… think!
   padding-right: 5px;
 }
 
-#dxysyxwvuc .gt_first_summary_row {
+#ipxlpexyyh .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#dxysyxwvuc .gt_first_summary_row.thick {
+#ipxlpexyyh .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#dxysyxwvuc .gt_last_summary_row {
+#ipxlpexyyh .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2137,7 +2238,7 @@ Let’s stop and… think!
   border-bottom-color: #D3D3D3;
 }
 
-#dxysyxwvuc .gt_grand_summary_row {
+#ipxlpexyyh .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -2147,7 +2248,7 @@ Let’s stop and… think!
   padding-right: 5px;
 }
 
-#dxysyxwvuc .gt_first_grand_summary_row {
+#ipxlpexyyh .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2157,7 +2258,7 @@ Let’s stop and… think!
   border-top-color: #D3D3D3;
 }
 
-#dxysyxwvuc .gt_last_grand_summary_row_top {
+#ipxlpexyyh .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2167,11 +2268,11 @@ Let’s stop and… think!
   border-bottom-color: #D3D3D3;
 }
 
-#dxysyxwvuc .gt_striped {
+#ipxlpexyyh .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#dxysyxwvuc .gt_table_body {
+#ipxlpexyyh .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -2180,7 +2281,7 @@ Let’s stop and… think!
   border-bottom-color: #D3D3D3;
 }
 
-#dxysyxwvuc .gt_footnotes {
+#ipxlpexyyh .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -2194,7 +2295,7 @@ Let’s stop and… think!
   border-right-color: #D3D3D3;
 }
 
-#dxysyxwvuc .gt_footnote {
+#ipxlpexyyh .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -2203,7 +2304,7 @@ Let’s stop and… think!
   padding-right: 5px;
 }
 
-#dxysyxwvuc .gt_sourcenotes {
+#ipxlpexyyh .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -2217,7 +2318,7 @@ Let’s stop and… think!
   border-right-color: #D3D3D3;
 }
 
-#dxysyxwvuc .gt_sourcenote {
+#ipxlpexyyh .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -2225,132 +2326,185 @@ Let’s stop and… think!
   padding-right: 5px;
 }
 
-#dxysyxwvuc .gt_left {
+#ipxlpexyyh .gt_left {
   text-align: left;
 }
 
-#dxysyxwvuc .gt_center {
+#ipxlpexyyh .gt_center {
   text-align: center;
 }
 
-#dxysyxwvuc .gt_right {
+#ipxlpexyyh .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#dxysyxwvuc .gt_font_normal {
+#ipxlpexyyh .gt_font_normal {
   font-weight: normal;
 }
 
-#dxysyxwvuc .gt_font_bold {
+#ipxlpexyyh .gt_font_bold {
   font-weight: bold;
 }
 
-#dxysyxwvuc .gt_font_italic {
+#ipxlpexyyh .gt_font_italic {
   font-style: italic;
 }
 
-#dxysyxwvuc .gt_super {
+#ipxlpexyyh .gt_super {
   font-size: 65%;
 }
 
-#dxysyxwvuc .gt_footnote_marks {
+#ipxlpexyyh .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#dxysyxwvuc .gt_asterisk {
+#ipxlpexyyh .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#dxysyxwvuc .gt_indent_1 {
+#ipxlpexyyh .gt_indent_1 {
   text-indent: 5px;
 }
 
-#dxysyxwvuc .gt_indent_2 {
+#ipxlpexyyh .gt_indent_2 {
   text-indent: 10px;
 }
 
-#dxysyxwvuc .gt_indent_3 {
+#ipxlpexyyh .gt_indent_3 {
   text-indent: 15px;
 }
 
-#dxysyxwvuc .gt_indent_4 {
+#ipxlpexyyh .gt_indent_4 {
   text-indent: 20px;
 }
 
-#dxysyxwvuc .gt_indent_5 {
+#ipxlpexyyh .gt_indent_5 {
   text-indent: 25px;
 }
+
+#ipxlpexyyh .katex-display {
+  display: inline-flex !important;
+  margin-bottom: 0.75em !important;
+}
+
+#ipxlpexyyh div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+  height: 0px !important;
+}
 </style>
-<table class="gt_table" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
-  <thead>
-    
-    <tr class="gt_col_headings">
-      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id="<strong>Characteristic</strong>"><strong>Characteristic</strong></th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="<strong>FALSE</strong>, N = 161<span class=&quot;gt_footnote_marks&quot; style=&quot;white-space:nowrap;font-style:italic;font-weight:normal;&quot;><sup>1</sup></span>"><strong>FALSE</strong>, N = 161<span class="gt_footnote_marks" style="white-space:nowrap;font-style:italic;font-weight:normal;"><sup>1</sup></span></th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="<strong>TRUE</strong>, N = 216<span class=&quot;gt_footnote_marks&quot; style=&quot;white-space:nowrap;font-style:italic;font-weight:normal;&quot;><sup>1</sup></span>"><strong>TRUE</strong>, N = 216<span class="gt_footnote_marks" style="white-space:nowrap;font-style:italic;font-weight:normal;"><sup>1</sup></span></th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="<strong>p-value</strong><span class=&quot;gt_footnote_marks&quot; style=&quot;white-space:nowrap;font-style:italic;font-weight:normal;&quot;><sup>2</sup></span>"><strong>p-value</strong><span class="gt_footnote_marks" style="white-space:nowrap;font-style:italic;font-weight:normal;"><sup>2</sup></span></th>
-    </tr>
-  </thead>
-  <tbody class="gt_table_body">
-    <tr><td headers="label" class="gt_row gt_left">sex</td>
-<td headers="stat_1" class="gt_row gt_center"></td>
-<td headers="stat_2" class="gt_row gt_center"></td>
-<td headers="p.value" class="gt_row gt_center">0.3</td></tr>
-    <tr><td headers="label" class="gt_row gt_left">&nbsp;&nbsp;&nbsp;&nbsp;female</td>
-<td headers="stat_1" class="gt_row gt_center">96 (60%)</td>
-<td headers="stat_2" class="gt_row gt_center">117 (54%)</td>
-<td headers="p.value" class="gt_row gt_center"></td></tr>
-    <tr><td headers="label" class="gt_row gt_left">&nbsp;&nbsp;&nbsp;&nbsp;male</td>
-<td headers="stat_1" class="gt_row gt_center">65 (40%)</td>
-<td headers="stat_2" class="gt_row gt_center">99 (46%)</td>
-<td headers="p.value" class="gt_row gt_center"></td></tr>
-    <tr><td headers="label" class="gt_row gt_left">class</td>
-<td headers="stat_1" class="gt_row gt_center"></td>
-<td headers="stat_2" class="gt_row gt_center"></td>
-<td headers="p.value" class="gt_row gt_center">0.090</td></tr>
-    <tr><td headers="label" class="gt_row gt_left">&nbsp;&nbsp;&nbsp;&nbsp;1</td>
-<td headers="stat_1" class="gt_row gt_center">63 (43%)</td>
-<td headers="stat_2" class="gt_row gt_center">68 (34%)</td>
-<td headers="p.value" class="gt_row gt_center"></td></tr>
-    <tr><td headers="label" class="gt_row gt_left">&nbsp;&nbsp;&nbsp;&nbsp;2</td>
-<td headers="stat_1" class="gt_row gt_center">44 (30%)</td>
-<td headers="stat_2" class="gt_row gt_center">57 (29%)</td>
-<td headers="p.value" class="gt_row gt_center"></td></tr>
-    <tr><td headers="label" class="gt_row gt_left">&nbsp;&nbsp;&nbsp;&nbsp;3</td>
-<td headers="stat_1" class="gt_row gt_center">38 (26%)</td>
-<td headers="stat_2" class="gt_row gt_center">73 (37%)</td>
-<td headers="p.value" class="gt_row gt_center"></td></tr>
-    <tr><td headers="label" class="gt_row gt_left">&nbsp;&nbsp;&nbsp;&nbsp;Unknown</td>
-<td headers="stat_1" class="gt_row gt_center">16</td>
-<td headers="stat_2" class="gt_row gt_center">18</td>
-<td headers="p.value" class="gt_row gt_center"></td></tr>
-    <tr><td headers="label" class="gt_row gt_left">group</td>
-<td headers="stat_1" class="gt_row gt_center"></td>
-<td headers="stat_2" class="gt_row gt_center"></td>
-<td headers="p.value" class="gt_row gt_center">0.2</td></tr>
-    <tr><td headers="label" class="gt_row gt_left">&nbsp;&nbsp;&nbsp;&nbsp;teacher</td>
-<td headers="stat_1" class="gt_row gt_center">9 (5.6%)</td>
-<td headers="stat_2" class="gt_row gt_center">6 (2.8%)</td>
-<td headers="p.value" class="gt_row gt_center"></td></tr>
-    <tr><td headers="label" class="gt_row gt_left">&nbsp;&nbsp;&nbsp;&nbsp;student</td>
-<td headers="stat_1" class="gt_row gt_center">152 (94%)</td>
-<td headers="stat_2" class="gt_row gt_center">210 (97%)</td>
-<td headers="p.value" class="gt_row gt_center"></td></tr>
-  </tbody>
-  
-  <tfoot class="gt_footnotes">
-    <tr>
-      <td class="gt_footnote" colspan="4"><span class="gt_footnote_marks" style="white-space:nowrap;font-style:italic;font-weight:normal;"><sup>1</sup></span> n (%)</td>
-    </tr>
-    <tr>
-      <td class="gt_footnote" colspan="4"><span class="gt_footnote_marks" style="white-space:nowrap;font-style:italic;font-weight:normal;"><sup>2</sup></span> Pearson’s Chi-squared test</td>
-    </tr>
-  </tfoot>
+
+<table class="gt_table caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header gt_col_headings">
+<th id="label" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col"><strong>Characteristic</strong></th>
+<th id="stat_1" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col"><strong>0</strong><br>
+N = 161<span class="gt_footnote_marks" style="white-space:nowrap;font-style:italic;font-weight:normal;line-height:0;"><sup>1</sup></span></th>
+<th id="stat_2" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col"><strong>1</strong><br>
+N = 216<span class="gt_footnote_marks" style="white-space:nowrap;font-style:italic;font-weight:normal;line-height:0;"><sup>1</sup></span></th>
+<th id="p.value" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col"><strong>p-value</strong><span class="gt_footnote_marks" style="white-space:nowrap;font-style:italic;font-weight:normal;line-height:0;"><sup>2</sup></span></th>
+</tr>
+</thead>
+<tbody class="gt_table_body">
+<tr class="odd">
+<td class="gt_row gt_left" headers="label">sex</td>
+<td class="gt_row gt_center" headers="stat_1"><br>
+</td>
+<td class="gt_row gt_center" headers="stat_2"><br>
+</td>
+<td class="gt_row gt_center" headers="p.value">0.3</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;female</td>
+<td class="gt_row gt_center" headers="stat_1">96 (60%)</td>
+<td class="gt_row gt_center" headers="stat_2">117 (54%)</td>
+<td class="gt_row gt_center" headers="p.value"><br>
+</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;male</td>
+<td class="gt_row gt_center" headers="stat_1">65 (40%)</td>
+<td class="gt_row gt_center" headers="stat_2">99 (46%)</td>
+<td class="gt_row gt_center" headers="p.value"><br>
+</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="label">class</td>
+<td class="gt_row gt_center" headers="stat_1"><br>
+</td>
+<td class="gt_row gt_center" headers="stat_2"><br>
+</td>
+<td class="gt_row gt_center" headers="p.value">0.090</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;1</td>
+<td class="gt_row gt_center" headers="stat_1">63 (43%)</td>
+<td class="gt_row gt_center" headers="stat_2">68 (34%)</td>
+<td class="gt_row gt_center" headers="p.value"><br>
+</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;2</td>
+<td class="gt_row gt_center" headers="stat_1">44 (30%)</td>
+<td class="gt_row gt_center" headers="stat_2">57 (29%)</td>
+<td class="gt_row gt_center" headers="p.value"><br>
+</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;3</td>
+<td class="gt_row gt_center" headers="stat_1">38 (26%)</td>
+<td class="gt_row gt_center" headers="stat_2">73 (37%)</td>
+<td class="gt_row gt_center" headers="p.value"><br>
+</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;Unknown</td>
+<td class="gt_row gt_center" headers="stat_1">16</td>
+<td class="gt_row gt_center" headers="stat_2">18</td>
+<td class="gt_row gt_center" headers="p.value"><br>
+</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="label">group</td>
+<td class="gt_row gt_center" headers="stat_1"><br>
+</td>
+<td class="gt_row gt_center" headers="stat_2"><br>
+</td>
+<td class="gt_row gt_center" headers="p.value">0.2</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;teacher</td>
+<td class="gt_row gt_center" headers="stat_1">9 (5.6%)</td>
+<td class="gt_row gt_center" headers="stat_2">6 (2.8%)</td>
+<td class="gt_row gt_center" headers="p.value"><br>
+</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;student</td>
+<td class="gt_row gt_center" headers="stat_1">152 (94%)</td>
+<td class="gt_row gt_center" headers="stat_2">210 (97%)</td>
+<td class="gt_row gt_center" headers="p.value"><br>
+</td>
+</tr>
+</tbody><tfoot class="gt_footnotes">
+<tr class="even">
+<td colspan="4" class="gt_footnote"><span class="gt_footnote_marks" style="white-space:nowrap;font-style:italic;font-weight:normal;line-height:0;"><sup>1</sup></span> n (%)</td>
+</tr>
+<tr class="odd">
+<td colspan="4" class="gt_footnote"><span class="gt_footnote_marks" style="white-space:nowrap;font-style:italic;font-weight:normal;line-height:0;"><sup>2</sup></span> Pearson’s Chi-squared test</td>
+</tr>
+</tfoot>
+
 </table>
+
 </div>
 </div>
 </div>
@@ -2380,8 +2534,8 @@ Need a little bit of help?
 </div>
 </div>
 <div class="cell">
-<details open="">
-<summary>Code</summary>
+<details open="" class="code-fold">
+<summary>Show the code</summary>
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># You could use the EpiStats package for each food item</span></span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="fu">CS</span>(copdata, <span class="st">"case"</span>, <span class="st">"feta"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
@@ -2401,8 +2555,8 @@ Prev. frac. pop           0.02       NA       NA
 chi2(1)                   0.05       NA       NA
 Pr&gt;chi2                  0.826       NA       NA</code></pre>
 </div>
-<details open="">
-<summary>Code</summary>
+<details open="" class="code-fold">
+<summary>Show the code</summary>
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">CS</span>(copdata, <span class="st">"case"</span>, <span class="st">"sardines"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
@@ -2421,8 +2575,8 @@ Attr. frac. pop           0.04       NA       NA
 chi2(1)                   0.35       NA       NA
 Pr&gt;chi2                  0.553       NA       NA</code></pre>
 </div>
-<details open="">
-<summary>Code</summary>
+<details open="" class="code-fold">
+<summary>Show the code</summary>
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">CS</span>(copdata, <span class="st">"case"</span>, <span class="st">"eggplant"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
@@ -2441,33 +2595,33 @@ Prev. frac. pop           0.01       NA       NA
 chi2(1)                   0.04       NA       NA
 Pr&gt;chi2                  0.837       NA       NA</code></pre>
 </div>
-<details open="">
-<summary>Code</summary>
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">CS</span>(copdata, <span class="st">"case"</span>, <span class="st">"moussaka"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<details open="" class="code-fold">
+<summary>Show the code</summary>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">CS</span>(copdata, <span class="st">"case"</span>, <span class="st">"pasta"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>$df1
           Cases Non Cases Total Risk
-Exposed     201       137   338 0.59
-Unexposed    14        22    36 0.39
+Exposed     202       136   338 0.60
+Unexposed    13        23    36 0.36
 Total       215       159   374 0.57
 
 $df2
                 Point estimate 95%CI.ll 95%CI.ul
-Risk difference           0.21     0.04     0.37
-Risk ratio                1.53     1.01     2.32
-Attr. frac. ex.           0.35     0.01     0.57
-Attr. frac. pop           0.32       NA       NA
-chi2(1)                   5.64       NA       NA
-Pr&gt;chi2                  0.018       NA       NA</code></pre>
+Risk difference           0.24     0.07     0.40
+Risk ratio                1.65     1.06     2.58
+Attr. frac. ex.           0.40     0.06     0.61
+Attr. frac. pop           0.37       NA       NA
+chi2(1)                   7.45       NA       NA
+Pr&gt;chi2                  0.006       NA       NA</code></pre>
 </div>
 </div>
 <div class="cell">
-<details open="">
-<summary>Code</summary>
+<details open="" class="code-fold">
+<summary>Show the code</summary>
 <div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co"># You can save time (and probably typos!) by creating a vector for food variables...</span></span>
-<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>food_vars <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"feta"</span>, <span class="st">"sardines"</span>, <span class="st">"eggplant"</span>, <span class="st">"moussaka"</span>, </span>
-<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>               <span class="st">"orzo"</span>, <span class="st">"greeksal"</span>, <span class="st">"dessert"</span>, <span class="st">"bread"</span>,  </span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>food_vars <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"feta"</span>, <span class="st">"sardines"</span>, <span class="st">"eggplant"</span>, <span class="st">"pasta"</span>, </span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>               <span class="st">"veal"</span>, <span class="st">"tomsal"</span>, <span class="st">"dessert"</span>, <span class="st">"bread"</span>,  </span>
 <span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>               <span class="st">"champagne"</span>, <span class="st">"beer"</span>, <span class="st">"redwine"</span>, <span class="st">"whitewine"</span>)</span>
 <span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a><span class="co"># ...and using EpiStats::CSTable() to run all variables together!</span></span>
@@ -2476,10 +2630,10 @@ Pr&gt;chi2                  0.018       NA       NA</code></pre>
 <div class="cell-output cell-output-stdout">
 <pre><code>$df
           Tot.Exp Cases.Exp AR.Exp% Tot.Unexp Cases.Unexp AR.Unexp%   RR CI.ll
-orzo          338       202   59.76        36          13     36.11 1.65  1.06
-moussaka      338       201   59.47        36          14     38.89 1.53  1.01
+pasta         338       202   59.76        36          13     36.11 1.65  1.06
+veal          338       201   59.47        36          14     38.89 1.53  1.01
 champagne     316       187   59.18        48          21     43.75 1.35  0.97
-greeksal      211       114   54.03       154          95     61.69 0.88  0.73
+tomsal        211       114   54.03       154          95     61.69 0.88  0.73
 dessert       149        90   60.40       198         106     53.54 1.13  0.94
 beer          281       166   59.07        78          41     52.56 1.12  0.89
 redwine        80        42   52.50       259         150     57.92 0.91  0.72
@@ -2489,10 +2643,10 @@ bread         342       196   57.31        29          16     55.17 1.04  0.74
 feta          271       156   57.56       102          60     58.82 0.98  0.81
 eggplant      216       123   56.94       143          83     58.04 0.98  0.82
           CI.ul p(Chi2)
-orzo       2.58   0.006
-moussaka   2.32   0.018
+pasta      2.58   0.006
+veal       2.32   0.018
 champagne  1.89   0.044
-greeksal   1.04   0.144
+tomsal     1.04   0.144
 dessert    1.36   0.202
 beer       1.42   0.303
 redwine    1.14   0.393
@@ -2523,8 +2677,8 @@ Need a little bit of help?
 </div>
 </div>
 <div class="cell">
-<details open="">
-<summary>Code</summary>
+<details open="" class="code-fold">
+<summary>Show the code</summary>
 <div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>rr_tbl <span class="ot">&lt;-</span> <span class="fu">CSTable</span>(copdata, <span class="st">"case"</span>, food_vars) <span class="sc">%&gt;%</span> </span>
 <span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">as.data.frame</span>() <span class="sc">%&gt;%</span> </span>
 <span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rownames_to_column</span>() <span class="sc">%&gt;%</span> </span>
@@ -2561,119 +2715,32 @@ Let’s stop and… think!
 </div>
 </div>
 </div>
-<p>The interesting results here are that the food items that are most suspicious are orzo, moussaka and champagne. Orzo as such is unlikely to be contaminated, but as you can see in the picture (and from the dinner night), it was served with pesto! Maybe it was the pesto? Who-ho-ho!</p>
-<p>Before one jumps into conclusions, consider that this result could be due to confounding! Maybe orzo was “clean” but eaten by all the people who ate the food item that actually was contaminated!(Optional)</p>
+<p>The interesting results here are that the food items that are most suspicious are veal, pasta and champagne. Pasta as such is unlikely to be contaminated, but as you can see in the picture (and from the dinner night), it was served with pesto! Maybe it was the pesto? Who-ho-ho!</p>
+<p>Before one jumps into conclusions, consider that this result could be due to confounding! Maybe pasta was “clean” but eaten by all the people who ate the food item that actually was contaminated!(Optional)</p>
 </section>
 </section>
 <section id="optional-dose-response" class="level2">
 <h2 class="anchored" data-anchor-id="optional-dose-response">3.5. (Optional) Dose Response</h2>
 <p>Check for a dose-response relationship between the food items with the highest RR values (the top 3) and being a case.</p>
-<section id="a-orzo" class="level4">
-<h4 class="anchored" data-anchor-id="a-orzo">a) Orzo</h4>
+<section id="a-veal" class="level4">
+<h4 class="anchored" data-anchor-id="a-veal">a) Veal</h4>
 <p>Using <code>epitools::riskratio</code> function:</p>
 <div class="cell">
-<details open="">
-<summary>Code</summary>
-<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>epitools<span class="sc">::</span><span class="fu">riskratio</span>(copdata<span class="sc">$</span>orzoD,</span>
+<details open="" class="code-fold">
+<summary>Show the code</summary>
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>epitools<span class="sc">::</span><span class="fu">riskratio</span>(copdata<span class="sc">$</span>vealD,</span>
 <span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>                    copdata<span class="sc">$</span>case,</span>
 <span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>                    <span class="at">conf.level =</span> <span class="fl">0.95</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>$data
          Outcome
-Predictor FALSE TRUE Total
-    0        23   13    36
-    1        32   38    70
-    2        76  107   183
-    3        28   57    85
-    Total   159  215   374
-
-$measure
-         risk ratio with 95% C.I.
-Predictor estimate     lower    upper
-        0 1.000000        NA       NA
-        1 1.503297 0.9257878 2.441057
-        2 1.619168 1.0310538 2.542742
-        3 1.857014 1.1730804 2.939696
-
-$p.value
-         two-sided
-Predictor  midp.exact fisher.exact chi.square
-        0          NA           NA         NA
-        1 0.081364161  0.100893180 0.07613202
-        2 0.015337953  0.017069765 0.01373981
-        3 0.002010616  0.002370887 0.00162311
-
-$correction
-[1] FALSE
-
-attr(,"method")
-[1] "Unconditional MLE &amp; normal approximation (Wald) CI"</code></pre>
-</div>
-</div>
-<p>Using a binomial regression:</p>
-<div class="cell">
-<details open="">
-<summary>Code</summary>
-<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Binomial regression for RRs. </span></span>
-<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a><span class="co"># The outcome needs to be exponentiated so we can interpret it properly!</span></span>
-<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>binom_orzoD <span class="ot">&lt;-</span> <span class="fu">glm</span>(case <span class="sc">~</span> orzoD, <span class="at">data =</span> copdata, </span>
-<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a>             <span class="at">family =</span> <span class="fu">binomial</span>(<span class="at">link =</span> <span class="st">"log"</span>))</span>
-<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-6"><a href="#cb26-6" aria-hidden="true" tabindex="-1"></a><span class="co"># To get exponentiated:</span></span>
-<span id="cb26-7"><a href="#cb26-7" aria-hidden="true" tabindex="-1"></a>binom_orzoD_exp <span class="ot">&lt;-</span> <span class="fu">glm</span>(case <span class="sc">~</span> orzoD, <span class="at">data =</span> copdata, </span>
-<span id="cb26-8"><a href="#cb26-8" aria-hidden="true" tabindex="-1"></a>                       <span class="at">family =</span> <span class="fu">binomial</span>(<span class="at">link =</span> <span class="st">"log"</span>)) <span class="sc">%&gt;%</span> </span>
-<span id="cb26-9"><a href="#cb26-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tidy</span>(<span class="at">exponentiate =</span> <span class="cn">TRUE</span>, </span>
-<span id="cb26-10"><a href="#cb26-10" aria-hidden="true" tabindex="-1"></a>       <span class="at">conf.int =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb26-11"><a href="#cb26-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-12"><a href="#cb26-12" aria-hidden="true" tabindex="-1"></a>binom_orzoD_exp</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-<div class="cell-output-display">
-
-<div data-pagedtable="false">
-  <script data-pagedtable-source="" type="application/json">
-{"columns":[{"label":["term"],"name":[1],"type":["chr"],"align":["left"]},{"label":["estimate"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["std.error"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["statistic"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["p.value"],"name":[5],"type":["dbl"],"align":["right"]},{"label":["conf.low"],"name":[6],"type":["dbl"],"align":["right"]},{"label":["conf.high"],"name":[7],"type":["dbl"],"align":["right"]}],"data":[{"1":"(Intercept)","2":"0.3611111","3":"0.2216676","4":"-4.595030","5":"4.326861e-06","6":"0.2177022","7":"0.5235932"},{"1":"orzoD1","2":"1.5032967","3":"0.2473185","4":"1.648322","5":"9.928664e-02","6":"0.9630031","7":"2.5843736"},{"1":"orzoD2","2":"1.6191677","3":"0.2302560","4":"2.092941","5":"3.635441e-02","6":"1.0901317","7":"2.7190340"},{"1":"orzoD3","2":"1.8570136","3":"0.2343410","4":"2.641320","5":"8.258357e-03","6":"1.2344067","7":"3.1353759"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
-  </script>
-</div>
-</div>
-</div>
-<div class="callout callout-style-default callout-warning callout-titled" title="Let's stop and... think!">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Let’s stop and… think!
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-5" class="callout-5-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<p>What do these results tell you?</p>
-</div>
-</div>
-</div>
-<p>Results suggest a dose response relationship of having eaten orzo, pointing towards orzoas the potential vehicle. The higher the amount of orzothey ate, the stronger is the association (RR) with getting ill/being a case.</p>
-</section>
-<section id="b-moussaka" class="level4">
-<h4 class="anchored" data-anchor-id="b-moussaka">b) Moussaka</h4>
-<p>Using <code>epitools::riskratio</code> function:</p>
-<div class="cell">
-<details open="">
-<summary>Code</summary>
-<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>epitools<span class="sc">::</span><span class="fu">riskratio</span>(copdata<span class="sc">$</span>moussakaD,                     </span>
-<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>                    copdata<span class="sc">$</span>case,                     </span>
-<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>                    <span class="at">conf.level =</span> <span class="fl">0.95</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-<div class="cell-output cell-output-stdout">
-<pre><code>$data
-         Outcome
-Predictor FALSE TRUE Total
-    0        19   15    34
-    1        30   40    70
-    2        78  106   184
-    3        33   54    87
-    Total   160  215   375
+Predictor   0   1 Total
+    0      19  15    34
+    1      30  40    70
+    2      78 106   184
+    3      33  54    87
+    Total 160 215   375
 
 $measure
          risk ratio with 95% C.I.
@@ -2700,21 +2767,106 @@ attr(,"method")
 </div>
 <p>Using a binomial regression:</p>
 <div class="cell">
-<details open="">
-<summary>Code</summary>
+<details open="" class="code-fold">
+<summary>Show the code</summary>
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Binomial regression for RRs. </span></span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a><span class="co"># The outcome needs to be exponentiated so we can interpret it properly!</span></span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>binom_vealD <span class="ot">&lt;-</span> <span class="fu">glm</span>(case <span class="sc">~</span> vealD, <span class="at">data =</span> copdata, </span>
+<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a>             <span class="at">family =</span> <span class="fu">binomial</span>(<span class="at">link =</span> <span class="st">"log"</span>))</span>
+<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-6"><a href="#cb26-6" aria-hidden="true" tabindex="-1"></a><span class="co"># To get exponentiated:</span></span>
+<span id="cb26-7"><a href="#cb26-7" aria-hidden="true" tabindex="-1"></a>binom_vealD_exp <span class="ot">&lt;-</span> <span class="fu">glm</span>(case <span class="sc">~</span> vealD, <span class="at">data =</span> copdata, </span>
+<span id="cb26-8"><a href="#cb26-8" aria-hidden="true" tabindex="-1"></a>                       <span class="at">family =</span> <span class="fu">binomial</span>(<span class="at">link =</span> <span class="st">"log"</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb26-9"><a href="#cb26-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tidy</span>(<span class="at">exponentiate =</span> <span class="cn">TRUE</span>, </span>
+<span id="cb26-10"><a href="#cb26-10" aria-hidden="true" tabindex="-1"></a>       <span class="at">conf.int =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb26-11"><a href="#cb26-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-12"><a href="#cb26-12" aria-hidden="true" tabindex="-1"></a>binom_vealD_exp</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div data-pagedtable="false">
+  <script data-pagedtable-source="" type="application/json">
+{"columns":[{"label":["term"],"name":[1],"type":["chr"],"align":["left"]},{"label":["estimate"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["std.error"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["statistic"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["p.value"],"name":[5],"type":["dbl"],"align":["right"]},{"label":["conf.low"],"name":[6],"type":["dbl"],"align":["right"]},{"label":["conf.high"],"name":[7],"type":["dbl"],"align":["right"]}],"data":[{"1":"(Intercept)","2":"0.4411765","3":"0.1930091","4":"-4.239749","5":"2.237698e-05","6":"0.2831200","7":"0.6077136"},{"1":"vealD1","2":"1.2952381","3":"0.2190130","4":"1.181183","5":"2.375299e-01","6":"0.8713777","7":"2.0919282"},{"1":"vealD2","2":"1.3057971","3":"0.2031051","4":"1.313673","5":"1.889563e-01","6":"0.9210122","7":"2.0641020"},{"1":"vealD3","2":"1.4068966","3":"0.2104204","4":"1.622401","5":"1.047176e-01","6":"0.9704903","7":"2.2457999"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-warning callout-titled" title="Let's stop and... think!">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Let’s stop and… think!
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-5" class="callout-5-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>What do these results tell you?</p>
+</div>
+</div>
+</div>
+<p>Results suggest a dose response relationship of having eaten veal, pointing towards veal as the potential vehicle. The higher the amount of veal they ate, the stronger is the association (RR) with getting ill/being a case.</p>
+</section>
+<section id="b-pasta" class="level4">
+<h4 class="anchored" data-anchor-id="b-pasta">b) Pasta</h4>
+<p>Using <code>epitools::riskratio</code> function:</p>
+<div class="cell">
+<details open="" class="code-fold">
+<summary>Show the code</summary>
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>epitools<span class="sc">::</span><span class="fu">riskratio</span>(copdata<span class="sc">$</span>pastaD,                     </span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>                    copdata<span class="sc">$</span>case,                     </span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>                    <span class="at">conf.level =</span> <span class="fl">0.95</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>$data
+         Outcome
+Predictor   0   1 Total
+    0      23  13    36
+    1      32  38    70
+    2      76 107   183
+    3      28  57    85
+    Total 159 215   374
+
+$measure
+         risk ratio with 95% C.I.
+Predictor estimate     lower    upper
+        0 1.000000        NA       NA
+        1 1.503297 0.9257878 2.441057
+        2 1.619168 1.0310538 2.542742
+        3 1.857014 1.1730804 2.939696
+
+$p.value
+         two-sided
+Predictor  midp.exact fisher.exact chi.square
+        0          NA           NA         NA
+        1 0.081364161  0.100893180 0.07613202
+        2 0.015337953  0.017069765 0.01373981
+        3 0.002010616  0.002370887 0.00162311
+
+$correction
+[1] FALSE
+
+attr(,"method")
+[1] "Unconditional MLE &amp; normal approximation (Wald) CI"</code></pre>
+</div>
+</div>
+<p>Using a binomial regression:</p>
+<div class="cell">
+<details open="" class="code-fold">
+<summary>Show the code</summary>
 <div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Let's get the results directly exponentiated</span></span>
-<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>binom_moussakaD_exp <span class="ot">&lt;-</span> <span class="fu">glm</span>(case <span class="sc">~</span> moussakaD, <span class="at">data =</span> copdata, </span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>binom_pastaD_exp <span class="ot">&lt;-</span> <span class="fu">glm</span>(case <span class="sc">~</span> pastaD, <span class="at">data =</span> copdata, </span>
 <span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>                       <span class="at">family =</span> <span class="fu">binomial</span>(<span class="at">link =</span> <span class="st">"log"</span>)) <span class="sc">%&gt;%</span> </span>
 <span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tidy</span>(<span class="at">exponentiate =</span> <span class="cn">TRUE</span>, </span>
 <span id="cb29-5"><a href="#cb29-5" aria-hidden="true" tabindex="-1"></a>       <span class="at">conf.int =</span> <span class="cn">TRUE</span>)</span>
 <span id="cb29-6"><a href="#cb29-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb29-7"><a href="#cb29-7" aria-hidden="true" tabindex="-1"></a>binom_moussakaD_exp</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb29-7"><a href="#cb29-7" aria-hidden="true" tabindex="-1"></a>binom_pastaD_exp</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
-
 <div data-pagedtable="false">
   <script data-pagedtable-source="" type="application/json">
-{"columns":[{"label":["term"],"name":[1],"type":["chr"],"align":["left"]},{"label":["estimate"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["std.error"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["statistic"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["p.value"],"name":[5],"type":["dbl"],"align":["right"]},{"label":["conf.low"],"name":[6],"type":["dbl"],"align":["right"]},{"label":["conf.high"],"name":[7],"type":["dbl"],"align":["right"]}],"data":[{"1":"(Intercept)","2":"0.4411765","3":"0.1930091","4":"-4.239749","5":"2.237698e-05","6":"0.2831200","7":"0.6077136"},{"1":"moussakaD1","2":"1.2952381","3":"0.2190130","4":"1.181183","5":"2.375299e-01","6":"0.8713777","7":"2.0919282"},{"1":"moussakaD2","2":"1.3057971","3":"0.2031051","4":"1.313673","5":"1.889563e-01","6":"0.9210122","7":"2.0641020"},{"1":"moussakaD3","2":"1.4068966","3":"0.2104204","4":"1.622401","5":"1.047176e-01","6":"0.9704903","7":"2.2457999"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+{"columns":[{"label":["term"],"name":[1],"type":["chr"],"align":["left"]},{"label":["estimate"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["std.error"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["statistic"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["p.value"],"name":[5],"type":["dbl"],"align":["right"]},{"label":["conf.low"],"name":[6],"type":["dbl"],"align":["right"]},{"label":["conf.high"],"name":[7],"type":["dbl"],"align":["right"]}],"data":[{"1":"(Intercept)","2":"0.3611111","3":"0.2216676","4":"-4.595030","5":"4.326861e-06","6":"0.2177022","7":"0.5235932"},{"1":"pastaD1","2":"1.5032967","3":"0.2473185","4":"1.648322","5":"9.928664e-02","6":"0.9630031","7":"2.5843736"},{"1":"pastaD2","2":"1.6191677","3":"0.2302560","4":"2.092941","5":"3.635441e-02","6":"1.0901317","7":"2.7190340"},{"1":"pastaD3","2":"1.8570136","3":"0.2343410","4":"2.641320","5":"8.258357e-03","6":"1.2344067","7":"3.1353759"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
   </script>
 </div>
 </div>
@@ -2724,8 +2876,8 @@ attr(,"method")
 <h4 class="anchored" data-anchor-id="c-champagne">c) Champagne</h4>
 <p>Using <code>epitools::riskratio</code> function:</p>
 <div class="cell">
-<details open="">
-<summary>Code</summary>
+<details open="" class="code-fold">
+<summary>Show the code</summary>
 <div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>epitools<span class="sc">::</span><span class="fu">riskratio</span>(copdata<span class="sc">$</span>champagneD,                     </span>
 <span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>                    copdata<span class="sc">$</span>case,                     </span>
 <span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a>                    <span class="at">conf.level =</span> <span class="fl">0.95</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -2733,12 +2885,12 @@ attr(,"method")
 <div class="cell-output cell-output-stdout">
 <pre><code>$data
          Outcome
-Predictor FALSE TRUE Total
-    0        27   21    48
-    1        93  111   204
-    2        12   32    44
-    3        24   44    68
-    Total   156  208   364
+Predictor   0   1 Total
+    0      27  21    48
+    1      93 111   204
+    2      12  32    44
+    3      24  44    68
+    Total 156 208   364
 
 $measure
          risk ratio with 95% C.I.
@@ -2765,8 +2917,8 @@ attr(,"method")
 </div>
 <p>Using a binomial regression:</p>
 <div class="cell">
-<details open="">
-<summary>Code</summary>
+<details open="" class="code-fold">
+<summary>Show the code</summary>
 <div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Let's get the results directly exponentiated</span></span>
 <span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>binom_champagneD_exp <span class="ot">&lt;-</span> <span class="fu">glm</span>(case <span class="sc">~</span> champagneD, <span class="at">data =</span> copdata, </span>
 <span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a>                       <span class="at">family =</span> <span class="fu">binomial</span>(<span class="at">link =</span> <span class="st">"log"</span>)) <span class="sc">%&gt;%</span> </span>
@@ -2776,7 +2928,6 @@ attr(,"method")
 <span id="cb32-7"><a href="#cb32-7" aria-hidden="true" tabindex="-1"></a>binom_champagneD_exp</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
-
 <div data-pagedtable="false">
   <script data-pagedtable-source="" type="application/json">
 {"columns":[{"label":["term"],"name":[1],"type":["chr"],"align":["left"]},{"label":["estimate"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["std.error"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["statistic"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["p.value"],"name":[5],"type":["dbl"],"align":["right"]},{"label":["conf.low"],"name":[6],"type":["dbl"],"align":["right"]},{"label":["conf.high"],"name":[7],"type":["dbl"],"align":["right"]}],"data":[{"1":"(Intercept)","2":"0.437500","3":"0.1636579","4":"-5.051259","5":"4.389084e-07","6":"0.3031501","7":"0.5783488"},{"1":"champagneD1","2":"1.243697","3":"0.1757581","4":"1.240846","5":"2.146625e-01","6":"0.9108670","7":"1.8273842"},{"1":"champagneD2","2":"1.662338","3":"0.1879006","4":"2.704753","5":"6.835512e-03","6":"1.1689254","7":"2.4799348"},{"1":"champagneD3","2":"1.478992","3":"0.1865618","4":"2.097753","5":"3.592697e-02","6":"1.0484831","7":"2.2050611"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
@@ -2846,6 +2997,33 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       }
     }
   }
+  const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+    const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+    const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+    let newTheme = '';
+    if(darkModeDefault) {
+      newTheme = isAlternate ? baseTheme : alternateTheme;
+    } else {
+      newTheme = isAlternate ? alternateTheme : baseTheme;
+    }
+    const changeGiscusTheme = () => {
+      // From: https://github.com/giscus/giscus/issues/336
+      const sendMessage = (message) => {
+        const iframe = document.querySelector('iframe.giscus-frame');
+        if (!iframe) return;
+        iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+      }
+      sendMessage({
+        setConfig: {
+          theme: newTheme
+        }
+      });
+    }
+    const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+    if (isGiscussLoaded) {
+      changeGiscusTheme();
+    }
+  }
   const toggleColorMode = (alternate) => {
     // Switch the stylesheets
     const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
@@ -2912,13 +3090,15 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       return localAlternateSentinel;
     }
   }
-  let localAlternateSentinel = 'default';
+  const darkModeDefault = false;
+  let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
   // Dark / light mode switch
   window.quartoToggleColorScheme = () => {
     // Read the current dark / light value 
     let toAlternate = !hasAlternateSentinel();
     toggleColorMode(toAlternate);
     setStyleSentinel(toAlternate);
+    toggleGiscusIfUsed(toAlternate, darkModeDefault);
   };
   // Ensure there is a toggle, if there isn't float one in the top right
   if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
@@ -2953,18 +3133,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
     return false;
   }
-  const clipboard = new window.ClipboardJS('.code-copy-button', {
-    text: function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
-    }
-  });
-  clipboard.on('success', function(e) {
+  const onCopySuccess = function(e) {
     // button target
     const button = e.trigger;
     // don't keep focus
@@ -2996,7 +3165,29 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }, 1000);
     // clear code selection
     e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
   });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
   const viewSource = window.document.getElementById('quarto-view-source') ||
                      window.document.getElementById('quarto-code-tools-source');
   if (viewSource) {
@@ -3048,10 +3239,27 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   if (showAllCode) {
     showAllCode.addEventListener("click", toggleCodeHandler(true));
   }
-  function tippyHover(el, contentFn) {
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
-      content: contentFn,
       maxWidth: 500,
       delay: 100,
       arrow: false,
@@ -3061,8 +3269,17 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       interactive: true,
       interactiveBorder: 10,
       theme: 'quarto',
-      placement: 'bottom-start'
+      placement: 'bottom-start',
     };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
     window.tippy(el, config); 
   }
   const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
@@ -3074,7 +3291,130 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
-      return note.innerHTML;
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
     });
   }
       let selectedAnnoteEl;
@@ -3118,6 +3458,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             }
             div.style.top = top - 2 + "px";
             div.style.height = height + 4 + "px";
+            div.style.left = 0;
             let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
             if (gutterDiv === null) {
               gutterDiv = window.document.createElement("div");
@@ -3143,6 +3484,32 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         });
         selectedAnnoteEl = undefined;
       };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
       // Attach click handler to the DT
       const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
       for (const annoteDlNode of annoteDls) {
@@ -3268,8 +3635,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb33-66"><a href="#cb33-66" aria-hidden="true" tabindex="-1"></a><span class="fu">## 3.2. Import your data</span></span>
 <span id="cb33-67"><a href="#cb33-67" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb33-68"><a href="#cb33-68" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, Import_data}</span></span>
-<span id="cb33-69"><a href="#cb33-69" aria-hidden="true" tabindex="-1"></a><span class="co"># Import the raw data set:</span></span>
-<span id="cb33-70"><a href="#cb33-70" aria-hidden="true" tabindex="-1"></a>copdata <span class="ot">&lt;-</span> rio<span class="sc">::</span><span class="fu">import</span>(here<span class="sc">::</span><span class="fu">here</span>(<span class="st">"data"</span>, <span class="st">"Spetses_clean2_2024.rds"</span>))</span>
+<span id="cb33-69"><a href="#cb33-69" aria-hidden="true" tabindex="-1"></a><span class="in"># Import the raw data set:</span></span>
+<span id="cb33-70"><a href="#cb33-70" aria-hidden="true" tabindex="-1"></a><span class="in">copdata &lt;- rio::import(here::here("data", "Spetses_clean2_2024.rds"), trust = T)</span></span>
 <span id="cb33-71"><a href="#cb33-71" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb33-72"><a href="#cb33-72" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb33-73"><a href="#cb33-73" aria-hidden="true" tabindex="-1"></a><span class="fu">## 3.3. Hypothesis tests for other variables</span></span>
@@ -3372,13 +3739,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb33-184"><a href="#cb33-184" aria-hidden="true" tabindex="-1"></a><span class="fu">CS</span>(copdata, <span class="st">"case"</span>, <span class="st">"feta"</span>)</span>
 <span id="cb33-185"><a href="#cb33-185" aria-hidden="true" tabindex="-1"></a><span class="fu">CS</span>(copdata, <span class="st">"case"</span>, <span class="st">"sardines"</span>)</span>
 <span id="cb33-186"><a href="#cb33-186" aria-hidden="true" tabindex="-1"></a><span class="fu">CS</span>(copdata, <span class="st">"case"</span>, <span class="st">"eggplant"</span>)</span>
-<span id="cb33-187"><a href="#cb33-187" aria-hidden="true" tabindex="-1"></a><span class="fu">CS</span>(copdata, <span class="st">"case"</span>, <span class="st">"moussaka"</span>)</span>
+<span id="cb33-187"><a href="#cb33-187" aria-hidden="true" tabindex="-1"></a><span class="fu">CS</span>(copdata, <span class="st">"case"</span>, <span class="st">"pasta"</span>)</span>
 <span id="cb33-188"><a href="#cb33-188" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb33-189"><a href="#cb33-189" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb33-192"><a href="#cb33-192" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
 <span id="cb33-193"><a href="#cb33-193" aria-hidden="true" tabindex="-1"></a><span class="co"># You can save time (and probably typos!) by creating a vector for food variables...</span></span>
-<span id="cb33-194"><a href="#cb33-194" aria-hidden="true" tabindex="-1"></a>food_vars <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"feta"</span>, <span class="st">"sardines"</span>, <span class="st">"eggplant"</span>, <span class="st">"moussaka"</span>, </span>
-<span id="cb33-195"><a href="#cb33-195" aria-hidden="true" tabindex="-1"></a>               <span class="st">"orzo"</span>, <span class="st">"greeksal"</span>, <span class="st">"dessert"</span>, <span class="st">"bread"</span>,  </span>
+<span id="cb33-194"><a href="#cb33-194" aria-hidden="true" tabindex="-1"></a>food_vars <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"feta"</span>, <span class="st">"sardines"</span>, <span class="st">"eggplant"</span>, <span class="st">"pasta"</span>, </span>
+<span id="cb33-195"><a href="#cb33-195" aria-hidden="true" tabindex="-1"></a>               <span class="st">"veal"</span>, <span class="st">"tomsal"</span>, <span class="st">"dessert"</span>, <span class="st">"bread"</span>,  </span>
 <span id="cb33-196"><a href="#cb33-196" aria-hidden="true" tabindex="-1"></a>               <span class="st">"champagne"</span>, <span class="st">"beer"</span>, <span class="st">"redwine"</span>, <span class="st">"whitewine"</span>)</span>
 <span id="cb33-197"><a href="#cb33-197" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb33-198"><a href="#cb33-198" aria-hidden="true" tabindex="-1"></a><span class="co"># ...and using EpiStats::CSTable() to run all variables together!</span></span>
@@ -3418,20 +3785,20 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb33-234"><a href="#cb33-234" aria-hidden="true" tabindex="-1"></a>· Do you think there are any confounders or effect modifiers? If so, how would you investigate these further?</span>
 <span id="cb33-235"><a href="#cb33-235" aria-hidden="true" tabindex="-1"></a>:::</span>
 <span id="cb33-236"><a href="#cb33-236" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-237"><a href="#cb33-237" aria-hidden="true" tabindex="-1"></a>The interesting results here are that the food items that are most suspicious are orzo, moussaka and champagne. Orzo as such is unlikely to be contaminated, but as you can see in the picture (and from the dinner night), it was served with pesto! Maybe it was the pesto? Who-ho-ho!</span>
+<span id="cb33-237"><a href="#cb33-237" aria-hidden="true" tabindex="-1"></a>The interesting results here are that the food items that are most suspicious are veal, pasta and champagne. Pasta as such is unlikely to be contaminated, but as you can see in the picture (and from the dinner night), it was served with pesto! Maybe it was the pesto? Who-ho-ho!</span>
 <span id="cb33-238"><a href="#cb33-238" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-239"><a href="#cb33-239" aria-hidden="true" tabindex="-1"></a>Before one jumps into conclusions, consider that this result could be due to confounding! Maybe orzo was "clean" but eaten by all the people who ate the food item that actually was contaminated!(Optional)</span>
+<span id="cb33-239"><a href="#cb33-239" aria-hidden="true" tabindex="-1"></a>Before one jumps into conclusions, consider that this result could be due to confounding! Maybe pasta was "clean" but eaten by all the people who ate the food item that actually was contaminated!(Optional)</span>
 <span id="cb33-240"><a href="#cb33-240" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb33-241"><a href="#cb33-241" aria-hidden="true" tabindex="-1"></a><span class="fu">## 3.5. (Optional) Dose Response</span></span>
 <span id="cb33-242"><a href="#cb33-242" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb33-243"><a href="#cb33-243" aria-hidden="true" tabindex="-1"></a>Check for a dose-response relationship between the food items with the highest RR values (the top 3) and being a case.</span>
 <span id="cb33-244"><a href="#cb33-244" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-245"><a href="#cb33-245" aria-hidden="true" tabindex="-1"></a><span class="fu">#### a) Orzo</span></span>
+<span id="cb33-245"><a href="#cb33-245" aria-hidden="true" tabindex="-1"></a><span class="fu">#### a) Veal</span></span>
 <span id="cb33-246"><a href="#cb33-246" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb33-247"><a href="#cb33-247" aria-hidden="true" tabindex="-1"></a>Using <span class="in">`epitools::riskratio`</span> function:</span>
 <span id="cb33-248"><a href="#cb33-248" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb33-251"><a href="#cb33-251" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb33-252"><a href="#cb33-252" aria-hidden="true" tabindex="-1"></a>epitools<span class="sc">::</span><span class="fu">riskratio</span>(copdata<span class="sc">$</span>orzoD,</span>
+<span id="cb33-252"><a href="#cb33-252" aria-hidden="true" tabindex="-1"></a>epitools<span class="sc">::</span><span class="fu">riskratio</span>(copdata<span class="sc">$</span>vealD,</span>
 <span id="cb33-253"><a href="#cb33-253" aria-hidden="true" tabindex="-1"></a>                    copdata<span class="sc">$</span>case,</span>
 <span id="cb33-254"><a href="#cb33-254" aria-hidden="true" tabindex="-1"></a>                    <span class="at">conf.level =</span> <span class="fl">0.95</span>)</span>
 <span id="cb33-255"><a href="#cb33-255" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
@@ -3441,30 +3808,30 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb33-261"><a href="#cb33-261" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
 <span id="cb33-262"><a href="#cb33-262" aria-hidden="true" tabindex="-1"></a><span class="co"># Binomial regression for RRs. </span></span>
 <span id="cb33-263"><a href="#cb33-263" aria-hidden="true" tabindex="-1"></a><span class="co"># The outcome needs to be exponentiated so we can interpret it properly!</span></span>
-<span id="cb33-264"><a href="#cb33-264" aria-hidden="true" tabindex="-1"></a>binom_orzoD <span class="ot">&lt;-</span> <span class="fu">glm</span>(case <span class="sc">~</span> orzoD, <span class="at">data =</span> copdata, </span>
+<span id="cb33-264"><a href="#cb33-264" aria-hidden="true" tabindex="-1"></a>binom_vealD <span class="ot">&lt;-</span> <span class="fu">glm</span>(case <span class="sc">~</span> vealD, <span class="at">data =</span> copdata, </span>
 <span id="cb33-265"><a href="#cb33-265" aria-hidden="true" tabindex="-1"></a>             <span class="at">family =</span> <span class="fu">binomial</span>(<span class="at">link =</span> <span class="st">"log"</span>))</span>
 <span id="cb33-266"><a href="#cb33-266" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb33-267"><a href="#cb33-267" aria-hidden="true" tabindex="-1"></a><span class="co"># To get exponentiated:</span></span>
-<span id="cb33-268"><a href="#cb33-268" aria-hidden="true" tabindex="-1"></a>binom_orzoD_exp <span class="ot">&lt;-</span> <span class="fu">glm</span>(case <span class="sc">~</span> orzoD, <span class="at">data =</span> copdata, </span>
+<span id="cb33-268"><a href="#cb33-268" aria-hidden="true" tabindex="-1"></a>binom_vealD_exp <span class="ot">&lt;-</span> <span class="fu">glm</span>(case <span class="sc">~</span> vealD, <span class="at">data =</span> copdata, </span>
 <span id="cb33-269"><a href="#cb33-269" aria-hidden="true" tabindex="-1"></a>                       <span class="at">family =</span> <span class="fu">binomial</span>(<span class="at">link =</span> <span class="st">"log"</span>)) <span class="sc">%&gt;%</span> </span>
 <span id="cb33-270"><a href="#cb33-270" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tidy</span>(<span class="at">exponentiate =</span> <span class="cn">TRUE</span>, </span>
 <span id="cb33-271"><a href="#cb33-271" aria-hidden="true" tabindex="-1"></a>       <span class="at">conf.int =</span> <span class="cn">TRUE</span>)</span>
 <span id="cb33-272"><a href="#cb33-272" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-273"><a href="#cb33-273" aria-hidden="true" tabindex="-1"></a>binom_orzoD_exp</span>
+<span id="cb33-273"><a href="#cb33-273" aria-hidden="true" tabindex="-1"></a>binom_vealD_exp</span>
 <span id="cb33-274"><a href="#cb33-274" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb33-275"><a href="#cb33-275" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb33-276"><a href="#cb33-276" aria-hidden="true" tabindex="-1"></a>::: {.callout-warning title="Let's stop and... think!" collapse="true"}</span>
 <span id="cb33-277"><a href="#cb33-277" aria-hidden="true" tabindex="-1"></a>What do these results tell you?</span>
 <span id="cb33-278"><a href="#cb33-278" aria-hidden="true" tabindex="-1"></a>:::</span>
 <span id="cb33-279"><a href="#cb33-279" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-280"><a href="#cb33-280" aria-hidden="true" tabindex="-1"></a>Results suggest a dose response relationship of having eaten orzo, pointing towards orzoas the potential vehicle. The higher the amount of orzothey ate, the stronger is the association (RR) with getting ill/being a case.</span>
+<span id="cb33-280"><a href="#cb33-280" aria-hidden="true" tabindex="-1"></a>Results suggest a dose response relationship of having eaten veal, pointing towards veal as the potential vehicle. The higher the amount of veal they ate, the stronger is the association (RR) with getting ill/being a case.</span>
 <span id="cb33-281"><a href="#cb33-281" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-282"><a href="#cb33-282" aria-hidden="true" tabindex="-1"></a><span class="fu">#### b) Moussaka</span></span>
+<span id="cb33-282"><a href="#cb33-282" aria-hidden="true" tabindex="-1"></a><span class="fu">#### b) Pasta</span></span>
 <span id="cb33-283"><a href="#cb33-283" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb33-284"><a href="#cb33-284" aria-hidden="true" tabindex="-1"></a>Using <span class="in">`epitools::riskratio`</span> function:</span>
 <span id="cb33-285"><a href="#cb33-285" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb33-288"><a href="#cb33-288" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb33-289"><a href="#cb33-289" aria-hidden="true" tabindex="-1"></a>epitools<span class="sc">::</span><span class="fu">riskratio</span>(copdata<span class="sc">$</span>moussakaD,                     </span>
+<span id="cb33-289"><a href="#cb33-289" aria-hidden="true" tabindex="-1"></a>epitools<span class="sc">::</span><span class="fu">riskratio</span>(copdata<span class="sc">$</span>pastaD,                     </span>
 <span id="cb33-290"><a href="#cb33-290" aria-hidden="true" tabindex="-1"></a>                    copdata<span class="sc">$</span>case,                     </span>
 <span id="cb33-291"><a href="#cb33-291" aria-hidden="true" tabindex="-1"></a>                    <span class="at">conf.level =</span> <span class="fl">0.95</span>)</span>
 <span id="cb33-292"><a href="#cb33-292" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
@@ -3473,12 +3840,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb33-295"><a href="#cb33-295" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb33-298"><a href="#cb33-298" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
 <span id="cb33-299"><a href="#cb33-299" aria-hidden="true" tabindex="-1"></a><span class="co"># Let's get the results directly exponentiated</span></span>
-<span id="cb33-300"><a href="#cb33-300" aria-hidden="true" tabindex="-1"></a>binom_moussakaD_exp <span class="ot">&lt;-</span> <span class="fu">glm</span>(case <span class="sc">~</span> moussakaD, <span class="at">data =</span> copdata, </span>
+<span id="cb33-300"><a href="#cb33-300" aria-hidden="true" tabindex="-1"></a>binom_pastaD_exp <span class="ot">&lt;-</span> <span class="fu">glm</span>(case <span class="sc">~</span> pastaD, <span class="at">data =</span> copdata, </span>
 <span id="cb33-301"><a href="#cb33-301" aria-hidden="true" tabindex="-1"></a>                       <span class="at">family =</span> <span class="fu">binomial</span>(<span class="at">link =</span> <span class="st">"log"</span>)) <span class="sc">%&gt;%</span> </span>
 <span id="cb33-302"><a href="#cb33-302" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tidy</span>(<span class="at">exponentiate =</span> <span class="cn">TRUE</span>, </span>
 <span id="cb33-303"><a href="#cb33-303" aria-hidden="true" tabindex="-1"></a>       <span class="at">conf.int =</span> <span class="cn">TRUE</span>)</span>
 <span id="cb33-304"><a href="#cb33-304" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-305"><a href="#cb33-305" aria-hidden="true" tabindex="-1"></a>binom_moussakaD_exp</span>
+<span id="cb33-305"><a href="#cb33-305" aria-hidden="true" tabindex="-1"></a>binom_pastaD_exp</span>
 <span id="cb33-306"><a href="#cb33-306" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb33-307"><a href="#cb33-307" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb33-308"><a href="#cb33-308" aria-hidden="true" tabindex="-1"></a><span class="fu">#### c) Champagne</span></span>
@@ -3516,9 +3883,10 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb33-344"><a href="#cb33-344" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>(Optional) Is there a dose-response relationship between the food items and being a case?</span>
 <span id="cb33-345"><a href="#cb33-345" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb33-346"><a href="#cb33-346" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>What do you think is the most likely culprit(s) of this outbreak at this point? Are there any risk factors you would like to highlight?</span>
-</code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</code><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
+
 
 
 

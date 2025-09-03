@@ -1,6 +1,8 @@
 ---
 title: "Data import and cleaning"
 editor: visual
+editor_options: 
+  chunk_output_type: console
 ---
 
 # **1. Learning outcomes**
@@ -36,7 +38,6 @@ if (!requireNamespace("pacman", quietly = TRUE)) install.packages("pacman")
 # Load the required libraries into the current R session:
 pacman::p_load(rio, 
                here, 
-               tidyverse, 
                skimr,
                plyr,
                janitor,
@@ -46,7 +47,9 @@ pacman::p_load(rio,
                officer,
                epikit, 
                apyramid, 
-               scales)
+               scales,
+               tidyverse 
+)
 
 ```
 
@@ -56,7 +59,7 @@ pacman::p_load(rio,
 
 ```{r, Import_data}
 # Import the raw data set:
-copdata <- rio::import(here::here("data", "spetses_school.csv"))
+copdata <- import(here::here("data", "spetses_school.csv"))
 ```
 
 ## 3.3. Explore and clean your data
@@ -79,7 +82,7 @@ You could use `head()`, `dim()`, `str()`, or `skim()` to have a quick look at th
 head(copdata)
 dim(copdata)
 str(copdata)
-skimr::skim(copdata)
+skim(copdata)
 names(copdata)
 
 ```
@@ -94,7 +97,7 @@ Through visual exploration of the `age` histogram we see that there is at least 
 # Have a look at the histogram  
 hist(copdata$age)   
 # Create cross-tab with the group variable:  
-janitor::tabyl(dat = copdata, 
+tabyl(dat = copdata, 
                var1 = age, 
                var2 = group)
 ```
@@ -113,7 +116,7 @@ Now, have a look at your cross-tab again:
 
 ```{r cross-tab_age_group}
 
-janitor::tabyl(dat = copdata, 
+tabyl(dat = copdata, 
                var1 = age, 
                var2 = group) 
 ```
@@ -165,7 +168,7 @@ drtable <- copdata %>%
   # Select all the columns with column names that end in upper case 'D':   
   select(ends_with("D", ignore.case = FALSE)) %>%       
   # Create the summary table, excluding missing values:   
-  gtsummary::tbl_summary(missing = "no") 
+  tbl_summary(missing = "no") 
 
   # Print the summary table: 
 drtable
@@ -186,7 +189,9 @@ You can use `mutate` to modify the type of the following variables:
 +-------------------------------------------------------------------------------------------------------------+---------------------+-----------------+--------------------------------------------------------------------------------------+
 | class                                                                                                       | integer             | factor          | mutate(), as.factor()                                                                |
 +-------------------------------------------------------------------------------------------------------------+---------------------+-----------------+--------------------------------------------------------------------------------------+
-| All the clinical symptom variables                                                                          | integer             | logical         | mutate(across()), as.logical()                                                       |
+| ill                                                                                                         | integer             | factor          | mutate(), as.factor()                                                                |
++-------------------------------------------------------------------------------------------------------------+---------------------+-----------------+--------------------------------------------------------------------------------------+
+| All the clinical symptom variables                                                                          | integer             | factor          | mutate(across()), as.factor()                                                        |
 +-------------------------------------------------------------------------------------------------------------+---------------------+-----------------+--------------------------------------------------------------------------------------+
 | All the food variables representing the amount of specific foods eaten (those finishing with a capital "D") | integer             | factor          | mutate(across()), as.factor()                                                        |
 +-------------------------------------------------------------------------------------------------------------+---------------------+-----------------+--------------------------------------------------------------------------------------+
@@ -199,15 +204,16 @@ You can use `mutate` to modify the type of the following variables:
 
 : Table 1: Variable types to modify
 
-#### Sex, group and class
+#### Sex, class and ill
 
-Let's start transforming one-by-one the first two variables in the table: `sex`, and `class`.
+Let's start transforming one-by-one the first three variables in the table: `sex`, `class` and `ill`.
 
 ```{r, mutate_simple}
 copdata <- copdata %>% 
-  dplyr::mutate(
+  mutate(
     sex = as.factor(sex),
-    class = as.factor(class))
+    class = as.factor(class),
+    ill = as.factor(ill))
  
 ```
 
@@ -219,11 +225,11 @@ For these variables, we are going to show you a couple of different ways to carr
 
 ```{r, mutate_cs}
 copdata <- copdata %>% 
-  dplyr::mutate(
+  mutate(
     # clinical symptoms
     across(.cols = c(diarrhoea, bloody, vomiting,
              abdo, nausea, fever,headache, jointpain), 
-           .fns = ~ as.logical(.)
+           .fns = ~ as.factor(.)
            )
     )
 ```
@@ -234,18 +240,18 @@ copdata <- copdata %>%
 # Create a vector with all the food variables representing the amount of specific foods items eaten (those finishing with a capital "D")
 # One way of doing it:
 food_dose <- copdata %>% 
-    dplyr::select(
+    select(
       ends_with("D", ignore.case = FALSE)) %>% 
     names()
 
 # Another way of doing it:
-# food_dose <- c("fetaD", "sardinesD", "eggplantD", "moussakaD", 
-#                 "orzoD", "greeksalD", "dessertD", "breadD", 
+# food_dose <- c("fetaD", "sardinesD", "eggplantD", "pastaD", 
+#                 "vealD", "greeksalD", "dessertD", "breadD", 
 #                 "champagneD", "beerD", "redwineD", "whitewineD")
 
 
 copdata <- copdata %>% 
-  dplyr::mutate(
+  mutate(
     # food dose variables
     across(.cols = all_of(food_dose), 
            .fns = ~as.factor(.))) 
@@ -253,7 +259,7 @@ copdata <- copdata %>%
 ```
 
 ::: {.callout-note title="Note" collapse="true"}
-The tilde (`~`) above is used to apply the transformation `as.logical(.)` to each selected column, which in our case is either all columns included in `food_items` and `food_dose.`
+The tilde (`~`) above is used to apply the transformation `as.factor(.)` to each selected column, which in our case is either all columns included in `food_items` and `food_dose.`
 :::
 
 #### Date and time variables
@@ -274,7 +280,7 @@ class(copdata$dayonset)
 # Update copdata:
 copdata <- copdata %>% 
   # Change column to date class:
-  dplyr::mutate(
+  mutate(
     dayonset = lubridate::dmy(dayonset))
 
 # Check class of updated column:
@@ -291,7 +297,7 @@ We can check if we have any missing values by cross-tabulating `starthour` with 
 
 ```{r crosstab_dayonset_starthour}
 # Cross-tabulate dayonset with starthour:
-janitor::tabyl(dat = copdata, 
+tabyl(dat = copdata, 
                var1 = starthour, 
                var2 = dayonset)
 ```
@@ -302,7 +308,7 @@ This shows us that there are two respondents who had an onset date, but are miss
 copdata <- copdata %>% 
   # Combine dayonset and starthour in a new date time variable:
   mutate(onset_datetime = 
-           lubridate::ymd_h(
+           ymd_h(
              str_glue("{dayonset}, {starthour}"), 
                                            # Deal with missing starthour:
                                            truncated = 2))
@@ -333,7 +339,7 @@ Use `rio::export()`.
 
 ```{r export_clean_data}
 
-rio::export(x = copdata, 
+export(x = copdata, 
             file = here::here("data", "Spetses_clean1_2024.rds"))
 
 ```
