@@ -192,8 +192,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#import-your-data" id="toc-import-your-data" class="nav-link" data-scroll-target="#import-your-data">3.3. Import your data</a></li>
   <li><a href="#consider-and-assess-for-confounding-andor-effect-modification" id="toc-consider-and-assess-for-confounding-andor-effect-modification" class="nav-link" data-scroll-target="#consider-and-assess-for-confounding-andor-effect-modification">3.4. Consider and assess for confounding and/or effect modification</a>
   <ul class="collapse">
-  <li><a href="#a-pasta-as-exposure-of-interest-stratified-by-having-eaten-veal" id="toc-a-pasta-as-exposure-of-interest-stratified-by-having-eaten-veal" class="nav-link" data-scroll-target="#a-pasta-as-exposure-of-interest-stratified-by-having-eaten-veal">a) Pasta as exposure of interest, stratified by having eaten veal</a></li>
-  <li><a href="#b-champagne-as-exposure-of-interest-stratified-by-having-eaten-veal" id="toc-b-champagne-as-exposure-of-interest-stratified-by-having-eaten-veal" class="nav-link" data-scroll-target="#b-champagne-as-exposure-of-interest-stratified-by-having-eaten-veal">b) Champagne as exposure of interest, stratified by having eaten veal</a></li>
+  <li><a href="#a-veal-as-exposure-of-interest-stratified-by-having-eaten-pasta" id="toc-a-veal-as-exposure-of-interest-stratified-by-having-eaten-pasta" class="nav-link" data-scroll-target="#a-veal-as-exposure-of-interest-stratified-by-having-eaten-pasta">a) Veal as exposure of interest, stratified by having eaten pasta</a></li>
+  <li><a href="#b-champagne-as-exposure-of-interest-stratified-by-having-eaten-pasta" id="toc-b-champagne-as-exposure-of-interest-stratified-by-having-eaten-pasta" class="nav-link" data-scroll-target="#b-champagne-as-exposure-of-interest-stratified-by-having-eaten-pasta">b) Champagne as exposure of interest, stratified by having eaten pasta</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -231,7 +231,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="storyplot-description" class="level2">
 <h2 class="anchored" data-anchor-id="storyplot-description">2. Story/plot description</h2>
-<p>From the univariable analysis, it seems that eating orzpo and eating pasta as well as drinking champagne are associated with the highest risk of becoming ill.&nbsp;There are, however, many other food items that are associated with an increased risk (even if not statistically significant).</p>
+<p>From the univariable analysis, it seems that eating pasta and eating veal as well as drinking champagne are associated with the highest risk of becoming ill.&nbsp;There are, however, many other food items that are associated with an increased risk (even if not statistically significant).</p>
 <p>You should next think about potential confounders and about effect modification. Think about which variables you might want to check for effect modification or confounding. One common strategy is to base this decision on the results obtained in the univariable analysis and a p-value threshold of 0.20-0.25. Also, food items that are known risk factors for gastroenteritis could also be included regardless of their univariable p-value.</p>
 </section>
 <section id="questionsassignments" class="level2">
@@ -270,18 +270,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <details open="" class="code-fold">
 <summary>Show the code</summary>
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Import the raw data set: </span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>copdata <span class="ot">&lt;-</span> rio<span class="sc">::</span><span class="fu">import</span>(here<span class="sc">::</span><span class="fu">here</span>(<span class="st">"data"</span>, <span class="st">"Spetses_clean2_2024.rds"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>copdata <span class="ot">&lt;-</span> rio<span class="sc">::</span><span class="fu">import</span>(here<span class="sc">::</span><span class="fu">here</span>(<span class="st">"data"</span>, <span class="st">"Spetses_clean2_2024.rds"</span>), <span class="at">trust =</span> T)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: Missing `trust` will be set to FALSE by default for RDS in 2.0.0.</code></pre>
-</div>
 </div>
 </section>
 <section id="consider-and-assess-for-confounding-andor-effect-modification" class="level2">
 <h2 class="anchored" data-anchor-id="consider-and-assess-for-confounding-andor-effect-modification">3.4. Consider and assess for confounding and/or effect modification</h2>
-<p>Have a look at the relative risk for being a case having eaten a specific food item (for example, moussake), when stratified by another variable (for example, veal). You may consider stratifying by veal, as it has the highest RR in the univariable analysis.</p>
+<p>Have a look at the relative risk for being a case having eaten a specific food item (for example, veal), when stratified by another variable (for example, pasta). You may consider stratifying by pasta, as it has the highest RR in the univariable analysis.</p>
 <p>There are many variables in this dataset and it might not make sense to stratify each variable by each other variable on our search for effect modifiers and confounders.</p>
-<p>However, we also don’t want to be too restrictive as a variable which actually (i.e.&nbsp;causally) is associated with the outcome might not show a significant association at the significant level we decided (say 5%) in the univariable analysis due to confounding. Therefore, we could test all variables statistically significant at the 15%, 20%, or 25% level (specific percentage to be decided by your group). In our solutions here, we are looking at pasta and champagne, stratified by veal, but you may decide to look at other food items as well.</p>
+<p>However, we also don’t want to be too restrictive as a variable which actually (i.e.&nbsp;causally) is associated with the outcome might not show a significant association at the significant level we decided (say 5%) in the univariable analysis due to confounding. Therefore, we could test all variables statistically significant at the 15%, 20%, or 25% level (specific percentage to be decided by your group). In our solutions here, we are looking at veal and champagne, stratified by pasta, but you may decide to look at other food items as well.</p>
 <div class="callout callout-style-default callout-tip callout-titled" title="Need a little bit of help?">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
@@ -298,33 +295,33 @@ Need a little bit of help?
 </div>
 </div>
 </div>
-<section id="a-pasta-as-exposure-of-interest-stratified-by-having-eaten-veal" class="level3">
-<h3 class="anchored" data-anchor-id="a-pasta-as-exposure-of-interest-stratified-by-having-eaten-veal">a) Pasta as exposure of interest, stratified by having eaten veal</h3>
-<p>If we stratify the <strong>effect of pasta by veal</strong> we ask the question: does eating veal modify or confound the association between eating pasta and being a case?</p>
+<section id="a-veal-as-exposure-of-interest-stratified-by-having-eaten-pasta" class="level3">
+<h3 class="anchored" data-anchor-id="a-veal-as-exposure-of-interest-stratified-by-having-eaten-pasta">a) Veal as exposure of interest, stratified by having eaten pasta</h3>
+<p>If we stratify the <strong>effect of veal by pasta</strong> we ask the question: does eating pasta modify or confound the association between eating veal and being a case?</p>
 <div class="cell">
 <details open="" class="code-fold">
 <summary>Show the code</summary>
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>stratall <span class="ot">&lt;-</span> copdata <span class="sc">%&gt;%</span> </span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Mutate across to convert cases to numeric:</span></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="fu">across</span>(<span class="at">.cols =</span> case, </span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>                <span class="at">.fns =</span> <span class="sc">~</span> <span class="fu">as.numeric</span>(.)))</span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Pass data to the csinter function:</span></span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>vealstrata <span class="ot">&lt;-</span> <span class="fu">csinter</span>(<span class="at">x =</span> stratall, </span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>                       <span class="at">cases =</span> <span class="st">"case"</span>, </span>
-<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>                       <span class="at">exposure =</span> <span class="st">"pasta"</span>, </span>
-<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>                       <span class="at">by =</span> <span class="st">"veal"</span>)</span>
-<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>vealstrata</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>stratall <span class="ot">&lt;-</span> copdata <span class="sc">%&gt;%</span> </span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Mutate across to convert cases to numeric:</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="fu">across</span>(<span class="at">.cols =</span> case, </span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>                <span class="at">.fns =</span> <span class="sc">~</span> <span class="fu">as.numeric</span>(.)))</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Pass data to the csinter function:</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>pastastrata <span class="ot">&lt;-</span> <span class="fu">csinter</span>(<span class="at">x =</span> stratall, </span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>                       <span class="at">cases =</span> <span class="st">"case"</span>, </span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>                       <span class="at">exposure =</span> <span class="st">"veal"</span>, </span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>                       <span class="at">by =</span> <span class="st">"pasta"</span>)</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>pastastrata</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>$df1
-  CSInter case - pasta by(veal) Total Cases Risk %          P.est. Stats
-1                      veal = 1   338  &lt;NA&gt;     NA Risk difference  0.10
+  CSInter case - veal by(pasta) Total Cases Risk %          P.est. Stats
+1                     pasta = 1   338  &lt;NA&gt;     NA Risk difference  0.10
 2                       Exposed   330   198  60.00      Risk Ratio  1.20
 3                     Unexposed     8     4  50.00 Attrib.risk.exp  0.17
 4                                  NA  &lt;NA&gt;     NA Attrib.risk.pop  0.16
-5                      veal = 0    36  &lt;NA&gt;     NA Risk difference  0.02
+5                     pasta = 0    36  &lt;NA&gt;     NA Risk difference  0.02
 6                       Exposed     8     3  37.50      Risk Ratio  1.05
 7                     Unexposed    28    10  35.71 Attrib.risk.exp  0.05
 8                                  NA  &lt;NA&gt;     NA Attrib.risk.pop  0.01
@@ -343,18 +340,18 @@ Need a little bit of help?
 $df2
                   Point Estimate Chi2 p.value  Stats 95%CI.ll 95%CI.ul
 1      Woolf test of homogeneity 0.04   0.833     NA       NA       NA
-2             Crude RR for pasta   NA      NA   1.53     1.01     2.32
-3  MH RR pasta adjusted for veal   NA      NA   1.15     0.64     2.04
+2              Crude RR for veal   NA      NA   1.53     1.01     2.32
+3  MH RR veal adjusted for pasta   NA      NA   1.15     0.64     2.04
 4 Adjusted/crude relative change   NA      NA -25.08       NA       NA</code></pre>
 </div>
 </div>
-<p>Let’s check if veal is associated with pasta (if we are thinking pasta may be a confounder, we need to see if there is an association between the potential confounder (pasta) and the exposure (veal)):</p>
+<p>Let’s check if pasta is associated with veal (if we are thinking pasta may be a confounder, we need to see if there is an association between the potential confounder (pasta) and the exposure (veal)):</p>
 <div class="cell">
 <details open="" class="code-fold">
 <summary>Show the code</summary>
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Perform Wilcoxon rank sum test on veal and pasta:</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">wilcox.test</span>(veal <span class="sc">~</span> pasta, </span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>            <span class="at">data =</span> copdata)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Perform Wilcoxon rank sum test on veal and pasta:</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">wilcox.test</span>(veal <span class="sc">~</span> pasta, </span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>            <span class="at">data =</span> copdata)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>
@@ -366,16 +363,16 @@ alternative hypothesis: true location shift is not equal to 0</code></pre>
 </div>
 </div>
 </section>
-<section id="b-champagne-as-exposure-of-interest-stratified-by-having-eaten-veal" class="level3">
-<h3 class="anchored" data-anchor-id="b-champagne-as-exposure-of-interest-stratified-by-having-eaten-veal">b) Champagne as exposure of interest, stratified by having eaten veal</h3>
+<section id="b-champagne-as-exposure-of-interest-stratified-by-having-eaten-pasta" class="level3">
+<h3 class="anchored" data-anchor-id="b-champagne-as-exposure-of-interest-stratified-by-having-eaten-pasta">b) Champagne as exposure of interest, stratified by having eaten pasta</h3>
 <div class="cell">
 <details open="" class="code-fold">
 <summary>Show the code</summary>
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Pass data to the csinter function:</span></span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>champstrata <span class="ot">&lt;-</span> <span class="fu">csinter</span>(<span class="at">x =</span> stratall, </span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>                       <span class="at">cases =</span> <span class="st">"case"</span>, </span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>                       <span class="at">exposure =</span> <span class="st">"champagne"</span>, </span>
-<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>                       <span class="at">by =</span> <span class="st">"veal"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Pass data to the csinter function:</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>champstrata <span class="ot">&lt;-</span> <span class="fu">csinter</span>(<span class="at">x =</span> stratall, </span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>                       <span class="at">cases =</span> <span class="st">"case"</span>, </span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>                       <span class="at">exposure =</span> <span class="st">"champagne"</span>, </span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>                       <span class="at">by =</span> <span class="st">"pasta"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 <div class="callout callout-style-default callout-warning callout-titled" title="Let's stop and... think!">
@@ -394,11 +391,11 @@ Let’s stop and… think!
 </div>
 </div>
 </div>
-<p>We could stratify by veal (the strongest risk factor in the univariable analysis), to examine if veal confounds the association between eating pasta and being a case. Before stratification, we will need to check if veal meets the conditions of being a confounder. For a variable to be a confounder it needs to be associated both with the outcome (being a case) and with the exposure (and not be in the causal pathway between exposure and outcome). We know from univariable analysis that veal is associated with being a case. If we run a Wilcoxon rank sum test, we will see that veal is also associated with pasta (indeed, you can see that most people either had both pasta and veal or neither of these food items, so they are associated with each other).</p>
-<p>Above, we uses <code>ccinter</code> to stratify and save the object as “vealstrata”.</p>
-<p>vealstrata: Within the stratum of the people who ate veal, pasta has no significant effect (RR = 1.20, CI: 0.60 - 2.41). The same holds within the stratum of people who didn’t eat veal (RR = 1.05, CI = 0.38, 2.92). The adjusted MH-RR also suggests that pasta has no effect (RRadj = 1.15, CI: 0.80 - 2.85). &nbsp;To identify confounding, we want to look at the % change between the crude and the adjusted RR. This is given by the csinter output “Adjusted/crude relative change”.&nbsp; The difference between the crude and the MH-RR in this case is &gt;20% suggesting that veal confounds the association between pasta and the disease.</p>
-<p>This result suggest that pasta is not a risk factor of the disease and that the crude observed effect was due to the confounding effect of veal.</p>
-<p>If you stratify by pasta, you see that pasta does not confound the association between veal and the disease. The same applies if you stratify the exposure to veal by other variables. The above, the higher RR for veal and the dose response relationship we found earlier for veal (remember this was optional) provide additional evidence that there was something going on with the veal with pesto dish!</p>
+<p>We could stratify by pasta (the strongest risk factor in the univariable analysis), to examine if pasta confounds the association between eating veal and being a case. Before stratification, we will need to check if pasta meets the conditions of being a confounder. For a variable to be a confounder it needs to be associated both with the outcome (being a case) and with the exposure (and not be in the causal pathway between exposure and outcome). We know from univariable analysis that pasta is associated with being a case. If we run a Wilcoxon rank sum test, we will see that pasta is also associated with veal (indeed, you can see that most people either had both pasta and veal or neither of these food items, so they are associated with each other).</p>
+<p>Above, we uses <code>ccinter</code> to stratify and save the object as “pastastrata”.</p>
+<p>pastastrata: Within the stratum of the people who ate pasta, veal has no significant effect (RR = 1.20, CI: 0.60 - 2.41). The same holds within the stratum of people who didn’t eat pasta (RR = 1.05, CI = 0.38, 2.92). The adjusted MH-RR also suggests that veal has no effect (RRadj = 1.15, CI: 0.80 - 2.85). &nbsp;To identify confounding, we want to look at the % change between the crude and the adjusted RR. This is given by the csinter output “Adjusted/crude relative change”.&nbsp; The difference between the crude and the MH-RR in this case is &gt;20% suggesting that pasta confounds the association between veal and the disease.</p>
+<p>This result suggest that veal is not a risk factor of the disease and that the crude observed effect was due to the confounding effect of pasta.</p>
+<p>If you stratify by veal, you see that veal does not confound the association between pasta and the disease. The same applies if you stratify the exposure to pasta by other variables. The above, the higher RR for pasta and the dose response relationship we found earlier for pasta (remember this was optional) provide additional evidence that there was something going on with the pasta with pesto dish!</p>
 
 
 <!-- -->
@@ -1022,122 +1019,122 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
-<div class="sourceCode" id="cb9" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "Stratified analysis"</span></span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="an">editor:</span><span class="co"> visual</span></span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a><span class="fu">## 1. Learning outcomes</span></span>
-<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>At the end of the session, participants will be able to:</span>
-<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Consider the effect of confounding and effect modification on the association between exposure and disease,</span>
-<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Perform stratified analysis using the Mantel-Haenszel approach</span>
-<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a>*The use of stratified analysis, is the first step to identify confounding factors and effect modifiers one by one (after, of course, thinking which variables could potentially be confounders or effect modifiers). As the final step, you will be using Regression Models to account for confounding and check for effect modification. We will see these with you in the Multivariable Module (MVA), next year.*</span>
-<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a><span class="fu">## 2. Story/plot description</span></span>
-<span id="cb9-17"><a href="#cb9-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-18"><a href="#cb9-18" aria-hidden="true" tabindex="-1"></a>From the univariable analysis, it seems that eating orzpo and eating pasta as well as drinking champagne are associated with the highest risk of becoming ill. There are, however, many other food items that are associated with an increased risk (even if not statistically significant).</span>
-<span id="cb9-19"><a href="#cb9-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-20"><a href="#cb9-20" aria-hidden="true" tabindex="-1"></a>You should next think about potential confounders and about effect modification. Think about which variables you might want to check for effect modification or confounding. One common strategy is to base this decision on the results obtained in the univariable analysis and a p-value threshold of 0.20-0.25. Also, food items that are known risk factors for gastroenteritis could also be included regardless of their univariable p-value.</span>
-<span id="cb9-21"><a href="#cb9-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-22"><a href="#cb9-22" aria-hidden="true" tabindex="-1"></a><span class="fu">## 3. Questions/Assignments</span></span>
-<span id="cb9-23"><a href="#cb9-23" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-24"><a href="#cb9-24" aria-hidden="true" tabindex="-1"></a><span class="fu">## 3.1. Confounders and effect modification</span></span>
-<span id="cb9-25"><a href="#cb9-25" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-26"><a href="#cb9-26" aria-hidden="true" tabindex="-1"></a>Discuss how to identify potential confounders and effect modification. Draw dummy tables before coding to have clear what you want to achieve.</span>
-<span id="cb9-27"><a href="#cb9-27" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-28"><a href="#cb9-28" aria-hidden="true" tabindex="-1"></a><span class="fu">## 3.2. Install packages and load libraries</span></span>
-<span id="cb9-29"><a href="#cb9-29" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-32"><a href="#cb9-32" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb9-33"><a href="#cb9-33" aria-hidden="true" tabindex="-1"></a><span class="co"># Load the required libraries into the current R session:</span></span>
-<span id="cb9-34"><a href="#cb9-34" aria-hidden="true" tabindex="-1"></a>pacman<span class="sc">::</span><span class="fu">p_load</span>(rio, </span>
-<span id="cb9-35"><a href="#cb9-35" aria-hidden="true" tabindex="-1"></a>               here, </span>
-<span id="cb9-36"><a href="#cb9-36" aria-hidden="true" tabindex="-1"></a>               tidyverse, </span>
-<span id="cb9-37"><a href="#cb9-37" aria-hidden="true" tabindex="-1"></a>               skimr,</span>
-<span id="cb9-38"><a href="#cb9-38" aria-hidden="true" tabindex="-1"></a>               plyr,</span>
-<span id="cb9-39"><a href="#cb9-39" aria-hidden="true" tabindex="-1"></a>               janitor,</span>
-<span id="cb9-40"><a href="#cb9-40" aria-hidden="true" tabindex="-1"></a>               lubridate,</span>
-<span id="cb9-41"><a href="#cb9-41" aria-hidden="true" tabindex="-1"></a>               gtsummary, </span>
-<span id="cb9-42"><a href="#cb9-42" aria-hidden="true" tabindex="-1"></a>               flextable,</span>
-<span id="cb9-43"><a href="#cb9-43" aria-hidden="true" tabindex="-1"></a>               officer,</span>
-<span id="cb9-44"><a href="#cb9-44" aria-hidden="true" tabindex="-1"></a>               epikit, </span>
-<span id="cb9-45"><a href="#cb9-45" aria-hidden="true" tabindex="-1"></a>               apyramid, </span>
-<span id="cb9-46"><a href="#cb9-46" aria-hidden="true" tabindex="-1"></a>               scales,</span>
-<span id="cb9-47"><a href="#cb9-47" aria-hidden="true" tabindex="-1"></a>               EpiStats)</span>
-<span id="cb9-48"><a href="#cb9-48" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb9-49"><a href="#cb9-49" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-50"><a href="#cb9-50" aria-hidden="true" tabindex="-1"></a><span class="fu">## 3.3. Import your data</span></span>
-<span id="cb9-51"><a href="#cb9-51" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-52"><a href="#cb9-52" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, Import_data}</span></span>
-<span id="cb9-53"><a href="#cb9-53" aria-hidden="true" tabindex="-1"></a><span class="in"># Import the raw data set: </span></span>
-<span id="cb9-54"><a href="#cb9-54" aria-hidden="true" tabindex="-1"></a><span class="in">copdata &lt;- rio::import(here::here("data", "Spetses_clean2_2024.rds"))</span></span>
-<span id="cb9-55"><a href="#cb9-55" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb9-56"><a href="#cb9-56" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-57"><a href="#cb9-57" aria-hidden="true" tabindex="-1"></a><span class="fu">## 3.4. Consider and assess for confounding and/or effect modification</span></span>
-<span id="cb9-58"><a href="#cb9-58" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-59"><a href="#cb9-59" aria-hidden="true" tabindex="-1"></a>Have a look at the relative risk for being a case having eaten a specific food item (for example, moussake), when stratified by another variable (for example, veal). You may consider stratifying by veal, as it has the highest RR in the univariable analysis.</span>
-<span id="cb9-60"><a href="#cb9-60" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-61"><a href="#cb9-61" aria-hidden="true" tabindex="-1"></a>There are many variables in this dataset and it might not make sense to stratify each variable by each other variable on our search for effect modifiers and confounders.</span>
-<span id="cb9-62"><a href="#cb9-62" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-63"><a href="#cb9-63" aria-hidden="true" tabindex="-1"></a>However, we also don't want to be too restrictive as a variable which actually (i.e. causally) is associated with the outcome might not show a significant association at the significant level we decided (say 5%) in the univariable analysis due to confounding. Therefore, we could test all variables statistically significant at the 15%, 20%, or 25% level (specific percentage to be decided by your group). In our solutions here, we are looking at pasta and champagne, stratified by veal, but you may decide to look at other food items as well.</span>
-<span id="cb9-64"><a href="#cb9-64" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-65"><a href="#cb9-65" aria-hidden="true" tabindex="-1"></a>::: {.callout-tip title="Need a little bit of help?" collapse="true"}</span>
-<span id="cb9-66"><a href="#cb9-66" aria-hidden="true" tabindex="-1"></a>Use the function <span class="in">`csinter()`</span> of the EpiStats package.</span>
-<span id="cb9-67"><a href="#cb9-67" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb9-68"><a href="#cb9-68" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-69"><a href="#cb9-69" aria-hidden="true" tabindex="-1"></a><span class="fu">### a) Pasta as exposure of interest, stratified by having eaten veal</span></span>
-<span id="cb9-70"><a href="#cb9-70" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-71"><a href="#cb9-71" aria-hidden="true" tabindex="-1"></a>If we stratify the **effect of pasta by veal** we ask the question: does eating veal modify or confound the association between eating pasta and being a case?</span>
-<span id="cb9-72"><a href="#cb9-72" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-75"><a href="#cb9-75" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb9-76"><a href="#cb9-76" aria-hidden="true" tabindex="-1"></a>stratall <span class="ot">&lt;-</span> copdata <span class="sc">%&gt;%</span> </span>
-<span id="cb9-77"><a href="#cb9-77" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Mutate across to convert cases to numeric:</span></span>
-<span id="cb9-78"><a href="#cb9-78" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="fu">across</span>(<span class="at">.cols =</span> case, </span>
-<span id="cb9-79"><a href="#cb9-79" aria-hidden="true" tabindex="-1"></a>                <span class="at">.fns =</span> <span class="sc">~</span> <span class="fu">as.numeric</span>(.)))</span>
-<span id="cb9-80"><a href="#cb9-80" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-81"><a href="#cb9-81" aria-hidden="true" tabindex="-1"></a><span class="co"># Pass data to the csinter function:</span></span>
-<span id="cb9-82"><a href="#cb9-82" aria-hidden="true" tabindex="-1"></a>vealstrata <span class="ot">&lt;-</span> <span class="fu">csinter</span>(<span class="at">x =</span> stratall, </span>
-<span id="cb9-83"><a href="#cb9-83" aria-hidden="true" tabindex="-1"></a>                       <span class="at">cases =</span> <span class="st">"case"</span>, </span>
-<span id="cb9-84"><a href="#cb9-84" aria-hidden="true" tabindex="-1"></a>                       <span class="at">exposure =</span> <span class="st">"pasta"</span>, </span>
-<span id="cb9-85"><a href="#cb9-85" aria-hidden="true" tabindex="-1"></a>                       <span class="at">by =</span> <span class="st">"veal"</span>)</span>
-<span id="cb9-86"><a href="#cb9-86" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-87"><a href="#cb9-87" aria-hidden="true" tabindex="-1"></a>vealstrata</span>
-<span id="cb9-88"><a href="#cb9-88" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb9-89"><a href="#cb9-89" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-90"><a href="#cb9-90" aria-hidden="true" tabindex="-1"></a>Let's check if veal is associated with pasta (if we are thinking pasta may be a confounder, we need to see if there is an association between the potential confounder (pasta) and the exposure (veal)):</span>
-<span id="cb9-91"><a href="#cb9-91" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-94"><a href="#cb9-94" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb9-95"><a href="#cb9-95" aria-hidden="true" tabindex="-1"></a><span class="co"># Perform Wilcoxon rank sum test on veal and pasta:</span></span>
-<span id="cb9-96"><a href="#cb9-96" aria-hidden="true" tabindex="-1"></a><span class="fu">wilcox.test</span>(veal <span class="sc">~</span> pasta, </span>
-<span id="cb9-97"><a href="#cb9-97" aria-hidden="true" tabindex="-1"></a>            <span class="at">data =</span> copdata)</span>
-<span id="cb9-98"><a href="#cb9-98" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb9-99"><a href="#cb9-99" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-100"><a href="#cb9-100" aria-hidden="true" tabindex="-1"></a><span class="fu">### b) Champagne as exposure of interest, stratified by having eaten veal</span></span>
-<span id="cb9-101"><a href="#cb9-101" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-104"><a href="#cb9-104" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb9-105"><a href="#cb9-105" aria-hidden="true" tabindex="-1"></a><span class="co"># Pass data to the csinter function:</span></span>
-<span id="cb9-106"><a href="#cb9-106" aria-hidden="true" tabindex="-1"></a>champstrata <span class="ot">&lt;-</span> <span class="fu">csinter</span>(<span class="at">x =</span> stratall, </span>
-<span id="cb9-107"><a href="#cb9-107" aria-hidden="true" tabindex="-1"></a>                       <span class="at">cases =</span> <span class="st">"case"</span>, </span>
-<span id="cb9-108"><a href="#cb9-108" aria-hidden="true" tabindex="-1"></a>                       <span class="at">exposure =</span> <span class="st">"champagne"</span>, </span>
-<span id="cb9-109"><a href="#cb9-109" aria-hidden="true" tabindex="-1"></a>                       <span class="at">by =</span> <span class="st">"veal"</span>)</span>
-<span id="cb9-110"><a href="#cb9-110" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb9-111"><a href="#cb9-111" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-112"><a href="#cb9-112" aria-hidden="true" tabindex="-1"></a>::: {.callout-warning title="Let's stop and... think!" collapse="true"}</span>
-<span id="cb9-113"><a href="#cb9-113" aria-hidden="true" tabindex="-1"></a>Are there any indications to make you think there may be effect modification and/or confounding?</span>
-<span id="cb9-114"><a href="#cb9-114" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb9-115"><a href="#cb9-115" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-116"><a href="#cb9-116" aria-hidden="true" tabindex="-1"></a>We could stratify by veal (the strongest risk factor in the univariable analysis), to examine if veal confounds the association between eating pasta and being a case. Before stratification, we will need to check if veal meets the conditions of being a confounder. For a variable to be a confounder it needs to be associated both with the outcome (being a case) and with the exposure (and not be in the causal pathway between exposure and outcome). We know from univariable analysis that veal is associated with being a case. If we run a Wilcoxon rank sum test, we will see that veal is also associated with pasta (indeed, you can see that most people either had both pasta and veal or neither of these food items, so they are associated with each other).</span>
-<span id="cb9-117"><a href="#cb9-117" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-118"><a href="#cb9-118" aria-hidden="true" tabindex="-1"></a>Above, we uses <span class="in">`ccinter`</span> to stratify and save the object as "vealstrata".</span>
-<span id="cb9-119"><a href="#cb9-119" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-120"><a href="#cb9-120" aria-hidden="true" tabindex="-1"></a>vealstrata: Within the stratum of the people who ate veal, pasta has no significant effect (RR = 1.20, CI: 0.60 - 2.41). The same holds within the stratum of people who didn't eat veal (RR = 1.05, CI = 0.38, 2.92). The adjusted MH-RR also suggests that pasta has no effect (RRadj = 1.15, CI: 0.80 - 2.85). &nbsp;To identify confounding, we want to look at the % change between the crude and the adjusted RR. This is given by the csinter output "Adjusted/crude relative change".&nbsp; The difference between the crude and the MH-RR in this case is <span class="sc">\&gt;</span>20% suggesting that veal confounds the association between pasta and the disease.</span>
-<span id="cb9-121"><a href="#cb9-121" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-122"><a href="#cb9-122" aria-hidden="true" tabindex="-1"></a>This result suggest that pasta is not a risk factor of the disease and that the crude observed effect was due to the confounding effect of veal.</span>
-<span id="cb9-123"><a href="#cb9-123" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-124"><a href="#cb9-124" aria-hidden="true" tabindex="-1"></a>If you stratify by pasta, you see that pasta does not confound the association between veal and the disease. The same applies if you stratify the exposure to veal by other variables. The above, the higher RR for veal and the dose response relationship we found earlier for veal (remember this was optional) provide additional evidence that there was something going on with the veal with pesto dish!</span>
+<div class="sourceCode" id="cb8" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "Stratified analysis"</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="an">editor:</span><span class="co"> visual</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a><span class="fu">## 1. Learning outcomes</span></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>At the end of the session, participants will be able to:</span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Consider the effect of confounding and effect modification on the association between exposure and disease,</span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Perform stratified analysis using the Mantel-Haenszel approach</span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a>*The use of stratified analysis, is the first step to identify confounding factors and effect modifiers one by one (after, of course, thinking which variables could potentially be confounders or effect modifiers). As the final step, you will be using Regression Models to account for confounding and check for effect modification. We will see these with you in the Multivariable Module (MVA), next year.*</span>
+<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a><span class="fu">## 2. Story/plot description</span></span>
+<span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-18"><a href="#cb8-18" aria-hidden="true" tabindex="-1"></a>From the univariable analysis, it seems that eating pasta and eating veal as well as drinking champagne are associated with the highest risk of becoming ill. There are, however, many other food items that are associated with an increased risk (even if not statistically significant).</span>
+<span id="cb8-19"><a href="#cb8-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-20"><a href="#cb8-20" aria-hidden="true" tabindex="-1"></a>You should next think about potential confounders and about effect modification. Think about which variables you might want to check for effect modification or confounding. One common strategy is to base this decision on the results obtained in the univariable analysis and a p-value threshold of 0.20-0.25. Also, food items that are known risk factors for gastroenteritis could also be included regardless of their univariable p-value.</span>
+<span id="cb8-21"><a href="#cb8-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-22"><a href="#cb8-22" aria-hidden="true" tabindex="-1"></a><span class="fu">## 3. Questions/Assignments</span></span>
+<span id="cb8-23"><a href="#cb8-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-24"><a href="#cb8-24" aria-hidden="true" tabindex="-1"></a><span class="fu">## 3.1. Confounders and effect modification</span></span>
+<span id="cb8-25"><a href="#cb8-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-26"><a href="#cb8-26" aria-hidden="true" tabindex="-1"></a>Discuss how to identify potential confounders and effect modification. Draw dummy tables before coding to have clear what you want to achieve.</span>
+<span id="cb8-27"><a href="#cb8-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-28"><a href="#cb8-28" aria-hidden="true" tabindex="-1"></a><span class="fu">## 3.2. Install packages and load libraries</span></span>
+<span id="cb8-29"><a href="#cb8-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-32"><a href="#cb8-32" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb8-33"><a href="#cb8-33" aria-hidden="true" tabindex="-1"></a><span class="co"># Load the required libraries into the current R session:</span></span>
+<span id="cb8-34"><a href="#cb8-34" aria-hidden="true" tabindex="-1"></a>pacman<span class="sc">::</span><span class="fu">p_load</span>(rio, </span>
+<span id="cb8-35"><a href="#cb8-35" aria-hidden="true" tabindex="-1"></a>               here, </span>
+<span id="cb8-36"><a href="#cb8-36" aria-hidden="true" tabindex="-1"></a>               tidyverse, </span>
+<span id="cb8-37"><a href="#cb8-37" aria-hidden="true" tabindex="-1"></a>               skimr,</span>
+<span id="cb8-38"><a href="#cb8-38" aria-hidden="true" tabindex="-1"></a>               plyr,</span>
+<span id="cb8-39"><a href="#cb8-39" aria-hidden="true" tabindex="-1"></a>               janitor,</span>
+<span id="cb8-40"><a href="#cb8-40" aria-hidden="true" tabindex="-1"></a>               lubridate,</span>
+<span id="cb8-41"><a href="#cb8-41" aria-hidden="true" tabindex="-1"></a>               gtsummary, </span>
+<span id="cb8-42"><a href="#cb8-42" aria-hidden="true" tabindex="-1"></a>               flextable,</span>
+<span id="cb8-43"><a href="#cb8-43" aria-hidden="true" tabindex="-1"></a>               officer,</span>
+<span id="cb8-44"><a href="#cb8-44" aria-hidden="true" tabindex="-1"></a>               epikit, </span>
+<span id="cb8-45"><a href="#cb8-45" aria-hidden="true" tabindex="-1"></a>               apyramid, </span>
+<span id="cb8-46"><a href="#cb8-46" aria-hidden="true" tabindex="-1"></a>               scales,</span>
+<span id="cb8-47"><a href="#cb8-47" aria-hidden="true" tabindex="-1"></a>               EpiStats)</span>
+<span id="cb8-48"><a href="#cb8-48" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb8-49"><a href="#cb8-49" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-50"><a href="#cb8-50" aria-hidden="true" tabindex="-1"></a><span class="fu">## 3.3. Import your data</span></span>
+<span id="cb8-51"><a href="#cb8-51" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-52"><a href="#cb8-52" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, Import_data}</span></span>
+<span id="cb8-53"><a href="#cb8-53" aria-hidden="true" tabindex="-1"></a><span class="in"># Import the raw data set: </span></span>
+<span id="cb8-54"><a href="#cb8-54" aria-hidden="true" tabindex="-1"></a><span class="in">copdata &lt;- rio::import(here::here("data", "Spetses_clean2_2024.rds"), trust = T)</span></span>
+<span id="cb8-55"><a href="#cb8-55" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb8-56"><a href="#cb8-56" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-57"><a href="#cb8-57" aria-hidden="true" tabindex="-1"></a><span class="fu">## 3.4. Consider and assess for confounding and/or effect modification</span></span>
+<span id="cb8-58"><a href="#cb8-58" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-59"><a href="#cb8-59" aria-hidden="true" tabindex="-1"></a>Have a look at the relative risk for being a case having eaten a specific food item (for example, veal), when stratified by another variable (for example, pasta). You may consider stratifying by pasta, as it has the highest RR in the univariable analysis.</span>
+<span id="cb8-60"><a href="#cb8-60" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-61"><a href="#cb8-61" aria-hidden="true" tabindex="-1"></a>There are many variables in this dataset and it might not make sense to stratify each variable by each other variable on our search for effect modifiers and confounders.</span>
+<span id="cb8-62"><a href="#cb8-62" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-63"><a href="#cb8-63" aria-hidden="true" tabindex="-1"></a>However, we also don't want to be too restrictive as a variable which actually (i.e. causally) is associated with the outcome might not show a significant association at the significant level we decided (say 5%) in the univariable analysis due to confounding. Therefore, we could test all variables statistically significant at the 15%, 20%, or 25% level (specific percentage to be decided by your group). In our solutions here, we are looking at veal and champagne, stratified by pasta, but you may decide to look at other food items as well.</span>
+<span id="cb8-64"><a href="#cb8-64" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-65"><a href="#cb8-65" aria-hidden="true" tabindex="-1"></a>::: {.callout-tip title="Need a little bit of help?" collapse="true"}</span>
+<span id="cb8-66"><a href="#cb8-66" aria-hidden="true" tabindex="-1"></a>Use the function <span class="in">`csinter()`</span> of the EpiStats package.</span>
+<span id="cb8-67"><a href="#cb8-67" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb8-68"><a href="#cb8-68" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-69"><a href="#cb8-69" aria-hidden="true" tabindex="-1"></a><span class="fu">### a) Veal as exposure of interest, stratified by having eaten pasta</span></span>
+<span id="cb8-70"><a href="#cb8-70" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-71"><a href="#cb8-71" aria-hidden="true" tabindex="-1"></a>If we stratify the **effect of veal by pasta** we ask the question: does eating pasta modify or confound the association between eating veal and being a case?</span>
+<span id="cb8-72"><a href="#cb8-72" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-75"><a href="#cb8-75" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb8-76"><a href="#cb8-76" aria-hidden="true" tabindex="-1"></a>stratall <span class="ot">&lt;-</span> copdata <span class="sc">%&gt;%</span> </span>
+<span id="cb8-77"><a href="#cb8-77" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Mutate across to convert cases to numeric:</span></span>
+<span id="cb8-78"><a href="#cb8-78" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="fu">across</span>(<span class="at">.cols =</span> case, </span>
+<span id="cb8-79"><a href="#cb8-79" aria-hidden="true" tabindex="-1"></a>                <span class="at">.fns =</span> <span class="sc">~</span> <span class="fu">as.numeric</span>(.)))</span>
+<span id="cb8-80"><a href="#cb8-80" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-81"><a href="#cb8-81" aria-hidden="true" tabindex="-1"></a><span class="co"># Pass data to the csinter function:</span></span>
+<span id="cb8-82"><a href="#cb8-82" aria-hidden="true" tabindex="-1"></a>pastastrata <span class="ot">&lt;-</span> <span class="fu">csinter</span>(<span class="at">x =</span> stratall, </span>
+<span id="cb8-83"><a href="#cb8-83" aria-hidden="true" tabindex="-1"></a>                       <span class="at">cases =</span> <span class="st">"case"</span>, </span>
+<span id="cb8-84"><a href="#cb8-84" aria-hidden="true" tabindex="-1"></a>                       <span class="at">exposure =</span> <span class="st">"veal"</span>, </span>
+<span id="cb8-85"><a href="#cb8-85" aria-hidden="true" tabindex="-1"></a>                       <span class="at">by =</span> <span class="st">"pasta"</span>)</span>
+<span id="cb8-86"><a href="#cb8-86" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-87"><a href="#cb8-87" aria-hidden="true" tabindex="-1"></a>pastastrata</span>
+<span id="cb8-88"><a href="#cb8-88" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb8-89"><a href="#cb8-89" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-90"><a href="#cb8-90" aria-hidden="true" tabindex="-1"></a>Let's check if pasta is associated with veal (if we are thinking pasta may be a confounder, we need to see if there is an association between the potential confounder (pasta) and the exposure (veal)):</span>
+<span id="cb8-91"><a href="#cb8-91" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-94"><a href="#cb8-94" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb8-95"><a href="#cb8-95" aria-hidden="true" tabindex="-1"></a><span class="co"># Perform Wilcoxon rank sum test on veal and pasta:</span></span>
+<span id="cb8-96"><a href="#cb8-96" aria-hidden="true" tabindex="-1"></a><span class="fu">wilcox.test</span>(veal <span class="sc">~</span> pasta, </span>
+<span id="cb8-97"><a href="#cb8-97" aria-hidden="true" tabindex="-1"></a>            <span class="at">data =</span> copdata)</span>
+<span id="cb8-98"><a href="#cb8-98" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb8-99"><a href="#cb8-99" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-100"><a href="#cb8-100" aria-hidden="true" tabindex="-1"></a><span class="fu">### b) Champagne as exposure of interest, stratified by having eaten pasta</span></span>
+<span id="cb8-101"><a href="#cb8-101" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-104"><a href="#cb8-104" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb8-105"><a href="#cb8-105" aria-hidden="true" tabindex="-1"></a><span class="co"># Pass data to the csinter function:</span></span>
+<span id="cb8-106"><a href="#cb8-106" aria-hidden="true" tabindex="-1"></a>champstrata <span class="ot">&lt;-</span> <span class="fu">csinter</span>(<span class="at">x =</span> stratall, </span>
+<span id="cb8-107"><a href="#cb8-107" aria-hidden="true" tabindex="-1"></a>                       <span class="at">cases =</span> <span class="st">"case"</span>, </span>
+<span id="cb8-108"><a href="#cb8-108" aria-hidden="true" tabindex="-1"></a>                       <span class="at">exposure =</span> <span class="st">"champagne"</span>, </span>
+<span id="cb8-109"><a href="#cb8-109" aria-hidden="true" tabindex="-1"></a>                       <span class="at">by =</span> <span class="st">"pasta"</span>)</span>
+<span id="cb8-110"><a href="#cb8-110" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb8-111"><a href="#cb8-111" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-112"><a href="#cb8-112" aria-hidden="true" tabindex="-1"></a>::: {.callout-warning title="Let's stop and... think!" collapse="true"}</span>
+<span id="cb8-113"><a href="#cb8-113" aria-hidden="true" tabindex="-1"></a>Are there any indications to make you think there may be effect modification and/or confounding?</span>
+<span id="cb8-114"><a href="#cb8-114" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb8-115"><a href="#cb8-115" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-116"><a href="#cb8-116" aria-hidden="true" tabindex="-1"></a>We could stratify by pasta (the strongest risk factor in the univariable analysis), to examine if pasta confounds the association between eating veal and being a case. Before stratification, we will need to check if pasta meets the conditions of being a confounder. For a variable to be a confounder it needs to be associated both with the outcome (being a case) and with the exposure (and not be in the causal pathway between exposure and outcome). We know from univariable analysis that pasta is associated with being a case. If we run a Wilcoxon rank sum test, we will see that pasta is also associated with veal (indeed, you can see that most people either had both pasta and veal or neither of these food items, so they are associated with each other).</span>
+<span id="cb8-117"><a href="#cb8-117" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-118"><a href="#cb8-118" aria-hidden="true" tabindex="-1"></a>Above, we uses <span class="in">`ccinter`</span> to stratify and save the object as "pastastrata".</span>
+<span id="cb8-119"><a href="#cb8-119" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-120"><a href="#cb8-120" aria-hidden="true" tabindex="-1"></a>pastastrata: Within the stratum of the people who ate pasta, veal has no significant effect (RR = 1.20, CI: 0.60 - 2.41). The same holds within the stratum of people who didn't eat pasta (RR = 1.05, CI = 0.38, 2.92). The adjusted MH-RR also suggests that veal has no effect (RRadj = 1.15, CI: 0.80 - 2.85). &nbsp;To identify confounding, we want to look at the % change between the crude and the adjusted RR. This is given by the csinter output "Adjusted/crude relative change".&nbsp; The difference between the crude and the MH-RR in this case is <span class="sc">\&gt;</span>20% suggesting that pasta confounds the association between veal and the disease.</span>
+<span id="cb8-121"><a href="#cb8-121" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-122"><a href="#cb8-122" aria-hidden="true" tabindex="-1"></a>This result suggest that veal is not a risk factor of the disease and that the crude observed effect was due to the confounding effect of pasta.</span>
+<span id="cb8-123"><a href="#cb8-123" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-124"><a href="#cb8-124" aria-hidden="true" tabindex="-1"></a>If you stratify by veal, you see that veal does not confound the association between pasta and the disease. The same applies if you stratify the exposure to pasta by other variables. The above, the higher RR for pasta and the dose response relationship we found earlier for pasta (remember this was optional) provide additional evidence that there was something going on with the pasta with pesto dish!</span>
 </code><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->

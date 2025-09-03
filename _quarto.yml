@@ -1,6 +1,6 @@
 project:
   type: website
-  output-dir: docs-preview
+  output-dir: docs
 
 website:
   title: "Spetses Introductory Course"
