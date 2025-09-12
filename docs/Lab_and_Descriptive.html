@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.433">
+<meta name="generator" content="quarto-1.5.57">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Spetses Introductory Course - Laboratory data and descriptive analysis</title>
+<title>Laboratory data and descriptive analysis – Spetses Introductory Course</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -22,7 +22,7 @@ ul.task-list li input[type="checkbox"] {
 }
 /* CSS for syntax highlighting */
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span { line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -33,7 +33,7 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -81,7 +81,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   "collapse-after": 3,
   "panel-placement": "end",
   "type": "overlay",
-  "limit": 20,
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -90,14 +96,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-more-match-text": "more match in this document",
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
     "search-detached-cancel-button-title": "Cancel",
     "search-submit-button-title": "Submit",
     "search-label": "Search"
   }
 }</script>
-
 <link href="site_libs/pagedtable-1.1/css/pagedtable.css" rel="stylesheet">
+
 <script src="site_libs/pagedtable-1.1/js/pagedtable.js"></script>
+
 
 
 <link rel="stylesheet" href="styles.css">
@@ -107,55 +115,56 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
-    <nav class="navbar navbar-expand-lg navbar-dark ">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
-      <div class="navbar-brand-container">
+      <div class="navbar-brand-container mx-auto">
     <a class="navbar-brand" href="./index.html">
     <span class="navbar-title">Spetses Introductory Course</span>
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./index.html" rel="" target="">
- <span class="menu-text">What is this?</span></a>
+    <a class="nav-link" href="./index.html"> 
+<span class="menu-text">What is this?</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./Data_import_cleaning.html" rel="" target="">
- <span class="menu-text">Data import and cleaning</span></a>
+    <a class="nav-link" href="./Data_import_cleaning.html"> 
+<span class="menu-text">Data import and cleaning</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./Case_definition.html" rel="" target="">
- <span class="menu-text">Case Definition</span></a>
+    <a class="nav-link" href="./Case_definition.html"> 
+<span class="menu-text">Case Definition</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="./Lab_and_Descriptive.html" rel="" target="" aria-current="page">
- <span class="menu-text">Laboratory data and descriptive analysis</span></a>
+    <a class="nav-link active" href="./Lab_and_Descriptive.html" aria-current="page"> 
+<span class="menu-text">Laboratory data and descriptive analysis</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./Univariate.html" rel="" target="">
- <span class="menu-text">Univariable analysis</span></a>
+    <a class="nav-link" href="./Univariate.html"> 
+<span class="menu-text">Univariable analysis</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./Stratified.html" rel="" target="">
- <span class="menu-text">Stratified analysis</span></a>
+    <a class="nav-link" href="./Stratified.html"> 
+<span class="menu-text">Stratified analysis</span></a>
   </li>  
 </ul>
-            <div class="quarto-navbar-tools ms-auto">
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
     <div class="dropdown">
-      <a href="" title="" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" aria-label=""><i class="bi bi-github"></i></a>
-      <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="quarto-navigation-tool-dropdown-0">
+      <a href="" title="" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" role="link" aria-label=""><i class="bi bi-github"></i></a>
+      <ul class="dropdown-menu" aria-labelledby="quarto-navigation-tool-dropdown-0">
           <li>
-            <a class="dropdown-item quarto-navbar-tools ms-auto-item" href="https://github.com/EPIET/IntroCourse_inCop/tree/main">
+            <a class="dropdown-item quarto-navbar-tools-item" href="https://github.com/EPIET/IntroCourse_inCop/tree/main">
             Source Code
             </a>
           </li>
           <li>
-            <a class="dropdown-item quarto-navbar-tools ms-auto-item" href="https://github.com/EPIET/IntroCourse_inCop/issues">
+            <a class="dropdown-item quarto-navbar-tools-item" href="https://github.com/EPIET/IntroCourse_inCop/issues">
             Report a code issue
             </a>
           </li>
@@ -163,7 +172,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     </div>
   <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
 </div>
-          </div> <!-- /navcollapse -->
       </div> <!-- /container-fluid -->
     </nav>
 </header>
@@ -225,7 +233,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </div>
   
 
+
 </header>
+
 
 <section id="learning-outcomes" class="level2">
 <h2 class="anchored" data-anchor-id="learning-outcomes">1. Learning outcomes</h2>
@@ -249,8 +259,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="install-packages-if-needed-and-load-libraries" class="level2">
 <h2 class="anchored" data-anchor-id="install-packages-if-needed-and-load-libraries">3.1 Install packages (if needed) and load libraries</h2>
 <div class="cell">
-<details open="">
-<summary>Code</summary>
+<details open="" class="code-fold">
+<summary>Show the code</summary>
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load the required libraries into the current R session:</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>pacman<span class="sc">::</span><span class="fu">p_load</span>(rio, </span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>               here, </span>
@@ -271,10 +281,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="import-your-data" class="level2">
 <h2 class="anchored" data-anchor-id="import-your-data">3.2 Import your data</h2>
 <div class="cell">
-<details open="">
-<summary>Code</summary>
+<details open="" class="code-fold">
+<summary>Show the code</summary>
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Import the clean data set:</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>copdata <span class="ot">&lt;-</span> rio<span class="sc">::</span><span class="fu">import</span>(here<span class="sc">::</span><span class="fu">here</span>(<span class="st">"data"</span>, <span class="st">"Spetses_clean2_2024.rds"</span>)) </span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>copdata <span class="ot">&lt;-</span> rio<span class="sc">::</span><span class="fu">import</span>(here<span class="sc">::</span><span class="fu">here</span>(<span class="st">"data"</span>, <span class="st">"Spetses_clean2_2024.rds"</span>), <span class="at">trust =</span> T) </span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>lab <span class="ot">&lt;-</span> rio<span class="sc">::</span><span class="fu">import</span>(here<span class="sc">::</span><span class="fu">here</span>(<span class="st">"data"</span>, <span class="st">"Lab data.xlsx"</span>),</span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>                   <span class="at">skip =</span> <span class="dv">1</span>) <span class="co"># skip the first row.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
@@ -283,15 +293,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="merge-and-explore-the-lab-data.-explore-it-as-you-wish" class="level2">
 <h2 class="anchored" data-anchor-id="merge-and-explore-the-lab-data.-explore-it-as-you-wish">3.3 Merge and explore the lab data. Explore it as you wish!</h2>
 <div class="cell">
-<details open="">
-<summary>Code</summary>
+<details open="" class="code-fold">
+<summary>Show the code</summary>
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>copdatalab <span class="ot">&lt;-</span> <span class="fu">left_join</span>(copdata, lab, </span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>                        <span class="at">by =</span> <span class="st">"id"</span>)</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Tabulate:</span></span>
 <span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>janitor<span class="sc">::</span><span class="fu">tabyl</span>(<span class="at">dat =</span> copdatalab, <span class="st">"RT-PCR_ecoli_etec"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
-
 <div data-pagedtable="false">
   <script data-pagedtable-source="" type="application/json">
 {"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["RT-PCR_ecoli_etec"],"name":[1],"type":["chr"],"align":["left"]},{"label":["n"],"name":[2],"type":["int"],"align":["right"]},{"label":["percent"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["valid_percent"],"name":[4],"type":["dbl"],"align":["right"]}],"data":[{"1":"positive","2":"22","3":"0.05835544","4":"1","_rn_":"1"},{"1":"NA","2":"355","3":"0.94164456","4":"NA","_rn_":"2"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
@@ -322,13 +331,13 @@ Let’s stop and… think!
 </div>
 </div>
 <div class="cell">
-<details open="">
-<summary>Code</summary>
+<details open="" class="code-fold">
+<summary>Show the code</summary>
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: inc_time</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a dataset with only cases</span></span>
 <span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>cases <span class="ot">&lt;-</span> copdata <span class="sc">%&gt;%</span> </span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(case <span class="sc">==</span> <span class="cn">TRUE</span>)</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(case <span class="sc">==</span> <span class="dv">1</span>)</span>
 <span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>incplot <span class="ot">&lt;-</span> cases <span class="sc">%&gt;%</span> </span>
 <span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Create an empty ggplot frame:</span></span>
@@ -348,7 +357,11 @@ Let’s stop and… think!
 <span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a>incplot</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
-<p><img src="Lab_and_Descriptive_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid" width="672"></p>
+<div>
+<figure class="figure">
+<p><img src="Lab_and_Descriptive_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
 </div>
 </div>
 </section>
@@ -375,8 +388,8 @@ Need a little bit of help?
 </div>
 </div>
 <div class="cell">
-<details open="">
-<summary>Code</summary>
+<details open="" class="code-fold">
+<summary>Show the code</summary>
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a vector with sequences every 6h from the first to the last case</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>breaks_6h <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="at">from =</span> <span class="fu">min</span>(cases<span class="sc">$</span>onset_datetime, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>                 <span class="at">to =</span> <span class="fu">max</span>(cases<span class="sc">$</span>onset_datetime, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
@@ -405,7 +418,11 @@ Need a little bit of help?
 <span id="cb5-26"><a href="#cb5-26" aria-hidden="true" tabindex="-1"></a>epicurve_datetime</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
-<p><img src="Lab_and_Descriptive_files/figure-html/epicurve date-time-1.png" class="img-fluid" width="672"></p>
+<div>
+<figure class="figure">
+<p><img src="Lab_and_Descriptive_files/figure-html/epicurve date-time-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
 </div>
 </div>
 <ol start="3" type="a">
@@ -448,8 +465,8 @@ Do you feel like a challenge?
 </div>
 </div>
 <div class="cell">
-<details open="">
-<summary>Code</summary>
+<details open="" class="code-fold">
+<summary>Show the code</summary>
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>epicurve_strata <span class="ot">&lt;-</span> cases <span class="sc">%&gt;%</span> </span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Add factor onset_day to ggplot aesthetic:</span></span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(</span>
@@ -480,7 +497,11 @@ Do you feel like a challenge?
 <span id="cb6-28"><a href="#cb6-28" aria-hidden="true" tabindex="-1"></a>epicurve_strata </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
-<p><img src="Lab_and_Descriptive_files/figure-html/epicurve strata-1.png" class="img-fluid" width="672"></p>
+<div>
+<figure class="figure">
+<p><img src="Lab_and_Descriptive_files/figure-html/epicurve strata-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
 </div>
 </div>
 <div class="callout callout-style-default callout-warning callout-titled" title="Let's stop and... think!">
@@ -526,8 +547,8 @@ If you’ve thought about the above questions, have a look here
 <section id="a-create-a-cross-tabulation-of-case-with-group." class="level3">
 <h3 class="anchored" data-anchor-id="a-create-a-cross-tabulation-of-case-with-group.">a) Create a cross-tabulation of <code>case</code> with <code>group</code>.</h3>
 <div class="cell">
-<details open="">
-<summary>Code</summary>
+<details open="" class="code-fold">
+<summary>Show the code</summary>
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>copdata <span class="sc">%&gt;%</span> </span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  janitor<span class="sc">::</span><span class="fu">tabyl</span>(case, group) <span class="sc">%&gt;%</span> </span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">adorn_totals</span>() <span class="sc">%&gt;%</span> </span>
@@ -535,10 +556,9 @@ If you’ve thought about the above questions, have a look here
 <span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">adorn_pct_formatting</span>() </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
-
 <div data-pagedtable="false">
   <script data-pagedtable-source="" type="application/json">
-{"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["case"],"name":[1],"type":["chr"],"align":["left"]},{"label":["teacher"],"name":[2],"type":["chr"],"align":["left"]},{"label":["student"],"name":[3],"type":["chr"],"align":["left"]}],"data":[{"1":"FALSE","2":"5.6%","3":"94.4%","_rn_":"1"},{"1":"TRUE","2":"2.8%","3":"97.2%","_rn_":"2"},{"1":"Total","2":"4.0%","3":"96.0%","_rn_":"3"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+{"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["case"],"name":[1],"type":["chr"],"align":["left"]},{"label":["teacher"],"name":[2],"type":["chr"],"align":["left"]},{"label":["student"],"name":[3],"type":["chr"],"align":["left"]}],"data":[{"1":"0","2":"5.6%","3":"94.4%","_rn_":"1"},{"1":"1","2":"2.8%","3":"97.2%","_rn_":"2"},{"1":"Total","2":"4.0%","3":"96.0%","_rn_":"3"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
   </script>
 </div>
 </div>
@@ -547,8 +567,8 @@ If you’ve thought about the above questions, have a look here
 <section id="b-create-a-cross-tabulation-of-case-with-sex." class="level3">
 <h3 class="anchored" data-anchor-id="b-create-a-cross-tabulation-of-case-with-sex.">b) Create a cross-tabulation of <code>case</code> with <code>sex</code>.</h3>
 <div class="cell">
-<details open="">
-<summary>Code</summary>
+<details open="" class="code-fold">
+<summary>Show the code</summary>
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>copdata <span class="sc">%&gt;%</span> </span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  janitor<span class="sc">::</span><span class="fu">tabyl</span>(case, sex) <span class="sc">%&gt;%</span> </span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">adorn_totals</span>() <span class="sc">%&gt;%</span> </span>
@@ -556,10 +576,9 @@ If you’ve thought about the above questions, have a look here
 <span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">adorn_pct_formatting</span>() </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
-
 <div data-pagedtable="false">
   <script data-pagedtable-source="" type="application/json">
-{"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["case"],"name":[1],"type":["chr"],"align":["left"]},{"label":["female"],"name":[2],"type":["chr"],"align":["left"]},{"label":["male"],"name":[3],"type":["chr"],"align":["left"]}],"data":[{"1":"FALSE","2":"59.6%","3":"40.4%","_rn_":"1"},{"1":"TRUE","2":"54.2%","3":"45.8%","_rn_":"2"},{"1":"Total","2":"56.5%","3":"43.5%","_rn_":"3"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+{"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["case"],"name":[1],"type":["chr"],"align":["left"]},{"label":["female"],"name":[2],"type":["chr"],"align":["left"]},{"label":["male"],"name":[3],"type":["chr"],"align":["left"]}],"data":[{"1":"0","2":"59.6%","3":"40.4%","_rn_":"1"},{"1":"1","2":"54.2%","3":"45.8%","_rn_":"2"},{"1":"Total","2":"56.5%","3":"43.5%","_rn_":"3"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
   </script>
 </div>
 </div>
@@ -617,8 +636,8 @@ Do you feel like a challenge?
 <h3 class="anchored" data-anchor-id="c-extra---age-sex-pyramid-of-cases.">c) Extra - Age-sex pyramid of cases.</h3>
 <p>Hint: Change <code>show_midpoint = FALSE</code> to <code>TRUE</code> to see skewedness in the data patterns more easily.</p>
 <div class="cell">
-<details open="">
-<summary>Code</summary>
+<details open="" class="code-fold">
+<summary>Show the code</summary>
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>copdata <span class="ot">&lt;-</span> copdata <span class="sc">%&gt;%</span> </span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Create age categories:</span></span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">age_cat =</span> epikit<span class="sc">::</span><span class="fu">age_categories</span>(</span>
@@ -634,15 +653,14 @@ Do you feel like a challenge?
 <span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a>janitor<span class="sc">::</span><span class="fu">tabyl</span>(copdata, age_cat)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
-
 <div data-pagedtable="false">
   <script data-pagedtable-source="" type="application/json">
 {"columns":[{"label":["age_cat"],"name":[1],"type":["fct"],"align":["left"]},{"label":["n"],"name":[2],"type":["int"],"align":["right"]},{"label":["percent"],"name":[3],"type":["dbl"],"align":["right"]}],"data":[{"1":"0-9","2":"0","3":"0.00000000"},{"1":"10-15","2":"11","3":"0.02917772"},{"1":"16-17","2":"201","3":"0.53315650"},{"1":"18-19","2":"147","3":"0.38992042"},{"1":"20-49","2":"11","3":"0.02917772"},{"1":"50-69","2":"7","3":"0.01856764"},{"1":"70+","2":"0","3":"0.00000000"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
   </script>
 </div>
 </div>
-<details open="">
-<summary>Code</summary>
+<details open="" class="code-fold">
+<summary>Show the code</summary>
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Pipe copdata:</span></span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>agesex <span class="ot">&lt;-</span> copdata <span class="sc">%&gt;%</span> </span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Filter for cases only:</span></span>
@@ -661,7 +679,11 @@ Do you feel like a challenge?
 <span id="cb10-16"><a href="#cb10-16" aria-hidden="true" tabindex="-1"></a>agesex</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
-<p><img src="Lab_and_Descriptive_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid" width="672"></p>
+<div>
+<figure class="figure">
+<p><img src="Lab_and_Descriptive_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
 </div>
 </div>
 </section>
@@ -671,8 +693,8 @@ Do you feel like a challenge?
 <section id="a-create-a-summary-table-with-symptoms-stratified-by-case-definition-and-present-an-overall-column-as-well.-you-could-use-tabyl-or-gtsummarytbl_summary.-you-can-find-further-information-about-gtsummary-in-the-epidemiologist-r-handbook-section-on-gtsummary." class="level3">
 <h3 class="anchored" data-anchor-id="a-create-a-summary-table-with-symptoms-stratified-by-case-definition-and-present-an-overall-column-as-well.-you-could-use-tabyl-or-gtsummarytbl_summary.-you-can-find-further-information-about-gtsummary-in-the-epidemiologist-r-handbook-section-on-gtsummary.">a) Create a summary table with symptoms stratified by case definition, and present an overall column as well. You could use <code>tabyl()</code> or <code>gtsummary::tbl_summary()</code>. You can find further information about <code>gtsummary</code> in <a href="https://www.epirhandbook.com/en/descriptive-tables.html#tbl_gt">The Epidemiologist R handbook section on gtsummary</a>.</h3>
 <div class="cell">
-<details open="">
-<summary>Code</summary>
+<details open="" class="code-fold">
+<summary>Show the code</summary>
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create summary table:</span></span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>tabsymptoms <span class="ot">&lt;-</span> copdata <span class="sc">%&gt;%</span> </span>
 <span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Select person characteristics to summarise:</span></span>
@@ -728,24 +750,23 @@ Do you feel like a challenge?
 <span id="cb11-53"><a href="#cb11-53" aria-hidden="true" tabindex="-1"></a>tabsymptoms</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
-
-<div id="nqohqaehfv" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#nqohqaehfv table {
+<div id="tlxvherrbd" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#tlxvherrbd table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#nqohqaehfv thead, #nqohqaehfv tbody, #nqohqaehfv tfoot, #nqohqaehfv tr, #nqohqaehfv td, #nqohqaehfv th {
+#tlxvherrbd thead, #tlxvherrbd tbody, #tlxvherrbd tfoot, #tlxvherrbd tr, #tlxvherrbd td, #tlxvherrbd th {
   border-style: none;
 }
 
-#nqohqaehfv p {
+#tlxvherrbd p {
   margin: 0;
   padding: 0;
 }
 
-#nqohqaehfv .gt_table {
+#tlxvherrbd .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -771,12 +792,12 @@ Do you feel like a challenge?
   border-left-color: #D3D3D3;
 }
 
-#nqohqaehfv .gt_caption {
+#tlxvherrbd .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#nqohqaehfv .gt_title {
+#tlxvherrbd .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -788,7 +809,7 @@ Do you feel like a challenge?
   border-bottom-width: 0;
 }
 
-#nqohqaehfv .gt_subtitle {
+#tlxvherrbd .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -800,7 +821,7 @@ Do you feel like a challenge?
   border-top-width: 0;
 }
 
-#nqohqaehfv .gt_heading {
+#tlxvherrbd .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -812,13 +833,13 @@ Do you feel like a challenge?
   border-right-color: #D3D3D3;
 }
 
-#nqohqaehfv .gt_bottom_border {
+#tlxvherrbd .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#nqohqaehfv .gt_col_headings {
+#tlxvherrbd .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -833,7 +854,7 @@ Do you feel like a challenge?
   border-right-color: #D3D3D3;
 }
 
-#nqohqaehfv .gt_col_heading {
+#tlxvherrbd .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -853,7 +874,7 @@ Do you feel like a challenge?
   overflow-x: hidden;
 }
 
-#nqohqaehfv .gt_column_spanner_outer {
+#tlxvherrbd .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -865,15 +886,15 @@ Do you feel like a challenge?
   padding-right: 4px;
 }
 
-#nqohqaehfv .gt_column_spanner_outer:first-child {
+#tlxvherrbd .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#nqohqaehfv .gt_column_spanner_outer:last-child {
+#tlxvherrbd .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#nqohqaehfv .gt_column_spanner {
+#tlxvherrbd .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -885,11 +906,11 @@ Do you feel like a challenge?
   width: 100%;
 }
 
-#nqohqaehfv .gt_spanner_row {
+#tlxvherrbd .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#nqohqaehfv .gt_group_heading {
+#tlxvherrbd .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -915,7 +936,7 @@ Do you feel like a challenge?
   text-align: left;
 }
 
-#nqohqaehfv .gt_empty_group_heading {
+#tlxvherrbd .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -930,15 +951,15 @@ Do you feel like a challenge?
   vertical-align: middle;
 }
 
-#nqohqaehfv .gt_from_md > :first-child {
+#tlxvherrbd .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#nqohqaehfv .gt_from_md > :last-child {
+#tlxvherrbd .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#nqohqaehfv .gt_row {
+#tlxvherrbd .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -957,7 +978,7 @@ Do you feel like a challenge?
   overflow-x: hidden;
 }
 
-#nqohqaehfv .gt_stub {
+#tlxvherrbd .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -970,7 +991,7 @@ Do you feel like a challenge?
   padding-right: 5px;
 }
 
-#nqohqaehfv .gt_stub_row_group {
+#tlxvherrbd .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -984,15 +1005,15 @@ Do you feel like a challenge?
   vertical-align: top;
 }
 
-#nqohqaehfv .gt_row_group_first td {
+#tlxvherrbd .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#nqohqaehfv .gt_row_group_first th {
+#tlxvherrbd .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#nqohqaehfv .gt_summary_row {
+#tlxvherrbd .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1002,16 +1023,16 @@ Do you feel like a challenge?
   padding-right: 5px;
 }
 
-#nqohqaehfv .gt_first_summary_row {
+#tlxvherrbd .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#nqohqaehfv .gt_first_summary_row.thick {
+#tlxvherrbd .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#nqohqaehfv .gt_last_summary_row {
+#tlxvherrbd .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1021,7 +1042,7 @@ Do you feel like a challenge?
   border-bottom-color: #D3D3D3;
 }
 
-#nqohqaehfv .gt_grand_summary_row {
+#tlxvherrbd .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1031,7 +1052,7 @@ Do you feel like a challenge?
   padding-right: 5px;
 }
 
-#nqohqaehfv .gt_first_grand_summary_row {
+#tlxvherrbd .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1041,7 +1062,7 @@ Do you feel like a challenge?
   border-top-color: #D3D3D3;
 }
 
-#nqohqaehfv .gt_last_grand_summary_row_top {
+#tlxvherrbd .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1051,11 +1072,11 @@ Do you feel like a challenge?
   border-bottom-color: #D3D3D3;
 }
 
-#nqohqaehfv .gt_striped {
+#tlxvherrbd .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#nqohqaehfv .gt_table_body {
+#tlxvherrbd .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1064,7 +1085,7 @@ Do you feel like a challenge?
   border-bottom-color: #D3D3D3;
 }
 
-#nqohqaehfv .gt_footnotes {
+#tlxvherrbd .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1078,7 +1099,7 @@ Do you feel like a challenge?
   border-right-color: #D3D3D3;
 }
 
-#nqohqaehfv .gt_footnote {
+#tlxvherrbd .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -1087,7 +1108,7 @@ Do you feel like a challenge?
   padding-right: 5px;
 }
 
-#nqohqaehfv .gt_sourcenotes {
+#tlxvherrbd .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1101,7 +1122,7 @@ Do you feel like a challenge?
   border-right-color: #D3D3D3;
 }
 
-#nqohqaehfv .gt_sourcenote {
+#tlxvherrbd .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -1109,187 +1130,268 @@ Do you feel like a challenge?
   padding-right: 5px;
 }
 
-#nqohqaehfv .gt_left {
+#tlxvherrbd .gt_left {
   text-align: left;
 }
 
-#nqohqaehfv .gt_center {
+#tlxvherrbd .gt_center {
   text-align: center;
 }
 
-#nqohqaehfv .gt_right {
+#tlxvherrbd .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#nqohqaehfv .gt_font_normal {
+#tlxvherrbd .gt_font_normal {
   font-weight: normal;
 }
 
-#nqohqaehfv .gt_font_bold {
+#tlxvherrbd .gt_font_bold {
   font-weight: bold;
 }
 
-#nqohqaehfv .gt_font_italic {
+#tlxvherrbd .gt_font_italic {
   font-style: italic;
 }
 
-#nqohqaehfv .gt_super {
+#tlxvherrbd .gt_super {
   font-size: 65%;
 }
 
-#nqohqaehfv .gt_footnote_marks {
+#tlxvherrbd .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#nqohqaehfv .gt_asterisk {
+#tlxvherrbd .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#nqohqaehfv .gt_indent_1 {
+#tlxvherrbd .gt_indent_1 {
   text-indent: 5px;
 }
 
-#nqohqaehfv .gt_indent_2 {
+#tlxvherrbd .gt_indent_2 {
   text-indent: 10px;
 }
 
-#nqohqaehfv .gt_indent_3 {
+#tlxvherrbd .gt_indent_3 {
   text-indent: 15px;
 }
 
-#nqohqaehfv .gt_indent_4 {
+#tlxvherrbd .gt_indent_4 {
   text-indent: 20px;
 }
 
-#nqohqaehfv .gt_indent_5 {
+#tlxvherrbd .gt_indent_5 {
   text-indent: 25px;
 }
+
+#tlxvherrbd .katex-display {
+  display: inline-flex !important;
+  margin-bottom: 0.75em !important;
+}
+
+#tlxvherrbd div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+  height: 0px !important;
+}
 </style>
-<table class="gt_table" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
-  <thead>
-    
-    <tr class="gt_col_headings">
-      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id="<strong>Characteristic</strong>"><strong>Characteristic</strong></th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="<strong>Overall</strong>
-<strong>N</strong> = 377<span class=&quot;gt_footnote_marks&quot; style=&quot;white-space:nowrap;font-style:italic;font-weight:normal;&quot;><sup>1</sup></span>"><strong>Overall</strong>
-<strong>N</strong> = 377<span class="gt_footnote_marks" style="white-space:nowrap;font-style:italic;font-weight:normal;"><sup>1</sup></span></th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="<strong>Non-case</strong>
-<strong>N</strong> = 161<span class=&quot;gt_footnote_marks&quot; style=&quot;white-space:nowrap;font-style:italic;font-weight:normal;&quot;><sup>1</sup></span>"><strong>Non-case</strong>
-<strong>N</strong> = 161<span class="gt_footnote_marks" style="white-space:nowrap;font-style:italic;font-weight:normal;"><sup>1</sup></span></th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="<strong>Case</strong>
-<strong>N</strong> = 216<span class=&quot;gt_footnote_marks&quot; style=&quot;white-space:nowrap;font-style:italic;font-weight:normal;&quot;><sup>1</sup></span>"><strong>Case</strong>
-<strong>N</strong> = 216<span class="gt_footnote_marks" style="white-space:nowrap;font-style:italic;font-weight:normal;"><sup>1</sup></span></th>
-    </tr>
-  </thead>
-  <tbody class="gt_table_body">
-    <tr><td headers="label" class="gt_row gt_left" style="font-weight: bold; font-style: italic;">Diarrhoea</td>
-<td headers="stat_0" class="gt_row gt_center"></td>
-<td headers="stat_1" class="gt_row gt_center"></td>
-<td headers="stat_2" class="gt_row gt_center"></td></tr>
-    <tr><td headers="label" class="gt_row gt_left">&nbsp;&nbsp;&nbsp;&nbsp;FALSE</td>
-<td headers="stat_0" class="gt_row gt_center">46 (18%)</td>
-<td headers="stat_1" class="gt_row gt_center">40 (100%)</td>
-<td headers="stat_2" class="gt_row gt_center">6 (2.8%)</td></tr>
-    <tr><td headers="label" class="gt_row gt_left">&nbsp;&nbsp;&nbsp;&nbsp;TRUE</td>
-<td headers="stat_0" class="gt_row gt_center">206 (82%)</td>
-<td headers="stat_1" class="gt_row gt_center">0 (0%)</td>
-<td headers="stat_2" class="gt_row gt_center">206 (97%)</td></tr>
-    <tr><td headers="label" class="gt_row gt_left" style="font-weight: bold; font-style: italic;">Dysentary</td>
-<td headers="stat_0" class="gt_row gt_center"></td>
-<td headers="stat_1" class="gt_row gt_center"></td>
-<td headers="stat_2" class="gt_row gt_center"></td></tr>
-    <tr><td headers="label" class="gt_row gt_left">&nbsp;&nbsp;&nbsp;&nbsp;FALSE</td>
-<td headers="stat_0" class="gt_row gt_center">189 (97%)</td>
-<td headers="stat_1" class="gt_row gt_center">42 (100%)</td>
-<td headers="stat_2" class="gt_row gt_center">147 (97%)</td></tr>
-    <tr><td headers="label" class="gt_row gt_left">&nbsp;&nbsp;&nbsp;&nbsp;TRUE</td>
-<td headers="stat_0" class="gt_row gt_center">5 (2.6%)</td>
-<td headers="stat_1" class="gt_row gt_center">0 (0%)</td>
-<td headers="stat_2" class="gt_row gt_center">5 (3.3%)</td></tr>
-    <tr><td headers="label" class="gt_row gt_left" style="font-weight: bold; font-style: italic;">Vomiting</td>
-<td headers="stat_0" class="gt_row gt_center"></td>
-<td headers="stat_1" class="gt_row gt_center"></td>
-<td headers="stat_2" class="gt_row gt_center"></td></tr>
-    <tr><td headers="label" class="gt_row gt_left">&nbsp;&nbsp;&nbsp;&nbsp;FALSE</td>
-<td headers="stat_0" class="gt_row gt_center">149 (69%)</td>
-<td headers="stat_1" class="gt_row gt_center">42 (100%)</td>
-<td headers="stat_2" class="gt_row gt_center">107 (62%)</td></tr>
-    <tr><td headers="label" class="gt_row gt_left">&nbsp;&nbsp;&nbsp;&nbsp;TRUE</td>
-<td headers="stat_0" class="gt_row gt_center">66 (31%)</td>
-<td headers="stat_1" class="gt_row gt_center">0 (0%)</td>
-<td headers="stat_2" class="gt_row gt_center">66 (38%)</td></tr>
-    <tr><td headers="label" class="gt_row gt_left" style="font-weight: bold; font-style: italic;">Abdominal pain</td>
-<td headers="stat_0" class="gt_row gt_center"></td>
-<td headers="stat_1" class="gt_row gt_center"></td>
-<td headers="stat_2" class="gt_row gt_center"></td></tr>
-    <tr><td headers="label" class="gt_row gt_left">&nbsp;&nbsp;&nbsp;&nbsp;FALSE</td>
-<td headers="stat_0" class="gt_row gt_center">35 (14%)</td>
-<td headers="stat_1" class="gt_row gt_center">6 (12%)</td>
-<td headers="stat_2" class="gt_row gt_center">29 (15%)</td></tr>
-    <tr><td headers="label" class="gt_row gt_left">&nbsp;&nbsp;&nbsp;&nbsp;TRUE</td>
-<td headers="stat_0" class="gt_row gt_center">207 (86%)</td>
-<td headers="stat_1" class="gt_row gt_center">44 (88%)</td>
-<td headers="stat_2" class="gt_row gt_center">163 (85%)</td></tr>
-    <tr><td headers="label" class="gt_row gt_left" style="font-weight: bold; font-style: italic;">Nausea</td>
-<td headers="stat_0" class="gt_row gt_center"></td>
-<td headers="stat_1" class="gt_row gt_center"></td>
-<td headers="stat_2" class="gt_row gt_center"></td></tr>
-    <tr><td headers="label" class="gt_row gt_left">&nbsp;&nbsp;&nbsp;&nbsp;FALSE</td>
-<td headers="stat_0" class="gt_row gt_center">55 (25%)</td>
-<td headers="stat_1" class="gt_row gt_center">12 (26%)</td>
-<td headers="stat_2" class="gt_row gt_center">43 (24%)</td></tr>
-    <tr><td headers="label" class="gt_row gt_left">&nbsp;&nbsp;&nbsp;&nbsp;TRUE</td>
-<td headers="stat_0" class="gt_row gt_center">169 (75%)</td>
-<td headers="stat_1" class="gt_row gt_center">34 (74%)</td>
-<td headers="stat_2" class="gt_row gt_center">135 (76%)</td></tr>
-    <tr><td headers="label" class="gt_row gt_left" style="font-weight: bold; font-style: italic;">Fever</td>
-<td headers="stat_0" class="gt_row gt_center"></td>
-<td headers="stat_1" class="gt_row gt_center"></td>
-<td headers="stat_2" class="gt_row gt_center"></td></tr>
-    <tr><td headers="label" class="gt_row gt_left">&nbsp;&nbsp;&nbsp;&nbsp;FALSE</td>
-<td headers="stat_0" class="gt_row gt_center">127 (74%)</td>
-<td headers="stat_1" class="gt_row gt_center">32 (80%)</td>
-<td headers="stat_2" class="gt_row gt_center">95 (73%)</td></tr>
-    <tr><td headers="label" class="gt_row gt_left">&nbsp;&nbsp;&nbsp;&nbsp;TRUE</td>
-<td headers="stat_0" class="gt_row gt_center">44 (26%)</td>
-<td headers="stat_1" class="gt_row gt_center">8 (20%)</td>
-<td headers="stat_2" class="gt_row gt_center">36 (27%)</td></tr>
-    <tr><td headers="label" class="gt_row gt_left" style="font-weight: bold; font-style: italic;">Headache</td>
-<td headers="stat_0" class="gt_row gt_center"></td>
-<td headers="stat_1" class="gt_row gt_center"></td>
-<td headers="stat_2" class="gt_row gt_center"></td></tr>
-    <tr><td headers="label" class="gt_row gt_left">&nbsp;&nbsp;&nbsp;&nbsp;FALSE</td>
-<td headers="stat_0" class="gt_row gt_center">83 (38%)</td>
-<td headers="stat_1" class="gt_row gt_center">11 (25%)</td>
-<td headers="stat_2" class="gt_row gt_center">72 (41%)</td></tr>
-    <tr><td headers="label" class="gt_row gt_left">&nbsp;&nbsp;&nbsp;&nbsp;TRUE</td>
-<td headers="stat_0" class="gt_row gt_center">137 (62%)</td>
-<td headers="stat_1" class="gt_row gt_center">33 (75%)</td>
-<td headers="stat_2" class="gt_row gt_center">104 (59%)</td></tr>
-    <tr><td headers="label" class="gt_row gt_left" style="font-weight: bold; font-style: italic;">Joint pain</td>
-<td headers="stat_0" class="gt_row gt_center"></td>
-<td headers="stat_1" class="gt_row gt_center"></td>
-<td headers="stat_2" class="gt_row gt_center"></td></tr>
-    <tr><td headers="label" class="gt_row gt_left">&nbsp;&nbsp;&nbsp;&nbsp;FALSE</td>
-<td headers="stat_0" class="gt_row gt_center">159 (85%)</td>
-<td headers="stat_1" class="gt_row gt_center">32 (84%)</td>
-<td headers="stat_2" class="gt_row gt_center">127 (85%)</td></tr>
-    <tr><td headers="label" class="gt_row gt_left">&nbsp;&nbsp;&nbsp;&nbsp;TRUE</td>
-<td headers="stat_0" class="gt_row gt_center">29 (15%)</td>
-<td headers="stat_1" class="gt_row gt_center">6 (16%)</td>
-<td headers="stat_2" class="gt_row gt_center">23 (15%)</td></tr>
-  </tbody>
-  
-  <tfoot class="gt_footnotes">
-    <tr>
-      <td class="gt_footnote" colspan="4"><span class="gt_footnote_marks" style="white-space:nowrap;font-style:italic;font-weight:normal;"><sup>1</sup></span> n (%)</td>
-    </tr>
-  </tfoot>
+
+<table class="gt_table caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header gt_col_headings">
+<th id="label" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col"><strong>Characteristic</strong></th>
+<th id="stat_0" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col"><strong>Overall</strong> <strong>N</strong> = 377<span class="gt_footnote_marks" style="white-space:nowrap;font-style:italic;font-weight:normal;line-height:0;"><sup>1</sup></span></th>
+<th id="stat_1" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col"><strong>Non-case</strong> <strong>N</strong> = 161<span class="gt_footnote_marks" style="white-space:nowrap;font-style:italic;font-weight:normal;line-height:0;"><sup>1</sup></span></th>
+<th id="stat_2" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col"><strong>Case</strong> <strong>N</strong> = 216<span class="gt_footnote_marks" style="white-space:nowrap;font-style:italic;font-weight:normal;line-height:0;"><sup>1</sup></span></th>
+</tr>
+</thead>
+<tbody class="gt_table_body">
+<tr class="odd">
+<td class="gt_row gt_left" headers="label" style="font-weight: bold; font-style: italic">Diarrhoea</td>
+<td class="gt_row gt_center" headers="stat_0"><br>
+</td>
+<td class="gt_row gt_center" headers="stat_1"><br>
+</td>
+<td class="gt_row gt_center" headers="stat_2"><br>
+</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;0</td>
+<td class="gt_row gt_center" headers="stat_0">46 (18%)</td>
+<td class="gt_row gt_center" headers="stat_1">40 (100%)</td>
+<td class="gt_row gt_center" headers="stat_2">6 (2.8%)</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;1</td>
+<td class="gt_row gt_center" headers="stat_0">206 (82%)</td>
+<td class="gt_row gt_center" headers="stat_1">0 (0%)</td>
+<td class="gt_row gt_center" headers="stat_2">206 (97%)</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="label" style="font-weight: bold; font-style: italic">Dysentary</td>
+<td class="gt_row gt_center" headers="stat_0"><br>
+</td>
+<td class="gt_row gt_center" headers="stat_1"><br>
+</td>
+<td class="gt_row gt_center" headers="stat_2"><br>
+</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;0</td>
+<td class="gt_row gt_center" headers="stat_0">189 (97%)</td>
+<td class="gt_row gt_center" headers="stat_1">42 (100%)</td>
+<td class="gt_row gt_center" headers="stat_2">147 (97%)</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;1</td>
+<td class="gt_row gt_center" headers="stat_0">5 (2.6%)</td>
+<td class="gt_row gt_center" headers="stat_1">0 (0%)</td>
+<td class="gt_row gt_center" headers="stat_2">5 (3.3%)</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="label" style="font-weight: bold; font-style: italic">Vomiting</td>
+<td class="gt_row gt_center" headers="stat_0"><br>
+</td>
+<td class="gt_row gt_center" headers="stat_1"><br>
+</td>
+<td class="gt_row gt_center" headers="stat_2"><br>
+</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;0</td>
+<td class="gt_row gt_center" headers="stat_0">149 (69%)</td>
+<td class="gt_row gt_center" headers="stat_1">42 (100%)</td>
+<td class="gt_row gt_center" headers="stat_2">107 (62%)</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;1</td>
+<td class="gt_row gt_center" headers="stat_0">66 (31%)</td>
+<td class="gt_row gt_center" headers="stat_1">0 (0%)</td>
+<td class="gt_row gt_center" headers="stat_2">66 (38%)</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="label" style="font-weight: bold; font-style: italic">Abdominal pain</td>
+<td class="gt_row gt_center" headers="stat_0"><br>
+</td>
+<td class="gt_row gt_center" headers="stat_1"><br>
+</td>
+<td class="gt_row gt_center" headers="stat_2"><br>
+</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;0</td>
+<td class="gt_row gt_center" headers="stat_0">35 (14%)</td>
+<td class="gt_row gt_center" headers="stat_1">6 (12%)</td>
+<td class="gt_row gt_center" headers="stat_2">29 (15%)</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;1</td>
+<td class="gt_row gt_center" headers="stat_0">207 (86%)</td>
+<td class="gt_row gt_center" headers="stat_1">44 (88%)</td>
+<td class="gt_row gt_center" headers="stat_2">163 (85%)</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="label" style="font-weight: bold; font-style: italic">Nausea</td>
+<td class="gt_row gt_center" headers="stat_0"><br>
+</td>
+<td class="gt_row gt_center" headers="stat_1"><br>
+</td>
+<td class="gt_row gt_center" headers="stat_2"><br>
+</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;0</td>
+<td class="gt_row gt_center" headers="stat_0">55 (25%)</td>
+<td class="gt_row gt_center" headers="stat_1">12 (26%)</td>
+<td class="gt_row gt_center" headers="stat_2">43 (24%)</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;1</td>
+<td class="gt_row gt_center" headers="stat_0">169 (75%)</td>
+<td class="gt_row gt_center" headers="stat_1">34 (74%)</td>
+<td class="gt_row gt_center" headers="stat_2">135 (76%)</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="label" style="font-weight: bold; font-style: italic">Fever</td>
+<td class="gt_row gt_center" headers="stat_0"><br>
+</td>
+<td class="gt_row gt_center" headers="stat_1"><br>
+</td>
+<td class="gt_row gt_center" headers="stat_2"><br>
+</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;0</td>
+<td class="gt_row gt_center" headers="stat_0">127 (74%)</td>
+<td class="gt_row gt_center" headers="stat_1">32 (80%)</td>
+<td class="gt_row gt_center" headers="stat_2">95 (73%)</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;1</td>
+<td class="gt_row gt_center" headers="stat_0">44 (26%)</td>
+<td class="gt_row gt_center" headers="stat_1">8 (20%)</td>
+<td class="gt_row gt_center" headers="stat_2">36 (27%)</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="label" style="font-weight: bold; font-style: italic">Headache</td>
+<td class="gt_row gt_center" headers="stat_0"><br>
+</td>
+<td class="gt_row gt_center" headers="stat_1"><br>
+</td>
+<td class="gt_row gt_center" headers="stat_2"><br>
+</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;0</td>
+<td class="gt_row gt_center" headers="stat_0">83 (38%)</td>
+<td class="gt_row gt_center" headers="stat_1">11 (25%)</td>
+<td class="gt_row gt_center" headers="stat_2">72 (41%)</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;1</td>
+<td class="gt_row gt_center" headers="stat_0">137 (62%)</td>
+<td class="gt_row gt_center" headers="stat_1">33 (75%)</td>
+<td class="gt_row gt_center" headers="stat_2">104 (59%)</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="label" style="font-weight: bold; font-style: italic">Joint pain</td>
+<td class="gt_row gt_center" headers="stat_0"><br>
+</td>
+<td class="gt_row gt_center" headers="stat_1"><br>
+</td>
+<td class="gt_row gt_center" headers="stat_2"><br>
+</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;0</td>
+<td class="gt_row gt_center" headers="stat_0">159 (85%)</td>
+<td class="gt_row gt_center" headers="stat_1">32 (84%)</td>
+<td class="gt_row gt_center" headers="stat_2">127 (85%)</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;1</td>
+<td class="gt_row gt_center" headers="stat_0">29 (15%)</td>
+<td class="gt_row gt_center" headers="stat_1">6 (16%)</td>
+<td class="gt_row gt_center" headers="stat_2">23 (15%)</td>
+</tr>
+</tbody><tfoot class="gt_footnotes">
+<tr class="odd">
+<td colspan="4" class="gt_footnote"><span class="gt_footnote_marks" style="white-space:nowrap;font-style:italic;font-weight:normal;line-height:0;"><sup>1</sup></span> n (%)</td>
+</tr>
+</tfoot>
+
 </table>
+
 </div>
 </div>
 </div>
@@ -1329,8 +1431,8 @@ Do you feel like a challenge?
 <section id="b-extra---bar-plot-of-symptoms-stratified-by-case-definition." class="level3">
 <h3 class="anchored" data-anchor-id="b-extra---bar-plot-of-symptoms-stratified-by-case-definition.">b) Extra - Bar plot of symptoms stratified by case definition.</h3>
 <div class="cell">
-<details open="">
-<summary>Code</summary>
+<details open="" class="code-fold">
+<summary>Show the code</summary>
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create list of symptom variables:</span></span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>symptoms <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"diarrhoea"</span>, </span>
 <span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>              <span class="st">"bloody"</span>, </span>
@@ -1342,8 +1444,8 @@ Do you feel like a challenge?
 <span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a>              <span class="st">"jointpain"</span>)</span>
 <span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Create nice labels for case definition:</span></span>
-<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a>caselabs <span class="ot">&lt;-</span> ggplot2<span class="sc">::</span><span class="fu">as_labeller</span>(<span class="fu">c</span>(<span class="st">`</span><span class="at">FALSE</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"Non-case"</span>, </span>
-<span id="cb12-13"><a href="#cb12-13" aria-hidden="true" tabindex="-1"></a>                                   <span class="st">`</span><span class="at">TRUE</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"Case"</span>))</span>
+<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a>caselabs <span class="ot">&lt;-</span> ggplot2<span class="sc">::</span><span class="fu">as_labeller</span>(<span class="fu">c</span>(<span class="st">"0"</span> <span class="ot">=</span> <span class="st">"Non-case"</span>, </span>
+<span id="cb12-13"><a href="#cb12-13" aria-hidden="true" tabindex="-1"></a>                                   <span class="st">"1"</span> <span class="ot">=</span> <span class="st">"Case"</span>))</span>
 <span id="cb12-14"><a href="#cb12-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Select variables and cases:</span></span>
 <span id="cb12-15"><a href="#cb12-15" aria-hidden="true" tabindex="-1"></a>symptom_bar <span class="ot">&lt;-</span> copdata <span class="sc">%&gt;%</span> </span>
 <span id="cb12-16"><a href="#cb12-16" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Select symptom columns:</span></span>
@@ -1355,7 +1457,7 @@ Do you feel like a challenge?
 <span id="cb12-22"><a href="#cb12-22" aria-hidden="true" tabindex="-1"></a>               <span class="at">names_to =</span> <span class="st">"Symptoms"</span>, </span>
 <span id="cb12-23"><a href="#cb12-23" aria-hidden="true" tabindex="-1"></a>               <span class="at">values_drop_na =</span> <span class="cn">TRUE</span>) <span class="sc">%&gt;%</span> </span>
 <span id="cb12-24"><a href="#cb12-24" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Keep only TRUE values:</span></span>
-<span id="cb12-25"><a href="#cb12-25" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(value <span class="sc">==</span> <span class="cn">TRUE</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb12-25"><a href="#cb12-25" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(value <span class="sc">==</span> <span class="st">"1"</span>) <span class="sc">%&gt;%</span> </span>
 <span id="cb12-26"><a href="#cb12-26" aria-hidden="true" tabindex="-1"></a> </span>
 <span id="cb12-27"><a href="#cb12-27" aria-hidden="true" tabindex="-1"></a>   <span class="co"># Group by symptoms and case:</span></span>
 <span id="cb12-28"><a href="#cb12-28" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Symptoms, case) <span class="sc">%&gt;%</span> </span>
@@ -1384,13 +1486,17 @@ Do you feel like a challenge?
 <pre><code>`summarise()` has grouped output by 'Symptoms'. You can override using the
 `.groups` argument.</code></pre>
 </div>
-<details open="">
-<summary>Code</summary>
+<details open="" class="code-fold">
+<summary>Show the code</summary>
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Print plot:</span></span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>symptom_bar</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
-<p><img src="Lab_and_Descriptive_files/figure-html/symptom_barplot-1.png" class="img-fluid" width="672"></p>
+<div>
+<figure class="figure">
+<p><img src="Lab_and_Descriptive_files/figure-html/symptom_barplot-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
 </div>
 </div>
 </section>
@@ -1400,8 +1506,8 @@ Do you feel like a challenge?
 <section id="a-calculate-the-overall-attack-proportions-percentage-of-cases-among-the-total-observed-individuals.-you-could-use-tabyl." class="level3">
 <h3 class="anchored" data-anchor-id="a-calculate-the-overall-attack-proportions-percentage-of-cases-among-the-total-observed-individuals.-you-could-use-tabyl.">a) Calculate the overall attack proportions (percentage of cases among the total observed individuals). You could use <code>tabyl()</code>.</h3>
 <div class="cell">
-<details open="">
-<summary>Code</summary>
+<details open="" class="code-fold">
+<summary>Show the code</summary>
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create table of case status:</span></span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>total_ap <span class="ot">&lt;-</span> <span class="fu">tabyl</span>(copdata, case) <span class="sc">%&gt;%</span> </span>
 <span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a> <span class="co"># Add row totals:</span></span>
@@ -1409,7 +1515,7 @@ Do you feel like a challenge?
 <span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Add percentages with 1 digit after the decimal point:</span></span>
 <span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">adorn_pct_formatting</span>(<span class="at">digits =</span> <span class="dv">1</span>) <span class="sc">%&gt;%</span> </span>
 <span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Filter to rows where case is TRUE:</span></span>
-<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(case <span class="sc">==</span> <span class="cn">TRUE</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(case <span class="sc">==</span> <span class="st">"1"</span>) <span class="sc">%&gt;%</span> </span>
 <span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Select the column percent:</span></span>
 <span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(percent) <span class="sc">%&gt;%</span> </span>
 <span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Extract (pull) the value from this cell:</span></span>
@@ -1458,8 +1564,8 @@ If you’ve thought about the above questions, have a look here
 <section id="b-calculate-attack-proportions-for-group-class-and-sex-by-case-status.-you-could-use-tabyl-as-you-did-in-3.4-or-gtsummarytbl_summary." class="level3">
 <h3 class="anchored" data-anchor-id="b-calculate-attack-proportions-for-group-class-and-sex-by-case-status.-you-could-use-tabyl-as-you-did-in-3.4-or-gtsummarytbl_summary.">b) Calculate attack proportions for <code>group</code>, <code>class</code> and <code>sex</code> by case status. You could use <code>tabyl()</code> (as you did in 3.4) or <code>gtsummary::tbl_summary</code>.</h3>
 <div class="cell">
-<details open="">
-<summary>Code</summary>
+<details open="" class="code-fold">
+<summary>Show the code</summary>
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Table to calculate attack proportions:</span></span>
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>attack_prop <span class="ot">&lt;-</span> copdata <span class="sc">%&gt;%</span> </span>
 <span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Select columns:</span></span>
@@ -1492,24 +1598,23 @@ If you’ve thought about the above questions, have a look here
 <span id="cb17-30"><a href="#cb17-30" aria-hidden="true" tabindex="-1"></a>attack_prop</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
-
-<div id="ripasjqfit" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#ripasjqfit table {
+<div id="wmlwfnvvuq" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#wmlwfnvvuq table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#ripasjqfit thead, #ripasjqfit tbody, #ripasjqfit tfoot, #ripasjqfit tr, #ripasjqfit td, #ripasjqfit th {
+#wmlwfnvvuq thead, #wmlwfnvvuq tbody, #wmlwfnvvuq tfoot, #wmlwfnvvuq tr, #wmlwfnvvuq td, #wmlwfnvvuq th {
   border-style: none;
 }
 
-#ripasjqfit p {
+#wmlwfnvvuq p {
   margin: 0;
   padding: 0;
 }
 
-#ripasjqfit .gt_table {
+#wmlwfnvvuq .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -1535,12 +1640,12 @@ If you’ve thought about the above questions, have a look here
   border-left-color: #D3D3D3;
 }
 
-#ripasjqfit .gt_caption {
+#wmlwfnvvuq .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#ripasjqfit .gt_title {
+#wmlwfnvvuq .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -1552,7 +1657,7 @@ If you’ve thought about the above questions, have a look here
   border-bottom-width: 0;
 }
 
-#ripasjqfit .gt_subtitle {
+#wmlwfnvvuq .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -1564,7 +1669,7 @@ If you’ve thought about the above questions, have a look here
   border-top-width: 0;
 }
 
-#ripasjqfit .gt_heading {
+#wmlwfnvvuq .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -1576,13 +1681,13 @@ If you’ve thought about the above questions, have a look here
   border-right-color: #D3D3D3;
 }
 
-#ripasjqfit .gt_bottom_border {
+#wmlwfnvvuq .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#ripasjqfit .gt_col_headings {
+#wmlwfnvvuq .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1597,7 +1702,7 @@ If you’ve thought about the above questions, have a look here
   border-right-color: #D3D3D3;
 }
 
-#ripasjqfit .gt_col_heading {
+#wmlwfnvvuq .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1617,7 +1722,7 @@ If you’ve thought about the above questions, have a look here
   overflow-x: hidden;
 }
 
-#ripasjqfit .gt_column_spanner_outer {
+#wmlwfnvvuq .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1629,15 +1734,15 @@ If you’ve thought about the above questions, have a look here
   padding-right: 4px;
 }
 
-#ripasjqfit .gt_column_spanner_outer:first-child {
+#wmlwfnvvuq .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#ripasjqfit .gt_column_spanner_outer:last-child {
+#wmlwfnvvuq .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#ripasjqfit .gt_column_spanner {
+#wmlwfnvvuq .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -1649,11 +1754,11 @@ If you’ve thought about the above questions, have a look here
   width: 100%;
 }
 
-#ripasjqfit .gt_spanner_row {
+#wmlwfnvvuq .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#ripasjqfit .gt_group_heading {
+#wmlwfnvvuq .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1679,7 +1784,7 @@ If you’ve thought about the above questions, have a look here
   text-align: left;
 }
 
-#ripasjqfit .gt_empty_group_heading {
+#wmlwfnvvuq .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -1694,15 +1799,15 @@ If you’ve thought about the above questions, have a look here
   vertical-align: middle;
 }
 
-#ripasjqfit .gt_from_md > :first-child {
+#wmlwfnvvuq .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#ripasjqfit .gt_from_md > :last-child {
+#wmlwfnvvuq .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#ripasjqfit .gt_row {
+#wmlwfnvvuq .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1721,7 +1826,7 @@ If you’ve thought about the above questions, have a look here
   overflow-x: hidden;
 }
 
-#ripasjqfit .gt_stub {
+#wmlwfnvvuq .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1734,7 +1839,7 @@ If you’ve thought about the above questions, have a look here
   padding-right: 5px;
 }
 
-#ripasjqfit .gt_stub_row_group {
+#wmlwfnvvuq .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1748,15 +1853,15 @@ If you’ve thought about the above questions, have a look here
   vertical-align: top;
 }
 
-#ripasjqfit .gt_row_group_first td {
+#wmlwfnvvuq .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#ripasjqfit .gt_row_group_first th {
+#wmlwfnvvuq .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#ripasjqfit .gt_summary_row {
+#wmlwfnvvuq .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1766,16 +1871,16 @@ If you’ve thought about the above questions, have a look here
   padding-right: 5px;
 }
 
-#ripasjqfit .gt_first_summary_row {
+#wmlwfnvvuq .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#ripasjqfit .gt_first_summary_row.thick {
+#wmlwfnvvuq .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#ripasjqfit .gt_last_summary_row {
+#wmlwfnvvuq .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1785,7 +1890,7 @@ If you’ve thought about the above questions, have a look here
   border-bottom-color: #D3D3D3;
 }
 
-#ripasjqfit .gt_grand_summary_row {
+#wmlwfnvvuq .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1795,7 +1900,7 @@ If you’ve thought about the above questions, have a look here
   padding-right: 5px;
 }
 
-#ripasjqfit .gt_first_grand_summary_row {
+#wmlwfnvvuq .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1805,7 +1910,7 @@ If you’ve thought about the above questions, have a look here
   border-top-color: #D3D3D3;
 }
 
-#ripasjqfit .gt_last_grand_summary_row_top {
+#wmlwfnvvuq .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1815,11 +1920,11 @@ If you’ve thought about the above questions, have a look here
   border-bottom-color: #D3D3D3;
 }
 
-#ripasjqfit .gt_striped {
+#wmlwfnvvuq .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#ripasjqfit .gt_table_body {
+#wmlwfnvvuq .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1828,7 +1933,7 @@ If you’ve thought about the above questions, have a look here
   border-bottom-color: #D3D3D3;
 }
 
-#ripasjqfit .gt_footnotes {
+#wmlwfnvvuq .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1842,7 +1947,7 @@ If you’ve thought about the above questions, have a look here
   border-right-color: #D3D3D3;
 }
 
-#ripasjqfit .gt_footnote {
+#wmlwfnvvuq .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -1851,7 +1956,7 @@ If you’ve thought about the above questions, have a look here
   padding-right: 5px;
 }
 
-#ripasjqfit .gt_sourcenotes {
+#wmlwfnvvuq .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1865,7 +1970,7 @@ If you’ve thought about the above questions, have a look here
   border-right-color: #D3D3D3;
 }
 
-#ripasjqfit .gt_sourcenote {
+#wmlwfnvvuq .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -1873,129 +1978,175 @@ If you’ve thought about the above questions, have a look here
   padding-right: 5px;
 }
 
-#ripasjqfit .gt_left {
+#wmlwfnvvuq .gt_left {
   text-align: left;
 }
 
-#ripasjqfit .gt_center {
+#wmlwfnvvuq .gt_center {
   text-align: center;
 }
 
-#ripasjqfit .gt_right {
+#wmlwfnvvuq .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#ripasjqfit .gt_font_normal {
+#wmlwfnvvuq .gt_font_normal {
   font-weight: normal;
 }
 
-#ripasjqfit .gt_font_bold {
+#wmlwfnvvuq .gt_font_bold {
   font-weight: bold;
 }
 
-#ripasjqfit .gt_font_italic {
+#wmlwfnvvuq .gt_font_italic {
   font-style: italic;
 }
 
-#ripasjqfit .gt_super {
+#wmlwfnvvuq .gt_super {
   font-size: 65%;
 }
 
-#ripasjqfit .gt_footnote_marks {
+#wmlwfnvvuq .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#ripasjqfit .gt_asterisk {
+#wmlwfnvvuq .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#ripasjqfit .gt_indent_1 {
+#wmlwfnvvuq .gt_indent_1 {
   text-indent: 5px;
 }
 
-#ripasjqfit .gt_indent_2 {
+#wmlwfnvvuq .gt_indent_2 {
   text-indent: 10px;
 }
 
-#ripasjqfit .gt_indent_3 {
+#wmlwfnvvuq .gt_indent_3 {
   text-indent: 15px;
 }
 
-#ripasjqfit .gt_indent_4 {
+#wmlwfnvvuq .gt_indent_4 {
   text-indent: 20px;
 }
 
-#ripasjqfit .gt_indent_5 {
+#wmlwfnvvuq .gt_indent_5 {
   text-indent: 25px;
 }
+
+#wmlwfnvvuq .katex-display {
+  display: inline-flex !important;
+  margin-bottom: 0.75em !important;
+}
+
+#wmlwfnvvuq div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+  height: 0px !important;
+}
 </style>
-<table class="gt_table" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
-  <thead>
-    
-    <tr class="gt_col_headings">
-      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id="<strong>Characteristic</strong>"><strong>Characteristic</strong></th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="<strong>Overall</strong> <strong>N</strong> = 377<span class=&quot;gt_footnote_marks&quot; style=&quot;white-space:nowrap;font-style:italic;font-weight:normal;&quot;><sup>1</sup></span>"><strong>Overall</strong> <strong>N</strong> = 377<span class="gt_footnote_marks" style="white-space:nowrap;font-style:italic;font-weight:normal;"><sup>1</sup></span></th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="<strong>Non-case</strong> <strong>N</strong> = 161<span class=&quot;gt_footnote_marks&quot; style=&quot;white-space:nowrap;font-style:italic;font-weight:normal;&quot;><sup>1</sup></span>"><strong>Non-case</strong> <strong>N</strong> = 161<span class="gt_footnote_marks" style="white-space:nowrap;font-style:italic;font-weight:normal;"><sup>1</sup></span></th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="<strong>Case</strong> <strong>N</strong> = 216<span class=&quot;gt_footnote_marks&quot; style=&quot;white-space:nowrap;font-style:italic;font-weight:normal;&quot;><sup>1</sup></span>"><strong>Case</strong> <strong>N</strong> = 216<span class="gt_footnote_marks" style="white-space:nowrap;font-style:italic;font-weight:normal;"><sup>1</sup></span></th>
-    </tr>
-  </thead>
-  <tbody class="gt_table_body">
-    <tr><td headers="label" class="gt_row gt_left" style="font-weight: bold; font-style: italic;">class</td>
-<td headers="stat_0" class="gt_row gt_center"></td>
-<td headers="stat_1" class="gt_row gt_center"></td>
-<td headers="stat_2" class="gt_row gt_center"></td></tr>
-    <tr><td headers="label" class="gt_row gt_left">&nbsp;&nbsp;&nbsp;&nbsp;1</td>
-<td headers="stat_0" class="gt_row gt_center">131 (100%)</td>
-<td headers="stat_1" class="gt_row gt_center">63 (48%)</td>
-<td headers="stat_2" class="gt_row gt_center">68 (52%)</td></tr>
-    <tr><td headers="label" class="gt_row gt_left">&nbsp;&nbsp;&nbsp;&nbsp;2</td>
-<td headers="stat_0" class="gt_row gt_center">101 (100%)</td>
-<td headers="stat_1" class="gt_row gt_center">44 (44%)</td>
-<td headers="stat_2" class="gt_row gt_center">57 (56%)</td></tr>
-    <tr><td headers="label" class="gt_row gt_left">&nbsp;&nbsp;&nbsp;&nbsp;3</td>
-<td headers="stat_0" class="gt_row gt_center">111 (100%)</td>
-<td headers="stat_1" class="gt_row gt_center">38 (34%)</td>
-<td headers="stat_2" class="gt_row gt_center">73 (66%)</td></tr>
-    <tr><td headers="label" class="gt_row gt_left">&nbsp;&nbsp;&nbsp;&nbsp;Unknown</td>
-<td headers="stat_0" class="gt_row gt_center">34</td>
-<td headers="stat_1" class="gt_row gt_center">16</td>
-<td headers="stat_2" class="gt_row gt_center">18</td></tr>
-    <tr><td headers="label" class="gt_row gt_left" style="font-weight: bold; font-style: italic;">group</td>
-<td headers="stat_0" class="gt_row gt_center"></td>
-<td headers="stat_1" class="gt_row gt_center"></td>
-<td headers="stat_2" class="gt_row gt_center"></td></tr>
-    <tr><td headers="label" class="gt_row gt_left">&nbsp;&nbsp;&nbsp;&nbsp;teacher</td>
-<td headers="stat_0" class="gt_row gt_center">15 (100%)</td>
-<td headers="stat_1" class="gt_row gt_center">9 (60%)</td>
-<td headers="stat_2" class="gt_row gt_center">6 (40%)</td></tr>
-    <tr><td headers="label" class="gt_row gt_left">&nbsp;&nbsp;&nbsp;&nbsp;student</td>
-<td headers="stat_0" class="gt_row gt_center">362 (100%)</td>
-<td headers="stat_1" class="gt_row gt_center">152 (42%)</td>
-<td headers="stat_2" class="gt_row gt_center">210 (58%)</td></tr>
-    <tr><td headers="label" class="gt_row gt_left" style="font-weight: bold; font-style: italic;">sex</td>
-<td headers="stat_0" class="gt_row gt_center"></td>
-<td headers="stat_1" class="gt_row gt_center"></td>
-<td headers="stat_2" class="gt_row gt_center"></td></tr>
-    <tr><td headers="label" class="gt_row gt_left">&nbsp;&nbsp;&nbsp;&nbsp;female</td>
-<td headers="stat_0" class="gt_row gt_center">213 (100%)</td>
-<td headers="stat_1" class="gt_row gt_center">96 (45%)</td>
-<td headers="stat_2" class="gt_row gt_center">117 (55%)</td></tr>
-    <tr><td headers="label" class="gt_row gt_left">&nbsp;&nbsp;&nbsp;&nbsp;male</td>
-<td headers="stat_0" class="gt_row gt_center">164 (100%)</td>
-<td headers="stat_1" class="gt_row gt_center">65 (40%)</td>
-<td headers="stat_2" class="gt_row gt_center">99 (60%)</td></tr>
-  </tbody>
-  
-  <tfoot class="gt_footnotes">
-    <tr>
-      <td class="gt_footnote" colspan="4"><span class="gt_footnote_marks" style="white-space:nowrap;font-style:italic;font-weight:normal;"><sup>1</sup></span> n (%)</td>
-    </tr>
-  </tfoot>
+
+<table class="gt_table caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header gt_col_headings">
+<th id="label" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col"><strong>Characteristic</strong></th>
+<th id="stat_0" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col"><strong>Overall</strong> <strong>N</strong> = 377<span class="gt_footnote_marks" style="white-space:nowrap;font-style:italic;font-weight:normal;line-height:0;"><sup>1</sup></span></th>
+<th id="stat_1" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col"><strong>Non-case</strong> <strong>N</strong> = 161<span class="gt_footnote_marks" style="white-space:nowrap;font-style:italic;font-weight:normal;line-height:0;"><sup>1</sup></span></th>
+<th id="stat_2" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col"><strong>Case</strong> <strong>N</strong> = 216<span class="gt_footnote_marks" style="white-space:nowrap;font-style:italic;font-weight:normal;line-height:0;"><sup>1</sup></span></th>
+</tr>
+</thead>
+<tbody class="gt_table_body">
+<tr class="odd">
+<td class="gt_row gt_left" headers="label" style="font-weight: bold; font-style: italic">class</td>
+<td class="gt_row gt_center" headers="stat_0"><br>
+</td>
+<td class="gt_row gt_center" headers="stat_1"><br>
+</td>
+<td class="gt_row gt_center" headers="stat_2"><br>
+</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;1</td>
+<td class="gt_row gt_center" headers="stat_0">131 (100%)</td>
+<td class="gt_row gt_center" headers="stat_1">63 (48%)</td>
+<td class="gt_row gt_center" headers="stat_2">68 (52%)</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;2</td>
+<td class="gt_row gt_center" headers="stat_0">101 (100%)</td>
+<td class="gt_row gt_center" headers="stat_1">44 (44%)</td>
+<td class="gt_row gt_center" headers="stat_2">57 (56%)</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;3</td>
+<td class="gt_row gt_center" headers="stat_0">111 (100%)</td>
+<td class="gt_row gt_center" headers="stat_1">38 (34%)</td>
+<td class="gt_row gt_center" headers="stat_2">73 (66%)</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;Unknown</td>
+<td class="gt_row gt_center" headers="stat_0">34</td>
+<td class="gt_row gt_center" headers="stat_1">16</td>
+<td class="gt_row gt_center" headers="stat_2">18</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="label" style="font-weight: bold; font-style: italic">group</td>
+<td class="gt_row gt_center" headers="stat_0"><br>
+</td>
+<td class="gt_row gt_center" headers="stat_1"><br>
+</td>
+<td class="gt_row gt_center" headers="stat_2"><br>
+</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;teacher</td>
+<td class="gt_row gt_center" headers="stat_0">15 (100%)</td>
+<td class="gt_row gt_center" headers="stat_1">9 (60%)</td>
+<td class="gt_row gt_center" headers="stat_2">6 (40%)</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;student</td>
+<td class="gt_row gt_center" headers="stat_0">362 (100%)</td>
+<td class="gt_row gt_center" headers="stat_1">152 (42%)</td>
+<td class="gt_row gt_center" headers="stat_2">210 (58%)</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="label" style="font-weight: bold; font-style: italic">sex</td>
+<td class="gt_row gt_center" headers="stat_0"><br>
+</td>
+<td class="gt_row gt_center" headers="stat_1"><br>
+</td>
+<td class="gt_row gt_center" headers="stat_2"><br>
+</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;female</td>
+<td class="gt_row gt_center" headers="stat_0">213 (100%)</td>
+<td class="gt_row gt_center" headers="stat_1">96 (45%)</td>
+<td class="gt_row gt_center" headers="stat_2">117 (55%)</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;male</td>
+<td class="gt_row gt_center" headers="stat_0">164 (100%)</td>
+<td class="gt_row gt_center" headers="stat_1">65 (40%)</td>
+<td class="gt_row gt_center" headers="stat_2">99 (60%)</td>
+</tr>
+</tbody><tfoot class="gt_footnotes">
+<tr class="even">
+<td colspan="4" class="gt_footnote"><span class="gt_footnote_marks" style="white-space:nowrap;font-style:italic;font-weight:normal;line-height:0;"><sup>1</sup></span> n (%)</td>
+</tr>
+</tfoot>
+
 </table>
+
 </div>
 </div>
 </div>
@@ -2069,6 +2220,33 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       }
     }
   }
+  const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+    const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+    const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+    let newTheme = '';
+    if(darkModeDefault) {
+      newTheme = isAlternate ? baseTheme : alternateTheme;
+    } else {
+      newTheme = isAlternate ? alternateTheme : baseTheme;
+    }
+    const changeGiscusTheme = () => {
+      // From: https://github.com/giscus/giscus/issues/336
+      const sendMessage = (message) => {
+        const iframe = document.querySelector('iframe.giscus-frame');
+        if (!iframe) return;
+        iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+      }
+      sendMessage({
+        setConfig: {
+          theme: newTheme
+        }
+      });
+    }
+    const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+    if (isGiscussLoaded) {
+      changeGiscusTheme();
+    }
+  }
   const toggleColorMode = (alternate) => {
     // Switch the stylesheets
     const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
@@ -2135,13 +2313,15 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       return localAlternateSentinel;
     }
   }
-  let localAlternateSentinel = 'default';
+  const darkModeDefault = false;
+  let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
   // Dark / light mode switch
   window.quartoToggleColorScheme = () => {
     // Read the current dark / light value 
     let toAlternate = !hasAlternateSentinel();
     toggleColorMode(toAlternate);
     setStyleSentinel(toAlternate);
+    toggleGiscusIfUsed(toAlternate, darkModeDefault);
   };
   // Ensure there is a toggle, if there isn't float one in the top right
   if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
@@ -2176,18 +2356,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
     return false;
   }
-  const clipboard = new window.ClipboardJS('.code-copy-button', {
-    text: function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
-    }
-  });
-  clipboard.on('success', function(e) {
+  const onCopySuccess = function(e) {
     // button target
     const button = e.trigger;
     // don't keep focus
@@ -2219,7 +2388,29 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }, 1000);
     // clear code selection
     e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
   });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
   const viewSource = window.document.getElementById('quarto-view-source') ||
                      window.document.getElementById('quarto-code-tools-source');
   if (viewSource) {
@@ -2271,10 +2462,27 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   if (showAllCode) {
     showAllCode.addEventListener("click", toggleCodeHandler(true));
   }
-  function tippyHover(el, contentFn) {
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
-      content: contentFn,
       maxWidth: 500,
       delay: 100,
       arrow: false,
@@ -2284,8 +2492,17 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       interactive: true,
       interactiveBorder: 10,
       theme: 'quarto',
-      placement: 'bottom-start'
+      placement: 'bottom-start',
     };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
     window.tippy(el, config); 
   }
   const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
@@ -2297,7 +2514,130 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
-      return note.innerHTML;
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
     });
   }
       let selectedAnnoteEl;
@@ -2341,6 +2681,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             }
             div.style.top = top - 2 + "px";
             div.style.height = height + 4 + "px";
+            div.style.left = 0;
             let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
             if (gutterDiv === null) {
               gutterDiv = window.document.createElement("div");
@@ -2366,6 +2707,32 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         });
         selectedAnnoteEl = undefined;
       };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
       // Attach click handler to the DT
       const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
       for (const annoteDlNode of annoteDls) {
@@ -2472,19 +2839,19 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb18-47"><a href="#cb18-47" aria-hidden="true" tabindex="-1"></a><span class="fu">## 3.2 Import your data</span></span>
 <span id="cb18-48"><a href="#cb18-48" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb18-49"><a href="#cb18-49" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, Import_data}</span></span>
-<span id="cb18-50"><a href="#cb18-50" aria-hidden="true" tabindex="-1"></a><span class="co"># Import the clean data set:</span></span>
-<span id="cb18-51"><a href="#cb18-51" aria-hidden="true" tabindex="-1"></a>copdata <span class="ot">&lt;-</span> rio<span class="sc">::</span><span class="fu">import</span>(here<span class="sc">::</span><span class="fu">here</span>(<span class="st">"data"</span>, <span class="st">"Spetses_clean2_2024.rds"</span>)) </span>
-<span id="cb18-52"><a href="#cb18-52" aria-hidden="true" tabindex="-1"></a>lab <span class="ot">&lt;-</span> rio<span class="sc">::</span><span class="fu">import</span>(here<span class="sc">::</span><span class="fu">here</span>(<span class="st">"data"</span>, <span class="st">"Lab data.xlsx"</span>),</span>
-<span id="cb18-53"><a href="#cb18-53" aria-hidden="true" tabindex="-1"></a>                   <span class="at">skip =</span> <span class="dv">1</span>) <span class="co"># skip the first row.</span></span>
+<span id="cb18-50"><a href="#cb18-50" aria-hidden="true" tabindex="-1"></a><span class="in"># Import the clean data set:</span></span>
+<span id="cb18-51"><a href="#cb18-51" aria-hidden="true" tabindex="-1"></a><span class="in">copdata &lt;- rio::import(here::here("data", "Spetses_clean2_2024.rds"), trust = T) </span></span>
+<span id="cb18-52"><a href="#cb18-52" aria-hidden="true" tabindex="-1"></a><span class="in">lab &lt;- rio::import(here::here("data", "Lab data.xlsx"),</span></span>
+<span id="cb18-53"><a href="#cb18-53" aria-hidden="true" tabindex="-1"></a><span class="in">                   skip = 1) # skip the first row.</span></span>
 <span id="cb18-54"><a href="#cb18-54" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb18-55"><a href="#cb18-55" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb18-56"><a href="#cb18-56" aria-hidden="true" tabindex="-1"></a><span class="fu">## 3.3 Merge and explore the lab data. Explore it as you wish!</span></span>
 <span id="cb18-57"><a href="#cb18-57" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb18-58"><a href="#cb18-58" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, merge_lab_data}</span></span>
-<span id="cb18-59"><a href="#cb18-59" aria-hidden="true" tabindex="-1"></a>copdatalab <span class="ot">&lt;-</span> <span class="fu">left_join</span>(copdata, lab, </span>
-<span id="cb18-60"><a href="#cb18-60" aria-hidden="true" tabindex="-1"></a>                        <span class="at">by =</span> <span class="st">"id"</span>)</span>
-<span id="cb18-61"><a href="#cb18-61" aria-hidden="true" tabindex="-1"></a><span class="co"># Tabulate:</span></span>
-<span id="cb18-62"><a href="#cb18-62" aria-hidden="true" tabindex="-1"></a>janitor<span class="sc">::</span><span class="fu">tabyl</span>(<span class="at">dat =</span> copdatalab, <span class="st">"RT-PCR_ecoli_etec"</span>)</span>
+<span id="cb18-59"><a href="#cb18-59" aria-hidden="true" tabindex="-1"></a><span class="in">copdatalab &lt;- left_join(copdata, lab, </span></span>
+<span id="cb18-60"><a href="#cb18-60" aria-hidden="true" tabindex="-1"></a><span class="in">                        by = "id")</span></span>
+<span id="cb18-61"><a href="#cb18-61" aria-hidden="true" tabindex="-1"></a><span class="in"># Tabulate:</span></span>
+<span id="cb18-62"><a href="#cb18-62" aria-hidden="true" tabindex="-1"></a><span class="in">janitor::tabyl(dat = copdatalab, "RT-PCR_ecoli_etec")</span></span>
 <span id="cb18-63"><a href="#cb18-63" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb18-64"><a href="#cb18-64" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb18-65"><a href="#cb18-65" aria-hidden="true" tabindex="-1"></a><span class="fu">## 3.4 Describe the outbreak in terms of time.</span></span>
@@ -2502,7 +2869,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb18-79"><a href="#cb18-79" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb18-80"><a href="#cb18-80" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a dataset with only cases</span></span>
 <span id="cb18-81"><a href="#cb18-81" aria-hidden="true" tabindex="-1"></a>cases <span class="ot">&lt;-</span> copdata <span class="sc">%&gt;%</span> </span>
-<span id="cb18-82"><a href="#cb18-82" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(case <span class="sc">==</span> <span class="cn">TRUE</span>)</span>
+<span id="cb18-82"><a href="#cb18-82" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(case <span class="sc">==</span> <span class="dv">1</span>)</span>
 <span id="cb18-83"><a href="#cb18-83" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb18-84"><a href="#cb18-84" aria-hidden="true" tabindex="-1"></a>incplot <span class="ot">&lt;-</span> cases <span class="sc">%&gt;%</span> </span>
 <span id="cb18-85"><a href="#cb18-85" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Create an empty ggplot frame:</span></span>
@@ -2771,57 +3138,57 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb18-360"><a href="#cb18-360" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb18-361"><a href="#cb18-361" aria-hidden="true" tabindex="-1"></a><span class="in">```{r symptom_barplot}</span></span>
 <span id="cb18-362"><a href="#cb18-362" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-363"><a href="#cb18-363" aria-hidden="true" tabindex="-1"></a><span class="co"># Create list of symptom variables:</span></span>
-<span id="cb18-364"><a href="#cb18-364" aria-hidden="true" tabindex="-1"></a>symptoms <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"diarrhoea"</span>, </span>
-<span id="cb18-365"><a href="#cb18-365" aria-hidden="true" tabindex="-1"></a>              <span class="st">"bloody"</span>, </span>
-<span id="cb18-366"><a href="#cb18-366" aria-hidden="true" tabindex="-1"></a>              <span class="st">"vomiting"</span>, </span>
-<span id="cb18-367"><a href="#cb18-367" aria-hidden="true" tabindex="-1"></a>              <span class="st">"abdo"</span>, </span>
-<span id="cb18-368"><a href="#cb18-368" aria-hidden="true" tabindex="-1"></a>              <span class="st">"nausea"</span>, </span>
-<span id="cb18-369"><a href="#cb18-369" aria-hidden="true" tabindex="-1"></a>              <span class="st">"fever"</span>, </span>
-<span id="cb18-370"><a href="#cb18-370" aria-hidden="true" tabindex="-1"></a>              <span class="st">"headache"</span>, </span>
-<span id="cb18-371"><a href="#cb18-371" aria-hidden="true" tabindex="-1"></a>              <span class="st">"jointpain"</span>)</span>
+<span id="cb18-363"><a href="#cb18-363" aria-hidden="true" tabindex="-1"></a><span class="in"># Create list of symptom variables:</span></span>
+<span id="cb18-364"><a href="#cb18-364" aria-hidden="true" tabindex="-1"></a><span class="in">symptoms &lt;- c("diarrhoea", </span></span>
+<span id="cb18-365"><a href="#cb18-365" aria-hidden="true" tabindex="-1"></a><span class="in">              "bloody", </span></span>
+<span id="cb18-366"><a href="#cb18-366" aria-hidden="true" tabindex="-1"></a><span class="in">              "vomiting", </span></span>
+<span id="cb18-367"><a href="#cb18-367" aria-hidden="true" tabindex="-1"></a><span class="in">              "abdo", </span></span>
+<span id="cb18-368"><a href="#cb18-368" aria-hidden="true" tabindex="-1"></a><span class="in">              "nausea", </span></span>
+<span id="cb18-369"><a href="#cb18-369" aria-hidden="true" tabindex="-1"></a><span class="in">              "fever", </span></span>
+<span id="cb18-370"><a href="#cb18-370" aria-hidden="true" tabindex="-1"></a><span class="in">              "headache", </span></span>
+<span id="cb18-371"><a href="#cb18-371" aria-hidden="true" tabindex="-1"></a><span class="in">              "jointpain")</span></span>
 <span id="cb18-372"><a href="#cb18-372" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-373"><a href="#cb18-373" aria-hidden="true" tabindex="-1"></a><span class="co"># Create nice labels for case definition:</span></span>
-<span id="cb18-374"><a href="#cb18-374" aria-hidden="true" tabindex="-1"></a>caselabs <span class="ot">&lt;-</span> ggplot2<span class="sc">::</span><span class="fu">as_labeller</span>(<span class="fu">c</span>(<span class="st">`</span><span class="at">FALSE</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"Non-case"</span>, </span>
-<span id="cb18-375"><a href="#cb18-375" aria-hidden="true" tabindex="-1"></a>                                   <span class="st">`</span><span class="at">TRUE</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"Case"</span>))</span>
-<span id="cb18-376"><a href="#cb18-376" aria-hidden="true" tabindex="-1"></a><span class="co"># Select variables and cases:</span></span>
-<span id="cb18-377"><a href="#cb18-377" aria-hidden="true" tabindex="-1"></a>symptom_bar <span class="ot">&lt;-</span> copdata <span class="sc">%&gt;%</span> </span>
-<span id="cb18-378"><a href="#cb18-378" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Select symptom columns:</span></span>
-<span id="cb18-379"><a href="#cb18-379" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(case, <span class="fu">c</span>(<span class="fu">all_of</span>(symptoms))) <span class="sc">%&gt;%</span></span>
-<span id="cb18-380"><a href="#cb18-380" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Drop NAs:</span></span>
-<span id="cb18-381"><a href="#cb18-381" aria-hidden="true" tabindex="-1"></a>  <span class="fu">drop_na</span>() <span class="sc">%&gt;%</span> </span>
-<span id="cb18-382"><a href="#cb18-382" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Reshape (pivot longer):</span></span>
-<span id="cb18-383"><a href="#cb18-383" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="sc">!</span>case, </span>
-<span id="cb18-384"><a href="#cb18-384" aria-hidden="true" tabindex="-1"></a>               <span class="at">names_to =</span> <span class="st">"Symptoms"</span>, </span>
-<span id="cb18-385"><a href="#cb18-385" aria-hidden="true" tabindex="-1"></a>               <span class="at">values_drop_na =</span> <span class="cn">TRUE</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb18-386"><a href="#cb18-386" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Keep only TRUE values:</span></span>
-<span id="cb18-387"><a href="#cb18-387" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(value <span class="sc">==</span> <span class="cn">TRUE</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb18-388"><a href="#cb18-388" aria-hidden="true" tabindex="-1"></a> </span>
-<span id="cb18-389"><a href="#cb18-389" aria-hidden="true" tabindex="-1"></a>   <span class="co"># Group by symptoms and case:</span></span>
-<span id="cb18-390"><a href="#cb18-390" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Symptoms, case) <span class="sc">%&gt;%</span> </span>
-<span id="cb18-391"><a href="#cb18-391" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Count for each symptom by case:</span></span>
-<span id="cb18-392"><a href="#cb18-392" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">summarise</span>(<span class="at">count =</span> <span class="fu">n</span>()) <span class="sc">%&gt;%</span> </span>
-<span id="cb18-393"><a href="#cb18-393" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Create plot:</span></span>
-<span id="cb18-394"><a href="#cb18-394" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(</span>
-<span id="cb18-395"><a href="#cb18-395" aria-hidden="true" tabindex="-1"></a>    <span class="at">mapping =</span> <span class="fu">aes</span>(</span>
-<span id="cb18-396"><a href="#cb18-396" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Order symptom bars so most common ones are ontop:</span></span>
-<span id="cb18-397"><a href="#cb18-397" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="fu">reorder</span>(Symptoms, <span class="fu">desc</span>(count), <span class="at">decreasing =</span> <span class="cn">TRUE</span>), </span>
-<span id="cb18-398"><a href="#cb18-398" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> count)) <span class="sc">+</span></span>
-<span id="cb18-399"><a href="#cb18-399" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Display bars as proportions</span></span>
-<span id="cb18-400"><a href="#cb18-400" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">"identity"</span>) <span class="sc">+</span></span>
-<span id="cb18-401"><a href="#cb18-401" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Update x axis label:</span></span>
-<span id="cb18-402"><a href="#cb18-402" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">"Symptoms"</span>) <span class="sc">+</span></span>
-<span id="cb18-403"><a href="#cb18-403" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Update y axis label:</span></span>
-<span id="cb18-404"><a href="#cb18-404" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">"Proportion of respondents"</span>) <span class="sc">+</span></span>
-<span id="cb18-405"><a href="#cb18-405" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Flip plot on its side so symptom labels are clear:</span></span>
-<span id="cb18-406"><a href="#cb18-406" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_flip</span>() <span class="sc">+</span></span>
-<span id="cb18-407"><a href="#cb18-407" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Facet the plot by (labelled) case:</span></span>
-<span id="cb18-408"><a href="#cb18-408" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="at">facets =</span> <span class="st">"case"</span>,</span>
-<span id="cb18-409"><a href="#cb18-409" aria-hidden="true" tabindex="-1"></a>             <span class="at">labeller =</span> caselabs,</span>
-<span id="cb18-410"><a href="#cb18-410" aria-hidden="true" tabindex="-1"></a>             <span class="at">ncol =</span> <span class="dv">2</span>)</span>
+<span id="cb18-373"><a href="#cb18-373" aria-hidden="true" tabindex="-1"></a><span class="in"># Create nice labels for case definition:</span></span>
+<span id="cb18-374"><a href="#cb18-374" aria-hidden="true" tabindex="-1"></a><span class="in">caselabs &lt;- ggplot2::as_labeller(c("0" = "Non-case", </span></span>
+<span id="cb18-375"><a href="#cb18-375" aria-hidden="true" tabindex="-1"></a><span class="in">                                   "1" = "Case"))</span></span>
+<span id="cb18-376"><a href="#cb18-376" aria-hidden="true" tabindex="-1"></a><span class="in"># Select variables and cases:</span></span>
+<span id="cb18-377"><a href="#cb18-377" aria-hidden="true" tabindex="-1"></a><span class="in">symptom_bar &lt;- copdata %&gt;% </span></span>
+<span id="cb18-378"><a href="#cb18-378" aria-hidden="true" tabindex="-1"></a><span class="in">  # Select symptom columns:</span></span>
+<span id="cb18-379"><a href="#cb18-379" aria-hidden="true" tabindex="-1"></a><span class="in">  select(case, c(all_of(symptoms))) %&gt;%</span></span>
+<span id="cb18-380"><a href="#cb18-380" aria-hidden="true" tabindex="-1"></a><span class="in">  # Drop NAs:</span></span>
+<span id="cb18-381"><a href="#cb18-381" aria-hidden="true" tabindex="-1"></a><span class="in">  drop_na() %&gt;% </span></span>
+<span id="cb18-382"><a href="#cb18-382" aria-hidden="true" tabindex="-1"></a><span class="in">  # Reshape (pivot longer):</span></span>
+<span id="cb18-383"><a href="#cb18-383" aria-hidden="true" tabindex="-1"></a><span class="in">  pivot_longer(!case, </span></span>
+<span id="cb18-384"><a href="#cb18-384" aria-hidden="true" tabindex="-1"></a><span class="in">               names_to = "Symptoms", </span></span>
+<span id="cb18-385"><a href="#cb18-385" aria-hidden="true" tabindex="-1"></a><span class="in">               values_drop_na = TRUE) %&gt;% </span></span>
+<span id="cb18-386"><a href="#cb18-386" aria-hidden="true" tabindex="-1"></a><span class="in">  # Keep only TRUE values:</span></span>
+<span id="cb18-387"><a href="#cb18-387" aria-hidden="true" tabindex="-1"></a><span class="in">  filter(value == "1") %&gt;% </span></span>
+<span id="cb18-388"><a href="#cb18-388" aria-hidden="true" tabindex="-1"></a><span class="in"> </span></span>
+<span id="cb18-389"><a href="#cb18-389" aria-hidden="true" tabindex="-1"></a><span class="in">   # Group by symptoms and case:</span></span>
+<span id="cb18-390"><a href="#cb18-390" aria-hidden="true" tabindex="-1"></a><span class="in">  group_by(Symptoms, case) %&gt;% </span></span>
+<span id="cb18-391"><a href="#cb18-391" aria-hidden="true" tabindex="-1"></a><span class="in">  # Count for each symptom by case:</span></span>
+<span id="cb18-392"><a href="#cb18-392" aria-hidden="true" tabindex="-1"></a><span class="in">  dplyr::summarise(count = n()) %&gt;% </span></span>
+<span id="cb18-393"><a href="#cb18-393" aria-hidden="true" tabindex="-1"></a><span class="in">  # Create plot:</span></span>
+<span id="cb18-394"><a href="#cb18-394" aria-hidden="true" tabindex="-1"></a><span class="in">  ggplot(</span></span>
+<span id="cb18-395"><a href="#cb18-395" aria-hidden="true" tabindex="-1"></a><span class="in">    mapping = aes(</span></span>
+<span id="cb18-396"><a href="#cb18-396" aria-hidden="true" tabindex="-1"></a><span class="in">    # Order symptom bars so most common ones are ontop:</span></span>
+<span id="cb18-397"><a href="#cb18-397" aria-hidden="true" tabindex="-1"></a><span class="in">    x = reorder(Symptoms, desc(count), decreasing = TRUE), </span></span>
+<span id="cb18-398"><a href="#cb18-398" aria-hidden="true" tabindex="-1"></a><span class="in">    y = count)) +</span></span>
+<span id="cb18-399"><a href="#cb18-399" aria-hidden="true" tabindex="-1"></a><span class="in">  # Display bars as proportions</span></span>
+<span id="cb18-400"><a href="#cb18-400" aria-hidden="true" tabindex="-1"></a><span class="in">  geom_bar(stat = "identity") +</span></span>
+<span id="cb18-401"><a href="#cb18-401" aria-hidden="true" tabindex="-1"></a><span class="in">  # Update x axis label:</span></span>
+<span id="cb18-402"><a href="#cb18-402" aria-hidden="true" tabindex="-1"></a><span class="in">  xlab("Symptoms") +</span></span>
+<span id="cb18-403"><a href="#cb18-403" aria-hidden="true" tabindex="-1"></a><span class="in">  # Update y axis label:</span></span>
+<span id="cb18-404"><a href="#cb18-404" aria-hidden="true" tabindex="-1"></a><span class="in">  ylab("Proportion of respondents") +</span></span>
+<span id="cb18-405"><a href="#cb18-405" aria-hidden="true" tabindex="-1"></a><span class="in">  # Flip plot on its side so symptom labels are clear:</span></span>
+<span id="cb18-406"><a href="#cb18-406" aria-hidden="true" tabindex="-1"></a><span class="in">  coord_flip() +</span></span>
+<span id="cb18-407"><a href="#cb18-407" aria-hidden="true" tabindex="-1"></a><span class="in">  # Facet the plot by (labelled) case:</span></span>
+<span id="cb18-408"><a href="#cb18-408" aria-hidden="true" tabindex="-1"></a><span class="in">  facet_wrap(facets = "case",</span></span>
+<span id="cb18-409"><a href="#cb18-409" aria-hidden="true" tabindex="-1"></a><span class="in">             labeller = caselabs,</span></span>
+<span id="cb18-410"><a href="#cb18-410" aria-hidden="true" tabindex="-1"></a><span class="in">             ncol = 2)</span></span>
 <span id="cb18-411"><a href="#cb18-411" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-412"><a href="#cb18-412" aria-hidden="true" tabindex="-1"></a><span class="co"># Print plot:</span></span>
-<span id="cb18-413"><a href="#cb18-413" aria-hidden="true" tabindex="-1"></a>symptom_bar</span>
+<span id="cb18-412"><a href="#cb18-412" aria-hidden="true" tabindex="-1"></a><span class="in"># Print plot:</span></span>
+<span id="cb18-413"><a href="#cb18-413" aria-hidden="true" tabindex="-1"></a><span class="in">symptom_bar</span></span>
 <span id="cb18-414"><a href="#cb18-414" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb18-415"><a href="#cb18-415" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb18-416"><a href="#cb18-416" aria-hidden="true" tabindex="-1"></a><span class="fu">## 3.7 Attack proportions</span></span>
@@ -2836,7 +3203,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb18-427"><a href="#cb18-427" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Add percentages with 1 digit after the decimal point:</span></span>
 <span id="cb18-428"><a href="#cb18-428" aria-hidden="true" tabindex="-1"></a>  <span class="fu">adorn_pct_formatting</span>(<span class="at">digits =</span> <span class="dv">1</span>) <span class="sc">%&gt;%</span> </span>
 <span id="cb18-429"><a href="#cb18-429" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Filter to rows where case is TRUE:</span></span>
-<span id="cb18-430"><a href="#cb18-430" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(case <span class="sc">==</span> <span class="cn">TRUE</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb18-430"><a href="#cb18-430" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(case <span class="sc">==</span> <span class="st">"1"</span>) <span class="sc">%&gt;%</span> </span>
 <span id="cb18-431"><a href="#cb18-431" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Select the column percent:</span></span>
 <span id="cb18-432"><a href="#cb18-432" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(percent) <span class="sc">%&gt;%</span> </span>
 <span id="cb18-433"><a href="#cb18-433" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Extract (pull) the value from this cell:</span></span>
@@ -2896,9 +3263,10 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb18-489"><a href="#cb18-489" aria-hidden="true" tabindex="-1"></a>::: {.callout-tip title="Need a little bit of help?" collapse="true"}</span>
 <span id="cb18-490"><a href="#cb18-490" aria-hidden="true" tabindex="-1"></a>To save your tabyl table as a .docx, you could convert your tabyl to flextable (<span class="in">`as_flex_table()`</span>), ensure only one line per row (<span class="in">`flextable::autofit()`</span>) and save as .docx (<span class="in">`flextable::save_as_docx(path = "nameoftable.docx"`</span>)</span>
 <span id="cb18-491"><a href="#cb18-491" aria-hidden="true" tabindex="-1"></a>:::</span>
-</code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</code><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
+
 
 
 

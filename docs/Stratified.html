@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.433">
+<meta name="generator" content="quarto-1.5.57">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Spetses Introductory Course - Stratified analysis</title>
+<title>Stratified analysis – Spetses Introductory Course</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -22,7 +22,7 @@ ul.task-list li input[type="checkbox"] {
 }
 /* CSS for syntax highlighting */
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span { line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -33,7 +33,7 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -81,7 +81,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   "collapse-after": 3,
   "panel-placement": "end",
   "type": "overlay",
-  "limit": 20,
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -90,14 +96,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-more-match-text": "more match in this document",
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
     "search-detached-cancel-button-title": "Cancel",
     "search-submit-button-title": "Submit",
     "search-label": "Search"
   }
 }</script>
-
 <link href="site_libs/pagedtable-1.1/css/pagedtable.css" rel="stylesheet">
+
 <script src="site_libs/pagedtable-1.1/js/pagedtable.js"></script>
+
 
 
 <link rel="stylesheet" href="styles.css">
@@ -107,55 +115,56 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
-    <nav class="navbar navbar-expand-lg navbar-dark ">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
-      <div class="navbar-brand-container">
+      <div class="navbar-brand-container mx-auto">
     <a class="navbar-brand" href="./index.html">
     <span class="navbar-title">Spetses Introductory Course</span>
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./index.html" rel="" target="">
- <span class="menu-text">What is this?</span></a>
+    <a class="nav-link" href="./index.html"> 
+<span class="menu-text">What is this?</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./Data_import_cleaning.html" rel="" target="">
- <span class="menu-text">Data import and cleaning</span></a>
+    <a class="nav-link" href="./Data_import_cleaning.html"> 
+<span class="menu-text">Data import and cleaning</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./Case_definition.html" rel="" target="">
- <span class="menu-text">Case Definition</span></a>
+    <a class="nav-link" href="./Case_definition.html"> 
+<span class="menu-text">Case Definition</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./Lab_and_Descriptive.html" rel="" target="">
- <span class="menu-text">Laboratory data and descriptive analysis</span></a>
+    <a class="nav-link" href="./Lab_and_Descriptive.html"> 
+<span class="menu-text">Laboratory data and descriptive analysis</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./Univariate.html" rel="" target="">
- <span class="menu-text">Univariable analysis</span></a>
+    <a class="nav-link" href="./Univariate.html"> 
+<span class="menu-text">Univariable analysis</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="./Stratified.html" rel="" target="" aria-current="page">
- <span class="menu-text">Stratified analysis</span></a>
+    <a class="nav-link active" href="./Stratified.html" aria-current="page"> 
+<span class="menu-text">Stratified analysis</span></a>
   </li>  
 </ul>
-            <div class="quarto-navbar-tools ms-auto">
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
     <div class="dropdown">
-      <a href="" title="" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" aria-label=""><i class="bi bi-github"></i></a>
-      <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="quarto-navigation-tool-dropdown-0">
+      <a href="" title="" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" role="link" aria-label=""><i class="bi bi-github"></i></a>
+      <ul class="dropdown-menu" aria-labelledby="quarto-navigation-tool-dropdown-0">
           <li>
-            <a class="dropdown-item quarto-navbar-tools ms-auto-item" href="https://github.com/EPIET/IntroCourse_inCop/tree/main">
+            <a class="dropdown-item quarto-navbar-tools-item" href="https://github.com/EPIET/IntroCourse_inCop/tree/main">
             Source Code
             </a>
           </li>
           <li>
-            <a class="dropdown-item quarto-navbar-tools ms-auto-item" href="https://github.com/EPIET/IntroCourse_inCop/issues">
+            <a class="dropdown-item quarto-navbar-tools-item" href="https://github.com/EPIET/IntroCourse_inCop/issues">
             Report a code issue
             </a>
           </li>
@@ -163,7 +172,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     </div>
   <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
 </div>
-          </div> <!-- /navcollapse -->
       </div> <!-- /container-fluid -->
     </nav>
 </header>
@@ -184,8 +192,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#import-your-data" id="toc-import-your-data" class="nav-link" data-scroll-target="#import-your-data">3.3. Import your data</a></li>
   <li><a href="#consider-and-assess-for-confounding-andor-effect-modification" id="toc-consider-and-assess-for-confounding-andor-effect-modification" class="nav-link" data-scroll-target="#consider-and-assess-for-confounding-andor-effect-modification">3.4. Consider and assess for confounding and/or effect modification</a>
   <ul class="collapse">
-  <li><a href="#a-moussaka-as-exposure-of-interest-stratified-by-having-eaten-orzo" id="toc-a-moussaka-as-exposure-of-interest-stratified-by-having-eaten-orzo" class="nav-link" data-scroll-target="#a-moussaka-as-exposure-of-interest-stratified-by-having-eaten-orzo">a) Moussaka as exposure of interest, stratified by having eaten orzo</a></li>
-  <li><a href="#b-champagne-as-exposure-of-interest-stratified-by-having-eaten-orzo" id="toc-b-champagne-as-exposure-of-interest-stratified-by-having-eaten-orzo" class="nav-link" data-scroll-target="#b-champagne-as-exposure-of-interest-stratified-by-having-eaten-orzo">b) Champagne as exposure of interest, stratified by having eaten orzo</a></li>
+  <li><a href="#a-veal-as-exposure-of-interest-stratified-by-having-eaten-pasta" id="toc-a-veal-as-exposure-of-interest-stratified-by-having-eaten-pasta" class="nav-link" data-scroll-target="#a-veal-as-exposure-of-interest-stratified-by-having-eaten-pasta">a) Veal as exposure of interest, stratified by having eaten pasta</a></li>
+  <li><a href="#b-champagne-as-exposure-of-interest-stratified-by-having-eaten-pasta" id="toc-b-champagne-as-exposure-of-interest-stratified-by-having-eaten-pasta" class="nav-link" data-scroll-target="#b-champagne-as-exposure-of-interest-stratified-by-having-eaten-pasta">b) Champagne as exposure of interest, stratified by having eaten pasta</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -208,7 +216,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </div>
   
 
+
 </header>
+
 
 <section id="learning-outcomes" class="level2">
 <h2 class="anchored" data-anchor-id="learning-outcomes">1. Learning outcomes</h2>
@@ -221,7 +231,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="storyplot-description" class="level2">
 <h2 class="anchored" data-anchor-id="storyplot-description">2. Story/plot description</h2>
-<p>From the univariable analysis, it seems that eating orzpo and eating moussaka as well as drinking champagne are associated with the highest risk of becoming ill.&nbsp;There are, however, many other food items that are associated with an increased risk (even if not statistically significant).</p>
+<p>From the univariable analysis, it seems that eating pasta and eating veal as well as drinking champagne are associated with the highest risk of becoming ill.&nbsp;There are, however, many other food items that are associated with an increased risk (even if not statistically significant).</p>
 <p>You should next think about potential confounders and about effect modification. Think about which variables you might want to check for effect modification or confounding. One common strategy is to base this decision on the results obtained in the univariable analysis and a p-value threshold of 0.20-0.25. Also, food items that are known risk factors for gastroenteritis could also be included regardless of their univariable p-value.</p>
 </section>
 <section id="questionsassignments" class="level2">
@@ -234,8 +244,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="install-packages-and-load-libraries" class="level2">
 <h2 class="anchored" data-anchor-id="install-packages-and-load-libraries">3.2. Install packages and load libraries</h2>
 <div class="cell">
-<details open="">
-<summary>Code</summary>
+<details open="" class="code-fold">
+<summary>Show the code</summary>
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load the required libraries into the current R session:</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>pacman<span class="sc">::</span><span class="fu">p_load</span>(rio, </span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>               here, </span>
@@ -257,18 +267,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="import-your-data" class="level2">
 <h2 class="anchored" data-anchor-id="import-your-data">3.3. Import your data</h2>
 <div class="cell">
-<details open="">
-<summary>Code</summary>
+<details open="" class="code-fold">
+<summary>Show the code</summary>
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Import the raw data set: </span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>copdata <span class="ot">&lt;-</span> rio<span class="sc">::</span><span class="fu">import</span>(here<span class="sc">::</span><span class="fu">here</span>(<span class="st">"data"</span>, <span class="st">"Spetses_clean2_2024.rds"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>copdata <span class="ot">&lt;-</span> rio<span class="sc">::</span><span class="fu">import</span>(here<span class="sc">::</span><span class="fu">here</span>(<span class="st">"data"</span>, <span class="st">"Spetses_clean2_2024.rds"</span>), <span class="at">trust =</span> T)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 </section>
 <section id="consider-and-assess-for-confounding-andor-effect-modification" class="level2">
 <h2 class="anchored" data-anchor-id="consider-and-assess-for-confounding-andor-effect-modification">3.4. Consider and assess for confounding and/or effect modification</h2>
-<p>Have a look at the relative risk for being a case having eaten a specific food item (for example, moussake), when stratified by another variable (for example, orzo). You may consider stratifying by orzo, as it has the highest RR in the univariable analysis.</p>
+<p>Have a look at the relative risk for being a case having eaten a specific food item (for example, veal), when stratified by another variable (for example, pasta). You may consider stratifying by pasta, as it has the highest RR in the univariable analysis.</p>
 <p>There are many variables in this dataset and it might not make sense to stratify each variable by each other variable on our search for effect modifiers and confounders.</p>
-<p>However, we also don’t want to be too restrictive as a variable which actually (i.e.&nbsp;causally) is associated with the outcome might not show a significant association at the significant level we decided (say 5%) in the univariable analysis due to confounding. Therefore, we could test all variables statistically significant at the 15%, 20%, or 25% level (specific percentage to be decided by your group). In our solutions here, we are looking at moussaka and champagne, stratified by orzo, but you may decide to look at other food items as well.</p>
+<p>However, we also don’t want to be too restrictive as a variable which actually (i.e.&nbsp;causally) is associated with the outcome might not show a significant association at the significant level we decided (say 5%) in the univariable analysis due to confounding. Therefore, we could test all variables statistically significant at the 15%, 20%, or 25% level (specific percentage to be decided by your group). In our solutions here, we are looking at veal and champagne, stratified by pasta, but you may decide to look at other food items as well.</p>
 <div class="callout callout-style-default callout-tip callout-titled" title="Need a little bit of help?">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
@@ -285,37 +295,37 @@ Need a little bit of help?
 </div>
 </div>
 </div>
-<section id="a-moussaka-as-exposure-of-interest-stratified-by-having-eaten-orzo" class="level3">
-<h3 class="anchored" data-anchor-id="a-moussaka-as-exposure-of-interest-stratified-by-having-eaten-orzo">a) Moussaka as exposure of interest, stratified by having eaten orzo</h3>
-<p>If we stratify the <strong>effect of moussaka by orzo</strong> we ask the question: does eating orzo modify or confound the association between eating moussaka and being a case?</p>
+<section id="a-veal-as-exposure-of-interest-stratified-by-having-eaten-pasta" class="level3">
+<h3 class="anchored" data-anchor-id="a-veal-as-exposure-of-interest-stratified-by-having-eaten-pasta">a) Veal as exposure of interest, stratified by having eaten pasta</h3>
+<p>If we stratify the <strong>effect of veal by pasta</strong> we ask the question: does eating pasta modify or confound the association between eating veal and being a case?</p>
 <div class="cell">
-<details open="">
-<summary>Code</summary>
+<details open="" class="code-fold">
+<summary>Show the code</summary>
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>stratall <span class="ot">&lt;-</span> copdata <span class="sc">%&gt;%</span> </span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Mutate across to convert cases to numeric:</span></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="fu">across</span>(<span class="at">.cols =</span> case, </span>
 <span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>                <span class="at">.fns =</span> <span class="sc">~</span> <span class="fu">as.numeric</span>(.)))</span>
 <span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Pass data to the csinter function:</span></span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>orzostrata <span class="ot">&lt;-</span> <span class="fu">csinter</span>(<span class="at">x =</span> stratall, </span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>pastastrata <span class="ot">&lt;-</span> <span class="fu">csinter</span>(<span class="at">x =</span> stratall, </span>
 <span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>                       <span class="at">cases =</span> <span class="st">"case"</span>, </span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>                       <span class="at">exposure =</span> <span class="st">"moussaka"</span>, </span>
-<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>                       <span class="at">by =</span> <span class="st">"orzo"</span>)</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>                       <span class="at">exposure =</span> <span class="st">"veal"</span>, </span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>                       <span class="at">by =</span> <span class="st">"pasta"</span>)</span>
 <span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>orzostrata</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>pastastrata</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>$df1
-  CSInter case - moussaka by(orzo) Total Cases Risk %          P.est. Stats
-1                         orzo = 1   338  &lt;NA&gt;     NA Risk difference  0.10
-2                          Exposed   330   198  60.00      Risk Ratio  1.20
-3                        Unexposed     8     4  50.00 Attrib.risk.exp  0.17
-4                                     NA  &lt;NA&gt;     NA Attrib.risk.pop  0.16
-5                         orzo = 0    36  &lt;NA&gt;     NA Risk difference  0.02
-6                          Exposed     8     3  37.50      Risk Ratio  1.05
-7                        Unexposed    28    10  35.71 Attrib.risk.exp  0.05
-8                                     NA  &lt;NA&gt;     NA Attrib.risk.pop  0.01
-9              Missing / Missing %     3  0.8%     NA            &lt;NA&gt;    NA
+  CSInter case - veal by(pasta) Total Cases Risk %          P.est. Stats
+1                     pasta = 1   338  &lt;NA&gt;     NA Risk difference  0.10
+2                       Exposed   330   198  60.00      Risk Ratio  1.20
+3                     Unexposed     8     4  50.00 Attrib.risk.exp  0.17
+4                                  NA  &lt;NA&gt;     NA Attrib.risk.pop  0.16
+5                     pasta = 0    36  &lt;NA&gt;     NA Risk difference  0.02
+6                       Exposed     8     3  37.50      Risk Ratio  1.05
+7                     Unexposed    28    10  35.71 Attrib.risk.exp  0.05
+8                                  NA  &lt;NA&gt;     NA Attrib.risk.pop  0.01
+9           Missing / Missing %     3  0.8%     NA            &lt;NA&gt;    NA
   95%CI.ll 95%CI.ul
 1    -0.25     0.45
 2     0.60     2.41
@@ -328,41 +338,41 @@ Need a little bit of help?
 9       NA       NA
 
 $df2
-                    Point Estimate Chi2 p.value  Stats 95%CI.ll 95%CI.ul
-1        Woolf test of homogeneity 0.04   0.833     NA       NA       NA
-2            Crude RR for moussaka   NA      NA   1.53     1.01     2.32
-3 MH RR moussaka adjusted for orzo   NA      NA   1.15     0.64     2.04
-4   Adjusted/crude relative change   NA      NA -25.08       NA       NA</code></pre>
+                  Point Estimate Chi2 p.value  Stats 95%CI.ll 95%CI.ul
+1      Woolf test of homogeneity 0.04   0.833     NA       NA       NA
+2              Crude RR for veal   NA      NA   1.53     1.01     2.32
+3  MH RR veal adjusted for pasta   NA      NA   1.15     0.64     2.04
+4 Adjusted/crude relative change   NA      NA -25.08       NA       NA</code></pre>
 </div>
 </div>
-<p>Let’s check if orzo is associated with moussaka (if we are thinking moussaka may be a confounder, we need to see if there is an association between the potential confounder (moussaka) and the exposure (orzo)):</p>
+<p>Let’s check if pasta is associated with veal (if we are thinking pasta may be a confounder, we need to see if there is an association between the potential confounder (pasta) and the exposure (veal)):</p>
 <div class="cell">
-<details open="">
-<summary>Code</summary>
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Perform Wilcoxon rank sum test on orzo and moussaka:</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">wilcox.test</span>(orzo <span class="sc">~</span> moussaka, </span>
+<details open="" class="code-fold">
+<summary>Show the code</summary>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Perform Wilcoxon rank sum test on veal and pasta:</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">wilcox.test</span>(veal <span class="sc">~</span> pasta, </span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>            <span class="at">data =</span> copdata)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>
     Wilcoxon rank sum test with continuity correction
 
-data:  orzo by moussaka
+data:  veal by pasta
 W = 1496, p-value &lt; 2.2e-16
 alternative hypothesis: true location shift is not equal to 0</code></pre>
 </div>
 </div>
 </section>
-<section id="b-champagne-as-exposure-of-interest-stratified-by-having-eaten-orzo" class="level3">
-<h3 class="anchored" data-anchor-id="b-champagne-as-exposure-of-interest-stratified-by-having-eaten-orzo">b) Champagne as exposure of interest, stratified by having eaten orzo</h3>
+<section id="b-champagne-as-exposure-of-interest-stratified-by-having-eaten-pasta" class="level3">
+<h3 class="anchored" data-anchor-id="b-champagne-as-exposure-of-interest-stratified-by-having-eaten-pasta">b) Champagne as exposure of interest, stratified by having eaten pasta</h3>
 <div class="cell">
-<details open="">
-<summary>Code</summary>
+<details open="" class="code-fold">
+<summary>Show the code</summary>
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Pass data to the csinter function:</span></span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>champstrata <span class="ot">&lt;-</span> <span class="fu">csinter</span>(<span class="at">x =</span> stratall, </span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>                       <span class="at">cases =</span> <span class="st">"case"</span>, </span>
 <span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>                       <span class="at">exposure =</span> <span class="st">"champagne"</span>, </span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>                       <span class="at">by =</span> <span class="st">"orzo"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>                       <span class="at">by =</span> <span class="st">"pasta"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 <div class="callout callout-style-default callout-warning callout-titled" title="Let's stop and... think!">
@@ -381,11 +391,11 @@ Let’s stop and… think!
 </div>
 </div>
 </div>
-<p>We could stratify by orzo (the strongest risk factor in the univariable analysis), to examine if orzo confounds the association between eating moussaka and being a case. Before stratification, we will need to check if orzo meets the conditions of being a confounder. For a variable to be a confounder it needs to be associated both with the outcome (being a case) and with the exposure (and not be in the causal pathway between exposure and outcome). We know from univariable analysis that orzo is associated with being a case. If we run a Wilcoxon rank sum test, we will see that orzo is also associated with moussaka (indeed, you can see that most people either had both moussaka and orzo or neither of these food items, so they are associated with each other).</p>
-<p>Above, we uses <code>ccinter</code> to stratify and save the object as “orzostrata”.</p>
-<p>orzostrata: Within the stratum of the people who ate orzo, moussaka has no significant effect (RR = 1.20, CI: 0.60 - 2.41). The same holds within the stratum of people who didn’t eat orzo (RR = 1.05, CI = 0.38, 2.92). The adjusted MH-RR also suggests that moussaka has no effect (RRadj = 1.15, CI: 0.80 - 2.85). &nbsp;To identify confounding, we want to look at the % change between the crude and the adjusted RR. This is given by the csinter output “Adjusted/crude relative change”.&nbsp; The difference between the crude and the MH-RR in this case is &gt;20% suggesting that orzo confounds the association between moussaka and the disease.</p>
-<p>This result suggest that moussaka is not a risk factor of the disease and that the crude observed effect was due to the confounding effect of orzo.</p>
-<p>If you stratify by moussaka, you see that moussaka does not confound the association between orzo and the disease. The same applies if you stratify the exposure to orzo by other variables. The above, the higher RR for orzo and the dose response relationship we found earlier for orzo (remember this was optional) provide additional evidence that there was something going on with the orzo with pesto dish!</p>
+<p>We could stratify by pasta (the strongest risk factor in the univariable analysis), to examine if pasta confounds the association between eating veal and being a case. Before stratification, we will need to check if pasta meets the conditions of being a confounder. For a variable to be a confounder it needs to be associated both with the outcome (being a case) and with the exposure (and not be in the causal pathway between exposure and outcome). We know from univariable analysis that pasta is associated with being a case. If we run a Wilcoxon rank sum test, we will see that pasta is also associated with veal (indeed, you can see that most people either had both pasta and veal or neither of these food items, so they are associated with each other).</p>
+<p>Above, we uses <code>ccinter</code> to stratify and save the object as “pastastrata”.</p>
+<p>pastastrata: Within the stratum of the people who ate pasta, veal has no significant effect (RR = 1.20, CI: 0.60 - 2.41). The same holds within the stratum of people who didn’t eat pasta (RR = 1.05, CI = 0.38, 2.92). The adjusted MH-RR also suggests that veal has no effect (RRadj = 1.15, CI: 0.80 - 2.85). &nbsp;To identify confounding, we want to look at the % change between the crude and the adjusted RR. This is given by the csinter output “Adjusted/crude relative change”.&nbsp; The difference between the crude and the MH-RR in this case is &gt;20% suggesting that pasta confounds the association between veal and the disease.</p>
+<p>This result suggest that veal is not a risk factor of the disease and that the crude observed effect was due to the confounding effect of pasta.</p>
+<p>If you stratify by veal, you see that veal does not confound the association between pasta and the disease. The same applies if you stratify the exposure to pasta by other variables. The above, the higher RR for pasta and the dose response relationship we found earlier for pasta (remember this was optional) provide additional evidence that there was something going on with the pasta with pesto dish!</p>
 
 
 <!-- -->
@@ -435,6 +445,33 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       } else {
         el.classList.add('notransition');
       }
+    }
+  }
+  const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+    const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+    const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+    let newTheme = '';
+    if(darkModeDefault) {
+      newTheme = isAlternate ? baseTheme : alternateTheme;
+    } else {
+      newTheme = isAlternate ? alternateTheme : baseTheme;
+    }
+    const changeGiscusTheme = () => {
+      // From: https://github.com/giscus/giscus/issues/336
+      const sendMessage = (message) => {
+        const iframe = document.querySelector('iframe.giscus-frame');
+        if (!iframe) return;
+        iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+      }
+      sendMessage({
+        setConfig: {
+          theme: newTheme
+        }
+      });
+    }
+    const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+    if (isGiscussLoaded) {
+      changeGiscusTheme();
     }
   }
   const toggleColorMode = (alternate) => {
@@ -503,13 +540,15 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       return localAlternateSentinel;
     }
   }
-  let localAlternateSentinel = 'default';
+  const darkModeDefault = false;
+  let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
   // Dark / light mode switch
   window.quartoToggleColorScheme = () => {
     // Read the current dark / light value 
     let toAlternate = !hasAlternateSentinel();
     toggleColorMode(toAlternate);
     setStyleSentinel(toAlternate);
+    toggleGiscusIfUsed(toAlternate, darkModeDefault);
   };
   // Ensure there is a toggle, if there isn't float one in the top right
   if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
@@ -544,18 +583,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
     return false;
   }
-  const clipboard = new window.ClipboardJS('.code-copy-button', {
-    text: function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
-    }
-  });
-  clipboard.on('success', function(e) {
+  const onCopySuccess = function(e) {
     // button target
     const button = e.trigger;
     // don't keep focus
@@ -587,7 +615,29 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }, 1000);
     // clear code selection
     e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
   });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
   const viewSource = window.document.getElementById('quarto-view-source') ||
                      window.document.getElementById('quarto-code-tools-source');
   if (viewSource) {
@@ -639,10 +689,27 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   if (showAllCode) {
     showAllCode.addEventListener("click", toggleCodeHandler(true));
   }
-  function tippyHover(el, contentFn) {
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
-      content: contentFn,
       maxWidth: 500,
       delay: 100,
       arrow: false,
@@ -652,8 +719,17 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       interactive: true,
       interactiveBorder: 10,
       theme: 'quarto',
-      placement: 'bottom-start'
+      placement: 'bottom-start',
     };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
     window.tippy(el, config); 
   }
   const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
@@ -665,7 +741,130 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
-      return note.innerHTML;
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
     });
   }
       let selectedAnnoteEl;
@@ -709,6 +908,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             }
             div.style.top = top - 2 + "px";
             div.style.height = height + 4 + "px";
+            div.style.left = 0;
             let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
             if (gutterDiv === null) {
               gutterDiv = window.document.createElement("div");
@@ -734,6 +934,32 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         });
         selectedAnnoteEl = undefined;
       };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
       // Attach click handler to the DT
       const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
       for (const annoteDlNode of annoteDls) {
@@ -810,7 +1036,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a><span class="fu">## 2. Story/plot description</span></span>
 <span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-18"><a href="#cb8-18" aria-hidden="true" tabindex="-1"></a>From the univariable analysis, it seems that eating orzpo and eating moussaka as well as drinking champagne are associated with the highest risk of becoming ill. There are, however, many other food items that are associated with an increased risk (even if not statistically significant).</span>
+<span id="cb8-18"><a href="#cb8-18" aria-hidden="true" tabindex="-1"></a>From the univariable analysis, it seems that eating pasta and eating veal as well as drinking champagne are associated with the highest risk of becoming ill. There are, however, many other food items that are associated with an increased risk (even if not statistically significant).</span>
 <span id="cb8-19"><a href="#cb8-19" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb8-20"><a href="#cb8-20" aria-hidden="true" tabindex="-1"></a>You should next think about potential confounders and about effect modification. Think about which variables you might want to check for effect modification or confounding. One common strategy is to base this decision on the results obtained in the univariable analysis and a p-value threshold of 0.20-0.25. Also, food items that are known risk factors for gastroenteritis could also be included regardless of their univariable p-value.</span>
 <span id="cb8-21"><a href="#cb8-21" aria-hidden="true" tabindex="-1"></a></span>
@@ -843,25 +1069,25 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb8-50"><a href="#cb8-50" aria-hidden="true" tabindex="-1"></a><span class="fu">## 3.3. Import your data</span></span>
 <span id="cb8-51"><a href="#cb8-51" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb8-52"><a href="#cb8-52" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, Import_data}</span></span>
-<span id="cb8-53"><a href="#cb8-53" aria-hidden="true" tabindex="-1"></a><span class="co"># Import the raw data set: </span></span>
-<span id="cb8-54"><a href="#cb8-54" aria-hidden="true" tabindex="-1"></a>copdata <span class="ot">&lt;-</span> rio<span class="sc">::</span><span class="fu">import</span>(here<span class="sc">::</span><span class="fu">here</span>(<span class="st">"data"</span>, <span class="st">"Spetses_clean2_2024.rds"</span>))</span>
+<span id="cb8-53"><a href="#cb8-53" aria-hidden="true" tabindex="-1"></a><span class="in"># Import the raw data set: </span></span>
+<span id="cb8-54"><a href="#cb8-54" aria-hidden="true" tabindex="-1"></a><span class="in">copdata &lt;- rio::import(here::here("data", "Spetses_clean2_2024.rds"), trust = T)</span></span>
 <span id="cb8-55"><a href="#cb8-55" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb8-56"><a href="#cb8-56" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb8-57"><a href="#cb8-57" aria-hidden="true" tabindex="-1"></a><span class="fu">## 3.4. Consider and assess for confounding and/or effect modification</span></span>
 <span id="cb8-58"><a href="#cb8-58" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-59"><a href="#cb8-59" aria-hidden="true" tabindex="-1"></a>Have a look at the relative risk for being a case having eaten a specific food item (for example, moussake), when stratified by another variable (for example, orzo). You may consider stratifying by orzo, as it has the highest RR in the univariable analysis.</span>
+<span id="cb8-59"><a href="#cb8-59" aria-hidden="true" tabindex="-1"></a>Have a look at the relative risk for being a case having eaten a specific food item (for example, veal), when stratified by another variable (for example, pasta). You may consider stratifying by pasta, as it has the highest RR in the univariable analysis.</span>
 <span id="cb8-60"><a href="#cb8-60" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb8-61"><a href="#cb8-61" aria-hidden="true" tabindex="-1"></a>There are many variables in this dataset and it might not make sense to stratify each variable by each other variable on our search for effect modifiers and confounders.</span>
 <span id="cb8-62"><a href="#cb8-62" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-63"><a href="#cb8-63" aria-hidden="true" tabindex="-1"></a>However, we also don't want to be too restrictive as a variable which actually (i.e. causally) is associated with the outcome might not show a significant association at the significant level we decided (say 5%) in the univariable analysis due to confounding. Therefore, we could test all variables statistically significant at the 15%, 20%, or 25% level (specific percentage to be decided by your group). In our solutions here, we are looking at moussaka and champagne, stratified by orzo, but you may decide to look at other food items as well.</span>
+<span id="cb8-63"><a href="#cb8-63" aria-hidden="true" tabindex="-1"></a>However, we also don't want to be too restrictive as a variable which actually (i.e. causally) is associated with the outcome might not show a significant association at the significant level we decided (say 5%) in the univariable analysis due to confounding. Therefore, we could test all variables statistically significant at the 15%, 20%, or 25% level (specific percentage to be decided by your group). In our solutions here, we are looking at veal and champagne, stratified by pasta, but you may decide to look at other food items as well.</span>
 <span id="cb8-64"><a href="#cb8-64" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb8-65"><a href="#cb8-65" aria-hidden="true" tabindex="-1"></a>::: {.callout-tip title="Need a little bit of help?" collapse="true"}</span>
 <span id="cb8-66"><a href="#cb8-66" aria-hidden="true" tabindex="-1"></a>Use the function <span class="in">`csinter()`</span> of the EpiStats package.</span>
 <span id="cb8-67"><a href="#cb8-67" aria-hidden="true" tabindex="-1"></a>:::</span>
 <span id="cb8-68"><a href="#cb8-68" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-69"><a href="#cb8-69" aria-hidden="true" tabindex="-1"></a><span class="fu">### a) Moussaka as exposure of interest, stratified by having eaten orzo</span></span>
+<span id="cb8-69"><a href="#cb8-69" aria-hidden="true" tabindex="-1"></a><span class="fu">### a) Veal as exposure of interest, stratified by having eaten pasta</span></span>
 <span id="cb8-70"><a href="#cb8-70" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-71"><a href="#cb8-71" aria-hidden="true" tabindex="-1"></a>If we stratify the **effect of moussaka by orzo** we ask the question: does eating orzo modify or confound the association between eating moussaka and being a case?</span>
+<span id="cb8-71"><a href="#cb8-71" aria-hidden="true" tabindex="-1"></a>If we stratify the **effect of veal by pasta** we ask the question: does eating pasta modify or confound the association between eating veal and being a case?</span>
 <span id="cb8-72"><a href="#cb8-72" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb8-75"><a href="#cb8-75" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
 <span id="cb8-76"><a href="#cb8-76" aria-hidden="true" tabindex="-1"></a>stratall <span class="ot">&lt;-</span> copdata <span class="sc">%&gt;%</span> </span>
@@ -870,48 +1096,49 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb8-79"><a href="#cb8-79" aria-hidden="true" tabindex="-1"></a>                <span class="at">.fns =</span> <span class="sc">~</span> <span class="fu">as.numeric</span>(.)))</span>
 <span id="cb8-80"><a href="#cb8-80" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb8-81"><a href="#cb8-81" aria-hidden="true" tabindex="-1"></a><span class="co"># Pass data to the csinter function:</span></span>
-<span id="cb8-82"><a href="#cb8-82" aria-hidden="true" tabindex="-1"></a>orzostrata <span class="ot">&lt;-</span> <span class="fu">csinter</span>(<span class="at">x =</span> stratall, </span>
+<span id="cb8-82"><a href="#cb8-82" aria-hidden="true" tabindex="-1"></a>pastastrata <span class="ot">&lt;-</span> <span class="fu">csinter</span>(<span class="at">x =</span> stratall, </span>
 <span id="cb8-83"><a href="#cb8-83" aria-hidden="true" tabindex="-1"></a>                       <span class="at">cases =</span> <span class="st">"case"</span>, </span>
-<span id="cb8-84"><a href="#cb8-84" aria-hidden="true" tabindex="-1"></a>                       <span class="at">exposure =</span> <span class="st">"moussaka"</span>, </span>
-<span id="cb8-85"><a href="#cb8-85" aria-hidden="true" tabindex="-1"></a>                       <span class="at">by =</span> <span class="st">"orzo"</span>)</span>
+<span id="cb8-84"><a href="#cb8-84" aria-hidden="true" tabindex="-1"></a>                       <span class="at">exposure =</span> <span class="st">"veal"</span>, </span>
+<span id="cb8-85"><a href="#cb8-85" aria-hidden="true" tabindex="-1"></a>                       <span class="at">by =</span> <span class="st">"pasta"</span>)</span>
 <span id="cb8-86"><a href="#cb8-86" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-87"><a href="#cb8-87" aria-hidden="true" tabindex="-1"></a>orzostrata</span>
+<span id="cb8-87"><a href="#cb8-87" aria-hidden="true" tabindex="-1"></a>pastastrata</span>
 <span id="cb8-88"><a href="#cb8-88" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb8-89"><a href="#cb8-89" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-90"><a href="#cb8-90" aria-hidden="true" tabindex="-1"></a>Let's check if orzo is associated with moussaka (if we are thinking moussaka may be a confounder, we need to see if there is an association between the potential confounder (moussaka) and the exposure (orzo)):</span>
+<span id="cb8-90"><a href="#cb8-90" aria-hidden="true" tabindex="-1"></a>Let's check if pasta is associated with veal (if we are thinking pasta may be a confounder, we need to see if there is an association between the potential confounder (pasta) and the exposure (veal)):</span>
 <span id="cb8-91"><a href="#cb8-91" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb8-94"><a href="#cb8-94" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb8-95"><a href="#cb8-95" aria-hidden="true" tabindex="-1"></a><span class="co"># Perform Wilcoxon rank sum test on orzo and moussaka:</span></span>
-<span id="cb8-96"><a href="#cb8-96" aria-hidden="true" tabindex="-1"></a><span class="fu">wilcox.test</span>(orzo <span class="sc">~</span> moussaka, </span>
+<span id="cb8-95"><a href="#cb8-95" aria-hidden="true" tabindex="-1"></a><span class="co"># Perform Wilcoxon rank sum test on veal and pasta:</span></span>
+<span id="cb8-96"><a href="#cb8-96" aria-hidden="true" tabindex="-1"></a><span class="fu">wilcox.test</span>(veal <span class="sc">~</span> pasta, </span>
 <span id="cb8-97"><a href="#cb8-97" aria-hidden="true" tabindex="-1"></a>            <span class="at">data =</span> copdata)</span>
 <span id="cb8-98"><a href="#cb8-98" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb8-99"><a href="#cb8-99" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-100"><a href="#cb8-100" aria-hidden="true" tabindex="-1"></a><span class="fu">### b) Champagne as exposure of interest, stratified by having eaten orzo</span></span>
+<span id="cb8-100"><a href="#cb8-100" aria-hidden="true" tabindex="-1"></a><span class="fu">### b) Champagne as exposure of interest, stratified by having eaten pasta</span></span>
 <span id="cb8-101"><a href="#cb8-101" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb8-104"><a href="#cb8-104" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
 <span id="cb8-105"><a href="#cb8-105" aria-hidden="true" tabindex="-1"></a><span class="co"># Pass data to the csinter function:</span></span>
 <span id="cb8-106"><a href="#cb8-106" aria-hidden="true" tabindex="-1"></a>champstrata <span class="ot">&lt;-</span> <span class="fu">csinter</span>(<span class="at">x =</span> stratall, </span>
 <span id="cb8-107"><a href="#cb8-107" aria-hidden="true" tabindex="-1"></a>                       <span class="at">cases =</span> <span class="st">"case"</span>, </span>
 <span id="cb8-108"><a href="#cb8-108" aria-hidden="true" tabindex="-1"></a>                       <span class="at">exposure =</span> <span class="st">"champagne"</span>, </span>
-<span id="cb8-109"><a href="#cb8-109" aria-hidden="true" tabindex="-1"></a>                       <span class="at">by =</span> <span class="st">"orzo"</span>)</span>
+<span id="cb8-109"><a href="#cb8-109" aria-hidden="true" tabindex="-1"></a>                       <span class="at">by =</span> <span class="st">"pasta"</span>)</span>
 <span id="cb8-110"><a href="#cb8-110" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb8-111"><a href="#cb8-111" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb8-112"><a href="#cb8-112" aria-hidden="true" tabindex="-1"></a>::: {.callout-warning title="Let's stop and... think!" collapse="true"}</span>
 <span id="cb8-113"><a href="#cb8-113" aria-hidden="true" tabindex="-1"></a>Are there any indications to make you think there may be effect modification and/or confounding?</span>
 <span id="cb8-114"><a href="#cb8-114" aria-hidden="true" tabindex="-1"></a>:::</span>
 <span id="cb8-115"><a href="#cb8-115" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-116"><a href="#cb8-116" aria-hidden="true" tabindex="-1"></a>We could stratify by orzo (the strongest risk factor in the univariable analysis), to examine if orzo confounds the association between eating moussaka and being a case. Before stratification, we will need to check if orzo meets the conditions of being a confounder. For a variable to be a confounder it needs to be associated both with the outcome (being a case) and with the exposure (and not be in the causal pathway between exposure and outcome). We know from univariable analysis that orzo is associated with being a case. If we run a Wilcoxon rank sum test, we will see that orzo is also associated with moussaka (indeed, you can see that most people either had both moussaka and orzo or neither of these food items, so they are associated with each other).</span>
+<span id="cb8-116"><a href="#cb8-116" aria-hidden="true" tabindex="-1"></a>We could stratify by pasta (the strongest risk factor in the univariable analysis), to examine if pasta confounds the association between eating veal and being a case. Before stratification, we will need to check if pasta meets the conditions of being a confounder. For a variable to be a confounder it needs to be associated both with the outcome (being a case) and with the exposure (and not be in the causal pathway between exposure and outcome). We know from univariable analysis that pasta is associated with being a case. If we run a Wilcoxon rank sum test, we will see that pasta is also associated with veal (indeed, you can see that most people either had both pasta and veal or neither of these food items, so they are associated with each other).</span>
 <span id="cb8-117"><a href="#cb8-117" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-118"><a href="#cb8-118" aria-hidden="true" tabindex="-1"></a>Above, we uses <span class="in">`ccinter`</span> to stratify and save the object as "orzostrata".</span>
+<span id="cb8-118"><a href="#cb8-118" aria-hidden="true" tabindex="-1"></a>Above, we uses <span class="in">`ccinter`</span> to stratify and save the object as "pastastrata".</span>
 <span id="cb8-119"><a href="#cb8-119" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-120"><a href="#cb8-120" aria-hidden="true" tabindex="-1"></a>orzostrata: Within the stratum of the people who ate orzo, moussaka has no significant effect (RR = 1.20, CI: 0.60 - 2.41). The same holds within the stratum of people who didn't eat orzo (RR = 1.05, CI = 0.38, 2.92). The adjusted MH-RR also suggests that moussaka has no effect (RRadj = 1.15, CI: 0.80 - 2.85). &nbsp;To identify confounding, we want to look at the % change between the crude and the adjusted RR. This is given by the csinter output "Adjusted/crude relative change".&nbsp; The difference between the crude and the MH-RR in this case is <span class="sc">\&gt;</span>20% suggesting that orzo confounds the association between moussaka and the disease.</span>
+<span id="cb8-120"><a href="#cb8-120" aria-hidden="true" tabindex="-1"></a>pastastrata: Within the stratum of the people who ate pasta, veal has no significant effect (RR = 1.20, CI: 0.60 - 2.41). The same holds within the stratum of people who didn't eat pasta (RR = 1.05, CI = 0.38, 2.92). The adjusted MH-RR also suggests that veal has no effect (RRadj = 1.15, CI: 0.80 - 2.85). &nbsp;To identify confounding, we want to look at the % change between the crude and the adjusted RR. This is given by the csinter output "Adjusted/crude relative change".&nbsp; The difference between the crude and the MH-RR in this case is <span class="sc">\&gt;</span>20% suggesting that pasta confounds the association between veal and the disease.</span>
 <span id="cb8-121"><a href="#cb8-121" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-122"><a href="#cb8-122" aria-hidden="true" tabindex="-1"></a>This result suggest that moussaka is not a risk factor of the disease and that the crude observed effect was due to the confounding effect of orzo.</span>
+<span id="cb8-122"><a href="#cb8-122" aria-hidden="true" tabindex="-1"></a>This result suggest that veal is not a risk factor of the disease and that the crude observed effect was due to the confounding effect of pasta.</span>
 <span id="cb8-123"><a href="#cb8-123" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-124"><a href="#cb8-124" aria-hidden="true" tabindex="-1"></a>If you stratify by moussaka, you see that moussaka does not confound the association between orzo and the disease. The same applies if you stratify the exposure to orzo by other variables. The above, the higher RR for orzo and the dose response relationship we found earlier for orzo (remember this was optional) provide additional evidence that there was something going on with the orzo with pesto dish!</span>
-</code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb8-124"><a href="#cb8-124" aria-hidden="true" tabindex="-1"></a>If you stratify by veal, you see that veal does not confound the association between pasta and the disease. The same applies if you stratify the exposure to pasta by other variables. The above, the higher RR for pasta and the dose response relationship we found earlier for pasta (remember this was optional) provide additional evidence that there was something going on with the pasta with pesto dish!</span>
+</code><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
+
 
 
 

@@ -65,7 +65,7 @@ pacman::p_load(rio,
 
 ```{r, Import_data}
 # Import the raw data set:
-copdata <- rio::import(here::here("data", "Spetses_clean2_2024.rds"))
+copdata <- rio::import(here::here("data", "Spetses_clean2_2024.rds"), trust = T)
 ```
 
 ## 3.3. Hypothesis tests for other variables
@@ -169,13 +169,13 @@ Create a `food_vars` vector containing food variables of interest and use the fu
 CS(copdata, "case", "feta")
 CS(copdata, "case", "sardines")
 CS(copdata, "case", "eggplant")
-CS(copdata, "case", "moussaka")
+CS(copdata, "case", "pasta")
 ```
 
 ```{r}
 # You can save time (and probably typos!) by creating a vector for food variables...
-food_vars <- c("feta", "sardines", "eggplant", "moussaka", 
-               "orzo", "greeksal", "dessert", "bread",  
+food_vars <- c("feta", "sardines", "eggplant", "pasta", 
+               "veal", "tomsal", "dessert", "bread",  
                "champagne", "beer", "redwine", "whitewine")
 
 # ...and using EpiStats::CSTable() to run all variables together!
@@ -215,53 +215,20 @@ rr_tbl <- CSTable(copdata, "case", food_vars) %>%
 · Do you think there are any confounders or effect modifiers? If so, how would you investigate these further?
 :::
 
-The interesting results here are that the food items that are most suspicious are orzo, moussaka and champagne. Orzo as such is unlikely to be contaminated, but as you can see in the picture (and from the dinner night), it was served with pesto! Maybe it was the pesto? Who-ho-ho!
+The interesting results here are that the food items that are most suspicious are pasta,veal and champagne. Pasta as such is unlikely to be contaminated, but as you can see in the picture (and from the dinner night), it was served with pesto! Maybe it was the pesto? Who-ho-ho!
 
-Before one jumps into conclusions, consider that this result could be due to confounding! Maybe orzo was "clean" but eaten by all the people who ate the food item that actually was contaminated!(Optional)
+Before one jumps into conclusions, consider that this result could be due to confounding! Maybe pasta was "clean" but eaten by all the people who ate the food item that actually was contaminated!(Optional)
 
 ## 3.5. (Optional) Dose Response
 
 Check for a dose-response relationship between the food items with the highest RR values (the top 3) and being a case.
 
-#### a) Orzo
+#### a) Pasta
 
 Using `epitools::riskratio` function:
 
 ```{r}
-epitools::riskratio(copdata$orzoD,
-                    copdata$case,
-                    conf.level = 0.95)
-```
-
-Using a binomial regression:
-
-```{r}
-# Binomial regression for RRs. 
-# The outcome needs to be exponentiated so we can interpret it properly!
-binom_orzoD <- glm(case ~ orzoD, data = copdata, 
-             family = binomial(link = "log"))
-
-# To get exponentiated:
-binom_orzoD_exp <- glm(case ~ orzoD, data = copdata, 
-                       family = binomial(link = "log")) %>% 
-  tidy(exponentiate = TRUE, 
-       conf.int = TRUE)
-
-binom_orzoD_exp
-```
-
-::: {.callout-warning title="Let's stop and... think!" collapse="true"}
-What do these results tell you?
-:::
-
-Results suggest a dose response relationship of having eaten orzo, pointing towards orzoas the potential vehicle. The higher the amount of orzothey ate, the stronger is the association (RR) with getting ill/being a case.
-
-#### b) Moussaka
-
-Using `epitools::riskratio` function:
-
-```{r}
-epitools::riskratio(copdata$moussakaD,                     
+epitools::riskratio(copdata$pastaD,                     
                     copdata$case,                     
                     conf.level = 0.95)
 ```
@@ -271,12 +238,45 @@ Using a binomial regression:
 ```{r}
 
 # Let's get the results directly exponentiated
-binom_moussakaD_exp <- glm(case ~ moussakaD, data = copdata, 
+binom_pastaD_exp <- glm(case ~ pastaD, data = copdata, 
                        family = binomial(link = "log")) %>% 
   tidy(exponentiate = TRUE, 
        conf.int = TRUE)
 
-binom_moussakaD_exp
+binom_pastaD_exp
+```
+
+::: {.callout-warning title="Let's stop and... think!" collapse="true"}
+What do these results tell you?
+:::
+
+Results suggest a dose response relationship of having eaten pasta, pointing towards pasta as the potential vehicle. The higher the amount of pasta they ate, the stronger is the association (RR) with getting ill/being a case.
+
+#### b) Veal
+
+Using `epitools::riskratio` function:
+
+```{r}
+epitools::riskratio(copdata$vealD,
+                    copdata$case,
+                    conf.level = 0.95)
+```
+
+Using a binomial regression:
+
+```{r}
+# Binomial regression for RRs. 
+# The outcome needs to be exponentiated so we can interpret it properly!
+binom_vealD <- glm(case ~ vealD, data = copdata, 
+             family = binomial(link = "log"))
+
+# To get exponentiated:
+binom_vealD_exp <- glm(case ~ vealD, data = copdata, 
+                       family = binomial(link = "log")) %>% 
+  tidy(exponentiate = TRUE, 
+       conf.int = TRUE)
+
+binom_vealD_exp
 ```
 
 #### c) Champagne

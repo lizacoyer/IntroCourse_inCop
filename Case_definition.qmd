@@ -1,6 +1,8 @@
 ---
 title: "Case Definition"
 editor: visual
+editor_options: 
+  chunk_output_type: console
 ---
 
 ## 1. Learning outcomes
@@ -11,7 +13,7 @@ At the end of the session, participants will be able to:
 
 ## 2. Story/plot description
 
-You will now create a new column in the data set to hold the case definition you decided in a previous step during your investigation. You can call this column `case` and set it to `TRUE` if the individual meets the case definition criteria and `FALSE` if not. You will use this column later on for any calculations needed (descriptive statistics, two-by-two tables to compute measures of association, etc.) to figure out the culprit of this outbreak.
+You will now create a new column in the data set to hold the case definition you decided in a previous step during your investigation. You can call this column `case` and set it to `1` if the individual meets the case definition criteria and `0` if not. You will use this column later on for any calculations needed (descriptive statistics, two-by-two tables to compute measures of association, etc.) to figure out the culprit of this outbreak.
 
 ## 3. Questions/Assignments
 
@@ -56,13 +58,13 @@ pacman::p_load(rio,
 
 ```{r, Import_data}
 # Import the clean data set:
-copdata <- rio::import(here::here("data", "Spetses_clean1_2024.rds"))
+copdata <- rio::import(here::here("data", "Spetses_clean1_2024.rds"), trust = TRUE)
 ```
 
 ## 3.3 Identify the variables you need to apply the case definition criteria.
 
 ::: {.callout-tip title="Need a little bit of help?" collapse="true"}
-The variables we need from the dataset to apply the above case definition are: `meal`, `onset_datetime`, `diarrhoea`, `bloody` and `vomiting`.
+The variables we need from the dataset to apply the above case definition are: `meal`, `ill`, `onset_datetime`, `diarrhoea`, `bloody` and `vomiting`.
 :::
 
 ## 3.4 Create a new `case` column to hold the binary case definition variable. Let's think about how to do this little by little:
@@ -72,7 +74,7 @@ The variables we need from the dataset to apply the above case definition are: `
 You decide to exclude any people from the cohort who didn't eat at the dinner, because we specifically hypothesised a food item to be the vehicle of infection in this outbreak. Thus, filter your dataset to those who ate a meal: Keep in your dataset only those who ate a meal.
 
 ::: {.callout-tip title="Need a little bit of help?" collapse="true"}
-`filter` by those with `meal == TRUE`.
+`filter` by those with `meal == 1`.
 :::
 
 ::: {.callout-warning title="Let's stop and... think!" collapse="true"}
@@ -81,7 +83,7 @@ What are some of the implications this decision may lead to? (excluding any peop
 
 ```{r}
 copdata <- copdata %>% 
-  filter(meal == TRUE)
+  filter(meal == 1)
 ```
 
 ::: {.callout-note title="Once you've thought about the above, have a look here" collapse="true"}
@@ -89,14 +91,14 @@ Seven of the respondents actually said they did not eat the meal, but when it ca
 
 \- At the survey state, one could adjust the design of an electronic questionnaire to prevent key questions from being skipped. This can come with both pros and cons. Allow fellows to discuss if time allows.
 
-\- Explore your data further, realise this is the case, and recode the `meal` variable for these individuals as `TRUE.` =\> This would be the way to go, but is not what we did in our example because we tried to keep it simple, and also because it is good to show that you may not always clean the data perfectly, and that has consequences: You can highlight the importance or really explore your data in depth.
+\- Explore your data further, realise this is the case, and recode the `meal` variable for these individuals as `1.` =\> This would be the way to go, but is not what we did in our example because we tried to keep it simple, and also because it is good to show that you may not always clean the data perfectly, and that has consequences: You can highlight the importance or really explore your data in depth.
 
 By making the above decision, we may be missing cases and non-cases people, and thus, modifying the final estimate of our measure of association. =\> It is very important to know your data, explore it deeply and try to clean it as well as possible. Every step one makes when cleaning the data may have a consequence, and we should be aware of it when making the data cleaning decisions and when interpreting the results.
 :::
 
 ### b) Fell ill after the start of the meal
 
-We define "fell ill" as any person having had diarrhoea with OR without blood, OR vomiting. To capture this information easily, you will create a new `gastrosymptoms` variable. This variable will indicate that the person had one OR ("or" is R is achieved by using `|`) more of the clinical symptoms in your definition.
+The questionnaire included a question on whether the person fell ill after the school dinner party (column `ill`). However, the person may have experience symptoms that are very unspecific to this outbreak (e.g., headache, joint pain...). We may want to only include those who develop gastrointestinal symptoms. That is any person having had diarrhoea with OR without blood, OR vomiting. To capture this information easily, you will create a new `gastrosymptoms` variable. This variable will indicate that the person had one OR ("or" is R is achieved by using `|`) more of the clinical symptoms in your definition.
 
 Note that we the concept of having eaten a meal is already included as per one of the steps above.
 
@@ -109,7 +111,7 @@ What are some of the implications this decision may lead to? (defining "fell ill
 :::
 
 ::: {.callout-note title="If you've thought about the above, have a look here" collapse="true"}
-Having one clinical symptom enough to be considered a potential case at this point may be considered too unspecific (low specificity). For example, a person who ate at the dinner party and developed diarrhoea for other reasons other than food poisoning (say, they recently started on antibiotics known for unbalancing the intestinal flora and causing diarrhoea) could be misclassified as a potential case. (Note we talk about **potential case**, and not **case**; that is because here we are not talking about cases per-se yet, but this decision has implications for when applying the case definition below).
+Having one gastrointestinal symptom is enough to be considered a potential case at this point, which may still be considered too unspecific (low specificity). For example, a person who ate at the dinner party and developed diarrhoea for other reasons other than food poisoning (say, they recently started on antibiotics known for unbalancing the intestinal flora and causing diarrhoea) could be misclassified as a potential case. (Note we talk about **potential case**, and not **case**; that is because here we are not talking about cases per-se yet, but this decision has implications for when applying the case definition below).
 
 Moreover, those who did not report clinical symptoms will be defined as non-cases. Thus, we are assuming that these individuals did not develop symptoms because they didn't report them. The missing values could be due to, for example, them skipping the questions in the questionnaire. Some individuals may be reluctant to report symptoms, due to shame, fear of repercussion, or others. It is important to think ahead, before the interview, about ways to minimise these situations. For example, through questionnaire design, you may impede skipping questions; you could promote trust by using the right interviewers (in some cases this will be someone from the community, in others someone form specific NGOs, someone of a specific race or gender, etc); choose to carry out online questionnaires vs in person (or vice versa, depending on the situation), etc.
 :::
@@ -118,13 +120,13 @@ Moreover, those who did not report clinical symptoms will be defined as non-case
 copdata <- copdata %>% 
   mutate(gastrosymptoms = case_when(
     # Those had diarrhoea...
-    diarrhoea == TRUE |
+    diarrhoea == "1" |
       #or bloody diarrhoea...
-    bloody == TRUE |
-      # or vomiting, are marked as TRUE (fell ill after the meal)
-    vomiting == TRUE ~ TRUE,
-    # The rest are FALSE. This includes those who ate a meal but had no symptoms (did not fell ill after the meal)
-    .default = FALSE)
+    bloody == "1" |
+      # or vomiting, are marked as 1 (fell ill after the meal)
+    vomiting == "1" ~ 1,
+    # The rest are 0 This includes those who ate a meal but had no symptoms (did not fell ill after the meal)
+    .default = 0)
     )
 ```
 
@@ -178,21 +180,21 @@ What are some of the implications this decision may lead to? (implications of th
 All those not developing at least one symptom (diarrhoea with OR without blood, OR vomiting) 48h after the dinner are considered non-cases. This could (depending on how you decide to analyse your data) include those who had no symptoms at all, those who have missing data on the `onset_datetime` variable, and/or those who had symptoms before eating the meal. *This is a reminder that you need to be both careful and aware of the implications of your data analysis decisions.* If a person had clinical symptoms before eating the meal, they are considered as not-cases. However, it could be that a person had symptoms before the meal, and yet, still got infected by the pathogen when eating their meal (bad luck, we know...). According to this definition, we would be missing that case.
 :::
 
-### d) Finally, with this information you can create a new `case` column to hold the binary (`TRUE`/`FALSE`) case definition variable.
+### d) Finally, with this information you can create a new `case` column to hold the binary (`1`/`0`) case definition variable.
 
 ```{r}
 
 copdata <- copdata %>% 
   mutate(case = case_when(
-    # Those who had symptoms <48h from the meal are cases (TRUE)
-    gastrosymptoms == TRUE & 
+    # Those who had symptoms <48h from the meal are cases (1)
+    gastrosymptoms == 1 & 
       onset_datetime >= meal_datetime &
-      onset_datetime <= (meal_datetime + days(2)) ~ TRUE,
+      onset_datetime <= (meal_datetime + days(2)) ~ 1,
     # Those who had symptoms >48h from the meal are non-cases (FALSE)
-    gastrosymptoms == TRUE & 
-      onset_datetime > (meal_datetime + days(2)) ~ FALSE,
+    gastrosymptoms == 1 & 
+      onset_datetime > (meal_datetime + days(2)) ~ 0,
     # The rest are considered non-cases. Including, those who had no symptoms at all, who have missing data on the onset_datetime variable, or who had symptoms before eating the meal 
-    .default = FALSE)
+    .default = 0)
   )
 ```
 
@@ -219,9 +221,9 @@ Let's have a look at how many people ate a meal, had symptoms, and were consider
 
 ```{r overview}
 copdata %>% 
-  summarise(atemeal = sum(meal == TRUE),
-            hadsympt = sum(gastrosymptoms == TRUE),
-            nb_cases = sum(case == TRUE)
+  summarise(atemeal = sum(meal == 1),
+            hadsympt = sum(gastrosymptoms == 1),
+            nb_cases = sum(case == 1)
             )
 ```
 

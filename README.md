@@ -8,13 +8,11 @@ This repository contains the R teaching material that can be used (it is not com
 
 The SimOb is an 4-day exercise where fellows are provided a series of injects through which they will follow a 10-steps framework to investigate a specific outbreak. Some of the injects are dedicated to R-exercises that can be proved quite handy during an outbreak investigation. Those injects are maintained in this repository and are stored as different .qmd files, under the root folder:
 
-- Data_import_cleaning.qmd
-- Case_definition.qmd
-- Lab_and_Descriptive.qmd
-- Univariate.qmd
-- Stratified.qmd
-
-
+-   Data_import_cleaning.qmd
+-   Case_definition.qmd
+-   Lab_and_Descriptive.qmd
+-   Univariate.qmd
+-   Stratified.qmd
 
 # REST (FROM TO HEREFORWARDS) NEEDS UPDATING
 
