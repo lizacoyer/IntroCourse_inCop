@@ -1,0 +1,153 @@
+---
+title: "Update dates in dataset"
+output: html_document
+params:
+  last_year_outbreak_date:
+    label: "Last year's outbreak start date"
+    value: "2024-10-05"
+    input: date
+  this_year_outbreak_date:
+    label: "This year's outbreak start date"
+    value: "2025-10-04"
+    input: date
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+### Load packages
+
+```{r packages}
+
+# Check if the 'pacman' package is installed, if not install it:
+if (!requireNamespace("pacman", quietly = TRUE)) install.packages("pacman")
+
+# Load required packages with pacman:
+pacman::p_load(
+  rio,
+  here,
+  openxlsx2,
+  tidyverse
+)
+
+
+```
+
+### Save dates
+
+```{r}
+
+# Save parameters to shared file
+saveRDS(
+  list(
+    lastyear = params$last_year_outbreak_date,
+    thisyear = params$this_year_outbreak_date
+  ),
+  here::here("data", "backup", "outbreak_dates.rds")
+)
+
+```
+
+### Set date difference
+
+```{r datediff}
+
+# Convert selected dates to date format:
+
+thisyear <- lubridate::ymd(params$this_year_outbreak_date)
+lastyear <- lubridate::ymd(params$last_year_outbreak_date)
+
+# Set the difference in dates between last year and this year:
+obdatediff <- thisyear - lastyear
+```
+
+### Import data
+
+```{r import_data}
+
+# Import case linelist:
+casedata <- rio::import(here::here(
+  "data",
+  "raw",
+  "spetses_school.csv"
+))
+
+# Load MS Excel workbook with lab data:
+labwb <- wb_load(here::here(
+  "data",
+  "raw",
+  "Lab data.xlsx")
+  )
+
+# Import lab data:
+labdata <- wb_to_df(
+  labwb, 
+  sheet = 1,
+  start_row = 2,
+  col_names = TRUE
+)
+
+
+```
+
+### Update dates
+
+```{r update_dates}
+
+# Update dates in case data:
+casedata <- casedata %>% 
+  
+  # Update symptom onset dates:
+  mutate(dayonset = format(
+    lubridate::dmy(dayonset) + lubridate::days(obdatediff), "%d%b%Y")
+    )
+
+# Update dates in lab data:
+labdata <- labdata %>% 
+  
+  # Update sample collection dates:
+  mutate(across(
+    .cols = contains("date"),
+    .fns = ~ format(
+      lubridate::dmy(.x) + lubridate::days(obdatediff), "%d%b%Y"
+      )
+  ))
+
+# Replace original cells in workbook:
+labwb <- labwb %>%
+  wb_add_data(
+    sheet = 1,
+    x = labdata,
+    start_row = 3,
+    col_names = FALSE
+  )
+
+```
+
+### Export data with updated dates
+
+```{r export_data}
+
+# Export case data:
+rio::export(
+  casedata,
+  here::here(
+    "data", 
+    "raw", 
+    "spetses_school.csv"))
+
+# Export updated lab data (overwrite edited dates in original file):
+wb_save(labwb, here::here(
+  "data",
+  "raw",
+  "Lab data.xlsx"), overwrite = TRUE)
+
+
+# Things to check for next year
+# - Check if there should be another dataset after merging with lab
+# - Could make a clean3 including lab data...
+# - Render the full pages
+
+
+```

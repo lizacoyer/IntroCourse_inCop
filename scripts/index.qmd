@@ -1,0 +1,35 @@
+---
+title: "Intro Course"
+---
+
+### Background:
+
+This website contains standardised R scripts and code which can be used as a template to assist with the descriptive and univariable regression analysis of food-borne outbreak data. It is based on a past outbreak that occurred in an institutional setting and was related to consumption of a special meal.
+
+The scripts are divided into sections to deal with the following steps:
+
+1.  Import and clean the data
+
+2.  Apply the case definition to the data using logical criteria
+
+3.  Merge laboratory results and perform descriptive analysis
+
+4.  Perform hypothesis tests and estimate risk ratios
+
+5.  Perform stratified analysis to identify confounders and effect modifiers
+
+There are two ways to explore the code:
+
+-   If you want to browse the code snippets, use the links at the top of this page to navigate to the section of interest. Each page includes descriptions about the different sub-sections of the code to guide you.
+
+-   If you want to download the scripts and adapt them for your own use, use the links below:
+
+-   [01_Data_import_cleaning.R](https://epiet.github.io/IntroCourse_inCop/01_Data_import_cleaning.R)
+
+-   [02_Case_definition.R](https://epiet.github.io/IntroCourse_inCop/02_Case_definition.R)
+
+-   [03_Lab_and_Descriptive.R](https://epiet.github.io/IntroCourse_inCop/03_Lab_and_Descriptive.R)
+
+-   [04_Univariable.R](https://epiet.github.io/IntroCourse_inCop/04_Univariable.R)
+
+-   [05_Stratified.R](https://epiet.github.io/IntroCourse_inCop/05_Stratified.R)
