@@ -231,6 +231,14 @@ copdata %>%
   adorn_percentages() %>% 
   adorn_pct_formatting() 
 
+
+copdata %>% 
+  janitor::tabyl(case, sex) %>% 
+  adorn_totals() %>% 
+  adorn_percentages() %>% 
+  adorn_pct_formatting() 
+
+
 ```
 
 ::: {.callout-warning title="Let's stop and... think!" collapse="true"}
